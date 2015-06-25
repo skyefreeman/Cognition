@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  HMainViewController.h
 //  HackerNewz
 //
 //  Created by Skye on 6/24/15.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-
+@interface HMainViewController : UIViewController
 @end
 

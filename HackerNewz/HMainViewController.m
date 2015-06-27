@@ -7,6 +7,7 @@
 //
 
 #import "HMainViewController.h"
+#import "HHackerNewsHelper.h"
 
 @interface HMainViewController ()
 @end
@@ -16,7 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"this happend");
+    [HHackerNewsHelper topStories:^(id stories, NSError *error) {
+        if (!error) {
+            NSLog(@"Success");
+        } else {
+            NSLog(@"%@",error);
+        }
+    }];
 }
 
 @end

@@ -41,9 +41,7 @@ int const kItemFetchCount = 30;
                     }
                     
                     if (i == (kItemFetchCount - 1)) {
-                        
                         self.allStories = [self checkForNilInArray:tempStories];
-                        
                         if (completion) completion(YES,nil);
                     }
                 }];
@@ -52,17 +50,6 @@ int const kItemFetchCount = 30;
             if (completion) completion(nil,error);
         }
     }];
-}
-
-- (NSMutableArray*)checkForNilInArray:(NSMutableArray*)array {
-    NSMutableArray *tempArray = array;
-    for (int i = 0; i < tempArray.count; i++) {
-        if ([tempArray objectAtIndex:i] == [NSNull null]) {
-            NSLog(@"removing object at index: %d",i);
-            [tempArray removeObjectAtIndex:i];
-        }
-    }
-    return tempArray;
 }
 
 #pragma mark - Hacker News API Requests
@@ -88,6 +75,17 @@ int const kItemFetchCount = 30;
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if (completion) completion(nil, error);
          }];
+}
+
+- (NSMutableArray*)checkForNilInArray:(NSMutableArray*)array {
+    NSMutableArray *tempArray = array;
+    for (int i = 0; i < tempArray.count; i++) {
+        if ([tempArray objectAtIndex:i] == [NSNull null]) {
+            [tempArray removeObjectAtIndex:i];
+        }
+    }
+    
+    return tempArray;
 }
 
 @end

@@ -10,19 +10,27 @@
 #import "HMainViewController.h"
 
 @interface HAppDelegate ()
+@property (nonatomic) UINavigationController *navController;
 @end
 
 @implementation HAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [application setStatusBarHidden:YES];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
     HMainViewController *vc = [[HMainViewController alloc] init];
-    self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
 
+    self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.navController.navigationBar.translucent = NO;
+    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navController.navigationBar.barTintColor = [UIColor colorWithRed:1.000 green:0.327 blue:0.063 alpha:1.000];
+    
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

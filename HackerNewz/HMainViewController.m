@@ -7,6 +7,8 @@
 //
 
 #import "HMainViewController.h"
+
+#import "HNewsCell.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
 
@@ -21,19 +23,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
+    [self setTitle:@"Hacker News"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     self.requestModel = [[HHackerNewsRequestModel alloc] init];
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         if (success) {
-            for (HHackerNewsItem *item in self.requestModel.allStories) {
-                if (item) {
-                    NSLog(@"%@",item);
-                }
-            }
-//            NSLog(@"%@",self.requestModel.allStories);
             [self.tableView reloadData];
+        } else {
+            [self handleError:error];
+            NSLog(@"%@",error);
         }
-        else NSLog(@"%@",error);
     }];
 }
 
@@ -43,7 +46,18 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.view = self.tableView;
+}
+
+#pragma mark - Error handling
+- (void)handleError:(NSError*)error {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error"
+                          message:@"Problem getting stories."
+                          delegate:self
+                          cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 #pragma mark - UITableView Data Source Methods
@@ -58,22 +72,14 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
     
-    static NSString *cellID = @"storyCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    UILabel *titleLabel;
+    HNewsCell *cell = (HNewsCell*)[tableView dequeueReusableCellWithIdentifier:kHNewsCellReuseID];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 220, 15)];
-        titleLabel.font = [UIFont systemFontOfSize:12];
-        titleLabel.tag = 1;
-        [cell.contentView addSubview:titleLabel];
+        cell = [[HNewsCell alloc] init];
     } else {
-        titleLabel = (UILabel*)[cell.contentView viewWithTag:1];
     }
     
-    titleLabel.text = item.title;
+    [cell configureWithTitle:item.title];
     
     return cell;
 }
@@ -83,7 +89,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
+    return kDefaultCellHeight;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "HMainViewController.h"
 #import "HHackerNewsRequestModel.h"
+#import "HHackerNewsItem.h"
 
 @interface HMainViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic) UITableView *tableView;
@@ -23,8 +24,15 @@
     
     self.requestModel = [[HHackerNewsRequestModel alloc] init];
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
-        [self.tableView reloadData];
-        if (success) NSLog(@"%@",self.requestModel.allStories);
+        if (success) {
+            for (HHackerNewsItem *item in self.requestModel.allStories) {
+                if (item) {
+                    NSLog(@"%@",item);
+                }
+            }
+//            NSLog(@"%@",self.requestModel.allStories);
+            [self.tableView reloadData];
+        }
         else NSLog(@"%@",error);
     }];
 }
@@ -48,9 +56,23 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"storyCellID";
+    HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
     
-    id cell = [self.tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellID = @"storyCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    UILabel *titleLabel;
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 220, 15)];
+        titleLabel.font = [UIFont systemFontOfSize:12];
+        [cell.contentView addSubview:titleLabel];
+    } else {
+        
+    }
+    
+    titleLabel.text = item.title;
     
     return cell;
 }

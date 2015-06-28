@@ -10,6 +10,8 @@
 
 @interface HHackerNewsItem : NSObject
 
++ (instancetype)itemWithHNDictionary:(id)dictionary;
+
 @property (nonatomic) NSInteger ID;
 
 @property (nonatomic) NSString *title;

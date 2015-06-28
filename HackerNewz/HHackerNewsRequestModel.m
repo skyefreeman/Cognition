@@ -7,6 +7,7 @@
 //
 
 #import "HHackerNewsRequestModel.h"
+#import "HHackerNewsItem.h"
 #import <AFNetworking.h>
 
 NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
@@ -24,7 +25,7 @@ int const kItemFetchCount = 30;
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion {
 
     // Populate array with null objects, to chain story requests
-    self.allStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
+    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
     
     // Get all top story id's
     [self topStories:^(id stories, NSError *error) {
@@ -34,9 +35,15 @@ int const kItemFetchCount = 30;
             for (int i = 0; i < kItemFetchCount; i++) {
                 [self itemWithID:[stories objectAtIndex:i] completion:^(id story, NSError *error) {
                     
-                    if (!error) [self.allStories replaceObjectAtIndex:i withObject:story];
+                    if (!error) {
+                        HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
+                        [tempStories replaceObjectAtIndex:i withObject:item];
+                    }
                     
                     if (i == (kItemFetchCount - 1)) {
+                        
+                        self.allStories = [self checkForNilInArray:tempStories];
+                        
                         if (completion) completion(YES,nil);
                     }
                 }];
@@ -45,6 +52,17 @@ int const kItemFetchCount = 30;
             if (completion) completion(nil,error);
         }
     }];
+}
+
+- (NSMutableArray*)checkForNilInArray:(NSMutableArray*)array {
+    NSMutableArray *tempArray = array;
+    for (int i = 0; i < tempArray.count; i++) {
+        if ([tempArray objectAtIndex:i] == [NSNull null]) {
+            NSLog(@"removing object at index: %d",i);
+            [tempArray removeObjectAtIndex:i];
+        }
+    }
+    return tempArray;
 }
 
 #pragma mark - Hacker News API Requests

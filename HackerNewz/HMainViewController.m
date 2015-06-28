@@ -48,8 +48,10 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"storyCellID";
     
-    id cell = [self.tableView dequeueReusableCellWithIdentifier:nil];
+    id cell = [self.tableView dequeueReusableCellWithIdentifier:cellID];
+    
     return cell;
 }
 

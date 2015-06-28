@@ -7,58 +7,58 @@
 //
 
 #import "HMainViewController.h"
-#import "HHackerNewsHelper.h"
+#import "HHackerNewsRequestModel.h"
 
-int const kItemFetchCount = 30;
-
-@interface HMainViewController ()
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic) UITableView *tableView;
 @property (nonatomic) NSMutableArray *topStories;
+@property (nonatomic) HHackerNewsRequestModel *requestModel;
 @end
 
 @implementation HMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createTableView];
     
-    self.topStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
-    [self getTopStories];
-}
-
-#pragma mark - Get Requests
-- (void)getTopStories {
-    [HHackerNewsHelper topStories:^(id stories, NSError *error) {
-        if (!error) {
-            [self getItemsFromStories:stories itemsToFetch:kItemFetchCount];
-        } else {
-            NSLog(@"Error getting stories: %@",error);
-        }
+    self.requestModel = [[HHackerNewsRequestModel alloc] init];
+    [self.requestModel getTopStories:^(BOOL success, NSError *error) {
+        [self.tableView reloadData];
+        if (success) NSLog(@"%@",self.requestModel.allStories);
+        else NSLog(@"%@",error);
     }];
 }
 
-- (void)getItemsFromStories:(id)stories itemsToFetch:(int)numItems {
-    for (int i = 0; i < numItems; i++) {
-        [HHackerNewsHelper itemWithID:[stories objectAtIndex:i] completion:^(id itemObject, NSError *error) {
-            if (!error) {
-                [self.topStories replaceObjectAtIndex:i withObject:itemObject];
-//                [self.topStories insertObject:itemObject atIndex:i];
-                NSLog(@"%@",itemObject);
-            } else {
-                NSLog(@"Error getting item: %@",error);
-            }
-        }];
-    }
+#pragma mark - Table View
+- (void)createTableView {
+    self.tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.view = self.tableView;
 }
 
-#pragma mark - Convenience
-
-@end
-
-@implementation NSMutableArray (SFAdditions)
-+ (NSMutableArray*)arrayWithNullObjectCount:(int)count {
-    NSMutableArray *nullArray = [NSMutableArray array];
-    for (int i = 0 ; i<count; i++) {
-        [nullArray addObject:[NSNull null]];
-    }
-    return nullArray;
+#pragma mark - UITableView Data Source Methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.requestModel.allStories.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    id cell = [self.tableView dequeueReusableCellWithIdentifier:nil];
+    return cell;
+}
+
+#pragma mark - UITableView Delegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44.0;
+}
+
 @end

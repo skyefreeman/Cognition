@@ -10,7 +10,3 @@
 
 @interface HMainViewController : UIViewController
 @end
-
-@interface NSMutableArray (SFAdditions)
-+ (NSMutableArray*)arrayWithNullObjectCount:(int)count;
-@end

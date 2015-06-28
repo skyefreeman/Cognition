@@ -19,7 +19,14 @@
     
     [HHackerNewsHelper topStories:^(id stories, NSError *error) {
         if (!error) {
-            NSLog(@"Success");
+            NSLog(@"%@",stories);
+            [HHackerNewsHelper itemWithID:[stories objectAtIndex:0] completion:^(id itemObject, NSError *error) {
+                if (!error) {
+                    NSLog(@"%@",itemObject);
+                } else {
+                    NSLog(@"%@",error);
+                }
+            }];
         } else {
             NSLog(@"%@",error);
         }

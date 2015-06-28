@@ -10,6 +10,7 @@
 
 @interface HHackerNewsHelper : NSObject
 + (void)topStories:(void (^)(id stories, NSError *error))completion;
++ (void)itemWithID:(NSString*)ID completion:(void (^)(id stories, NSError *error))completion;
 @end
 
 @interface NSString (URLFormatting)

@@ -67,9 +67,10 @@
         
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 220, 15)];
         titleLabel.font = [UIFont systemFontOfSize:12];
+        titleLabel.tag = 1;
         [cell.contentView addSubview:titleLabel];
     } else {
-        
+        titleLabel = (UILabel*)[cell.contentView viewWithTag:1];
     }
     
     titleLabel.text = item.title;

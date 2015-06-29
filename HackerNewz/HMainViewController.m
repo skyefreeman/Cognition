@@ -73,15 +73,15 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
+    NSString *itemTitle = item.title;
+    NSInteger itemCount = indexPath.row + 1;
     
-    HNewsCell *cell = (HNewsCell*)[tableView dequeueReusableCellWithIdentifier:kHNewsCellReuseID];
-    
+    HNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNewsCellReuseID];
     if (cell == nil) {
-        cell = [[HNewsCell alloc] init];
-    } else {
+        cell = [[HNewsCell alloc] initWithTitle:itemTitle];
     }
     
-    [cell configureWithTitle:item.title];
+    [cell configureWithTitle:itemTitle count:itemCount];
     
     return cell;
 }

@@ -47,13 +47,6 @@
     [self removeActivityIndicator];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    return YES;
-}
-
 #pragma mark - HWebViewBar Delegate Methods
 - (void)webBarCancelButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];

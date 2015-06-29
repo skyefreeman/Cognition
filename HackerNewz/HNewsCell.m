@@ -13,18 +13,22 @@ NSString * const kHNewsCellReuseID = @"newsCellReuseID";
 CGFloat const kDefaultCellHeight = 60;
 
 // Tags
-NSInteger const kHNewsLabelTag = 1;
+typedef NS_ENUM(NSInteger, CellTag) {
+    CellTagTitle = 1,
+    CellTagCount,
+};
 
 // Padding
-CGFloat const kViewPadding = 15.0;
+CGFloat const kViewPadding = 10.0;
 
 @interface HNewsCell()
 @property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *countLabel;
 @end
 
 @implementation HNewsCell
 
-- (instancetype)init {
+- (instancetype)initWithTitle:(NSString*)title {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHNewsCellReuseID];
     if (self) {
         CGSize cellSize = self.frame.size;
@@ -38,14 +42,22 @@ CGFloat const kViewPadding = 15.0;
         self.titleLabel.font = [UIFont systemFontOfSize:12];
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.titleLabel.tag = kHNewsLabelTag;
+        self.titleLabel.tag = CellTagTitle;
+        self.titleLabel.text = title;
+        [self.titleLabel sizeToFit];
         [self.contentView addSubview:self.titleLabel];
+        
+        self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding, cellSize.height - kViewPadding/4, cellSize.width/4, 20)];
+        self.countLabel.font = [UIFont systemFontOfSize:10];
+        self.countLabel.tag = CellTagCount;
+        [self.contentView addSubview:self.countLabel];
     }
     return self;
 }
 
-- (void)configureWithTitle:(NSString*)title {
+- (void)configureWithTitle:(NSString*)title count:(NSInteger)count {
     self.titleLabel.text = title;
+    self.countLabel.text = [NSString stringWithFormat:@"%lu",count];
 }
 
 @end

@@ -12,8 +12,9 @@
 		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
 		EE36E03E1B3FC6C80053C3B5 /* HNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03D1B3FC6C80053C3B5 /* HNewsCell.m */; };
 		EE770A3C1B40FE9200ABDD60 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE770A371B40FE0700ABDD60 /* libSFAdditions.a */; };
-		EE770A3F1B4102E300ABDD60 /* HWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A3E1B4102E300ABDD60 /* HWebView.m */; };
 		EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A421B41046100ABDD60 /* HWebLinkViewController.m */; };
+		EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */; };
+		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEF17CAF1B3D010F00946D5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF17CAE1B3D010F00946D5F /* Default-568h@2x.png */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -64,10 +65,12 @@
 		EE36E03C1B3FC6C80053C3B5 /* HNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNewsCell.h; sourceTree = "<group>"; };
 		EE36E03D1B3FC6C80053C3B5 /* HNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNewsCell.m; sourceTree = "<group>"; };
 		EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
-		EE770A3D1B4102E300ABDD60 /* HWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebView.h; sourceTree = "<group>"; };
-		EE770A3E1B4102E300ABDD60 /* HWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebView.m; sourceTree = "<group>"; };
 		EE770A411B41046100ABDD60 /* HWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebLinkViewController.h; sourceTree = "<group>"; };
 		EE770A421B41046100ABDD60 /* HWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebLinkViewController.m; sourceTree = "<group>"; };
+		EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebViewbar.h; sourceTree = "<group>"; };
+		EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewbar.m; sourceTree = "<group>"; };
+		EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNAdditions.h"; sourceTree = "<group>"; };
+		EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNAdditions.m"; sourceTree = "<group>"; };
 		EEF17CAE1B3D010F00946D5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +154,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		EEC8A8D71B410DCD00D3C3DA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */,
+				EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		EEFDE95B1B3B91D20035556D = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +187,7 @@
 		EEFDE9661B3B91D20035556D /* HackerNewz */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8A8D71B410DCD00D3C3DA /* Categories */,
 				EEFDE98D1B3B91DA0035556D /* Application */,
 				EEFDE9901B3B91F70035556D /* Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
@@ -237,9 +250,9 @@
 		EEFDE98F1B3B91F10035556D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE770A3D1B4102E300ABDD60 /* HWebView.h */,
-				EE770A3E1B4102E300ABDD60 /* HWebView.m */,
 				EE770A401B4102E700ABDD60 /* Cells */,
+				EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */,
+				EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -416,11 +429,12 @@
 			files = (
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EE36E03E1B3FC6C80053C3B5 /* HNewsCell.m in Sources */,
-				EE770A3F1B4102E300ABDD60 /* HWebView.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */,
 				EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */,
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,
+				EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */,
+				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

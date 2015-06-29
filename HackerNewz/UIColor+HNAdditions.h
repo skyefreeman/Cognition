@@ -1,5 +1,5 @@
 //
-//  HWebView.h
+//  UIColor+HNAdditions.h
 //  HackerNewz
 //
 //  Created by Skye on 6/29/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWebView : UIWebView
-
+@interface UIColor (HNAdditions)
++ (UIColor*)HNOrange;
 @end

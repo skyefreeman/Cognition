@@ -11,6 +11,7 @@
 		EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */; };
 		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
 		EE36E03E1B3FC6C80053C3B5 /* HNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03D1B3FC6C80053C3B5 /* HNewsCell.m */; };
+		EE770A3C1B40FE9200ABDD60 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE770A371B40FE0700ABDD60 /* libSFAdditions.a */; };
 		EEF17CAF1B3D010F00946D5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF17CAE1B3D010F00946D5F /* Default-568h@2x.png */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -20,6 +21,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EE770A361B40FE0700ABDD60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE7709D71B40F77800ABDD60;
+			remoteInfo = SFAdditions;
+		};
+		EE770A381B40FE0700ABDD60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE7709E21B40F77900ABDD60;
+			remoteInfo = SFAdditionsTests;
+		};
+		EE770A3A1B40FE7300ABDD60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE7709D61B40F77800ABDD60;
+			remoteInfo = SFAdditions;
+		};
 		EEFDE97E1B3B91D20035556D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EEFDE95C1B3B91D20035556D /* Project object */;
@@ -39,6 +61,7 @@
 		EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsItem.m; sourceTree = "<group>"; };
 		EE36E03C1B3FC6C80053C3B5 /* HNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNewsCell.h; sourceTree = "<group>"; };
 		EE36E03D1B3FC6C80053C3B5 /* HNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNewsCell.m; sourceTree = "<group>"; };
+		EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
 		EEF17CAE1B3D010F00946D5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE770A3C1B40FE9200ABDD60 /* libSFAdditions.a in Frameworks */,
 				5293F574F6E56592A9E5565E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +120,22 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		EE36E0811B40DEE90053C3B5 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		EE770A321B40FE0700ABDD60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE770A371B40FE0700ABDD60 /* libSFAdditions.a */,
+				EE770A391B40FE0700ABDD60 /* SFAdditionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EEFDE95B1B3B91D20035556D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +144,7 @@
 				EEFDE9651B3B91D20035556D /* Products */,
 				36B27F5E1C8D404928D81C8A /* Pods */,
 				53A210E55B8F75FB73201F10 /* Frameworks */,
+				EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +167,7 @@
 				EE36E0341B3E45020053C3B5 /* Helpers */,
 				EEFDE9671B3B91D20035556D /* Supporting Files */,
 				EEFDE9741B3B91D20035556D /* Images.xcassets */,
+				EE36E0811B40DEE90053C3B5 /* Libraries */,
 			);
 			path = HackerNewz;
 			sourceTree = "<group>";
@@ -211,6 +253,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EE770A3B1B40FE7300ABDD60 /* PBXTargetDependency */,
 			);
 			name = HackerNewz;
 			productName = HackerNewz;
@@ -265,6 +308,12 @@
 			mainGroup = EEFDE95B1B3B91D20035556D;
 			productRefGroup = EEFDE9651B3B91D20035556D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EE770A321B40FE0700ABDD60 /* Products */;
+					ProjectRef = EE770A311B40FE0700ABDD60 /* SFAdditions.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EEFDE9631B3B91D20035556D /* HackerNewz */,
@@ -272,6 +321,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EE770A371B40FE0700ABDD60 /* libSFAdditions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSFAdditions.a;
+			remoteRef = EE770A361B40FE0700ABDD60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE770A391B40FE0700ABDD60 /* SFAdditionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SFAdditionsTests.xctest;
+			remoteRef = EE770A381B40FE0700ABDD60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EEFDE9621B3B91D20035556D /* Resources */ = {
@@ -350,6 +416,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EE770A3B1B40FE7300ABDD60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SFAdditions;
+			targetProxy = EE770A3A1B40FE7300ABDD60 /* PBXContainerItemProxy */;
+		};
 		EEFDE97F1B3B91D20035556D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEFDE9631B3B91D20035556D /* HackerNewz */;
@@ -445,6 +516,12 @@
 			baseConfigurationReference = B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					/Users/SkyeBook/Development/iOSDevelopment/Library/SFAdditions/SFAdditions,
+				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,6 +533,12 @@
 			baseConfigurationReference = C4E91381F004431C273EA5BE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					/Users/SkyeBook/Development/iOSDevelopment/Library/SFAdditions/SFAdditions,
+				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

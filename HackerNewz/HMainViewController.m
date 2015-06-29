@@ -7,6 +7,7 @@
 //
 
 #import "HMainViewController.h"
+#import <SFAdditions.h>
 
 #import "HNewsCell.h"
 #import "HHackerNewsRequestModel.h"
@@ -35,7 +36,6 @@
             [self.tableView reloadData];
         } else {
             [self handleError:error];
-            NSLog(@"%@",error);
         }
     }];
 }
@@ -52,9 +52,10 @@
 
 #pragma mark - Error handling
 - (void)handleError:(NSError*)error {
+    NSLog(@"%@",error);
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Error"
-                          message:@"Problem getting stories."
+                          message:@"Problem getting stories. Check your internet connection."
                           delegate:self
                           cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     [alert show];
@@ -86,6 +87,7 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"This happed");
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

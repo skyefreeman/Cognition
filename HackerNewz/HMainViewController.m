@@ -31,8 +31,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - 44) style:UIActivityIndicatorViewStyleGray];
+    
     self.requestModel = [[HHackerNewsRequestModel alloc] init];
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
+        
+        [self removeActivityIndicator];
+
         if (success) {
             [self.tableView reloadData];
         } else {

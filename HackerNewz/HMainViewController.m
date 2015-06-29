@@ -88,12 +88,20 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HHackerNewsItem *item = [self itemAtIndexPath:indexPath];
+    
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
+    [webVC setLinkURL:[NSURL URLWithString:item.url]];
     [self presentViewController:webVC animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kDefaultCellHeight;
+}
+
+#pragma mark - Convenience
+- (HHackerNewsItem*)itemAtIndexPath:(NSIndexPath*)indexPath {
+    return (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
 }
 
 @end

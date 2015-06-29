@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HWebLinkViewController : UIViewController
-
+@property (nonatomic) NSURL *linkURL;
 @end

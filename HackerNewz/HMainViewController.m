@@ -7,6 +7,7 @@
 //
 
 #import "HMainViewController.h"
+#import "HWebLinkViewController.h"
 #import <SFAdditions.h>
 
 #import "HNewsCell.h"
@@ -87,7 +88,8 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"This happed");
+    HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
+    [self presentViewController:webVC animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

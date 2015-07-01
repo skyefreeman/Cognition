@@ -36,6 +36,7 @@ CGFloat const kViewPadding = 8.0;
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHNewsCellReuseID];
     if (self) {
         _cellSize = self.frame.size;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor colorWithRed:0.934 green:0.908 blue:0.782 alpha:1.000];
         
         self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding, kViewPadding, 20, 15)];

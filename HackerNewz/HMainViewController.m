@@ -25,11 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
+    
     [self setTitle:@"Top Stories"];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
     [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - 44) style:UIActivityIndicatorViewStyleGray];
     
@@ -37,13 +34,17 @@
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         
         [self removeActivityIndicator];
-
+        
         if (success) {
             [self.tableView reloadData];
         } else {
             [self handleError:error];
         }
     }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - Table View

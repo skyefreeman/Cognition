@@ -13,7 +13,6 @@ extern CGFloat const kDefaultCellHeight;
 
 @interface HNewsCell : UITableViewCell
 
-- (instancetype)initWithTitle:(NSString*)title;
 - (void)configureWithTitle:(NSString*)title count:(NSInteger)count;
 
 @end

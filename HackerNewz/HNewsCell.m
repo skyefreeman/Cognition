@@ -10,7 +10,7 @@
 
 // Externs
 NSString * const kHNewsCellReuseID = @"newsCellReuseID";
-CGFloat const kDefaultCellHeight = 60;
+CGFloat const kDefaultCellHeight = 100;
 
 // Tags
 typedef NS_ENUM(NSInteger, CellTag) {
@@ -19,45 +19,60 @@ typedef NS_ENUM(NSInteger, CellTag) {
 };
 
 // Padding
-CGFloat const kViewPadding = 10.0;
+CGFloat const kViewPadding = 8.0;
 
 @interface HNewsCell()
+@property (nonatomic) UIView *background;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *countLabel;
 @end
 
-@implementation HNewsCell
+@implementation HNewsCell {
+    CGSize _cellSize;
+    CGRect _titleFrame;
+}
 
-- (instancetype)initWithTitle:(NSString*)title {
+- (instancetype)init {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHNewsCellReuseID];
     if (self) {
-        CGSize cellSize = self.frame.size;
+        _cellSize = self.frame.size;
+        self.backgroundColor = [UIColor colorWithRed:0.934 green:0.908 blue:0.782 alpha:1.000];
         
-
+        self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding, kViewPadding, 20, 15)];
+        self.countLabel.font = [UIFont fontWithName:@"GillSans" size:15];
+        self.countLabel.textAlignment = NSTextAlignmentCenter;
+        self.countLabel.alpha = 0.4;
+        self.countLabel.tag = CellTagCount;
+        [self.contentView addSubview:self.countLabel];
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding,
-                                                                    kViewPadding,
-                                                                    cellSize.width - kViewPadding*2,
-                                                                    kDefaultCellHeight - kViewPadding*2)];
-        self.titleLabel.font = [UIFont systemFontOfSize:12];
+        CGFloat countLabelRightEdge = [self rightEdgeOfView:self.countLabel];
+        _titleFrame = CGRectMake(countLabelRightEdge + kViewPadding,
+                                 kViewPadding,
+                                 _cellSize.width - countLabelRightEdge - kViewPadding,
+                                 kDefaultCellHeight - kViewPadding*2);
+        
+        self.titleLabel = [[UILabel alloc] initWithFrame:_titleFrame];
+        self.titleLabel.font = [UIFont fontWithName:@"GillSans" size:14];
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.titleLabel.tag = CellTagTitle;
-        self.titleLabel.text = title;
-        [self.titleLabel sizeToFit];
         [self.contentView addSubview:self.titleLabel];
-        
-        self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding, cellSize.height - kViewPadding/4, cellSize.width/4, 20)];
-        self.countLabel.font = [UIFont systemFontOfSize:10];
-        self.countLabel.tag = CellTagCount;
-        [self.contentView addSubview:self.countLabel];
     }
     return self;
 }
 
 - (void)configureWithTitle:(NSString*)title count:(NSInteger)count {
+    self.titleLabel.frame = _titleFrame;
     self.titleLabel.text = title;
-    self.countLabel.text = [NSString stringWithFormat:@"%lu",count];
+    [self.titleLabel sizeToFit];
+    
+    NSString *textString = [NSString stringWithFormat:@"%lu",count];
+    self.countLabel.text = [textString stringByAppendingString:@"."];
+}
+
+#pragma mark - Convenience
+- (CGFloat)rightEdgeOfView:(UIView*)view {
+    return (view.frame.origin.x + view.frame.size.width);
 }
 
 @end

@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
-    [self setTitle:@"Hacker News"];
+    [self setTitle:@"Top Stories"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,6 +52,7 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.tableView];
 }
@@ -83,7 +84,7 @@
     
     HNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNewsCellReuseID];
     if (cell == nil) {
-        cell = [[HNewsCell alloc] initWithTitle:itemTitle];
+        cell = [[HNewsCell alloc] init];
     }
     
     [cell configureWithTitle:itemTitle count:itemCount];

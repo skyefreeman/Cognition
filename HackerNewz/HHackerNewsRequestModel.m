@@ -37,7 +37,7 @@ int const kItemFetchCount = 30;
                     
                     if (!error) {
                         HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
-                        [tempStories replaceObjectAtIndex:i withObject:item];
+                        if (i <= tempStories.count) [tempStories replaceObjectAtIndex:i withObject:item];
                     }
                     
                     if (i == (kItemFetchCount - 1)) {

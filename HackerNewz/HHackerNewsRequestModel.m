@@ -30,7 +30,6 @@ int const kItemFetchCount = 30;
     // Get all top story id's
     [self topStories:^(id stories, NSError *error) {
         if (!error) {
-            NSLog(@"%@",stories);
             
             // Get top 30 story item objects
             for (int i = 0; i < kItemFetchCount; i++) {

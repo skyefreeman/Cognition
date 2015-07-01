@@ -53,7 +53,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.view = self.tableView;
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - Error handling

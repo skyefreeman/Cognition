@@ -26,6 +26,7 @@
     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
+    self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
     
     self.webBar = [[HWebViewbar alloc] initWithBarType:BarTypeBottom];

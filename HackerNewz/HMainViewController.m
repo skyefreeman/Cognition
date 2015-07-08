@@ -84,11 +84,9 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
-    NSString *itemTitle = item.title;
-    
     
     id cell = [tableView dequeueReusableCellWithIdentifier:kNewsItemReuseIdentifier];
-    [cell configureWithTitle:itemTitle];
+    [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
     
     return cell;
 }

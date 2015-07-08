@@ -17,6 +17,7 @@ NSString * const kDescendantsKey = @"descendants";
 NSString * const kKidsKey = @"kids";
 NSString * const kScoreKey = @"score";
 NSString * const kTimeKey = @"time";
+NSString * const kByKey = @"by";
 
 @implementation HHackerNewsItem
 
@@ -25,6 +26,7 @@ NSString * const kTimeKey = @"time";
     if (self) {
         self.ID = [[dictionary objectForKey:kIDKey] integerValue];
         self.title = [dictionary objectForKey:kTitleKey];
+        self.author = [dictionary objectForKey:kByKey];
         self.type = [dictionary objectForKey:kTypeKey];
         self.url = [dictionary objectForKey:kURLKey];
         self.text = [dictionary objectForKey:kTextKey];

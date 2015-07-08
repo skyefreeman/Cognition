@@ -13,6 +13,10 @@ CGFloat const kTopStoryCellHeight = 50;
 
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pointsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *commentsLabel;
 @end
 
 @implementation HHackerNewsItemCell
@@ -21,7 +25,7 @@ CGFloat const kTopStoryCellHeight = 50;
     [super awakeFromNib];
 }
 
-- (void)configureWithTitle:(NSString*)title {
+- (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
 }

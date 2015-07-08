@@ -12,5 +12,9 @@ extern NSString * const kNewsItemReuseIdentifier;
 extern CGFloat const kTopStoryCellHeight;
 
 @interface HHackerNewsItemCell : UITableViewCell
-- (void)configureWithTitle:(NSString*)title;
+- (void)configureWithTitle:(NSString*)title
+                    points:(NSInteger)points
+                    author:(NSString*)author
+                      time:(NSInteger)time
+                  comments:(NSInteger)comments;
 @end

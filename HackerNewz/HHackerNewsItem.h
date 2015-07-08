@@ -18,6 +18,7 @@
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSString *url;
 @property (nonatomic) NSString *text;
+@property (nonatomic) NSString *author;
 
 @property (nonatomic) NSInteger commentCount;
 @property (nonatomic) NSArray *comments;

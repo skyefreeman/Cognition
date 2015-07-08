@@ -8,8 +8,11 @@
 
 #import "HMainViewController.h"
 #import "HWebLinkViewController.h"
-#import <SFAdditions.h>
 
+#import <SFAdditions.h>
+#import "NSObject+HNAdditions.h"
+
+#import "HTopStoryCell.h"
 #import "HNewsCell.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
@@ -24,7 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self createTableView];
+    [self registerNibs];
     
     [self setTitle:@"Top Stories"];
     
@@ -45,6 +50,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)registerNibs {
+    [self.tableView registerNib:[UINib nibWithNibName:[HTopStoryCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kTopStoryReuseIdentifier];
 }
 
 #pragma mark - Table View
@@ -83,11 +92,7 @@
     NSString *itemTitle = item.title;
     NSInteger itemCount = indexPath.row + 1;
     
-    HNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNewsCellReuseID];
-    if (cell == nil) {
-        cell = [[HNewsCell alloc] init];
-    }
-    
+    id cell = [tableView dequeueReusableCellWithIdentifier:kTopStoryReuseIdentifier];
     [cell configureWithTitle:itemTitle count:itemCount];
     
     return cell;

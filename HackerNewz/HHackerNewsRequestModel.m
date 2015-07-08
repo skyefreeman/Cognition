@@ -42,12 +42,13 @@ int const kItemFetchCount = 30;
                     
                     if (i == (kItemFetchCount - 1)) {
                         self.allStories = [self checkForNilInArray:tempStories];
-                        if (completion) completion(YES,nil);
+                        if (completion) completion(YES, nil);
                     }
                 }];
             }
+            
         } else {
-            if (completion) completion(nil,error);
+            if (completion) completion(NO, error);
         }
     }];
 }

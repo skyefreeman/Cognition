@@ -12,7 +12,7 @@
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
 
-#import "HTopStoryCell.h"
+#import "HHackerNewsItemCell.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
 
@@ -52,7 +52,7 @@
 }
 
 - (void)registerNibs {
-    [self.tableView registerNib:[UINib nibWithNibName:[HTopStoryCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kTopStoryReuseIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kNewsItemReuseIdentifier];
 }
 
 #pragma mark - Table View
@@ -61,20 +61,16 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;;
+    self.tableView.estimatedRowHeight = kTopStoryCellHeight;
     [self.view addSubview:self.tableView];
 }
 
 #pragma mark - Error handling
 - (void)handleError:(NSError*)error {
+    [self showAlertWithTitle:@"Error" message:@"Problem getting stories. Check your internet connection."];
     NSLog(@"%@",error);
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Error"
-                          message:@"Problem getting stories. Check your internet connection."
-                          delegate:self
-                          cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 #pragma mark - UITableView Data Source Methods
@@ -89,10 +85,10 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
     NSString *itemTitle = item.title;
-    NSInteger itemCount = indexPath.row + 1;
     
-    id cell = [tableView dequeueReusableCellWithIdentifier:kTopStoryReuseIdentifier];
-    [cell configureWithTitle:itemTitle count:itemCount];
+    
+    id cell = [tableView dequeueReusableCellWithIdentifier:kNewsItemReuseIdentifier];
+    [cell configureWithTitle:itemTitle];
     
     return cell;
 }
@@ -101,13 +97,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = [self itemAtIndexPath:indexPath];
     
+    if (![item.url isNotEmptyString]) {
+        [self showAlertWithTitle:@"Error" message:@"No URL for item"];
+        return;
+    }
+    
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
     [webVC setLinkURL:[NSURL URLWithString:item.url]];
     [self presentViewController:webVC animated:YES completion:nil];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kTopStoryCellHeight;
 }
 
 #pragma mark - Convenience

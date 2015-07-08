@@ -8,6 +8,7 @@
 
 #import "HAppDelegate.h"
 #import "UIColor+HNAdditions.h"
+#import "UILabel+HNAdditions.h"
 #import "HMainViewController.h"
 
 @interface HAppDelegate ()
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [application setStatusBarHidden:YES];
+    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

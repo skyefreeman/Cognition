@@ -7,41 +7,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopStoryReuseIdentifier" id="KGk-i7-Jjw" customClass="HTopStoryCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopStoryReuseIdentifier" id="KGk-i7-Jjw" customClass="HHackerNewsItemCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGQ-ze-GCq">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGQ-ze-GCq">
                         <rect key="frame" x="8" y="8" width="304" height="48"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ2-QX-rfP">
-                        <rect key="frame" x="8" y="64" width="40" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="OZN-ez-gG5"/>
-                            <constraint firstAttribute="height" constant="15" id="aDL-eN-ImK"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Fqj-AT-idR"/>
-                    <constraint firstItem="aJ2-QX-rfP" firstAttribute="leading" secondItem="JGQ-ze-GCq" secondAttribute="leading" id="N93-aj-c9O"/>
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="W5b-ZD-MWc"/>
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cWU-Me-xwy"/>
-                    <constraint firstItem="aJ2-QX-rfP" firstAttribute="top" secondItem="JGQ-ze-GCq" secondAttribute="bottom" constant="8" symbolic="YES" id="fi0-87-owV"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="aJ2-QX-rfP" secondAttribute="bottom" constant="-7.5" id="j8G-Nv-CBE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="storyCountLabel" destination="aJ2-QX-rfP" id="QuF-DH-Cse"/>
                 <outlet property="titleLabel" destination="JGQ-ze-GCq" id="n4V-ZR-6Yo"/>
             </connections>
         </tableViewCell>

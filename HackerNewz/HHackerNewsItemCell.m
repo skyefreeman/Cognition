@@ -7,6 +7,7 @@
 //
 
 #import "HHackerNewsItemCell.h"
+#import <TTTTimeIntervalFormatter.h>
 
 NSString * const kNewsItemReuseIdentifier = @"TopStoryReuseIdentifier";
 CGFloat const kTopStoryCellHeight = 50;
@@ -25,9 +26,13 @@ CGFloat const kTopStoryCellHeight = 50;
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
     NSString *pointsString = [NSString stringWithFormat:@"%lu points",(long)points];
     NSString *authorString = [NSString stringWithFormat:@"by %@",author];
-    NSString *timeString = [NSString stringWithFormat:@"%lu",(long)time];
+    
+    NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
+    TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
+    NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
+
     NSString *commentsString = [NSString stringWithFormat:@"%lu comments",(long)comments];
-    self.infoLabel.text = [NSString stringWithFormat:@"%@  %@  %@  |  %@",pointsString,authorString,timeString,commentsString];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@ | %@",pointsString,authorString,timeString,commentsString];
     
     self.titleLabel.text = title;
 }

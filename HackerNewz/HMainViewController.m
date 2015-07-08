@@ -11,13 +11,17 @@
 
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
+#import "UIColor+HNAdditions.h"
 
 #import "HHackerNewsItemCell.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
 
 @interface HMainViewController () <UITableViewDataSource,UITableViewDelegate>
+
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UIRefreshControl *refreshControl;
+
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
 @end
@@ -27,36 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self createTableView];
-    [self registerNibs];
-    
     [self setTitle:@"Top Stories"];
     
-    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - 44) style:UIActivityIndicatorViewStyleGray];
-    
-    self.requestModel = [[HHackerNewsRequestModel alloc] init];
-    [self.requestModel getTopStories:^(BOOL success, NSError *error) {
-        
-        [self removeActivityIndicator];
-        
-        if (success) {
-            [self.tableView reloadData];
-        } else {
-            [self handleError:error];
-        }
-    }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)registerNibs {
-    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kNewsItemReuseIdentifier];
-}
-
-#pragma mark - Table View
-- (void)createTableView {
     self.tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
@@ -65,6 +41,34 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;;
     self.tableView.estimatedRowHeight = kTopStoryCellHeight;
     [self.view addSubview:self.tableView];
+    
+    [self registerNibs];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor HNOrange];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(requestTopStories) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+
+    [self requestTopStories];
+}
+
+- (void)registerNibs {
+    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kNewsItemReuseIdentifier];
+}
+
+#pragma mark - Requests
+- (void)requestTopStories {
+    if (!self.requestModel) {
+        self.requestModel = [[HHackerNewsRequestModel alloc] init];
+    }
+
+    [self.requestModel getTopStories:^(BOOL success, NSError *error) {
+        if (success) [self.tableView reloadData];
+        else [self handleError:error];
+        
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Error handling
@@ -103,6 +107,8 @@
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
     [webVC setLinkURL:[NSURL URLWithString:item.url]];
     [self presentViewController:webVC animated:YES completion:nil];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - Convenience

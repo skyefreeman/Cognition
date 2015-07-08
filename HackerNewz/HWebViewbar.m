@@ -39,8 +39,8 @@ typedef NS_ENUM(NSInteger, BarLayer) {
             self.frame = CGRectMake(0, 0, screenRect.size.width, kBarHeight);
         }
         
-        self.barColor = [UIColor orangeColor];
-        self.hasBlur = YES;
+        self.barColor = [UIColor whiteColor];
+        self.hasBlur = NO;
         
         CGSize buttonSize = CGSizeMake(20, 20);
         

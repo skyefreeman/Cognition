@@ -10,6 +10,6 @@
 
 @implementation UIColor (HNAdditions)
 + (UIColor*)HNOrange {
-    return [UIColor colorWithRed:1.000 green:0.327 blue:0.063 alpha:1.000];
+    return [UIColor colorWithRed:1.000 green:0.327 blue:0.063 alpha:.5];
 }
 @end

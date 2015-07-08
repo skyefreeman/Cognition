@@ -9,6 +9,7 @@
 #import "HTopStoryCell.h"
 
 NSString * const kTopStoryReuseIdentifier = @"TopStoryReuseIdentifier";
+CGFloat const kTopStoryCellHeight = 100;
 
 @interface HTopStoryCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -22,7 +23,6 @@ NSString * const kTopStoryReuseIdentifier = @"TopStoryReuseIdentifier";
 }
 
 - (void)configureWithTitle:(NSString*)title count:(NSInteger)count {
-//    self.titleLabel.frame = self.titleLabel.frame;
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
     

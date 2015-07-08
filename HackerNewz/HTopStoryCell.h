@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 extern NSString * const kTopStoryReuseIdentifier;
+extern CGFloat const kTopStoryCellHeight;
 
 @interface HTopStoryCell : UITableViewCell
-
+- (void)configureWithTitle:(NSString*)title count:(NSInteger)count;
 @end

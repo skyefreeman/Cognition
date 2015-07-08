@@ -13,7 +13,6 @@
 #import "NSObject+HNAdditions.h"
 
 #import "HTopStoryCell.h"
-#import "HNewsCell.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
 
@@ -108,7 +107,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kDefaultCellHeight;
+    return kTopStoryCellHeight;
 }
 
 #pragma mark - Convenience

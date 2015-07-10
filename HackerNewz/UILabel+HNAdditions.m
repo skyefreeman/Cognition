@@ -12,4 +12,5 @@
 - (void)setSubstituteFontWithName:(NSString*)name {
     self.font = [UIFont fontWithName:name size:self.font.pointSize];
 }
+
 @end

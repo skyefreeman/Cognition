@@ -38,7 +38,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = kTopStoryCellHeight;
     [self.view addSubview:self.tableView];
     
@@ -107,7 +107,7 @@
     
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
     [webVC setLinkURL:[NSURL URLWithString:item.url]];
-    [self presentViewController:webVC animated:YES completion:nil];
+    [self.navigationController pushViewController:webVC animated:YES];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

@@ -15,7 +15,6 @@
 
 @interface HWebLinkViewController() <UIWebViewDelegate,HWebViewBarDelegate,UIScrollViewDelegate>
 @property (nonatomic) UIWebView *webView;
-@property (nonatomic) HWebViewbar *webBar;
 @end
 
 @implementation HWebLinkViewController
@@ -28,10 +27,6 @@
     self.webView.scrollView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
-    
-    self.webBar = [[HWebViewbar alloc] initWithBarType:BarTypeBottom];
-    self.webBar.delegate = self;
-    [self.view addSubview:self.webBar];
 
     if (self.linkURL) {
         NSURLRequest *request = [NSURLRequest requestWithURL:self.linkURL];
@@ -41,7 +36,6 @@
 
 #pragma mark - UIWebView Delegate Methods
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [self displayActivityIndicator:self.webBar.center style:UIActivityIndicatorViewStyleWhite];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -51,17 +45,6 @@
 #pragma mark - HWebViewBar Delegate Methods
 - (void)webBarCancelButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - UIScrollView Delegate Methods
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([self didScrollDown:scrollView]) {
-        [self.webBar fadeOutWithDuration:kBarFadeTime];
-    }
-    
-    if ([self didScrollUp:scrollView]) {
-        [self.webBar fadeInWithDuration:kBarFadeTime];
-    }
 }
 
 #pragma mark - Convenience

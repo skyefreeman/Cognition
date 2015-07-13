@@ -9,11 +9,10 @@
 #import "HWebLinkViewController.h"
 #import "UIColor+HNAdditions.h"
 #import <SFAdditions.h>
-#import "HWebViewbar.h"
 
 #define kBarFadeTime 0.2
 
-@interface HWebLinkViewController() <UIWebViewDelegate,HWebViewBarDelegate,UIScrollViewDelegate>
+@interface HWebLinkViewController() <UIWebViewDelegate,UIScrollViewDelegate>
 @property (nonatomic) UIWebView *webView;
 @end
 

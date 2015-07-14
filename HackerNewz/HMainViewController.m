@@ -66,6 +66,15 @@
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
         
+        // Test
+        
+        HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:1];
+        [self.requestModel getCommentsForItem:item completion:^(NSArray *comments, NSError *error) {
+            
+        }];
+        
+        //
+        
         if (success) [self.tableView reloadData];
         else [self handleError:error];
         

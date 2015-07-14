@@ -11,13 +11,16 @@
 #import <AFNetworking.h>
 
 NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
+
 NSString * kHNItemKey = @"item";
 NSString * kHNTopStoriesKey = @"topstories";
+NSString * kHNCommentsKey = @"kids";
 
 int const kItemFetchCount = 30;
 
 @interface HHackerNewsRequestModel ()
 @property (nonatomic, readwrite) NSMutableArray *allStories;
+
 @end
 
 @implementation HHackerNewsRequestModel
@@ -53,14 +56,23 @@ int const kItemFetchCount = 30;
     }];
 }
 
+- (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(NSArray *comments, NSError *error))completion {
+    NSMutableArray *tempComments = [NSMutableArray array];
+    NSString *comment = [NSString stringWithFormat:@"%@",[item.comments objectAtIndex:0]];
+
+    [self itemWithID:comment completion:^(id story, NSError *error) {
+        NSLog(@"%@",story);
+    }];
+}
+
 #pragma mark - Hacker News API Requests
 - (void)topStories:(void (^)(id stories, NSError *error))completion {
     NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@",kHNAPIAddress,kHNTopStoriesKey]];
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }
 
-- (void)itemWithID:(NSString*)ID completion:(void (^)(id story, NSError *error))completion {
-    NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@/%@",kHNAPIAddress,kHNItemKey,ID]];
+- (void)itemWithID:(NSString*)itemID completion:(void (^)(id story, NSError *error))completion {
+    NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@/%@",kHNAPIAddress,kHNItemKey,itemID]];
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }
 

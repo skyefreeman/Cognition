@@ -17,7 +17,7 @@
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate>
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
@@ -100,6 +100,7 @@
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
     
     id cell = [tableView dequeueReusableCellWithIdentifier:kNewsItemReuseIdentifier];
+    [cell setDelegate:self];
     [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
     
     return cell;
@@ -119,6 +120,11 @@
     [self.navigationController pushViewController:webVC animated:YES];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+#pragma mark - HHackerNewsItemCell Delegate Methods
+- (void)commentBubbleTapped:(id)sender {
+    NSLog(@"this happend");
 }
 
 #pragma mark - Convenience

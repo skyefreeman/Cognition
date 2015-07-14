@@ -11,7 +11,14 @@
 extern NSString * const kNewsItemReuseIdentifier;
 extern CGFloat const kTopStoryCellHeight;
 
+@protocol HHackerNewsItemCellDelegate
+- (void)commentBubbleTapped:(id)sender;
+@end
+
 @interface HHackerNewsItemCell : UITableViewCell
+
+@property (nonatomic, weak) id <HHackerNewsItemCellDelegate> delegate;
+
 - (void)configureWithTitle:(NSString*)title
                     points:(NSInteger)points
                     author:(NSString*)author

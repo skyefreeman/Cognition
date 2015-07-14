@@ -53,4 +53,29 @@ CGFloat const kEdgePadding = 4;
 
 }
 
+#pragma mark - Touch Input
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    
+    if (CGRectContainsPoint(self.commentBubble.frame, point)) {
+        [self.delegate commentBubbleTapped:self];
+    } else {
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesMoved:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+}
+
+
 @end

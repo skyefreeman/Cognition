@@ -26,7 +26,7 @@
     self.webView.scrollView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
-
+    
     if (self.linkURL) {
         NSURLRequest *request = [NSURLRequest requestWithURL:self.linkURL];
         [self.webView loadRequest:request];
@@ -63,6 +63,12 @@
 
 - (CGPoint)translationWithScrollView:(UIScrollView*)scrollView {
     return [scrollView.panGestureRecognizer translationInView:scrollView.superview];
+}
+
+#pragma mark - dealloc
+- (void)dealloc {
+    NSLog(@"weblink dealloc called");
+    self.webView = nil;
 }
 
 @end

@@ -20,16 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [application setStatusBarHidden:YES];
-    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
+//    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
     HMainViewController *vc = [[HMainViewController alloc] init];
-
+    
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
 //    self.navController.navigationBar.translucent = NO;
-//    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor HNOrange]};
+    self.navController.navigationBar.tintColor = [UIColor HNOrange];
 //    self.navController.navigationBar.barTintColor = [UIColor lightGrayColor];
     
     self.window.rootViewController = self.navController;

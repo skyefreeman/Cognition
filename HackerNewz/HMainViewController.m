@@ -8,6 +8,7 @@
 
 #import "HMainViewController.h"
 #import "HWebLinkViewController.h"
+#import "HCommentViewController.h"
 
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
@@ -30,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setTitle:@"Top Stories"];
     
     self.tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
@@ -107,27 +108,39 @@
         return;
     }
     
-    HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
-    [webVC setLinkURL:[NSURL URLWithString:item.url]];
-    [self.navigationController pushViewController:webVC animated:YES];
+    [self pushToWebLinkViewController:[NSURL URLWithString:item.url]];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentBubbleTapped:(id)sender {
-    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self pushToCommentViewController];
     
-    // Load comments for news item
-    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
-    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
-        if (comments) {
-            NSLog(@"%@",comments);
-        } else {
-            NSLog(@"%@",error);
-        }
-    }];
+//    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//    
+//    // Load comments for news item
+//    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
+//    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
+//        if (comments) {
+//            NSLog(@"%@",comments);
+//        }
+//        
+//        else NSLog(@"%@",error);
+//    }];
+}
+
+#pragma mark - View Controller Navigation
+- (void)pushToWebLinkViewController:(NSURL*)linkURL {
+    HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
+    [webVC setLinkURL:linkURL];
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
+- (void)pushToCommentViewController {
+    HCommentViewController *commentVC = [[HCommentViewController alloc] init];
+    [self.navigationController pushViewController:commentVC animated:YES];
 }
 
 #pragma mark - Convenience

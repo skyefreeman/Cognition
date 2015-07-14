@@ -8,6 +8,8 @@
 
 #import "HHackerNewsItemCell.h"
 #import <TTTTimeIntervalFormatter.h>
+#import "HCommentBubble.h"
+#import <SFAdditions.h>
 
 NSString * const kNewsItemReuseIdentifier = @"TopStoryReuseIdentifier";
 CGFloat const kTopStoryCellHeight = 50;
@@ -15,12 +17,17 @@ CGFloat const kTopStoryCellHeight = 50;
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+@property (strong, nonatomic) HCommentBubble *commentCountBubble;
 @end
 
 @implementation HHackerNewsItemCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.commentCountBubble = [[HCommentBubble alloc] init];
+    self.commentCountBubble.center = CGPointMake(self.frame.size.width - self.commentCountBubble.frame.size.width/2 - 8, self.center.y);
+    [self addSubview:self.commentCountBubble];
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
@@ -35,6 +42,7 @@ CGFloat const kTopStoryCellHeight = 50;
     self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@ | %@",pointsString,authorString,timeString,commentsString];
     
     self.titleLabel.text = title;
+    [self.commentCountBubble setText:[NSString integerToString:comments]];
 }
 
 @end

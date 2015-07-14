@@ -33,7 +33,7 @@ CGFloat const kEdgePadding = 4;
     [self addSubview:self.commentBubble];
     
     self.commentBubblePointer = [[HCommentBubblePointer alloc] init];
-    [self.commentBubblePointer setPosition:CGPointMake(self.commentBubble.center.x - self.commentBubblePointer.width/2, self.commentBubble.height + self.commentBubblePointer.height - 1)];
+    [self.commentBubblePointer setPosition:CGPointMake(self.commentBubble.center.x - self.commentBubblePointer.width/2, self.commentBubble.height + self.commentBubblePointer.height - 1.5)];
     [self addSubview:self.commentBubblePointer];
 }
 

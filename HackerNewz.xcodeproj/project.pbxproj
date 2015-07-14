@@ -17,6 +17,7 @@
 		EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */; };
 		EE7ED0071B4CCD8E00A368DB /* UILabel+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */; };
 		EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D791B555A1600C26E58 /* HCommentBubble.m */; };
+		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */; };
 		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
@@ -77,6 +78,8 @@
 		EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HNAdditions.m"; sourceTree = "<group>"; };
 		EEA34D781B555A1600C26E58 /* HCommentBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubble.h; sourceTree = "<group>"; };
 		EEA34D791B555A1600C26E58 /* HCommentBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubble.m; sourceTree = "<group>"; };
+		EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubblePointer.h; sourceTree = "<group>"; };
+		EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubblePointer.m; sourceTree = "<group>"; };
 		EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebViewbar.h; sourceTree = "<group>"; };
 		EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewbar.m; sourceTree = "<group>"; };
 		EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNAdditions.h"; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */,
 				EEA34D781B555A1600C26E58 /* HCommentBubble.h */,
 				EEA34D791B555A1600C26E58 /* HCommentBubble.m */,
+				EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */,
+				EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */,
 				EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */,
 				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
+				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 			);

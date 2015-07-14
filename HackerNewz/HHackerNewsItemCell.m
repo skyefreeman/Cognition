@@ -9,15 +9,18 @@
 #import "HHackerNewsItemCell.h"
 #import <TTTTimeIntervalFormatter.h>
 #import "HCommentBubble.h"
+#import "HCommentBubblePointer.h"
 #import <SFAdditions.h>
 
 NSString * const kNewsItemReuseIdentifier = @"TopStoryReuseIdentifier";
 CGFloat const kTopStoryCellHeight = 50;
+CGFloat const kEdgePadding = 4;
 
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
-@property (strong, nonatomic) HCommentBubble *commentCountBubble;
+@property (strong, nonatomic) HCommentBubble *commentBubble;
+@property (strong, nonatomic) HCommentBubblePointer *commentBubblePointer;
 @end
 
 @implementation HHackerNewsItemCell
@@ -25,9 +28,13 @@ CGFloat const kTopStoryCellHeight = 50;
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.commentCountBubble = [[HCommentBubble alloc] init];
-    self.commentCountBubble.center = CGPointMake(self.frame.size.width - self.commentCountBubble.frame.size.width/2 - 8, self.center.y);
-    [self addSubview:self.commentCountBubble];
+    self.commentBubble = [[HCommentBubble alloc] init];
+    self.commentBubble.center = CGPointMake(self.width - self.commentBubble.width/2 - kEdgePadding, self.commentBubble.height/2 + kEdgePadding);
+    [self addSubview:self.commentBubble];
+    
+    self.commentBubblePointer = [[HCommentBubblePointer alloc] init];
+    [self.commentBubblePointer setPosition:CGPointMake(self.commentBubble.center.x - self.commentBubblePointer.width/2, self.commentBubble.height + self.commentBubblePointer.height - 1)];
+    [self addSubview:self.commentBubblePointer];
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
@@ -42,7 +49,8 @@ CGFloat const kTopStoryCellHeight = 50;
     self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@ | %@",pointsString,authorString,timeString,commentsString];
     
     self.titleLabel.text = title;
-    [self.commentCountBubble setText:[NSString integerToString:comments]];
+    [self.commentBubble setText:[NSString integerToString:comments]];
+
 }
 
 @end

@@ -56,12 +56,15 @@ int const kItemFetchCount = 30;
     }];
 }
 
-- (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(NSArray *comments, NSError *error))completion {
-    NSMutableArray *tempComments = [NSMutableArray array];
+- (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {
     NSString *comment = [NSString stringWithFormat:@"%@",[item.comments objectAtIndex:0]];
 
     [self itemWithID:comment completion:^(id story, NSError *error) {
-        NSLog(@"%@",story);
+        if (story) {
+            if (completion) completion(story,nil);
+        } else {
+            if (completion) completion(nil,error);
+        }
     }];
 }
 

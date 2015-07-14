@@ -15,7 +15,7 @@
 
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion;
 
-- (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(NSArray *comments, NSError *error))completion;
+- (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion;
 
 @end
 

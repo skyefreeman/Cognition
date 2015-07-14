@@ -66,14 +66,6 @@
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
         
-        // Test
-        
-        HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:1];
-        [self.requestModel getCommentsForItem:item completion:^(NSArray *comments, NSError *error) {
-            
-        }];
-        
-        //
         
         if (success) [self.tableView reloadData];
         else [self handleError:error];
@@ -124,7 +116,18 @@
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentBubbleTapped:(id)sender {
-    NSLog(@"this happend");
+    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    // Load comments for news item
+    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
+    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
+        if (comments) {
+            NSLog(@"%@",comments);
+        } else {
+            NSLog(@"%@",error);
+        }
+    }];
 }
 
 #pragma mark - Convenience

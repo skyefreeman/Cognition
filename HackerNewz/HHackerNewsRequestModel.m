@@ -20,40 +20,65 @@ int const kItemFetchCount = 30;
 
 @interface HHackerNewsRequestModel ()
 @property (nonatomic, readwrite) NSMutableArray *allStories;
-
 @end
 
 @implementation HHackerNewsRequestModel
 
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion {
-
-    // Populate array with null objects, to chain story requests
+    
     NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
     
-    // Get all top story id's
     [self topStories:^(id stories, NSError *error) {
+
         if (!error) {
+            dispatch_group_t group = dispatch_group_create();
             
-            // Get top 30 story item objects
             for (int i = 0; i < kItemFetchCount; i++) {
-                [self itemWithID:[stories objectAtIndex:i] completion:^(id story, NSError *error) {
-                    
-                    if (!error) {
-                        HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
-                        if (i < tempStories.count) [tempStories replaceObjectAtIndex:i withObject:item];
-                    }
-                    
-                    if (i == (kItemFetchCount - 1)) {
-                        self.allStories = [self checkForNilInArray:tempStories];
-                        if (completion) completion(YES, nil);
-                    }
+                dispatch_group_enter(group);
+                
+                [self itemWithID:stories[i] completion:^(id story, NSError *error) {
+                    dispatch_group_leave(group);
+                    HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
+                    [tempStories replaceObjectAtIndex:i withObject:item];
                 }];
             }
             
-        } else {
-            if (completion) completion(NO, error);
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                self.allStories = [NSMutableArray arrayWithArray:tempStories];
+                if (completion) completion(YES,nil);
+                NSLog(@"All Done!");
+            });
         }
     }];
+
+    
+//    // Populate array with null objects, to chain story requests
+//    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
+//
+//    // Get all top story id's
+//    [self topStories:^(id stories, NSError *error) {
+//        if (!error) {
+//            
+//            // Get top 30 story item objects
+//            for (int i = 0; i < kItemFetchCount; i++) {
+//                [self itemWithID:[stories objectAtIndex:i] completion:^(id story, NSError *error) {
+//                    
+//                    if (!error) {
+//                        HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
+//                        if (i < tempStories.count) [tempStories replaceObjectAtIndex:i withObject:item];
+//                    }
+//                    
+//                    if (i == (kItemFetchCount - 1)) {
+//                        self.allStories = [self checkForNilInArray:tempStories];
+//                        if (completion) completion(YES, nil);
+//                    }
+//                }];
+//            }
+//            
+//        } else {
+//            if (completion) completion(NO, error);
+//        }
+//    }];
 }
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {

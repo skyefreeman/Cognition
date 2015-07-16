@@ -117,18 +117,18 @@
 - (void)commentBubbleTapped:(id)sender {
     [self pushToCommentViewController];
     
-//    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//    
-//    // Load comments for news item
-//    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
-//    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
-//        if (comments) {
-//            NSLog(@"%@",comments);
-//        }
-//        
-//        else NSLog(@"%@",error);
-//    }];
+    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    // Load comments for news item
+    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
+    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
+        if (comments) {
+            NSLog(@"%@",comments);
+        } else {
+            NSLog(@"%@",error);
+        }
+    }];
 }
 
 #pragma mark - View Controller Navigation

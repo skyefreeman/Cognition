@@ -29,7 +29,6 @@ int const kItemFetchCount = 30;
     NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
     
     [self topStories:^(id stories, NSError *error) {
-
         if (!error) {
             dispatch_group_t group = dispatch_group_create();
             
@@ -37,6 +36,7 @@ int const kItemFetchCount = 30;
                 dispatch_group_enter(group);
                 
                 [self itemWithID:stories[i] completion:^(id story, NSError *error) {
+                    NSLog(@"%d",i);
                     dispatch_group_leave(group);
                     HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
                     [tempStories replaceObjectAtIndex:i withObject:item];
@@ -46,7 +46,6 @@ int const kItemFetchCount = 30;
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 self.allStories = [NSMutableArray arrayWithArray:tempStories];
                 if (completion) completion(YES,nil);
-                NSLog(@"All Done!");
             });
         }
     }];
@@ -82,15 +81,24 @@ int const kItemFetchCount = 30;
 }
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {
-    NSString *comment = [NSString stringWithFormat:@"%@",[item.comments objectAtIndex:0]];
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    NSMutableArray *tempComments = [NSMutableArray array];
+    for (int i = 0; i < item.comments.count; i++) {
+        dispatch_group_enter(group);
 
-    [self itemWithID:comment completion:^(id story, NSError *error) {
-        if (story) {
-            if (completion) completion(story,nil);
-        } else {
-            if (completion) completion(nil,error);
-        }
-    }];
+        NSString *comment = [NSString stringWithFormat:@"%@",item.comments[i]];
+        [self itemWithID:comment completion:^(id item, NSError *error) {
+            [tempComments addObject:item];
+            dispatch_group_leave(group);
+        }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        if (completion) completion(tempComments,nil);
+        NSLog(@"Done getting comments");
+    });
 }
 
 #pragma mark - Hacker News API Requests
@@ -99,7 +107,7 @@ int const kItemFetchCount = 30;
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }
 
-- (void)itemWithID:(NSString*)itemID completion:(void (^)(id story, NSError *error))completion {
+- (void)itemWithID:(NSString*)itemID completion:(void (^)(id item, NSError *error))completion {
     NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@/%@",kHNAPIAddress,kHNItemKey,itemID]];
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }

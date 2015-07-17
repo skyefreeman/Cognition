@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HTableView : UITableView
-- (instancetype)initWithFrame:(CGRect)frame estimatedRowHeight:(CGFloat)estHeight;
++ (instancetype)tableViewWithEstimatedRowHeight:(CGFloat)estHeight;
+- (instancetype)initWithEstimatedRowHeight:(CGFloat)estHeight;
 @end

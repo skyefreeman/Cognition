@@ -12,7 +12,6 @@
 #import "HCommentBubblePointer.h"
 #import <SFAdditions.h>
 
-NSString * const kNewsItemReuseIdentifier = @"TopStoryReuseIdentifier";
 CGFloat const kTopStoryCellHeight = 50;
 CGFloat const kEdgePadding = 4;
 

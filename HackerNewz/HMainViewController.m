@@ -6,21 +6,27 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
+// View Controllers
 #import "HMainViewController.h"
 #import "HWebLinkViewController.h"
 #import "HCommentViewController.h"
 
+// Categories
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
 #import "UIColor+HNAdditions.h"
 
-#import "HHackerNewsItemCell.h"
+// Views
+#import "HTableView.h"
+
+// Hacker News
 #import "HHackerNewsRequestModel.h"
+#import "HHackerNewsItemCell.h"
 #import "HHackerNewsItem.h"
 
 @interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate>
 
-@property (nonatomic) UITableView *tableView;
+@property (nonatomic) HTableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
 
 @property (nonatomic) NSMutableArray *topStories;
@@ -34,13 +40,9 @@
     
     [self setTitle:@"Top Stories"];
     
-    self.tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = kTopStoryCellHeight;
     [self.view addSubview:self.tableView];
     
     [self registerNibs];
@@ -55,7 +57,7 @@
 }
 
 - (void)registerNibs {
-    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:kNewsItemReuseIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
 }
 
 #pragma mark - Requests
@@ -91,7 +93,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
     
-    id cell = [tableView dequeueReusableCellWithIdentifier:kNewsItemReuseIdentifier];
+    id cell = [tableView dequeueReusableCellWithIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
     [cell setDelegate:self];
     [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
     

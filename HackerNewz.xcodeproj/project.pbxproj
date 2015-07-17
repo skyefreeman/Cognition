@@ -17,6 +17,8 @@
 		EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */; };
 		EE7ED0071B4CCD8E00A368DB /* UILabel+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */; };
 		EE9B05391B58B42F00260F69 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B05381B58B42F00260F69 /* HTableView.m */; };
+		EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B053F1B58B70B00260F69 /* HCommentCell.m */; };
+		EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9B05411B58B72100260F69 /* HCommentCell.xib */; };
 		EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D791B555A1600C26E58 /* HCommentBubble.m */; };
 		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */; };
@@ -80,6 +82,9 @@
 		EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HNAdditions.m"; sourceTree = "<group>"; };
 		EE9B05371B58B42F00260F69 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		EE9B05381B58B42F00260F69 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
+		EE9B053E1B58B70B00260F69 /* HCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentCell.h; sourceTree = "<group>"; };
+		EE9B053F1B58B70B00260F69 /* HCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentCell.m; sourceTree = "<group>"; };
+		EE9B05411B58B72100260F69 /* HCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCommentCell.xib; sourceTree = "<group>"; };
 		EEA34D781B555A1600C26E58 /* HCommentBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubble.h; sourceTree = "<group>"; };
 		EEA34D791B555A1600C26E58 /* HCommentBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubble.m; sourceTree = "<group>"; };
 		EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubblePointer.h; sourceTree = "<group>"; };
@@ -169,6 +174,9 @@
 				EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */,
 				EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */,
 				EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */,
+				EE9B053E1B58B70B00260F69 /* HCommentCell.h */,
+				EE9B053F1B58B70B00260F69 /* HCommentCell.m */,
+				EE9B05411B58B72100260F69 /* HCommentCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -406,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */,
+				EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */,
 				EEFDE9751B3B91D20035556D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +470,7 @@
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
+				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
 				EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */,
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,

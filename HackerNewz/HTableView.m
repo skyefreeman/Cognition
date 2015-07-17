@@ -10,8 +10,12 @@
 
 @implementation HTableView
 
-- (instancetype)initWithFrame:(CGRect)frame estimatedRowHeight:(CGFloat)estHeight {
-    self = [super initWithFrame:frame style:UITableViewStylePlain];
++ (instancetype)tableViewWithEstimatedRowHeight:(CGFloat)estHeight {
+    return [[self alloc] initWithEstimatedRowHeight:estHeight];
+}
+
+- (instancetype)initWithEstimatedRowHeight:(CGFloat)estHeight {
+    self = [super initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

@@ -49,7 +49,6 @@ CGFloat const kEdgePadding = 4;
     
     self.titleLabel.text = title;
     [self.commentBubble setText:[NSString integerToString:comments]];
-
 }
 
 #pragma mark - Touch Input

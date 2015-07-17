@@ -8,6 +8,8 @@
 
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItem.h"
+#import "HStory.h"
+#import "HComment.h"
 #import <AFNetworking.h>
 
 NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
@@ -35,11 +37,10 @@ int const kItemFetchCount = 30;
             for (int i = 0; i < kItemFetchCount; i++) {
                 dispatch_group_enter(group);
                 
-                [self itemWithID:stories[i] completion:^(id story, NSError *error) {
-                    NSLog(@"%d",i);
+                [self itemWithID:stories[i] completion:^(id storyDictionart, NSError *error) {
                     dispatch_group_leave(group);
-                    HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
-                    [tempStories replaceObjectAtIndex:i withObject:item];
+                    HStory *newStory = [HStory itemWithHNDictionary:storyDictionart];
+                    [tempStories replaceObjectAtIndex:i withObject:newStory];
                 }];
             }
             
@@ -90,7 +91,8 @@ int const kItemFetchCount = 30;
 
         NSString *comment = [NSString stringWithFormat:@"%@",item.comments[i]];
         [self itemWithID:comment completion:^(id item, NSError *error) {
-            [tempComments addObject:item];
+            HComment *newComment = [HComment itemWithHNDictionary:item];
+            [tempComments addObject:newComment];
             dispatch_group_leave(group);
         }];
     }

@@ -22,7 +22,7 @@
 // Hacker News
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItemCell.h"
-#import "HHackerNewsItem.h"
+#import "HStory.h"
 
 @interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate>
 
@@ -70,14 +70,14 @@
         [self.refreshControl endRefreshing];
         
         if (success) [self.tableView reloadData];
-        else [self handleError:error];
+        else [self handleError:error type:@"stories"];
         
     }];
 }
 
 #pragma mark - Error handling
-- (void)handleError:(NSError*)error {
-    [self showAlertWithTitle:@"Error" message:@"Problem getting stories. Check your internet connection."];
+- (void)handleError:(NSError*)error type:(NSString*)itemType{
+    [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem getting %@. Check your internet connection.",itemType]];
     NSLog(@"%@",error);
 }
 
@@ -91,8 +91,8 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HHackerNewsItem *item = (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
-    
+    HStory *item = (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
+
     id cell = [tableView dequeueReusableCellWithIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
     [cell setDelegate:self];
     [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
@@ -102,31 +102,31 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HHackerNewsItem *item = [self itemAtIndexPath:indexPath];
+    HStory *story = [self storyAtIndexPath:indexPath];
     
-    if (![item.url isNotEmptyString]) {
+    if (![story.url isNotEmptyString]) {
         [self showAlertWithTitle:@"Error" message:@"No URL for item"];
         return;
     }
     
-    [self pushToWebLinkViewController:[NSURL URLWithString:item.url]];
+    [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentBubbleTapped:(id)sender {
-    [self pushToCommentViewController];
     
     HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     // Load comments for news item
-    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
-    [self.requestModel getCommentsForItem:item completion:^(id comments, NSError *error) {
+    HStory *story = [self.requestModel.allStories objectAtIndex:indexPath.row];
+    [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
         if (comments) {
-            NSLog(@"%@",comments);
+            [self pushToCommentViewController:comments];
         } else {
+            [self handleError:error type:@"comments"];
             NSLog(@"%@",error);
         }
     }];
@@ -139,14 +139,15 @@
     [self.navigationController pushViewController:webVC animated:YES];
 }
 
-- (void)pushToCommentViewController {
+- (void)pushToCommentViewController:(NSArray*)comments {
     HCommentViewController *commentVC = [[HCommentViewController alloc] init];
+    [commentVC setAllComments:comments];
     [self.navigationController pushViewController:commentVC animated:YES];
 }
 
 #pragma mark - Convenience
-- (HHackerNewsItem*)itemAtIndexPath:(NSIndexPath*)indexPath {
-    return (HHackerNewsItem*)[self.requestModel.allStories objectAtIndex:indexPath.row];
+- (HStory*)storyAtIndexPath:(NSIndexPath*)indexPath {
+    return (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
 }
 
 @end

@@ -11,19 +11,21 @@
 @interface HHackerNewsItem : NSObject
 
 + (instancetype)itemWithHNDictionary:(id)dictionary;
+- (instancetype)initWithHNDictionary:(id)dictionary;
 
-@property (nonatomic) NSInteger ID;
-
-@property (nonatomic) NSString *title;
+@property (nonatomic) NSInteger itemID;
 @property (nonatomic) NSString *type;
-@property (nonatomic) NSString *url;
-@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *title;
 @property (nonatomic) NSString *author;
-
-@property (nonatomic) NSInteger commentCount;
-@property (nonatomic) NSArray *comments;
+@property (nonatomic) NSInteger time;
+@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *url;
 
 @property (nonatomic) NSInteger score;
-@property (nonatomic) NSInteger time;
+@property (nonatomic) NSArray *parts;
+
+@property (nonatomic) NSInteger parent;
+@property (nonatomic) NSArray *comments;
+@property (nonatomic) NSInteger commentCount;
 
 @end

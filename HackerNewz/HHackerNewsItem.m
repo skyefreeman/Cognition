@@ -7,39 +7,20 @@
 //
 
 #import "HHackerNewsItem.h"
-
-NSString * const kIDKey = @"id";
-NSString * const kTitleKey = @"title";
-NSString * const kTypeKey = @"type";
-NSString * const kURLKey = @"url";
-NSString * const kTextKey = @"text";
-NSString * const kDescendantsKey = @"descendants";
-NSString * const kKidsKey = @"kids";
-NSString * const kScoreKey = @"score";
-NSString * const kTimeKey = @"time";
-NSString * const kByKey = @"by";
+#import "HConstants.h"
 
 @implementation HHackerNewsItem
-
-- (instancetype)initWithHNDictionary:(id)dictionary {
-    self = [super init];
-    if (self) {
-        self.ID = [[dictionary objectForKey:kIDKey] integerValue];
-        self.title = [dictionary objectForKey:kTitleKey];
-        self.author = [dictionary objectForKey:kByKey];
-        self.type = [dictionary objectForKey:kTypeKey];
-        self.url = [dictionary objectForKey:kURLKey];
-        self.text = [dictionary objectForKey:kTextKey];
-        self.commentCount = [[dictionary objectForKey:kDescendantsKey] integerValue];
-        self.comments = [dictionary objectForKey:kKidsKey];
-        self.score = [[dictionary objectForKey:kScoreKey] integerValue];
-        self.time = [[dictionary objectForKey:kTimeKey] integerValue];
-    }
-    return self;
-}
 
 + (instancetype)itemWithHNDictionary:(id)dictionary {
     return [[self alloc] initWithHNDictionary:dictionary];
 }
+
+- (instancetype)initWithHNDictionary:(id)dictionary {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 
 @end

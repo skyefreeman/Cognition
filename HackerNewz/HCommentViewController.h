@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HCommentViewController : UIViewController
-
+@property (nonatomic) NSArray *allComments;
 @end

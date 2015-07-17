@@ -67,7 +67,6 @@
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
         
-        
         if (success) [self.tableView reloadData];
         else [self handleError:error];
         

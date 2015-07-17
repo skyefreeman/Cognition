@@ -8,6 +8,10 @@
 
 #import "HCommentViewController.h"
 
+@interface HCommentViewController()
+
+@end
+
 @implementation HCommentViewController
 
 - (void)viewDidLoad {
@@ -16,6 +20,5 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setTitle:@"Comments"];
 }
-
 
 @end

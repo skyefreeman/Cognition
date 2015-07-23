@@ -135,8 +135,9 @@
 #pragma mark - View Controller Navigation
 - (void)pushToWebLinkViewController:(NSURL*)linkURL {
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
+    [webVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [webVC setLinkURL:linkURL];
-    [self.navigationController pushViewController:webVC animated:YES];
+    [self presentViewController:webVC animated:YES completion:nil];
 }
 
 - (void)pushToCommentViewController:(NSArray*)comments {

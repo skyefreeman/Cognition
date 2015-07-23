@@ -25,16 +25,16 @@ CGFloat const kCommentCellHeight = 100.0;
 }
 
 - (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text {
-    if (author) {
-        self.authorLabel.text = [@"by " stringByAppendingString:author];
-    }
+    if (author) self.authorLabel.text = [@"by " stringByAppendingString:author];
     
-    self.commentLabel.attributedText = text;
-
-    NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
-    TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
-    NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
-    self.timeAgoLabel.text = timeString;
+    if (text) self.commentLabel.attributedText = text;
+    
+    if (time) {
+        NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
+        TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
+        NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
+        self.timeAgoLabel.text = timeString;
+    }
 }
 
 @end

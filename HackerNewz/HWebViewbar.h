@@ -22,6 +22,9 @@ typedef NS_ENUM(NSInteger, BarType) {
 + (instancetype)barWithType:(BarType)barType;
 - (instancetype)initWithBarType:(BarType)barType;
 
+- (void)fadeOut;
+- (void)fadeIn;
+
 - (void)fadeOutWithDuration:(CGFloat)duration;
 - (void)fadeInWithDuration:(CGFloat)duration;
 

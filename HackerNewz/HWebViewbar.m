@@ -9,6 +9,7 @@
 #import "HWebViewbar.h"
 
 CGFloat const kBarHeight = 40.0;
+CGFloat const kDefaultFadeTime = 0.25;
 
 typedef NS_ENUM(NSInteger, BarLayer) {
     BarLayerBackground = 0,
@@ -82,6 +83,14 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         self.userInteractionEnabled = YES;
         self.alpha = 1;
     }];
+}
+
+- (void)fadeOut {
+    [self fadeOutWithDuration:kDefaultFadeTime];
+}
+
+- (void)fadeIn {
+    [self fadeInWithDuration:kDefaultFadeTime];
 }
 
 #pragma mark - Setter Overrides

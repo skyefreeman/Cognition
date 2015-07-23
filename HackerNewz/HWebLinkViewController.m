@@ -7,13 +7,15 @@
 //
 
 #import "HWebLinkViewController.h"
+#import "HWebViewbar.h"
 #import "UIColor+HNAdditions.h"
 #import <SFAdditions.h>
 
 #define kBarFadeTime 0.2
 
-@interface HWebLinkViewController() <UIWebViewDelegate,UIScrollViewDelegate>
+@interface HWebLinkViewController() <UIWebViewDelegate,UIScrollViewDelegate,HWebViewBarDelegate>
 @property (nonatomic) UIWebView *webView;
+@property (nonatomic) HWebViewbar *webViewBar;
 @end
 
 @implementation HWebLinkViewController
@@ -26,6 +28,10 @@
     self.webView.scrollView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
+    
+    self.webViewBar = [[HWebViewbar alloc] initWithBarType:BarTypeBottom];
+    self.webViewBar.delegate = self;
+    [self.view addSubview:self.webViewBar];
     
     if (self.linkURL) {
         NSURLRequest *request = [NSURLRequest requestWithURL:self.linkURL];
@@ -44,6 +50,17 @@
 #pragma mark - HWebViewBar Delegate Methods
 - (void)webBarCancelButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIScrollview Delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self didScrollUp:scrollView]) {
+        [self.webViewBar fadeIn];
+    }
+    
+    if ([self didScrollDown:scrollView]) {
+        [self.webViewBar fadeOut];
+    }
 }
 
 #pragma mark - Convenience
@@ -67,7 +84,6 @@
 
 #pragma mark - dealloc
 - (void)dealloc {
-    NSLog(@"weblink dealloc called");
     self.webView = nil;
 }
 

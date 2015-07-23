@@ -44,9 +44,7 @@ CGFloat const kEdgePadding = 4;
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
 
-    NSString *commentsString = [NSString stringWithFormat:@"%lu comments",(long)comments];
-    self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@ | %@",pointsString,authorString,timeString,commentsString];
-    
+    self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pointsString,authorString,timeString];
     self.titleLabel.text = title;
     [self.commentBubble setText:[NSString integerToString:comments]];
 }

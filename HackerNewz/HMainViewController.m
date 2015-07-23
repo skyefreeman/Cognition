@@ -28,6 +28,7 @@
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) UISegmentedControl *segmentedControl;
 
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
@@ -39,20 +40,29 @@
     [super viewDidLoad];
     
     [self setTitle:@"Top Stories"];
+
+    CGFloat controlHeight = 22;
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Top", @"Latest"]];
+    self.segmentedControl.selectedSegmentIndex = 0;
+    self.segmentedControl.frame = CGRectMake(0, 44, self.view.width, controlHeight);
+    self.segmentedControl.backgroundColor = [UIColor whiteColor];
+    self.segmentedControl.tintColor = [UIColor HNOrange];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = self.segmentedControl;
     [self.view addSubview:self.tableView];
     
     [self registerNibs];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor HNOrange];
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:0.756 green:0.304 blue:0.283 alpha:1.000];
+;
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(requestTopStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
-
+    
     [self requestTopStories];
 }
 
@@ -112,6 +122,10 @@
     [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    
 }
 
 #pragma mark - HHackerNewsItemCell Delegate Methods

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "HComment.h"
 #import "HConstants.h"
 
@@ -17,9 +18,15 @@
         self.itemID = [[HNDictionary objectForKey:kIDKey] integerValue];
         self.comments = [HNDictionary objectForKey:kKidsKey];
         self.parent = [[HNDictionary objectForKey:kParentKey] integerValue];
-        self.text = [HNDictionary objectForKey:kTextKey];
         self.time = [[HNDictionary objectForKey:kTimeKey] integerValue];
         self.type = [HNDictionary objectForKey:kTypeKey];
+        
+        NSString *textObject = [HNDictionary objectForKey:kTextKey];
+        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[textObject dataUsingEncoding:NSUnicodeStringEncoding]
+                                                                               options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
+                                                                    documentAttributes:nil
+                                                                                  error:nil];
+        self.text = attributedString;
     }
     return self;
 }

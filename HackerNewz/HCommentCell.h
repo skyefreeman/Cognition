@@ -11,5 +11,5 @@
 extern CGFloat const kCommentCellHeight;
 
 @interface HCommentCell : UITableViewCell
-- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSString*)text;
+- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text;
 @end

@@ -18,7 +18,7 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSInteger time;
-@property (nonatomic) NSString *text;
+@property (nonatomic) NSAttributedString *text;
 @property (nonatomic) NSString *url;
 
 @property (nonatomic) NSInteger score;

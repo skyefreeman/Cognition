@@ -41,6 +41,7 @@
 - (void)registerNibs {
     [self.tableView registerNib:[UINib nibWithNibName:[HCommentCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HCommentCell standardReuseIdentifier]];
 }
+
 #pragma mark - UITableView Data Source Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

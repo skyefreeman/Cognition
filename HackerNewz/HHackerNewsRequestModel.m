@@ -50,35 +50,6 @@ int const kItemFetchCount = 30;
             });
         }
     }];
-
-    
-//    // Populate array with null objects, to chain story requests
-//    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
-//
-//    // Get all top story id's
-//    [self topStories:^(id stories, NSError *error) {
-//        if (!error) {
-//            
-//            // Get top 30 story item objects
-//            for (int i = 0; i < kItemFetchCount; i++) {
-//                [self itemWithID:[stories objectAtIndex:i] completion:^(id story, NSError *error) {
-//                    
-//                    if (!error) {
-//                        HHackerNewsItem *item = [HHackerNewsItem itemWithHNDictionary:story];
-//                        if (i < tempStories.count) [tempStories replaceObjectAtIndex:i withObject:item];
-//                    }
-//                    
-//                    if (i == (kItemFetchCount - 1)) {
-//                        self.allStories = [self checkForNilInArray:tempStories];
-//                        if (completion) completion(YES, nil);
-//                    }
-//                }];
-//            }
-//            
-//        } else {
-//            if (completion) completion(NO, error);
-//        }
-//    }];
 }
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {

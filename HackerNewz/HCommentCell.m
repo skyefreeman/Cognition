@@ -24,10 +24,13 @@ CGFloat const kCommentCellHeight = 100.0;
     [super awakeFromNib];
 }
 
-- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSString*)text {
+- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text {
+    if (author) {
+        self.authorLabel.text = [@"by " stringByAppendingString:author];
+    }
     
-    self.authorLabel.text = [@"by " stringByAppendingString:author];
-    self.commentLabel.attributedText = [[NSAttributedString alloc] initWithData:[text dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType} documentAttributes:nil error:nil];
+    self.commentLabel.attributedText = text;
+
     NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];

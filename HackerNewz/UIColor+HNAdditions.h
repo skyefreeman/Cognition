@@ -10,4 +10,6 @@
 
 @interface UIColor (HNAdditions)
 + (UIColor*)HNOrange;
++ (UIColor*)HNSystemBlue;
++ (UIColor*)HNLightGray;
 @end

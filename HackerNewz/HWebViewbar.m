@@ -7,6 +7,7 @@
 //
 
 #import "HWebViewbar.h"
+#import "UIColor+HNAdditions.h"
 
 CGFloat const kBarHeight = 40.0;
 CGFloat const kDefaultFadeTime = 0.25;
@@ -40,9 +41,7 @@ typedef NS_ENUM(NSInteger, BarLayer) {
             self.frame = CGRectMake(0, 0, screenRect.size.width, kBarHeight);
         }
         
-//        self.layer.borderColor = [UIColor blackColor].CGColor;
-//        self.layer.borderWidth = 0.5;
-        self.barColor = [UIColor colorWithWhite:0.886 alpha:1.000];
+        self.barColor = [UIColor HNLightGray];
         self.hasBlur = NO;
         
         CGSize buttonSize = CGSizeMake(20, 20);
@@ -52,7 +51,7 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
         self.cancelButton.center = CGPointMake(buttonSize.width, self.frame.size.height/2);
         [self.cancelButton setImage:cancelButtonImage forState:UIControlStateNormal];
-        [self.cancelButton setTintColor:[UIColor colorWithRed:0.000 green:0.479 blue:1.000 alpha:1.000]];
+        [self.cancelButton setTintColor:[UIColor HNOrange]];
         [self.cancelButton addTarget:self action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.cancelButton atIndex:BarLayerButton];
     }
@@ -103,9 +102,12 @@ typedef NS_ENUM(NSInteger, BarLayer) {
     if (hasBlur && !self.blurView) {
         self.barColor = [UIColor clearColor];
         
-        self.blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        self.blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
         [self.blurView setFrame:self.bounds];
         [self insertSubview:self.blurView atIndex:BarLayerBlur];
+        
+        [self.cancelButton removeFromSuperview];
+        [self.blurView.contentView addSubview:self.cancelButton];
     }
     else if (!hasBlur && self.blurView){
         [self.blurView removeFromSuperview];

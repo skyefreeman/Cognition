@@ -57,13 +57,17 @@
     [self registerNibs];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor colorWithRed:0.756 green:0.304 blue:0.283 alpha:1.000];
-;
-    self.refreshControl.tintColor = [UIColor whiteColor];
+    self.refreshControl.backgroundColor = [UIColor HNLightGray];
+    self.refreshControl.tintColor = [UIColor HNOrange];
     [self.refreshControl addTarget:self action:@selector(requestTopStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     [self requestTopStories];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)registerNibs {
@@ -124,10 +128,6 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    
-}
-
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentBubbleTapped:(id)sender {
     
@@ -137,6 +137,8 @@
     // Load comments for news item
     HStory *story = [self.requestModel.allStories objectAtIndex:indexPath.row];
     [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
+        [sender commentLoadingViewVisible:NO];
+
         if (comments) {
             [self pushToCommentViewController:comments];
         } else {

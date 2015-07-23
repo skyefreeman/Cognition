@@ -7,6 +7,7 @@
 //
 
 #import "HHackerNewsItemCell.h"
+#import "UIColor+HNAdditions.h"
 #import <TTTTimeIntervalFormatter.h>
 #import "HCommentBubble.h"
 #import "HCommentBubblePointer.h"
@@ -18,6 +19,8 @@ CGFloat const kEdgePadding = 4;
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) HCommentBubble *commentBubble;
 @property (strong, nonatomic) HCommentBubblePointer *commentBubblePointer;
 @end
@@ -34,6 +37,12 @@ CGFloat const kEdgePadding = 4;
     self.commentBubblePointer = [[HCommentBubblePointer alloc] init];
     [self.commentBubblePointer setPosition:CGPointMake(self.commentBubble.center.x - self.commentBubblePointer.width/2, self.commentBubble.height + self.commentBubblePointer.height - 1.5)];
     [self addSubview:self.commentBubblePointer];
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc] init];
+    [self.activityIndicator setColor:[UIColor HNOrange]];
+    [self.activityIndicator setCenter:self.commentBubble.center];
+    [self.activityIndicator setAlpha:0];
+    [self addSubview:self.activityIndicator];
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
@@ -55,6 +64,7 @@ CGFloat const kEdgePadding = 4;
     CGPoint point = [touch locationInView:self];
     
     if (CGRectContainsPoint(self.commentBubble.frame, point)) {
+        [self commentLoadingViewVisible:YES];
         [self.delegate commentBubbleTapped:self];
     } else {
         [super touchesBegan:touches withEvent:event];
@@ -73,5 +83,25 @@ CGFloat const kEdgePadding = 4;
     [super touchesCancelled:touches withEvent:event];
 }
 
+#pragma mark - Comment Bubble
+- (void)commentLoadingViewVisible:(BOOL)isVisible {
+    [self activityIndicatorVisible:(isVisible) ? YES : NO];
+    [self commentBubbleVisible:(isVisible) ? NO : YES];
+}
+
+- (void)activityIndicatorVisible:(BOOL)isVisible {
+    self.activityIndicator.alpha = isVisible;
+    
+    if (isVisible) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
+}
+
+- (void)commentBubbleVisible:(BOOL)isVisible {
+    self.commentBubble.alpha = isVisible;
+    self.commentBubblePointer.alpha = isVisible;
+}
 
 @end

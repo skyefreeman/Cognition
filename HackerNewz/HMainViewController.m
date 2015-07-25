@@ -47,6 +47,8 @@
     
     [self registerNibs];
     
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(menuButtonTouched:)]];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];
@@ -54,6 +56,10 @@
     [self.tableView addSubview:self.refreshControl];
     
     [self requestTopStories];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,6 +90,11 @@
 - (void)handleError:(NSError*)error type:(NSString*)itemType{
     [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem getting %@. Check your internet connection.",itemType]];
     NSLog(@"%@",error);
+}
+
+#pragma mark - Menu Actions
+- (void)menuButtonTouched:(id)sender {
+    NSLog(@"This happend");
 }
 
 #pragma mark - UITableView Data Source Methods

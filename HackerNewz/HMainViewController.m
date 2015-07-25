@@ -28,7 +28,6 @@
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
-@property (nonatomic) UISegmentedControl *segmentedControl;
 
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
@@ -40,18 +39,10 @@
     [super viewDidLoad];
     
     [self setTitle:@"Top Stories"];
-
-    CGFloat controlHeight = 22;
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Top", @"Latest"]];
-    self.segmentedControl.selectedSegmentIndex = 0;
-    self.segmentedControl.frame = CGRectMake(0, 44, self.view.width, controlHeight);
-    self.segmentedControl.backgroundColor = [UIColor whiteColor];
-    self.segmentedControl.tintColor = [UIColor HNOrange];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.tableHeaderView = self.segmentedControl;
     [self.view addSubview:self.tableView];
     
     [self registerNibs];

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FormatterKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E6D8F656C4885BA8B035CD36</key>
+		<key>08B29815314B3B0B354A69CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F55FA856EA60A1413611F9F6</key>
+		<key>12DB08B7FB6F6250D721AB06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9E12A6FDD3CDC9D858C694D</key>
+		<key>2B978EBDCB6BF2B810E08F9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA887B2E9AE45A2FB6E848E5</key>
+		<key>40F5226B1D955B44EA2D9F09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D7B19BF3EDB4E2C78BAAF4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

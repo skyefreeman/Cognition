@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40F5226B1D955B44EA2D9F09"
-               BuildableName = "libPods-TTTAttributedLabel.a"
-               BlueprintName = "Pods-TTTAttributedLabel"
+               BlueprintIdentifier = "7D7B19BF3EDB4E2C78BAAF4C"
+               BuildableName = "libPods-DropdownMenu.a"
+               BlueprintName = "Pods-DropdownMenu"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

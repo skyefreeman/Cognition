@@ -152,6 +152,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE25AB501B6320AC00C78B54 /* CommentBubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				EEA34D781B555A1600C26E58 /* HCommentBubble.h */,
+				EEA34D791B555A1600C26E58 /* HCommentBubble.m */,
+				EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */,
+				EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */,
+			);
+			name = CommentBubbleView;
+			sourceTree = "<group>";
+		};
+		EE25AB521B6320D000C78B54 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */,
+				EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
+		EE25AB531B6320D900C78B54 /* DropdownMenuView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DropdownMenuView;
+			sourceTree = "<group>";
+		};
 		EE36E0341B3E45020053C3B5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				EE770A401B4102E700ABDD60 /* Cells */,
-				EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */,
-				EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */,
-				EEA34D781B555A1600C26E58 /* HCommentBubble.h */,
-				EEA34D791B555A1600C26E58 /* HCommentBubble.m */,
-				EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */,
-				EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */,
+				EE25AB531B6320D900C78B54 /* DropdownMenuView */,
+				EE25AB521B6320D000C78B54 /* WebView */,
+				EE25AB501B6320AC00C78B54 /* CommentBubbleView */,
 				EE9B05371B58B42F00260F69 /* HTableView.h */,
 				EE9B05381B58B42F00260F69 /* HTableView.m */,
 			);

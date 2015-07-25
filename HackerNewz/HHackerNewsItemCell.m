@@ -14,7 +14,7 @@
 #import <SFAdditions.h>
 
 CGFloat const kTopStoryCellHeight = 50;
-CGFloat const kEdgePadding = 4;
+CGFloat const kEdgePadding = 8;
 
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -30,19 +30,19 @@ CGFloat const kEdgePadding = 4;
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.commentBubble = [[HCommentBubble alloc] init];
-    self.commentBubble.center = CGPointMake(self.width - self.commentBubble.width/2 - kEdgePadding, self.commentBubble.height/2 + kEdgePadding);
-    [self addSubview:self.commentBubble];
+    _commentBubble = [[HCommentBubble alloc] init];
+    _commentBubble.center = CGPointMake(self.width - _commentBubble.width/2 - kEdgePadding, _commentBubble.height/2 + kEdgePadding);
+    [self addSubview:_commentBubble];
     
-    self.commentBubblePointer = [[HCommentBubblePointer alloc] init];
-    [self.commentBubblePointer setPosition:CGPointMake(self.commentBubble.center.x - self.commentBubblePointer.width/2, self.commentBubble.height + self.commentBubblePointer.height - 1.5)];
-    [self addSubview:self.commentBubblePointer];
+    _commentBubblePointer = [[HCommentBubblePointer alloc] init];
+    [_commentBubblePointer setPosition:CGPointMake(_commentBubble.center.x - _commentBubblePointer.width/2, _commentBubble.center.y + _commentBubble.height/2 - .25)];
+    [self addSubview:_commentBubblePointer];
     
-    self.activityIndicator = [[UIActivityIndicatorView alloc] init];
-    [self.activityIndicator setColor:[UIColor HNOrange]];
-    [self.activityIndicator setCenter:self.commentBubble.center];
-    [self.activityIndicator setAlpha:0];
-    [self addSubview:self.activityIndicator];
+    _activityIndicator = [[UIActivityIndicatorView alloc] init];
+    [_activityIndicator setColor:[UIColor HNOrange]];
+    [_activityIndicator setCenter:_commentBubble.center];
+    [_activityIndicator setAlpha:0];
+    [self addSubview:_activityIndicator];
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
@@ -55,7 +55,7 @@ CGFloat const kEdgePadding = 4;
 
     self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pointsString,authorString,timeString];
     self.titleLabel.text = title;
-    [self.commentBubble setText:[NSString integerToString:comments]];
+    [_commentBubble setText:[NSString integerToString:comments]];
 }
 
 #pragma mark - Touch Input
@@ -63,7 +63,7 @@ CGFloat const kEdgePadding = 4;
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
     
-    if (CGRectContainsPoint(self.commentBubble.frame, point)) {
+    if (CGRectContainsPoint(_commentBubble.frame, point)) {
         [self commentLoadingViewVisible:YES];
         [self.delegate commentBubbleTapped:self];
     } else {
@@ -90,18 +90,18 @@ CGFloat const kEdgePadding = 4;
 }
 
 - (void)activityIndicatorVisible:(BOOL)isVisible {
-    self.activityIndicator.alpha = isVisible;
+    _activityIndicator.alpha = isVisible;
     
     if (isVisible) {
-        [self.activityIndicator startAnimating];
+        [_activityIndicator startAnimating];
     } else {
-        [self.activityIndicator stopAnimating];
+        [_activityIndicator stopAnimating];
     }
 }
 
 - (void)commentBubbleVisible:(BOOL)isVisible {
-    self.commentBubble.alpha = isVisible;
-    self.commentBubblePointer.alpha = isVisible;
+    _commentBubble.alpha = isVisible;
+    _commentBubblePointer.alpha = isVisible;
 }
 
 @end

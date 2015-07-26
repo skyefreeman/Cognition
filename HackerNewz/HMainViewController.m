@@ -15,6 +15,7 @@
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
 #import "UIColor+HNAdditions.h"
+#import "UIImage+HNAdditions.h"
 
 // Views
 #import "HTableView.h"
@@ -47,8 +48,11 @@
     
     [self registerNibs];
     
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(menuButtonTouched:)]];
-    
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
+//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
+//                                                                                            target:self
+//                                                                                            action:@selector(menuButtonTouched:)]];
+
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];

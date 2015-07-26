@@ -48,12 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
-// DropdownMenu
-#define COCOAPODS_POD_AVAILABLE_DropdownMenu
-#define COCOAPODS_VERSION_MAJOR_DropdownMenu 1
-#define COCOAPODS_VERSION_MINOR_DropdownMenu 0
-#define COCOAPODS_VERSION_PATCH_DropdownMenu 0
-
 // FormatterKit
 #define COCOAPODS_POD_AVAILABLE_FormatterKit
 #define COCOAPODS_VERSION_MAJOR_FormatterKit 1

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5293F574F6E56592A9E5565E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89670AC767FE1FBC7403C98 /* libPods.a */; };
+		EE17E8AB1B645B01004A8E37 /* UIImage+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */; };
 		EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */; };
 		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
 		EE770A3C1B40FE9200ABDD60 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE770A371B40FE0700ABDD60 /* libSFAdditions.a */; };
@@ -68,6 +69,8 @@
 		B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E91381F004431C273EA5BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D89670AC767FE1FBC7403C98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE17E8A91B645B01004A8E37 /* UIImage+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HNAdditions.h"; sourceTree = "<group>"; };
+		EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HNAdditions.m"; sourceTree = "<group>"; };
 		EE36E0351B3E45460053C3B5 /* HHackerNewsRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsRequestModel.h; sourceTree = "<group>"; };
 		EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsRequestModel.m; sourceTree = "<group>"; };
 		EE36E0391B3FB7AB0053C3B5 /* HHackerNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItem.h; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */,
 				EE7ED0051B4CCD8E00A368DB /* UILabel+HNAdditions.h */,
 				EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */,
+				EE17E8A91B645B01004A8E37 /* UIImage+HNAdditions.h */,
+				EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
 				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
+				EE17E8AB1B645B01004A8E37 /* UIImage+HNAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

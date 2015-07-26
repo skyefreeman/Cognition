@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DropdownMenuController.h>
 
-@interface HMainViewController : DropdownMenuController
+@interface HMainViewController : UIViewController
 @end

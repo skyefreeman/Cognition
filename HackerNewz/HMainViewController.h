@@ -10,3 +10,7 @@
 
 @interface HMainViewController : UIViewController
 @end
+
+@interface UINavigationController (MainViewControllerAdditions)
+- (CGFloat)barHeight;
+@end

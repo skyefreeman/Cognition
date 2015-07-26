@@ -19,6 +19,7 @@
 
 // Views
 #import "HTableView.h"
+#import "HDropdownMenuView.h"
 
 // Hacker News
 #import "HHackerNewsRequestModel.h"
@@ -29,6 +30,7 @@
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) HDropdownMenuView *dropdownMenu;
 
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
@@ -49,10 +51,11 @@
     [self registerNibs];
     
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
-//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
-//                                                                                            target:self
-//                                                                                            action:@selector(menuButtonTouched:)]];
 
+    CGFloat dropdownMenuHeight = 200;
+    self.dropdownMenu = [[HDropdownMenuView alloc] initWithFrame:CGRectMake(0, self.navigationController.barHeight - dropdownMenuHeight, self.view.width, dropdownMenuHeight)];
+    [self.view addSubview:self.dropdownMenu];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];
@@ -98,7 +101,8 @@
 
 #pragma mark - Menu Actions
 - (void)menuButtonTouched:(id)sender {
-    NSLog(@"This happend");
+    BOOL direction = (self.dropdownMenu.isActive) ? SlideDirectionOut : SlideDirectionIn;
+    [self.dropdownMenu slide:direction];
 }
 
 #pragma mark - UITableView Data Source Methods
@@ -173,4 +177,10 @@
     return (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
 }
 
+@end
+
+@implementation UINavigationController (MainViewControllerAdditions)
+- (CGFloat)barHeight {
+    return self.navigationBar.height;
+}
 @end

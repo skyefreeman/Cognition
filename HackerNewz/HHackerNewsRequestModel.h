@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "HHackerNewsItem.h"
 
+typedef NS_ENUM(NSInteger, RequestType) {
+    RequestTypeTopStories = 0,
+    RequestTypeLatestStories,
+};
+
 @interface HHackerNewsRequestModel : NSObject
 
+@property (nonatomic) RequestType requestType;
 @property (nonatomic, readonly) NSMutableArray *allStories;
 
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion;
+- (void)getLatestStories:(void (^)(BOOL success, NSError *error))completion;
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion;
 

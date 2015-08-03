@@ -16,6 +16,7 @@ NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
 
 NSString * kHNItemKey = @"item";
 NSString * kHNTopStoriesKey = @"topstories";
+NSString * kHNNewStoriesKey = @"newstories";
 NSString * kHNCommentsKey = @"kids";
 
 int const kItemFetchCount = 30;
@@ -27,27 +28,23 @@ int const kItemFetchCount = 30;
 @implementation HHackerNewsRequestModel
 
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion {
-    
-    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
-    
-    [self topStories:^(id stories, NSError *error) {
+    self.requestType = RequestTypeTopStories;
+    [self topStories:^(id items, NSError *error) {
         if (!error) {
-            dispatch_group_t group = dispatch_group_create();
-            
-            for (int i = 0; i < kItemFetchCount; i++) {
-                dispatch_group_enter(group);
-                
-                [self itemWithID:stories[i] completion:^(id storyDictionart, NSError *error) {
-                    dispatch_group_leave(group);
-                    HStory *newStory = [HStory itemWithHNDictionary:storyDictionart];
-                    [tempStories replaceObjectAtIndex:i withObject:newStory];
-                }];
-            }
-            
-            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-                self.allStories = [NSMutableArray arrayWithArray:tempStories];
-                if (completion) completion(YES,nil);
-            });
+            [self parseItemsIntoStories:items withCompletion:^{
+                completion(YES,nil);
+            }];
+        }
+    }];
+}
+
+- (void)getLatestStories:(void (^)(BOOL success, NSError *error))completion {
+    self.requestType = RequestTypeLatestStories;
+    [self newStories:^(id items, NSError *error) {
+        if (!error) {
+            [self parseItemsIntoStories:items withCompletion:^{
+                completion(YES,nil);
+            }];
         }
     }];
 }
@@ -74,9 +71,37 @@ int const kItemFetchCount = 30;
     });
 }
 
+#pragma mark - Parsing Individual Stories
+- (void)parseItemsIntoStories:(id)items withCompletion:(void (^)())completion {
+    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
+
+    dispatch_group_t group = dispatch_group_create();
+    
+    for (int i = 0; i < kItemFetchCount; i++) {
+        dispatch_group_enter(group);
+        
+        [self itemWithID:items[i] completion:^(id storyDictionary, NSError *error) {
+            dispatch_group_leave(group);
+            HStory *newStory = [HStory itemWithHNDictionary:storyDictionary];
+            NSLog(@"Time : %lu",newStory.time);
+            [tempStories replaceObjectAtIndex:i withObject:newStory];
+        }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        self.allStories = [NSMutableArray arrayWithArray:tempStories];
+        if (completion) completion();
+    });
+}
+
 #pragma mark - Hacker News API Requests
 - (void)topStories:(void (^)(id stories, NSError *error))completion {
     NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@",kHNAPIAddress,kHNTopStoriesKey]];
+    [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
+}
+
+- (void)newStories:(void (^)(id stories, NSError *error))completion {
+    NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@",kHNAPIAddress,kHNNewStoriesKey]];
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }
 

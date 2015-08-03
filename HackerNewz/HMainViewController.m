@@ -49,7 +49,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self requestTopStories];
+    [self requestStories];
 }
 
 #pragma mark - View Customization
@@ -76,22 +76,43 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];
-    [self.refreshControl addTarget:self action:@selector(requestTopStories) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(requestStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 }
 
 #pragma mark - Requests
-- (void)requestTopStories {
+- (void)requestStories {
     if (!self.requestModel) {
         self.requestModel = [[HHackerNewsRequestModel alloc] init];
     }
+    
+    switch (self.requestModel.requestType) {
+        case RequestTypeTopStories: {
+            [self requestTopStories];
+            break;
+        }
+        case RequestTypeLatestStories: {
+            [self requestLatestStories];
+            break;
+        }
+    }
+}
 
+- (void)requestTopStories {
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
         
         if (success) [self.tableView reloadData];
         else [self handleError:error type:@"stories"];
+    }];
+}
+
+- (void)requestLatestStories {
+    [self.requestModel getLatestStories:^(BOOL success, NSError *error) {
+        [self.refreshControl endRefreshing];
         
+        if (success) [self.tableView reloadData];
+        else [self handleError:error type:@"stories"];
     }];
 }
 
@@ -105,6 +126,18 @@
 - (void)didSelectItemAtRow:(NSInteger)row {
     [self toggleDropdownMenuSlide];
     [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
+    
+    if (row == RequestTypeTopStories) {
+        [self requestTopStories];
+    }
+    
+    else if (row == RequestTypeLatestStories) {
+        [self requestLatestStories];
+    }
+    
+    else if (row == 2) {
+        
+    }
 }
 
 #pragma mark - Dropdown Menu
@@ -174,7 +207,6 @@
         }
     }];
 }
-
 
 #pragma mark - View Controller Navigation
 - (void)pushToWebLinkViewController:(NSURL*)linkURL {

@@ -115,6 +115,7 @@
 #pragma mark - HDropdownMenuView Delegate Methods
 - (void)didSelectItemAtRow:(NSInteger)row {
     [self.dropdownMenu toggleSlide];
+    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
 }
 
 #pragma mark - UITableView Data Source Methods

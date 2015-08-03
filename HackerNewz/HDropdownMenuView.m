@@ -14,8 +14,9 @@
 CGFloat const kDefaultCellHeight = 40.0;
 
 @interface HDropdownMenuView()
-@property (nonatomic) NSArray *items;
+@property (nonatomic, readwrite) NSArray *items;
 @property (nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) CGPoint startPoint;
 @end
 
 @implementation HDropdownMenuView
@@ -126,9 +127,7 @@ CGFloat const kDefaultCellHeight = 40.0;
 
 - (NSInteger)rowForTouch:(UITouch*)touch {
     NSInteger locationY = (NSInteger)[touch locationInView:self].y;
-    NSInteger viewHeight = (NSInteger)self.height;
-    NSLog(@"location:%lu height:%lu row:%lu",locationY,viewHeight,viewHeight/locationY);
-    return viewHeight / locationY;
+    return locationY / [self cellHeight];
 }
 
 @end

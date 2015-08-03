@@ -33,5 +33,5 @@ typedef NS_ENUM(NSInteger, RequestType) {
 @end
 
 @interface NSMutableArray (HNAdditions)
-+ (NSMutableArray*)arrayWithNullObjectCount:(int)count;
++ (NSMutableArray*)arrayWithNullObjectCount:(NSInteger)count;
 @end

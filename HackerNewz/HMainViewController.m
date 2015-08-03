@@ -122,7 +122,10 @@
 
 - (void)requestJobStories {
     [self.requestModel getJobStories:^(BOOL success, NSError *error) {
+        [self.refreshControl endRefreshing];
         
+        if (success) [self.tableView reloadData];
+        else [self handleError:error type:@"stories"];
     }];
 }
 

@@ -10,6 +10,7 @@
 #import "HHackerNewsItem.h"
 #import "HStory.h"
 #import "HComment.h"
+#import "HJob.h"
 #import <AFNetworking.h>
 
 NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
@@ -20,7 +21,7 @@ NSString * kHNNewStoriesKey = @"newstories";
 NSString * kHNJobStoriesKey = @"jobstories";
 NSString * kHNCommentsKey = @"kids";
 
-int const kItemFetchCount = 30;
+int const kDefaultItemFetchCount = 30;
 
 @interface HHackerNewsRequestModel ()
 @property (nonatomic, readwrite) NSMutableArray *allStories;
@@ -54,7 +55,9 @@ int const kItemFetchCount = 30;
     self.requestType = RequestTypeJobStories;
     [self jobStories:^(id jobs, NSError *error) {
         if (!error) {
-            NSLog(@"%@",jobs);
+            [self parseItemsIntoStories:jobs withCompletion:^{
+                completion(YES,nil);
+            }];
         }
     }];
 }
@@ -83,17 +86,31 @@ int const kItemFetchCount = 30;
 
 #pragma mark - Parsing Individual Stories
 - (void)parseItemsIntoStories:(id)items withCompletion:(void (^)())completion {
-    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:kItemFetchCount];
-
+    NSInteger totalItemCount = [items count];
+    NSInteger fetchCount = (totalItemCount > kDefaultItemFetchCount) ? kDefaultItemFetchCount : totalItemCount;
+    NSMutableArray *tempStories = [NSMutableArray arrayWithNullObjectCount:fetchCount];
+    
     dispatch_group_t group = dispatch_group_create();
     
-    for (int i = 0; i < kItemFetchCount; i++) {
+    for (int i = 0; i < fetchCount; i++) {
         dispatch_group_enter(group);
         
         [self itemWithID:items[i] completion:^(id storyDictionary, NSError *error) {
             dispatch_group_leave(group);
-            HStory *newStory = [HStory itemWithHNDictionary:storyDictionary];
-            [tempStories replaceObjectAtIndex:i withObject:newStory];
+            
+            HHackerNewsItem *newsItem;
+            switch (self.requestType) {
+                case RequestTypeJobStories: {
+                    newsItem = [HJob itemWithHNDictionary:storyDictionary];
+                    break;
+                }
+                default: {
+                    newsItem = [HStory itemWithHNDictionary:storyDictionary];
+                    break;
+                }
+            }
+            
+            [tempStories replaceObjectAtIndex:i withObject:newsItem];
         }];
     }
     
@@ -158,9 +175,9 @@ int const kItemFetchCount = 30;
 @end
 
 @implementation NSMutableArray (SFAdditions)
-+ (NSMutableArray*)arrayWithNullObjectCount:(int)count {
++ (NSMutableArray*)arrayWithNullObjectCount:(NSInteger)count {
     NSMutableArray *nullArray = [NSMutableArray array];
-    for (int i = 0 ; i<count; i++) {
+    for (int i = 0 ; i < count; i++) {
         [nullArray addObject:[NSNull null]];
     }
     return nullArray;

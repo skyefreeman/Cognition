@@ -11,6 +11,10 @@
 #import <SFAdditions.h>
 #import "UIColor+HNAdditions.h"
 
+@interface HDropdownMenuView()
+@property (nonatomic) NSInteger cellCount;
+@end
+
 @implementation HDropdownMenuView {
     BOOL _isAnimating;
 }
@@ -26,12 +30,41 @@
         self.startPoint = self.position;
         self.menuActive = NO;
         
+        self.cellCount = 3;
+        [self configureCells];
+        
         _isAnimating = NO;
     }
     return self;
 }
 
 #pragma mark - Private Functions
+
+- (void)configureCells {
+    CGRect viewFrame = self.frame;
+    NSInteger cellCount = self.cellCount;
+    CGFloat cellHeight = viewFrame.size.height/self.cellCount;
+    
+    for (int i = 1; i < cellCount; i++) {
+        [self addSubview:[self spacerWithY:cellHeight * i]];
+    }
+
+    
+//    |-----
+//    | CELL
+//    |-----
+//    | CELL
+//    |-----
+//    | CELL
+//    |-----
+}
+
+- (UIView*)spacerWithY:(CGFloat)yOrigin {
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yOrigin, self.width, 1)];
+    NSLog(@"%@",line);
+    line.backgroundColor = [UIColor whiteColor];
+    return line;
+}
 
 #pragma mark - Public Functions
 - (void)slide:(SlideDirection)direction {

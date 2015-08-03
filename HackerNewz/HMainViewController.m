@@ -43,31 +43,42 @@
     
     [self setTitle:@"Top Stories"];
     
+    [self configureSubviews];
+    [self registerNibs];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestTopStories];
+}
+
+#pragma mark - View Customization
+- (void)registerNibs {
+    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
+}
+
+- (void)configureSubviews {
+    // Table view
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    [self registerNibs];
-    
+    // Navigation bar
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
+    // Dropdown menu
     CGFloat dropdownMenuHeight = 200;
     CGRect menuFrame = CGRectMake(0, -dropdownMenuHeight, self.view.width, dropdownMenuHeight);
     self.dropdownMenu = [HDropdownMenuView menuWithFrame:menuFrame];
     [self.view addSubview:self.dropdownMenu];
     
+    // Table view refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];
     [self.refreshControl addTarget:self action:@selector(requestTopStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
-    
-    [self requestTopStories];
-}
-
-- (void)registerNibs {
-    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
 }
 
 #pragma mark - Requests

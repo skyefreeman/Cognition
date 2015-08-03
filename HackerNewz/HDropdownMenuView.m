@@ -11,37 +11,42 @@
 #import <SFAdditions.h>
 #import "UIColor+HNAdditions.h"
 
+CGFloat const kDefaultCellHeight = 40.0;
+
 @interface HDropdownMenuView()
-@property (nonatomic) NSInteger cellCount;
+@property (nonatomic) NSArray *items;
+@property (nonatomic, getter=isAnimating) BOOL animating;
 @end
 
-@implementation HDropdownMenuView {
-    BOOL _isAnimating;
+@implementation HDropdownMenuView
+
++ (instancetype)menuWithItems:(NSArray*)items {
+    return [[self alloc] initWithMenuItems:items];
 }
 
-+ (instancetype)menuWithFrame:(CGRect)frame {
-    return [[self alloc] initWithFrame:frame];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithMenuItems:(NSArray*)items {
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    CGFloat menuHeight = kDefaultCellHeight * items.count;
+    CGRect menuFrame = CGRectMake(0, -menuHeight, screenSize.size.width, menuHeight);
+    
+    self = [super initWithFrame:menuFrame];
     if (self) {
         self.backgroundColor = [UIColor HNDarkGray];
         self.startPoint = self.position;
         self.menuActive = NO;
         
-        self.cellCount = 3;
+        self.items = items;
         [self configureCellsSpacers];
         [self configureCellTitles];
         
-        _isAnimating = NO;
+        self.animating = NO;
     }
     return self;
 }
 
 #pragma mark - Cell Spacers
 - (void)configureCellsSpacers {
-    for (int i = 1; i < _cellCount; i++) {
+    for (int i = 1; i < self.items.count; i++) {
         [self addSubview:[self spacerAtY:[self cellHeight] * i]];
     }
 }
@@ -54,15 +59,15 @@
 
 #pragma mark - Cell Titles
 - (void)configureCellTitles {
-    CGFloat heightOffset = (self.height/_cellCount) / 2;
-    for (int i = 0; i < _cellCount; i++) {
-        [self addSubview:[self titleLabelAtY: heightOffset + ([self cellHeight] * i)]];
+    CGFloat heightOffset = (self.height/self.items.count) / 2;
+    for (int i = 0; i < self.items.count; i++) {
+        [self addSubview:[self titleLabelAtY: (heightOffset + ([self cellHeight] * i)) withItem:[self itemAtIndex:i]]];
     }
 }
 
-- (UILabel*)titleLabelAtY:(CGFloat)yOrigin {
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height/self.cellCount)];
-    title.text = @"Title";
+- (UILabel*)titleLabelAtY:(CGFloat)yOrigin withItem:(NSString*)item {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height/self.items.count)];
+    title.text = item;
     title.textColor = [UIColor whiteColor];
     [title sizeToFit];
     title.center = CGPointMake(self.width/2, yOrigin);
@@ -71,7 +76,7 @@
 
 #pragma mark - Public Functions
 - (void)slide:(SlideDirection)direction {
-    if (_isAnimating) return;
+    if (self.isAnimating) return;
     
     CGFloat endpoint;
     switch (direction) {
@@ -85,18 +90,22 @@
         }
     }
     
-    _isAnimating = YES;
+    self.animating = YES;
     [UIView animateWithDuration:.5 animations:^{
         [self setPosition:CGPointMake(0, endpoint)];
     } completion:^(BOOL finished) {
-        _isAnimating = NO;
+        self.animating = NO;
         self.menuActive = direction;
     }];
 }
 
 #pragma mark - Convenience
 - (CGFloat)cellHeight {
-    return self.frame.size.height/self.cellCount;
+    return self.frame.size.height/self.items.count;
+}
+
+- (NSString*)itemAtIndex:(NSInteger)index {
+    return [self.items objectAtIndex:index];
 }
 
 @end

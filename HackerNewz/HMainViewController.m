@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitle:@"Top Stories"];
+    [self setTitle:@"Top Ranked"];
     
     [self configureSubviews];
     [self registerNibs];
@@ -68,9 +68,7 @@
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
     // Dropdown menu
-    CGFloat dropdownMenuHeight = 200;
-    CGRect menuFrame = CGRectMake(0, -dropdownMenuHeight, self.view.width, dropdownMenuHeight);
-    self.dropdownMenu = [HDropdownMenuView menuWithFrame:menuFrame];
+    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Ranked",@"Most Recent",@"Jobs"]];
     [self.view addSubview:self.dropdownMenu];
     
     // Table view refresh control

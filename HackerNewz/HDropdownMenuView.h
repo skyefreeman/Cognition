@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, SlideDirection) {
 @property (nonatomic, getter=isActive) BOOL menuActive;
 @property (nonatomic) CGPoint startPoint;
 
-+ (instancetype)menuWithFrame:(CGRect)frame;
++ (instancetype)menuWithItems:(NSArray*)items;
+- (instancetype)initWithMenuItems:(NSArray*)items;
 
 - (void)slide:(SlideDirection)direction;
 

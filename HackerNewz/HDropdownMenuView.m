@@ -31,39 +31,42 @@
         self.menuActive = NO;
         
         self.cellCount = 3;
-        [self configureCells];
+        [self configureCellsSpacers];
+        [self configureCellTitles];
         
         _isAnimating = NO;
     }
     return self;
 }
 
-#pragma mark - Private Functions
-
-- (void)configureCells {
-    CGRect viewFrame = self.frame;
-    NSInteger cellCount = self.cellCount;
-    CGFloat cellHeight = viewFrame.size.height/self.cellCount;
-    
-    for (int i = 1; i < cellCount; i++) {
-        [self addSubview:[self spacerWithY:cellHeight * i]];
+#pragma mark - Cell Spacers
+- (void)configureCellsSpacers {
+    for (int i = 1; i < _cellCount; i++) {
+        [self addSubview:[self spacerAtY:[self cellHeight] * i]];
     }
-
-    
-//    |-----
-//    | CELL
-//    |-----
-//    | CELL
-//    |-----
-//    | CELL
-//    |-----
 }
 
-- (UIView*)spacerWithY:(CGFloat)yOrigin {
+- (UIView*)spacerAtY:(CGFloat)yOrigin {
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yOrigin, self.width, 1)];
-    NSLog(@"%@",line);
     line.backgroundColor = [UIColor whiteColor];
     return line;
+}
+
+#pragma mark - Cell Titles
+- (void)configureCellTitles {
+    CGFloat heightOffset = (self.height/_cellCount) / 2;
+    for (int i = 0; i < _cellCount; i++) {
+        [self addSubview:[self titleLabelAtY: heightOffset + ([self cellHeight] * i)]];
+    }
+}
+
+- (UILabel*)titleLabelAtY:(CGFloat)yOrigin {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height/self.cellCount)];
+    title.text = @"Title";
+    title.textColor = [UIColor whiteColor];
+    [title sizeToFit];
+    title.center = CGPointMake(self.width/2, yOrigin);
+    return title;
 }
 
 #pragma mark - Public Functions
@@ -91,5 +94,9 @@
     }];
 }
 
+#pragma mark - Convenience
+- (CGFloat)cellHeight {
+    return self.frame.size.height/self.cellCount;
+}
 
 @end

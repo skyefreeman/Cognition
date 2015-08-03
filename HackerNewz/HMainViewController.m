@@ -51,9 +51,10 @@
     [self registerNibs];
     
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
-
+    
     CGFloat dropdownMenuHeight = 200;
-    self.dropdownMenu = [[HDropdownMenuView alloc] initWithFrame:CGRectMake(0, self.navigationController.barHeight - dropdownMenuHeight, self.view.width, dropdownMenuHeight)];
+    CGRect menuFrame = CGRectMake(0, -dropdownMenuHeight, self.view.width, dropdownMenuHeight);
+    self.dropdownMenu = [HDropdownMenuView menuWithFrame:menuFrame];
     [self.view addSubview:self.dropdownMenu];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -63,15 +64,6 @@
     [self.tableView addSubview:self.refreshControl];
     
     [self requestTopStories];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
 }
 
 - (void)registerNibs {
@@ -101,7 +93,7 @@
 
 #pragma mark - Menu Actions
 - (void)menuButtonTouched:(id)sender {
-    BOOL direction = (self.dropdownMenu.isActive) ? SlideDirectionOut : SlideDirectionIn;
+    SlideDirection direction = (self.dropdownMenu.isActive) ? SlideDirectionOut : SlideDirectionIn;
     [self.dropdownMenu slide:direction];
 }
 

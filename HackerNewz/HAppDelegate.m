@@ -28,10 +28,11 @@
     HMainViewController *vc = [[HMainViewController alloc] init];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
-//    self.navController.navigationBar.translucent = NO;
-    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor HNOrange]};
-    self.navController.navigationBar.tintColor = [UIColor HNOrange];
-//    self.navController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    self.navController.navigationBar.translucent = NO;
+//    self.navController.navigationBar.backgroundColor = [UIColor HNOrange];
+    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navController.navigationBar.barTintColor = [UIColor HNOrange];
     
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];

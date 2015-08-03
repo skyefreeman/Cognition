@@ -15,18 +15,25 @@
     BOOL _isAnimating;
 }
 
++ (instancetype)menuWithFrame:(CGRect)frame {
+    return [[self alloc] initWithFrame:frame];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor HNOrange];
+        self.backgroundColor = [UIColor HNDarkGray];
         self.startPoint = self.position;
         self.menuActive = NO;
-
+        
         _isAnimating = NO;
     }
     return self;
 }
 
+#pragma mark - Private Functions
+
+#pragma mark - Public Functions
 - (void)slide:(SlideDirection)direction {
     if (_isAnimating) return;
     
@@ -50,5 +57,6 @@
         self.menuActive = direction;
     }];
 }
+
 
 @end

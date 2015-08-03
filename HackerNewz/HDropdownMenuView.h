@@ -14,8 +14,12 @@ typedef NS_ENUM(NSInteger, SlideDirection) {
 };
 
 @interface HDropdownMenuView : UIView
+
 @property (nonatomic, getter=isActive) BOOL menuActive;
 @property (nonatomic) CGPoint startPoint;
 
++ (instancetype)menuWithFrame:(CGRect)frame;
+
 - (void)slide:(SlideDirection)direction;
+
 @end

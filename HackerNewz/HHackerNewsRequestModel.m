@@ -17,6 +17,7 @@ NSString * kHNAPIAddress = @"https://hacker-news.firebaseio.com/v0/";
 NSString * kHNItemKey = @"item";
 NSString * kHNTopStoriesKey = @"topstories";
 NSString * kHNNewStoriesKey = @"newstories";
+NSString * kHNJobStoriesKey = @"jobstories";
 NSString * kHNCommentsKey = @"kids";
 
 int const kItemFetchCount = 30;
@@ -49,6 +50,15 @@ int const kItemFetchCount = 30;
     }];
 }
 
+- (void)getJobStories:(void (^)(BOOL success, NSError *error))completion {
+    self.requestType = RequestTypeJobStories;
+    [self jobStories:^(id jobs, NSError *error) {
+        if (!error) {
+            NSLog(@"%@",jobs);
+        }
+    }];
+}
+
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {
     
     dispatch_group_t group = dispatch_group_create();
@@ -59,9 +69,9 @@ int const kItemFetchCount = 30;
 
         NSString *comment = [NSString stringWithFormat:@"%@",item.comments[i]];
         [self itemWithID:comment completion:^(id item, NSError *error) {
+            dispatch_group_leave(group);
             HComment *newComment = [HComment itemWithHNDictionary:item];
             [tempComments addObject:newComment];
-            dispatch_group_leave(group);
         }];
     }
     
@@ -83,7 +93,6 @@ int const kItemFetchCount = 30;
         [self itemWithID:items[i] completion:^(id storyDictionary, NSError *error) {
             dispatch_group_leave(group);
             HStory *newStory = [HStory itemWithHNDictionary:storyDictionary];
-            NSLog(@"Time : %lu",newStory.time);
             [tempStories replaceObjectAtIndex:i withObject:newStory];
         }];
     }
@@ -102,6 +111,11 @@ int const kItemFetchCount = 30;
 
 - (void)newStories:(void (^)(id stories, NSError *error))completion {
     NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@",kHNAPIAddress,kHNNewStoriesKey]];
+    [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
+}
+
+- (void)jobStories:(void (^)(id jobs, NSError *error))completion {
+    NSString *address = [NSString HNAPIFormattedString:[NSString stringWithFormat:@"%@%@",kHNAPIAddress,kHNJobStoriesKey]];
     [HHackerNewsRequestModel requestWithURLAddress:address completion:completion];
 }
 

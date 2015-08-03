@@ -28,6 +28,7 @@
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */; };
 		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
+		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
 		EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96F1B3B91D20035556D /* HMainViewController.m */; };
@@ -108,6 +109,8 @@
 		EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNAdditions.m"; sourceTree = "<group>"; };
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
 		EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentViewController.m; sourceTree = "<group>"; };
+		EEE379621B6F2D0E00280CC2 /* HJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJob.h; sourceTree = "<group>"; };
+		EEE379631B6F2D0E00280CC2 /* HJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJob.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEFDE9691B3B91D20035556D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 				EE9B05441B58BB0500260F69 /* HComment.m */,
 				EE9B05491B58C11100260F69 /* HStory.h */,
 				EE9B054A1B58C11100260F69 /* HStory.m */,
+				EEE379621B6F2D0E00280CC2 /* HJob.h */,
+				EEE379631B6F2D0E00280CC2 /* HJob.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
 				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,
+				EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 				EE17E8AB1B645B01004A8E37 /* UIImage+HNAdditions.m in Sources */,
 				EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */,

@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, RequestType) {
     RequestTypeTopStories = 0,
     RequestTypeLatestStories,
+    RequestTypeJobStories,
 };
 
 @interface HHackerNewsRequestModel : NSObject
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
 
 - (void)getTopStories:(void (^)(BOOL success, NSError *error))completion;
 - (void)getLatestStories:(void (^)(BOOL success, NSError *error))completion;
+- (void)getJobStories:(void (^)(BOOL success, NSError *error))completion;
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion;
 

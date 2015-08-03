@@ -95,6 +95,10 @@
             [self requestLatestStories];
             break;
         }
+        case RequestTypeJobStories: {
+            [self requestJobStories];
+            break;
+        }
     }
 }
 
@@ -116,6 +120,12 @@
     }];
 }
 
+- (void)requestJobStories {
+    [self.requestModel getJobStories:^(BOOL success, NSError *error) {
+        
+    }];
+}
+
 #pragma mark - Error handling
 - (void)handleError:(NSError*)error type:(NSString*)itemType{
     [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem getting %@. Check your internet connection.",itemType]];
@@ -124,8 +134,6 @@
 
 #pragma mark - HDropdownMenuView Delegate Methods
 - (void)didSelectItemAtRow:(NSInteger)row {
-    [self toggleDropdownMenuSlide];
-    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
     
     if (row == RequestTypeTopStories) {
         [self requestTopStories];
@@ -135,9 +143,12 @@
         [self requestLatestStories];
     }
     
-    else if (row == 2) {
-        
+    else if (row == RequestTypeJobStories) {
+        [self requestJobStories];
     }
+    
+    [self toggleDropdownMenuSlide];
+    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
 }
 
 #pragma mark - Dropdown Menu

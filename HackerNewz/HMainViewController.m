@@ -95,6 +95,12 @@
 - (void)menuButtonTouched:(id)sender {
     SlideDirection direction = (self.dropdownMenu.isActive) ? SlideDirectionOut : SlideDirectionIn;
     [self.dropdownMenu slide:direction];
+    
+    if (direction == SlideDirectionIn) {
+        self.navigationItem.leftBarButtonItem.image = [UIImage downImage];
+    } else {
+        self.navigationItem.leftBarButtonItem.image = [UIImage upImage];
+    }
 }
 
 #pragma mark - UITableView Data Source Methods

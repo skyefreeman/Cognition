@@ -46,6 +46,8 @@ CGFloat const kEdgePadding = 8;
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
+    [self toggleCommentBubbleHidden:NO];
+    
     NSString *pointsString = [NSString stringWithFormat:@"%lu points",(long)points];
     NSString *authorString = [NSString stringWithFormat:@"by %@",author];
     
@@ -55,7 +57,17 @@ CGFloat const kEdgePadding = 8;
 
     self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pointsString,authorString,timeString];
     self.titleLabel.text = title;
-    [_commentBubble setText:[NSString integerToString:comments]];
+    
+    if (comments > 0) {
+        [_commentBubble setText:[NSString integerToString:comments]];
+    } else {
+        [self toggleCommentBubbleHidden:YES];
+    }
+}
+
+- (void)toggleCommentBubbleHidden:(BOOL)isHidden {
+    [_commentBubble setHidden:isHidden];
+    [_commentBubblePointer setHidden:isHidden];
 }
 
 #pragma mark - Touch Input
@@ -63,7 +75,7 @@ CGFloat const kEdgePadding = 8;
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
     
-    if (CGRectContainsPoint(_commentBubble.frame, point)) {
+    if (CGRectContainsPoint(_commentBubble.frame, point) && ![_commentBubble isHidden]) {
         [self commentLoadingViewVisible:YES];
         [self.delegate commentBubbleTapped:self];
     } else {

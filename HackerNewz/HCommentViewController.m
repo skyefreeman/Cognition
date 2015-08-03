@@ -25,17 +25,16 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setTitle:@"Comments"];
+//    [self setTitle:@"Comments"];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kCommentCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.allowsSelection = NO;
     [self.view addSubview:self.tableView];
     
     [self registerNibs];
     [self.tableView reloadData];
-    
-    NSLog(@"%@",self.allComments);
 }
 
 - (void)registerNibs {
@@ -61,6 +60,7 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"This happend");
 }
 

@@ -179,11 +179,13 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HStory *item = (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
+    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
 
     id cell = [tableView dequeueReusableCellWithIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
     [cell setDelegate:self];
     [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
+    
+    NSLog(@"%@",NSStringFromClass([item class]));
     
     return cell;
 }

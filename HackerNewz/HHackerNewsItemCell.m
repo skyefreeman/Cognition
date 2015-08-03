@@ -48,14 +48,14 @@ CGFloat const kEdgePadding = 8;
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
     [self toggleCommentBubbleHidden:NO];
     
-    NSString *pointsString = [NSString stringWithFormat:@"%lu points",(long)points];
+    NSString *pointsString = (points > 1) ? [NSString stringWithFormat:@"%lu points ",(long)points] : @"";
     NSString *authorString = [NSString stringWithFormat:@"by %@",author];
     
     NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
 
-    self.infoLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pointsString,authorString,timeString];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
     self.titleLabel.text = title;
     
     if (comments > 0) {

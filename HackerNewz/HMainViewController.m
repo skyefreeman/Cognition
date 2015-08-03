@@ -185,8 +185,6 @@
     [cell setDelegate:self];
     [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
     
-    NSLog(@"%@",NSStringFromClass([item class]));
-    
     return cell;
 }
 

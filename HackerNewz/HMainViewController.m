@@ -26,7 +26,7 @@
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate>
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate>
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
@@ -69,6 +69,7 @@
     
     // Dropdown menu
     self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Ranked",@"Most Recent",@"Jobs"]];
+    self.dropdownMenu.delegate = self;
     [self.view addSubview:self.dropdownMenu];
     
     // Table view refresh control
@@ -100,16 +101,20 @@
     NSLog(@"%@",error);
 }
 
-#pragma mark - Menu Actions
+#pragma mark - Dropdown Menu
 - (void)menuButtonTouched:(id)sender {
-    SlideDirection direction = (self.dropdownMenu.isActive) ? SlideDirectionOut : SlideDirectionIn;
-    [self.dropdownMenu slide:direction];
+    [self.dropdownMenu toggleSlide];
     
-    if (direction == SlideDirectionIn) {
-        self.navigationItem.leftBarButtonItem.image = [UIImage downImage];
-    } else {
+    if (self.dropdownMenu.isActive) {
         self.navigationItem.leftBarButtonItem.image = [UIImage upImage];
+    } else {
+        self.navigationItem.leftBarButtonItem.image = [UIImage downImage];
     }
+}
+
+#pragma mark - HDropdownMenuView Delegate Methods
+- (void)didSelectItemAtRow:(NSInteger)row {
+    [self.dropdownMenu toggleSlide];
 }
 
 #pragma mark - UITableView Data Source Methods
@@ -164,6 +169,7 @@
         }
     }];
 }
+
 
 #pragma mark - View Controller Navigation
 - (void)pushToWebLinkViewController:(NSURL*)linkURL {

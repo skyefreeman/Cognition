@@ -32,14 +32,15 @@ CGFloat const kDefaultCellHeight = 40.0;
     self = [super initWithFrame:menuFrame];
     if (self) {
         self.backgroundColor = [UIColor HNDarkGray];
+        self.userInteractionEnabled = YES;
+        
         self.startPoint = self.position;
         self.menuActive = NO;
+        self.animating = NO;
         
         self.items = items;
         [self configureCellsSpacers];
         [self configureCellTitles];
-        
-        self.animating = NO;
     }
     return self;
 }
@@ -75,9 +76,18 @@ CGFloat const kDefaultCellHeight = 40.0;
 }
 
 #pragma mark - Public Functions
-- (void)slide:(SlideDirection)direction {
+- (void)toggleSlide {
     if (self.isAnimating) return;
     
+    // Get direction to slide
+    SlideDirection direction;
+    if (self.menuActive) {
+        direction = SlideDirectionOut;
+    } else {
+        direction = SlideDirectionIn;
+    }
+    
+    // Get start and endpoints of slide
     CGFloat endpoint;
     switch (direction) {
         case SlideDirectionOut: {
@@ -90,6 +100,7 @@ CGFloat const kDefaultCellHeight = 40.0;
         }
     }
     
+    // Start the slide animation
     self.animating = YES;
     [UIView animateWithDuration:.5 animations:^{
         [self setPosition:CGPointMake(0, endpoint)];
@@ -99,6 +110,11 @@ CGFloat const kDefaultCellHeight = 40.0;
     }];
 }
 
+#pragma mark - Touch Input
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate didSelectItemAtRow:[self rowForTouch:[touches anyObject]]];
+}
+
 #pragma mark - Convenience
 - (CGFloat)cellHeight {
     return self.frame.size.height/self.items.count;
@@ -106,6 +122,13 @@ CGFloat const kDefaultCellHeight = 40.0;
 
 - (NSString*)itemAtIndex:(NSInteger)index {
     return [self.items objectAtIndex:index];
+}
+
+- (NSInteger)rowForTouch:(UITouch*)touch {
+    NSInteger locationY = (NSInteger)[touch locationInView:self].y;
+    NSInteger viewHeight = (NSInteger)self.height;
+    NSLog(@"location:%lu height:%lu row:%lu",locationY,viewHeight,viewHeight/locationY);
+    return viewHeight / locationY;
 }
 
 @end

@@ -20,9 +20,11 @@ typedef NS_ENUM(NSInteger, SlideDirection) {
 @interface HDropdownMenuView : UIView
 
 @property (nonatomic, weak) id <HDropdownMenuViewDelegate> delegate;
+@property (nonatomic) CGFloat slideLength; // time in seconds
 
 @property (nonatomic, readonly) NSArray *items;
-@property (nonatomic, getter=isActive) BOOL menuActive;
+@property (nonatomic, readonly, getter=isActive) BOOL menuActive;
+
 
 + (instancetype)menuWithItems:(NSArray*)items;
 - (instancetype)initWithMenuItems:(NSArray*)items;

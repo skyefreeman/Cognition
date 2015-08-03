@@ -12,11 +12,18 @@
 #import "UIColor+HNAdditions.h"
 
 CGFloat const kDefaultCellHeight = 40.0;
+CGFloat const kDefaultSlideLength = 0.35;
 
 @interface HDropdownMenuView()
-@property (nonatomic, readwrite) NSArray *items;
+
+// Private
 @property (nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) CGPoint startPoint;
+
+// Public Readonly
+@property (nonatomic, readwrite) NSArray *items;
+@property (nonatomic, readwrite) BOOL menuActive;
+
 @end
 
 @implementation HDropdownMenuView
@@ -32,10 +39,13 @@ CGFloat const kDefaultCellHeight = 40.0;
     
     self = [super initWithFrame:menuFrame];
     if (self) {
-        self.backgroundColor = [UIColor HNDarkGray];
+        self.backgroundColor = [UIColor colorWithWhite:0.168 alpha:1.000];
         self.userInteractionEnabled = YES;
         
-        self.startPoint = self.position;
+        [self roundEdges];
+        
+        self.slideLength = kDefaultSlideLength;
+        self.startPoint = self.frame.origin;
         self.menuActive = NO;
         self.animating = NO;
         
@@ -74,6 +84,20 @@ CGFloat const kDefaultCellHeight = 40.0;
     [title sizeToFit];
     title.center = CGPointMake(self.width/2, yOrigin);
     return title;
+}
+
+#pragma mark - UI Customization
+- (void)roundEdges {
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                   byRoundingCorners:(UIRectCornerBottomLeft|UIRectCornerBottomRight)
+                                                         cornerRadii:CGSizeMake(5.0, 5.0)];
+    
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+    
+    maskLayer = nil;
 }
 
 #pragma mark - Public Functions

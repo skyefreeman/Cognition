@@ -101,8 +101,18 @@
     NSLog(@"%@",error);
 }
 
+#pragma mark - HDropdownMenuView Delegate Methods
+- (void)didSelectItemAtRow:(NSInteger)row {
+    [self toggleDropdownMenuSlide];
+    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
+}
+
 #pragma mark - Dropdown Menu
 - (void)menuButtonTouched:(id)sender {
+    [self toggleDropdownMenuSlide];
+}
+
+- (void)toggleDropdownMenuSlide {
     [self.dropdownMenu toggleSlide];
     
     if (self.dropdownMenu.isActive) {
@@ -110,12 +120,6 @@
     } else {
         self.navigationItem.leftBarButtonItem.image = [UIImage downImage];
     }
-}
-
-#pragma mark - HDropdownMenuView Delegate Methods
-- (void)didSelectItemAtRow:(NSInteger)row {
-    [self.dropdownMenu toggleSlide];
-    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
 }
 
 #pragma mark - UITableView Data Source Methods

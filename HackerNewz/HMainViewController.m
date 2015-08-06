@@ -45,10 +45,15 @@
     
     [self configureSubviews];
     [self registerNibs];
+    
+    // Start initial loader
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self.navigationController barHeight]) style:UIActivityIndicatorViewStyleGray];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    // Start first story request
     [self requestStories];
 }
 
@@ -86,6 +91,7 @@
         self.requestModel = [[HHackerNewsRequestModel alloc] init];
     }
     
+
     switch (self.requestModel.requestType) {
         case RequestTypeTopStories: {
             [self requestTopStories];
@@ -105,6 +111,7 @@
 - (void)requestTopStories {
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
+        [self removeActivityIndicator];
         
         if (success) [self.tableView reloadData];
         else [self handleError:error type:@"stories"];
@@ -114,6 +121,7 @@
 - (void)requestLatestStories {
     [self.requestModel getLatestStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
+        [self removeActivityIndicator];
         
         if (success) [self.tableView reloadData];
         else [self handleError:error type:@"stories"];
@@ -123,6 +131,7 @@
 - (void)requestJobStories {
     [self.requestModel getJobStories:^(BOOL success, NSError *error) {
         [self.refreshControl endRefreshing];
+        [self removeActivityIndicator];
         
         if (success) [self.tableView reloadData];
         else [self handleError:error type:@"stories"];

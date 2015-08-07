@@ -108,6 +108,12 @@
 #define COCOAPODS_VERSION_MINOR_FormatterKit_UnitOfInformationFormatter 8
 #define COCOAPODS_VERSION_PATCH_FormatterKit_UnitOfInformationFormatter 0
 
+// JHChainableAnimations
+#define COCOAPODS_POD_AVAILABLE_JHChainableAnimations
+#define COCOAPODS_VERSION_MAJOR_JHChainableAnimations 1
+#define COCOAPODS_VERSION_MINOR_JHChainableAnimations 3
+#define COCOAPODS_VERSION_PATCH_JHChainableAnimations 0
+
 // TTTAttributedLabel
 #define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel
 #define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1

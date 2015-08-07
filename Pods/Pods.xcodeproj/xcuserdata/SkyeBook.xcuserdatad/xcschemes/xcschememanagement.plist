@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JHChainableAnimations.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TTTAttributedLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D5BD5B23E3C9C12FE1917D2</key>
+		<key>419100FE71C23B81EADD9C90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1021AC0C001EACC08EECF60</key>
+		<key>41DA02114E110FB38F5B657C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF56E063105D3883DB21B2F4</key>
+		<key>4836E53992313DB3D78559D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA482D3A471E1F98415CC899</key>
+		<key>5C648931BF8C759D3FCCD805</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90FB0A5FD9EC117E10925969</key>
 		<dict>
 			<key>primary</key>
 			<true/>

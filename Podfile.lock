@@ -39,16 +39,19 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.8.0)
   - FormatterKit/UnitOfInformationFormatter (1.8.0)
   - FormatterKit/URLRequestFormatter (1.8.0)
+  - JHChainableAnimations (1.3.0)
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - AFNetworking
   - FormatterKit (~> 1.8.0)
+  - JHChainableAnimations (~> 1.3.0)
   - TTTAttributedLabel (~> 1.13.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
+  JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.36.0

@@ -9,6 +9,7 @@
 #import "HWebViewbar.h"
 #import "UIColor+HNAdditions.h"
 
+CGFloat const kPadding = 10;
 CGFloat const kBarHeight = 40.0;
 CGFloat const kDefaultFadeTime = 0.25;
 
@@ -20,8 +21,12 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 
 @interface HWebViewbar()
 @property (nonatomic) UIButton *cancelButton;
+@property (nonatomic) UIButton *backButton;
+@property (nonatomic) UIButton *forwardButton;
+
 @property (nonatomic, readwrite) BarType barType;
 @property (nonatomic) UIVisualEffectView *blurView;
+
 @end
 
 @implementation HWebViewbar {
@@ -41,17 +46,29 @@ typedef NS_ENUM(NSInteger, BarLayer) {
             self.frame = CGRectMake(0, 0, screenRect.size.width, kBarHeight);
         }
         
-        self.barColor = [UIColor HNLightGray];
+        self.barColor = [UIColor whiteColor];
         self.hasBlur = NO;
         
+        // Spacer
+        UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1)];
+        spacerView.backgroundColor = [UIColor blackColor];
+        [self addSubview:spacerView];
+        
+        // Buttons
         CGSize buttonSize = CGSizeMake(20, 20);
         
-        UIImage *cancelButtonImage = [[UIImage imageNamed:@"cancelIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        // Back Button
+        self.backButton = [self barButtonAtCenter:CGPointMake(buttonSize.width/2 + kPadding, self.frame.size.height/2) imageNamed:@"leftIcon"];
+        [self.backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [self insertSubview:self.backButton atIndex:BarLayerButton];
         
-        self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
-        self.cancelButton.center = CGPointMake(buttonSize.width, self.frame.size.height/2);
-        [self.cancelButton setImage:cancelButtonImage forState:UIControlStateNormal];
-        [self.cancelButton setTintColor:[UIColor HNOrange]];
+        // Forward Button
+        self.forwardButton = [self barButtonAtCenter:CGPointMake(self.backButton.frame.origin.x + buttonSize.width + kPadding*4, self.frame.size.height/2) imageNamed:@"rightIcon"];
+        [self.forwardButton addTarget:self action:@selector(forwardButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [self insertSubview:self.forwardButton atIndex:BarLayerButton];
+        
+        // Cancel Button
+        self.cancelButton = [self barButtonAtCenter:CGPointMake(self.frame.size.width - buttonSize.width - kPadding, self.frame.size.height/2) imageNamed:@"cancelIcon"];
         [self.cancelButton addTarget:self action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.cancelButton atIndex:BarLayerButton];
     }
@@ -120,7 +137,27 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 
 #pragma mark - HWebViewBar delegate methods
 - (void)cancelButtonTapped {
-    [self.delegate webBarCancelButtonTapped];
+    [self.delegate cancelButtonTapped];
+}
+
+- (void)backButtonTapped {
+    [self.delegate backButtonTapped];
+}
+
+- (void)forwardButtonTapped {
+    [self.delegate forwardButtonTapped];
+}
+
+#pragma mark - Convenience
+- (UIButton*)barButtonAtCenter:(CGPoint)centerPoint imageNamed:(NSString*)imageName {
+    UIImage *backButtonImage = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    CGSize buttonSize = CGSizeMake(20, 20);
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
+    button.center = centerPoint;
+    [button setImage:backButtonImage forState:UIControlStateNormal];
+    [button setTintColor:[UIColor HNOrange]];
+    return button;
 }
 
 @end

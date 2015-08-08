@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
@@ -39,6 +39,12 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
 #pragma mark - UIWebView Delegate Methods
 - (void)webViewDidStartLoad:(UIWebView *)webView {
 }
@@ -48,8 +54,16 @@
 }
 
 #pragma mark - HWebViewBar Delegate Methods
-- (void)webBarCancelButtonTapped {
+- (void)cancelButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)backButtonTapped {
+    NSLog(@"back tapped");
+}
+
+- (void)forwardButtonTapped {
+    NSLog(@"forward tapped");
 }
 
 #pragma mark - UIScrollview Delegate

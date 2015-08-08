@@ -25,7 +25,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UILabel appearance] setSubstituteFont:[UIFont hnFont:0]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -36,7 +35,7 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.navController.navigationBar.translucent = NO;
     self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                                             NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]};
+                                                             NSFontAttributeName:[UIFont hnFont:20.0f]};
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
     self.navController.navigationBar.barTintColor = [UIColor HNOrange];
 

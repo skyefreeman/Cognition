@@ -8,6 +8,8 @@
 
 #import "HHackerNewsItemCell.h"
 #import "UIColor+HNAdditions.h"
+#import "UIFont+HNAdditions.h"
+
 #import <TTTTimeIntervalFormatter.h>
 #import "HCommentBubble.h"
 #import "HCommentBubblePointer.h"
@@ -56,7 +58,7 @@ CGFloat const kEdgePadding = 8;
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
     
     self.infoLabel.text = [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
-    self.titleLabel.font = [self.titleLabel.font fontWithSize:16];
+    self.titleLabel.font = [UIFont hnFont:16.0f];
     self.titleLabel.text = title;
     
     if (comments > 0) {

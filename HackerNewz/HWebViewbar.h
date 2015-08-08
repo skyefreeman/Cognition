@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol HWebViewBarDelegate <NSObject>
-- (void)webBarCancelButtonTapped;
+- (void)cancelButtonTapped;
+- (void)backButtonTapped;
+- (void)forwardButtonTapped;
 @end
 
 typedef NS_ENUM(NSInteger, BarType) {

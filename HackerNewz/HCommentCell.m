@@ -7,6 +7,7 @@
 //
 
 #import "HCommentCell.h"
+#import "UIFont+HNAdditions.h"
 #import <TTTTimeIntervalFormatter.h>
 #import <TTTAttributedLabel.h>
 
@@ -22,7 +23,6 @@ CGFloat const kCommentCellHeight = 100.0;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
 }
 
 - (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text {
@@ -30,7 +30,7 @@ CGFloat const kCommentCellHeight = 100.0;
     
     if (text) {
         self.commentLabel.attributedText = text;
-        self.commentLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+        self.commentLabel.font = [UIFont hnFont:14];
     }
     
     if (time) {

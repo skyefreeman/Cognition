@@ -40,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self setTitle:@"Top Ranked"];
     
     [self configureSubviews];
@@ -53,8 +53,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    
     // Start first story request
     [self requestStories];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - View Customization
@@ -83,6 +89,12 @@
     self.refreshControl.tintColor = [UIColor HNOrange];
     [self.refreshControl addTarget:self action:@selector(requestStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
+    for (UITextView *view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextView class]]) {
+            view.scrollsToTop = NO;
+        }
+    }
 }
 
 #pragma mark - Requests
@@ -234,7 +246,7 @@
 #pragma mark - View Controller Navigation
 - (void)pushToWebLinkViewController:(NSURL*)linkURL {
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
-    [webVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [webVC setModalTransitionStyle: UIModalTransitionStylePartialCurl];
     [webVC setLinkURL:linkURL];
     [self presentViewController:webVC animated:YES completion:nil];
 }

@@ -28,6 +28,7 @@
 		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
+		EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */; };
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -109,6 +110,8 @@
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
 		EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentViewController.m; sourceTree = "<group>"; };
 		EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
+		EED337911B75B76C002C6A1C /* UIFont+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HNAdditions.h"; sourceTree = "<group>"; };
+		EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HNAdditions.m"; sourceTree = "<group>"; };
 		EEE379621B6F2D0E00280CC2 /* HJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJob.h; sourceTree = "<group>"; };
 		EEE379631B6F2D0E00280CC2 /* HJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJob.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +231,8 @@
 				EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */,
 				EE17E8A91B645B01004A8E37 /* UIImage+HNAdditions.h */,
 				EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */,
+				EED337911B75B76C002C6A1C /* UIFont+HNAdditions.h */,
+				EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */,
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */,

@@ -19,13 +19,13 @@
     self = [super initWithFrame:CGRectMake(0, 0, 25, 20)];
     
     if (self) {
-        self.backgroundColor = [UIColor HNOrange];
+        self.layer.borderColor = [UIColor HNOrange].CGColor;
+        self.layer.borderWidth = 1;
         self.layer.cornerRadius = 4;
         
         self.textLabel = [[UILabel alloc] init];
-        self.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
-        self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.font = [self.textLabel.font fontWithSize:11];
+        self.textLabel.textColor = [UIColor HNOrange];
         self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.textLabel.numberOfLines = 1;
         self.textLabel.textAlignment = NSTextAlignmentCenter;

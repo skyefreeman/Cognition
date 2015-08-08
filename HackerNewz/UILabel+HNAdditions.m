@@ -9,8 +9,8 @@
 #import "UILabel+HNAdditions.h"
 
 @implementation UILabel (HNAdditions)
-- (void)setSubstituteFontWithName:(NSString*)name {
-    self.font = [UIFont fontWithName:name size:self.font.pointSize];
+- (void)setSubstituteFont:(UIFont*)font {
+    self.font = [self.font fontWithSize:self.font.pointSize];
 }
 
 @end

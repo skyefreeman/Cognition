@@ -54,7 +54,7 @@ CGFloat const kEdgePadding = 8;
     NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
-
+    
     self.infoLabel.text = [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
     self.titleLabel.font = [self.titleLabel.font fontWithSize:16];
     self.titleLabel.text = title;

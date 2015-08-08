@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UILabel (HNAdditions)
-- (void)setSubstituteFontWithName:(NSString*)name;
+- (void)setSubstituteFont:(UIFont*)font;
 @end

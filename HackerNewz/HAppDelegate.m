@@ -7,10 +7,15 @@
 //
 
 #import "HAppDelegate.h"
+
+// View Controller
+#import "HMainViewController.h"
+
+// Categories
 #import <SFAdditions.h>
+#import "UIFont+HNAdditions.h"
 #import "UIColor+HNAdditions.h"
 #import "UILabel+HNAdditions.h"
-#import "HMainViewController.h"
 
 @interface HAppDelegate ()
 @property (nonatomic) UINavigationController *navController;
@@ -21,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
+    [[UILabel appearance] setSubstituteFont:[UIFont hnFont:0]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

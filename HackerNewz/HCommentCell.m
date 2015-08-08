@@ -22,12 +22,16 @@ CGFloat const kCommentCellHeight = 100.0;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+
 }
 
 - (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text {
     if (author) self.authorLabel.text = [@"by " stringByAppendingString:author];
     
-    if (text) self.commentLabel.attributedText = text;
+    if (text) {
+        self.commentLabel.attributedText = text;
+        self.commentLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    }
     
     if (time) {
         NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];

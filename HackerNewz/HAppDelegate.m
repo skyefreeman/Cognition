@@ -20,7 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [application setStatusBarHidden:YES];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
     
@@ -31,11 +30,11 @@
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.navController.navigationBar.translucent = NO;
-//    self.navController.navigationBar.backgroundColor = [UIColor HNOrange];
-    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                             NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]};
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
     self.navController.navigationBar.barTintColor = [UIColor HNOrange];
-    
+
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     

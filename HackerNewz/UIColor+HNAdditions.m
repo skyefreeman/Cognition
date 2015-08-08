@@ -10,13 +10,16 @@
 
 @implementation UIColor (HNAdditions)
 + (UIColor*)HNOrange {
-    return [UIColor colorWithRed:1.000 green:103/255.0 blue:96/255.0 alpha:1];
+    return [UIColor colorWithRed:1.000 green:0.270 blue:0.252 alpha:1.000];
+}
+
++ (UIColor*)HNLightOrange {
+    return [UIColor colorWithRed:1.000 green:0.250 blue:0.252 alpha:0.900];
 }
 
 + (UIColor*)HNDarkGray {
     return [UIColor colorWithWhite:0.168 alpha:1.000];
 }
-
 
 + (UIColor*)HNSystemBlue {
     return [UIColor colorWithRed:0.000 green:0.479 blue:1.000 alpha:1.000];

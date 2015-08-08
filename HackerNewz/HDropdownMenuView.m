@@ -8,7 +8,11 @@
 
 #import "HDropdownMenuView.h"
 
+// Libraries
 #import <SFAdditions.h>
+#import <JHChainableAnimations.h>
+
+// Categories
 #import "UIColor+HNAdditions.h"
 
 CGFloat const kDefaultCellHeight = 40.0;
@@ -39,7 +43,7 @@ CGFloat const kDefaultSlideLength = 0.35;
     
     self = [super initWithFrame:menuFrame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.168 alpha:1.000];
+        self.backgroundColor = [UIColor HNLightOrange];
         self.userInteractionEnabled = YES;
         
         [self roundEdges];
@@ -127,12 +131,10 @@ CGFloat const kDefaultSlideLength = 0.35;
     
     // Start the slide animation
     self.animating = YES;
-    [UIView animateWithDuration:.5 animations:^{
-        [self setPosition:CGPointMake(0, endpoint)];
-    } completion:^(BOOL finished) {
+    self.makeOrigin(self.position.x, endpoint).bounce.animateWithCompletion(0.75, JHAnimationCompletion(){
         self.animating = NO;
         self.menuActive = direction;
-    }];
+    });
 }
 
 #pragma mark - Touch Input

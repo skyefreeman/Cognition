@@ -59,11 +59,13 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         
         // Back Button
         self.backButton = [self barButtonAtCenter:CGPointMake(buttonSize.width/2 + kPadding, self.frame.size.height/2) imageNamed:@"leftIcon"];
+        self.backButton.alpha = 0.5;
         [self.backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.backButton atIndex:BarLayerButton];
         
         // Forward Button
         self.forwardButton = [self barButtonAtCenter:CGPointMake(self.backButton.frame.origin.x + buttonSize.width + kPadding*4, self.frame.size.height/2) imageNamed:@"rightIcon"];
+        self.forwardButton.alpha = 0.5;
         [self.forwardButton addTarget:self action:@selector(forwardButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.forwardButton atIndex:BarLayerButton];
         

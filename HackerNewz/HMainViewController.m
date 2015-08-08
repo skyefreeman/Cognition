@@ -11,11 +11,15 @@
 #import "HWebLinkViewController.h"
 #import "HCommentViewController.h"
 
+// Libraries
+#import <JHChainableAnimations.h>
+
 // Categories
 #import <SFAdditions.h>
 #import "NSObject+HNAdditions.h"
 #import "UIColor+HNAdditions.h"
 #import "UIImage+HNAdditions.h"
+#import "UIFont+HNAdditions.h"
 
 // Views
 #import "HTableView.h"
@@ -34,14 +38,15 @@
 
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
+
+@property (nonatomic) UILabel *titleLabel;
 @end
 
 @implementation HMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setTitle:@"Top Ranked"];
+    [self configureCustomNavigationBarTitle];
     
     [self configureSubviews];
     [self registerNibs];
@@ -61,6 +66,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self scrollToTopOfTableView];
 }
 
 #pragma mark - View Customization
@@ -90,6 +96,7 @@
     [self.refreshControl addTarget:self action:@selector(requestStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
+    // To allow Status bar table view scroll to top
     for (UITextView *view in self.view.subviews) {
         if ([view isKindOfClass:[UITextView class]]) {
             view.scrollsToTop = NO;
@@ -97,12 +104,35 @@
     }
 }
 
+#pragma mark - Navigation Bar Custom Title
+- (void)configureCustomNavigationBarTitle {
+    self.titleLabel = [[UILabel alloc] initWithFrame:self.navigationController.navigationBar.frame];
+    [self.titleLabel setText:@"Top Ranked"];
+    [self.titleLabel sizeToFit];
+    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.titleLabel setFont:[UIFont hnFont:20.0f]];
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.navigationItem setTitleView:self.titleLabel];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleTapped)];
+    self.titleLabel.userInteractionEnabled = YES;
+    [self.titleLabel addGestureRecognizer:tapRecognizer];
+}
+
+- (void)titleTapped {
+    [self scrollToTopOfTableView];
+}
+
+- (void)setNavigationBarTitleText:(NSString*)text {
+    [self.titleLabel setText:text];
+    [self.titleLabel sizeToFit];
+}
+
 #pragma mark - Requests
 - (void)requestStories {
     if (!self.requestModel) {
         self.requestModel = [[HHackerNewsRequestModel alloc] init];
     }
-    
 
     switch (self.requestModel.requestType) {
         case RequestTypeTopStories: {
@@ -125,7 +155,7 @@
         [self.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
-        if (success) [self.tableView reloadData];
+        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
         else [self handleError:error type:@"stories"];
     }];
 }
@@ -135,7 +165,7 @@
         [self.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
-        if (success) [self.tableView reloadData];
+        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
         else [self handleError:error type:@"stories"];
     }];
 }
@@ -145,7 +175,7 @@
         [self.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
-        if (success) [self.tableView reloadData];
+        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
         else [self handleError:error type:@"stories"];
     }];
 }
@@ -172,7 +202,7 @@
     }
     
     [self toggleDropdownMenuSlide];
-    [self setTitle:[self.dropdownMenu.items objectAtIndex:row]];
+    [self setNavigationBarTitleText:[self.dropdownMenu.items objectAtIndex:row]];
 }
 
 #pragma mark - Dropdown Menu
@@ -246,7 +276,7 @@
 #pragma mark - View Controller Navigation
 - (void)pushToWebLinkViewController:(NSURL*)linkURL {
     HWebLinkViewController *webVC = [[HWebLinkViewController alloc] init];
-    [webVC setModalTransitionStyle: UIModalTransitionStylePartialCurl];
+    [webVC setModalTransitionStyle: UIModalTransitionStyleCoverVertical];
     [webVC setLinkURL:linkURL];
     [self presentViewController:webVC animated:YES completion:nil];
 }
@@ -260,6 +290,13 @@
 #pragma mark - Convenience
 - (HStory*)storyAtIndexPath:(NSIndexPath*)indexPath {
     return (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
+}
+
+- (void)scrollToTopOfTableView {
+    if ([self.tableView numberOfRowsInSection:0] > 0) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                              atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 @end

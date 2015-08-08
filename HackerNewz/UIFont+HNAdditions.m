@@ -10,7 +10,7 @@
 
 @implementation UIFont (HNAdditions)
 + (UIFont*)hnFont:(CGFloat)fontSize {
-    return [UIFont fontWithName:@"HelveticaNeue-Light" size:fontSize];
+    return [UIFont fontWithName:@"HelveticaNeue-Thin" size:fontSize];
 }
 
 @end

@@ -20,8 +20,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [application setStatusBarHidden:YES];
-//    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
+//    [application setStatusBarHidden:YES];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UILabel appearance] setSubstituteFontWithName:@"HelveticaNeue-Light"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

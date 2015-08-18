@@ -30,9 +30,10 @@ typedef NS_ENUM(NSInteger, BarType) {
 - (void)fadeOutWithDuration:(CGFloat)duration;
 - (void)fadeInWithDuration:(CGFloat)duration;
 
+- (void)setForwardButtonActive:(BOOL)active;
+- (void)setBackButtonActive:(BOOL)active;
+
 @property (nonatomic, weak) id <HWebViewBarDelegate> delegate;
 @property (nonatomic, readonly) BarType barType;
-
-@property (nonatomic) BOOL hasBlur;
 @property (nonatomic) UIColor *barColor;
 @end

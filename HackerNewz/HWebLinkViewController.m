@@ -16,7 +16,6 @@
 @interface HWebLinkViewController() <UIWebViewDelegate,UIScrollViewDelegate,HWebViewBarDelegate>
 @property (nonatomic) UIWebView *webView;
 @property (nonatomic) HWebViewbar *webViewBar;
-@property (nonatomic) NSMutableSet *allLinks;
 @end
 
 @implementation HWebLinkViewController
@@ -34,35 +33,18 @@
     self.webViewBar.delegate = self;
     [self.view addSubview:self.webViewBar];
     
-    self.allLinks = [NSMutableSet new];
-    
     if (self.linkURL) {
         NSURLRequest *request = [NSURLRequest requestWithURL:self.linkURL];
         [self.webView loadRequest:request];
-        [self.allLinks addObject:self.linkURL];
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-}
-
 #pragma mark - UIWebView Delegate Methods
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-//    NSLog(@"%@",request.URL);
-    return YES;
-}
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    if (!webView.request.URL.path) return;
-
-    [self.allLinks addObject:webView.request.URL];
-    NSLog(@"%@",self.allLinks);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self removeActivityIndicator];
+    [self updateDirectionalButtons];
 }
 
 #pragma mark - HWebViewBar Delegate Methods
@@ -71,11 +53,17 @@
 }
 
 - (void)backButtonTapped {
-    NSLog(@"back tapped");
+    [self.webView goBack];
 }
 
 - (void)forwardButtonTapped {
-    NSLog(@"forward tapped");
+    [self.webView goForward];
+}
+
+#pragma mark - Link Management
+- (void)updateDirectionalButtons {
+    [self.webViewBar setBackButtonActive:self.webView.canGoBack];
+    [self.webViewBar setForwardButtonActive:self.webView.canGoForward];
 }
 
 #pragma mark - UIScrollview Delegate

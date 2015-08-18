@@ -15,7 +15,6 @@ CGFloat const kDefaultFadeTime = 0.25;
 
 typedef NS_ENUM(NSInteger, BarLayer) {
     BarLayerBackground = 0,
-    BarLayerBlur,
     BarLayerButton,
 };
 
@@ -25,7 +24,6 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 @property (nonatomic) UIButton *forwardButton;
 
 @property (nonatomic, readwrite) BarType barType;
-@property (nonatomic) UIVisualEffectView *blurView;
 
 @end
 
@@ -47,7 +45,6 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         }
         
         self.barColor = [UIColor whiteColor];
-        self.hasBlur = NO;
         
         // Spacer
         UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1)];
@@ -59,15 +56,16 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         
         // Back Button
         self.backButton = [self barButtonAtCenter:CGPointMake(buttonSize.width/2 + kPadding, self.frame.size.height/2) imageNamed:@"leftIcon"];
-        self.backButton.alpha = 0.5;
         [self.backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.backButton atIndex:BarLayerButton];
         
         // Forward Button
         self.forwardButton = [self barButtonAtCenter:CGPointMake(self.backButton.frame.origin.x + buttonSize.width + kPadding*4, self.frame.size.height/2) imageNamed:@"rightIcon"];
-        self.forwardButton.alpha = 0.5;
         [self.forwardButton addTarget:self action:@selector(forwardButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.forwardButton atIndex:BarLayerButton];
+        
+        [self setBackButtonActive:NO];
+        [self setForwardButtonActive:NO];
         
         // Cancel Button
         self.cancelButton = [self barButtonAtCenter:CGPointMake(self.frame.size.width - buttonSize.width - kPadding, self.frame.size.height/2) imageNamed:@"cancelIcon"];
@@ -117,22 +115,6 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 }
 
 #pragma mark - Setter Overrides
-- (void)setHasBlur:(BOOL)hasBlur {
-    if (hasBlur && !self.blurView) {
-        self.barColor = [UIColor clearColor];
-        
-        self.blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        [self.blurView setFrame:self.bounds];
-        [self insertSubview:self.blurView atIndex:BarLayerBlur];
-        
-        [self.cancelButton removeFromSuperview];
-        [self.blurView.contentView addSubview:self.cancelButton];
-    }
-    else if (!hasBlur && self.blurView){
-        [self.blurView removeFromSuperview];
-    }
-}
-
 - (void)setBarColor:(UIColor *)barColor {
     self.backgroundColor = barColor;
 }
@@ -148,6 +130,20 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 
 - (void)forwardButtonTapped {
     [self.delegate forwardButtonTapped];
+}
+
+#pragma mark - Forward Back Buttons customization
+- (void)setForwardButtonActive:(BOOL)active {
+    [self makeButton:self.forwardButton active:active];
+}
+
+- (void)setBackButtonActive:(BOOL)active {
+    [self makeButton:self.backButton active:active];
+}
+
+- (void)makeButton:(UIButton*)button active:(BOOL)active {
+    button.userInteractionEnabled = active;
+    button.alpha = (active) ? 1.0 : 0.5;
 }
 
 #pragma mark - Convenience

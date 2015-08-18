@@ -52,12 +52,6 @@
     
     // Start initial loader
     [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self.navigationController barHeight]) style:UIActivityIndicatorViewStyleGray];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     // Start first story request
     [self refreshStories];
@@ -83,8 +77,6 @@
     self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Ranked",@"Most Recent",@"Jobs"]];
     self.dropdownMenu.delegate = self;
     [self.view addSubview:self.dropdownMenu];
-    
-    // Table view refresh control
     
     // To allow Status bar table view scroll to top
     for (UITextView *view in self.view.subviews) {
@@ -262,7 +254,6 @@
             [self pushToCommentViewController:comments];
         } else {
             [self handleError:error type:@"comments"];
-            NSLog(@"%@",error);
         }
     }];
 }
@@ -291,6 +282,10 @@
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                               atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

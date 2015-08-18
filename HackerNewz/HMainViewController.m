@@ -61,12 +61,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     // Start first story request
-    [self requestStories];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self scrollToTopOfTableView];
+    [self refreshStories];
 }
 
 #pragma mark - View Customization
@@ -93,7 +88,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HNLightGray];
     self.refreshControl.tintColor = [UIColor HNOrange];
-    [self.refreshControl addTarget:self action:@selector(requestStories) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(refreshStories) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     // To allow Status bar table view scroll to top
@@ -129,7 +124,7 @@
 }
 
 #pragma mark - Requests
-- (void)requestStories {
+- (void)refreshStories {
     if (!self.requestModel) {
         self.requestModel = [[HHackerNewsRequestModel alloc] init];
     }
@@ -183,7 +178,6 @@
 #pragma mark - Error handling
 - (void)handleError:(NSError*)error type:(NSString*)itemType{
     [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem getting %@. Check your internet connection.",itemType]];
-    NSLog(@"%@",error);
 }
 
 #pragma mark - HDropdownMenuView Delegate Methods

@@ -16,12 +16,12 @@
 @implementation HCommentBubble
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, 25, 20)];
+    self = [super initWithFrame:CGRectMake(0, 0, 25, 25)];
     
     if (self) {
         self.layer.borderColor = [UIColor HNOrange].CGColor;
         self.layer.borderWidth = 1;
-        self.layer.cornerRadius = 4;
+        self.layer.cornerRadius = self.frame.size.height/2;
         
         self.textLabel = [[UILabel alloc] init];
         self.textLabel.font = [self.textLabel.font fontWithSize:11];

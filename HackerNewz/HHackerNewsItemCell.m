@@ -36,9 +36,9 @@ CGFloat const kEdgePadding = 8;
     _commentBubble.center = CGPointMake(self.width - _commentBubble.width/2 - kEdgePadding, _commentBubble.height/2 + kEdgePadding);
     [self addSubview:_commentBubble];
     
-    _commentBubblePointer = [[HCommentBubblePointer alloc] init];
-    [_commentBubblePointer setPosition:CGPointMake(_commentBubble.center.x - _commentBubblePointer.width/2, _commentBubble.center.y + _commentBubble.height/2 - .25)];
-    [self addSubview:_commentBubblePointer];
+//    _commentBubblePointer = [[HCommentBubblePointer alloc] init];
+//    [_commentBubblePointer setPosition:CGPointMake(_commentBubble.center.x - _commentBubblePointer.width/2, _commentBubble.center.y + _commentBubble.height/2 - .25)];
+//    [self addSubview:_commentBubblePointer];
     
     _activityIndicator = [[UIActivityIndicatorView alloc] init];
     [_activityIndicator setColor:[UIColor HNOrange]];

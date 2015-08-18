@@ -24,7 +24,6 @@ CGFloat const kEdgePadding = 8;
 
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) HCommentBubble *commentBubble;
-@property (strong, nonatomic) HCommentBubblePointer *commentBubblePointer;
 @end
 
 @implementation HHackerNewsItemCell
@@ -35,10 +34,6 @@ CGFloat const kEdgePadding = 8;
     _commentBubble = [[HCommentBubble alloc] init];
     _commentBubble.center = CGPointMake(self.width - _commentBubble.width/2 - kEdgePadding, _commentBubble.height/2 + kEdgePadding);
     [self addSubview:_commentBubble];
-    
-//    _commentBubblePointer = [[HCommentBubblePointer alloc] init];
-//    [_commentBubblePointer setPosition:CGPointMake(_commentBubble.center.x - _commentBubblePointer.width/2, _commentBubble.center.y + _commentBubble.height/2 - .25)];
-//    [self addSubview:_commentBubblePointer];
     
     _activityIndicator = [[UIActivityIndicatorView alloc] init];
     [_activityIndicator setColor:[UIColor HNOrange]];
@@ -70,7 +65,6 @@ CGFloat const kEdgePadding = 8;
 
 - (void)toggleCommentBubbleHidden:(BOOL)isHidden {
     [_commentBubble setHidden:isHidden];
-    [_commentBubblePointer setHidden:isHidden];
 }
 
 #pragma mark - Touch Input
@@ -116,7 +110,6 @@ CGFloat const kEdgePadding = 8;
 
 - (void)commentBubbleVisible:(BOOL)isVisible {
     _commentBubble.alpha = isVisible;
-    _commentBubblePointer.alpha = isVisible;
 }
 
 @end

@@ -30,10 +30,9 @@
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate>
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate>
 
 @property (nonatomic) HTableView *tableView;
-@property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
 
 @property (nonatomic) NSMutableArray *topStories;
@@ -73,6 +72,7 @@
     // Table view
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
+    self.tableView.refreshdelegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
@@ -85,11 +85,6 @@
     [self.view addSubview:self.dropdownMenu];
     
     // Table view refresh control
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor HNLightGray];
-    self.refreshControl.tintColor = [UIColor HNOrange];
-    [self.refreshControl addTarget:self action:@selector(refreshStories) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
     
     // To allow Status bar table view scroll to top
     for (UITextView *view in self.view.subviews) {
@@ -123,6 +118,11 @@
     [self.titleLabel sizeToFit];
 }
 
+#pragma mark - HTableView Delegate methods
+- (void)refreshControlActivated {
+    [self refreshStories];
+}
+
 #pragma mark - Requests
 - (void)refreshStories {
     if (!self.requestModel) {
@@ -147,7 +147,7 @@
 
 - (void)requestTopStories {
     [self.requestModel getTopStories:^(BOOL success, NSError *error) {
-        [self.refreshControl endRefreshing];
+        [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
         if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
@@ -157,7 +157,7 @@
 
 - (void)requestLatestStories {
     [self.requestModel getLatestStories:^(BOOL success, NSError *error) {
-        [self.refreshControl endRefreshing];
+        [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
         if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
@@ -167,7 +167,7 @@
 
 - (void)requestJobStories {
     [self.requestModel getJobStories:^(BOOL success, NSError *error) {
-        [self.refreshControl endRefreshing];
+        [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
         if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}

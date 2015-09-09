@@ -16,10 +16,7 @@
 }
 
 - (instancetype)initWithHNDictionary:(id)dictionary {
-    self = [super init];
-    if (self) {
-    }
-    return self;
+    return [super init];
 }
 
 

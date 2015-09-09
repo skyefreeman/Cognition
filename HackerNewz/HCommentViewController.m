@@ -25,7 +25,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-//    [self setTitle:@"Comments"];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kCommentCellHeight];
     self.tableView.delegate = self;

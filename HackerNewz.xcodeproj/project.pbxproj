@@ -29,6 +29,7 @@
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
 		EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */; };
+		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -112,6 +113,8 @@
 		EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
 		EED337911B75B76C002C6A1C /* UIFont+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HNAdditions.h"; sourceTree = "<group>"; };
 		EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HNAdditions.m"; sourceTree = "<group>"; };
+		EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCustomTitleLabel.h; sourceTree = "<group>"; };
+		EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCustomTitleLabel.m; sourceTree = "<group>"; };
 		EEE379621B6F2D0E00280CC2 /* HJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJob.h; sourceTree = "<group>"; };
 		EEE379631B6F2D0E00280CC2 /* HJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJob.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EED519461B9FDC24009E79C1 /* CustomTItleLabel */ = {
+			isa = PBXGroup;
+			children = (
+				EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */,
+				EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */,
+			);
+			name = CustomTItleLabel;
+			sourceTree = "<group>";
+		};
 		EEFDE95B1B3B91D20035556D = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +351,7 @@
 		EEFDE98F1B3B91F10035556D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EED519461B9FDC24009E79C1 /* CustomTItleLabel */,
 				EE770A401B4102E700ABDD60 /* Cells */,
 				EE25AB531B6320D900C78B54 /* DropdownMenuView */,
 				EE25AB521B6320D000C78B54 /* WebView */,
@@ -539,6 +552,7 @@
 				EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */,
 				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
+				EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
 				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,
 				EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */,

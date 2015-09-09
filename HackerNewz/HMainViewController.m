@@ -24,13 +24,14 @@
 // Views
 #import "HTableView.h"
 #import "HDropdownMenuView.h"
+#import "HCustomTitleLabel.h"
 
 // Hacker News
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate>
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
@@ -38,14 +39,13 @@
 @property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
 
-@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) HCustomTitleLabel *titleLabel;
 @end
 
 @implementation HMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureCustomNavigationBarTitle];
     
     [self configureSubviews];
     [self registerNibs];
@@ -71,6 +71,10 @@
     [self.view addSubview:self.tableView];
     
     // Navigation bar
+    self.titleLabel = [[HCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
+    self.titleLabel.delegate = self;
+    [self.navigationItem setTitleView:self.titleLabel];
+
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
     // Dropdown menu
@@ -87,21 +91,7 @@
 }
 
 #pragma mark - Navigation Bar Custom Title
-- (void)configureCustomNavigationBarTitle {
-    self.titleLabel = [[UILabel alloc] initWithFrame:self.navigationController.navigationBar.frame];
-    [self.titleLabel setText:@"Top Ranked"];
-    [self.titleLabel sizeToFit];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.titleLabel setFont:[UIFont hnFont:20.0f]];
-    [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.navigationItem setTitleView:self.titleLabel];
-    
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleTapped)];
-    self.titleLabel.userInteractionEnabled = YES;
-    [self.titleLabel addGestureRecognizer:tapRecognizer];
-}
-
-- (void)titleTapped {
+- (void)customTitleLabelTouched {
     [self scrollToTopOfTableView];
 }
 

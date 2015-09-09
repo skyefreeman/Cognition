@@ -31,7 +31,7 @@
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
+@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
@@ -227,6 +227,11 @@
     [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+#pragma mark - UIScrollView Delegate Methods
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.dropdownMenu.isActive) [self.dropdownMenu toggleSlide];
 }
 
 #pragma mark - HHackerNewsItemCell Delegate Methods

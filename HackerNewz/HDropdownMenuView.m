@@ -46,7 +46,7 @@ CGFloat const kDefaultSlideLength = 0.35;
         self.backgroundColor = [UIColor HNLightOrange];
         self.userInteractionEnabled = YES;
         
-        [self roundEdges];
+//        [self roundEdges];
         
         self.slideLength = kDefaultSlideLength;
         self.startPoint = self.frame.origin;
@@ -131,7 +131,7 @@ CGFloat const kDefaultSlideLength = 0.35;
     
     // Start the slide animation
     self.animating = YES;
-    self.makeOrigin(self.position.x, endpoint).bounce.animateWithCompletion(0.75, JHAnimationCompletion(){
+    self.makeOrigin(self.position.x, endpoint).easeOut.animateWithCompletion(0.25, JHAnimationCompletion(){
         self.animating = NO;
         self.menuActive = direction;
     });

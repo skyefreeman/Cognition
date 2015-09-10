@@ -60,7 +60,6 @@
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"This happend");
 }
 
 @end

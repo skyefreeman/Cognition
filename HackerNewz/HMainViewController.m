@@ -51,7 +51,7 @@
     [self registerNibs];
     
     // Start initial loader
-    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self.navigationController barHeight]) style:UIActivityIndicatorViewStyleGray];
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarBeight]) style:UIActivityIndicatorViewStyleGray];
     
     // Start first story request
     [self refreshStories];
@@ -285,8 +285,3 @@
 
 @end
 
-@implementation UINavigationController (MainViewControllerAdditions)
-- (CGFloat)barHeight {
-    return self.navigationBar.height;
-}
-@end

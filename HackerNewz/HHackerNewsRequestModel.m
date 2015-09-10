@@ -80,7 +80,6 @@ int const kDefaultItemFetchCount = 30;
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         if (completion) completion(tempComments,nil);
-        NSLog(@"Done getting comments");
     });
 }
 

@@ -21,6 +21,7 @@ CGFloat const kEdgePadding = 8;
 @interface HHackerNewsItemCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+@property (strong, nonatomic) IBOutlet UILabel *commentLabel;
 
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) HCommentBubble *commentBubble;
@@ -31,15 +32,15 @@ CGFloat const kEdgePadding = 8;
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    _commentBubble = [[HCommentBubble alloc] init];
-    _commentBubble.center = CGPointMake(self.width - _commentBubble.width/2 - kEdgePadding, _commentBubble.height/2 + kEdgePadding);
-    [self addSubview:_commentBubble];
+//    _commentBubble = [[HCommentBubble alloc] init];
+//    _commentBubble.center = CGPointMake(self.width - _commentBubble.width/2 - kEdgePadding, _commentBubble.height/2 + kEdgePadding);
+//    [self addSubview:_commentBubble];
     
-    _activityIndicator = [[UIActivityIndicatorView alloc] init];
-    [_activityIndicator setColor:[UIColor HNOrange]];
-    [_activityIndicator setCenter:_commentBubble.center];
-    [_activityIndicator setAlpha:0];
-    [self addSubview:_activityIndicator];
+//    _activityIndicator = [[UIActivityIndicatorView alloc] init];
+//    [_activityIndicator setColor:[UIColor HNOrange]];
+//    [_activityIndicator setCenter:_commentBubble.center];
+//    [_activityIndicator setAlpha:0];
+//    [self addSubview:_activityIndicator];
 }
 
 - (void)configureWithTitle:(NSString*)title points:(NSInteger)points author:(NSString*)author time:(NSInteger)time comments:(NSInteger)comments {
@@ -47,20 +48,21 @@ CGFloat const kEdgePadding = 8;
     
     NSString *pointsString = (points > 1) ? [NSString stringWithFormat:@"%lu points ",(long)points] : @"";
     NSString *authorString = [NSString stringWithFormat:@"by %@",author];
+    NSString *commentString = [NSString stringWithFormat:@"%lu comments",comments];
     
     NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
     
-    self.infoLabel.text = [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@%@ %@ | %@",pointsString,authorString,timeString,commentString];
     self.titleLabel.font = [UIFont hnFont:16.0f];
     self.titleLabel.text = title;
     
-    if (comments > 0) {
-        [_commentBubble setText:[NSString integerToString:comments]];
-    } else {
-        [self toggleCommentBubbleHidden:YES];
-    }
+//    if (comments > 0) {
+//        [_commentBubble setText:[NSString integerToString:comments]];
+//    } else {
+//        [self toggleCommentBubbleHidden:YES];
+//    }
 }
 
 - (void)toggleCommentBubbleHidden:(BOOL)isHidden {

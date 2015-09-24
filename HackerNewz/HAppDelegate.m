@@ -36,9 +36,13 @@
     self.navController.navigationBar.translucent = NO;
     self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                              NSFontAttributeName:[UIFont hnFont:20.0f]};
+    
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
     self.navController.navigationBar.barTintColor = [UIColor HNOrange];
     self.navController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    [self.navController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navController.navigationBar setShadowImage:[UIImage new]];
     
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];

@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGQ-ze-GCq">
-                        <rect key="frame" x="8" y="8" width="304" height="73"/>
+                        <rect key="frame" x="8" y="8" width="304" height="64"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="trailing" secondItem="pXW-6b-idR" secondAttribute="trailing" constant="114" id="CUu-WQ-i3h"/>
                     <constraint firstItem="aC5-Yl-QmE" firstAttribute="top" secondItem="pXW-6b-idR" secondAttribute="top" id="e5A-Cd-3Ok"/>
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="leading" secondItem="pXW-6b-idR" secondAttribute="leading" id="ezm-px-Jex"/>
-                    <constraint firstItem="pXW-6b-idR" firstAttribute="top" secondItem="JGQ-ze-GCq" secondAttribute="bottom" constant="1" id="gPH-BD-zdH"/>
+                    <constraint firstItem="pXW-6b-idR" firstAttribute="top" secondItem="JGQ-ze-GCq" secondAttribute="bottom" constant="10" id="gPH-BD-zdH"/>
                     <constraint firstItem="aC5-Yl-QmE" firstAttribute="leading" secondItem="pXW-6b-idR" secondAttribute="trailing" constant="8" symbolic="YES" id="gjq-Q9-Au5"/>
                     <constraint firstItem="aC5-Yl-QmE" firstAttribute="trailing" secondItem="JGQ-ze-GCq" secondAttribute="trailing" id="hFc-RD-tqu"/>
                     <constraint firstItem="JGQ-ze-GCq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zpI-h3-eVV"/>

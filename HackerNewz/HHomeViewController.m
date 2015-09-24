@@ -232,8 +232,9 @@
 
 #pragma mark - UITableView Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HStory *story = [self storyAtIndexPath:indexPath];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    HStory *story = [self storyAtIndexPath:indexPath];
     if (![story.url isNotEmptyString]) {
         [self showAlertWithTitle:@"Error" message:@"No URL for item"];
         return;
@@ -241,7 +242,6 @@
     
     [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
     
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - UIScrollView Delegate Methods

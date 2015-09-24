@@ -43,7 +43,7 @@ CGFloat const kDefaultSlideLength = 0.35;
     
     self = [super initWithFrame:menuFrame];
     if (self) {
-        self.backgroundColor = [UIColor HNLightOrange];
+        self.backgroundColor = [UIColor HNOrange];
         self.userInteractionEnabled = YES;
         
 //        [self roundEdges];

@@ -7,7 +7,7 @@
 //
 
 // View Controllers
-#import "HMainViewController.h"
+#import "HHomeViewController.h"
 #import "HWebLinkViewController.h"
 #import "HCommentViewController.h"
 
@@ -31,7 +31,7 @@
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
 
-@interface HMainViewController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
+@interface HHomeViewController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
 
 @property (nonatomic) HTableView *tableView;
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
@@ -42,7 +42,7 @@
 @property (nonatomic) HCustomTitleLabel *titleLabel;
 @end
 
-@implementation HMainViewController
+@implementation HHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +51,7 @@
     [self registerNibs];
     
     // Start initial loader
-    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarHeight]) style:UIActivityIndicatorViewStyleGray];
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarHeight]) style:UIActivityIndicatorViewStyleWhiteLarge];
     
     // Start first story request
     [self refreshStories];
@@ -129,7 +129,7 @@
 
 - (void)requestTopStories {
     [self.requestModel getTopStories:^(NSError *error) {
-        [self.tableView.refreshControl endRefreshing];
+        [self.tableView.refreshController endRefreshing];
         [self removeActivityIndicator];
         
         if (!error) {
@@ -142,7 +142,7 @@
 
 - (void)requestLatestStories {
     [self.requestModel getLatestStories:^(NSError *error) {
-        [self.tableView.refreshControl endRefreshing];
+        [self.tableView.refreshController endRefreshing];
         [self removeActivityIndicator];
         
         if (!error) {
@@ -155,7 +155,7 @@
 
 - (void)requestJobStories {
     [self.requestModel getJobStories:^(NSError *error) {
-        [self.tableView.refreshControl endRefreshing];
+        [self.tableView.refreshController endRefreshing];
         [self removeActivityIndicator];
 
         if (!error) {
@@ -212,7 +212,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.requestModel.allStories.count == 0) {
-        [self.tableView addBackgroundLabelWithText:@"No Results." atCenter:CGPointMake(self.view.center.x, self.view.center.y - self.navigationBarHeight * 2)];
+        [self.tableView addBackgroundLabelWithText:@"No Results." atCenter:CGPointMake(self.view.center.x, self.view.center.y - self.navigationBarHeight)];
     } else {
         [self.tableView addBackgroundLabelWithText:@"" atCenter:self.view.center];
     }
@@ -250,7 +250,7 @@
 }
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
-- (void)commentBubbleTapped:(id)sender {
+- (void)commentButtonTapped:(id)sender {
     
     HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -258,9 +258,7 @@
     // Load comments for news item
     HStory *story = [self.requestModel.allStories objectAtIndex:indexPath.row];
     [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
-        [sender commentLoadingViewVisible:NO];
-
-        if (comments) {
+        if (!error) {
             [self pushToCommentViewController:comments];
         } else {
             [self handleError:error type:@"comments"];

@@ -7,7 +7,7 @@
 //
 
 #import "HWebLinkViewController.h"
-#import "HWebViewbar.h"
+#import "HWebViewBar.h"
 #import "UIColor+HNAdditions.h"
 #import <SFAdditions.h>
 
@@ -15,7 +15,7 @@
 
 @interface HWebLinkViewController() <UIWebViewDelegate,UIScrollViewDelegate,HWebViewBarDelegate>
 @property (nonatomic) UIWebView *webView;
-@property (nonatomic) HWebViewbar *webViewBar;
+@property (nonatomic) HWebViewBar *webViewBar;
 @end
 
 @implementation HWebLinkViewController
@@ -29,7 +29,7 @@
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
     
-    self.webViewBar = [[HWebViewbar alloc] initWithBarType:BarTypeBottom];
+    self.webViewBar = [[HWebViewBar alloc] initWithBarType:BarTypeBottom];
     self.webViewBar.delegate = self;
     [self.view addSubview:self.webViewBar];
     
@@ -58,6 +58,10 @@
 
 - (void)forwardButtonTapped {
     [self.webView goForward];
+}
+
+- (void)uploadButtonTapped {
+    NSLog(@"this happend");
 }
 
 #pragma mark - Link Management
@@ -94,6 +98,10 @@
 
 - (CGPoint)translationWithScrollView:(UIScrollView*)scrollView {
     return [scrollView.panGestureRecognizer translationInView:scrollView.superview];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 #pragma mark - dealloc

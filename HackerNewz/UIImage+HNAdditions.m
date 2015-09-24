@@ -22,4 +22,16 @@
     return [UIImage imageNamed:@"cancelIcon"];
 }
 
++ (UIImage*)leftImage {
+    return [UIImage imageNamed:@"leftIcon"];
+}
+
++ (UIImage*)rightImage {
+    return [UIImage imageNamed:@"rightIcon"];
+}
+
++ (UIImage*)uploadImage {
+    return [UIImage imageNamed:@"uploadIcon"];
+}
+
 @end

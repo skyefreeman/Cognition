@@ -27,12 +27,17 @@
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         self.rowHeight = UITableViewAutomaticDimension;
         self.estimatedRowHeight = estHeight;
+        self.backgroundColor = [UIColor HNLightOrange];
         
-        self.refreshControl = [[UIRefreshControl alloc] init];
-        self.refreshControl.backgroundColor = [UIColor HNLightGray];
-        self.refreshControl.tintColor = [UIColor HNOrange];
-        [self.refreshControl addTarget:self action:@selector(refreshControlActivated) forControlEvents:UIControlEventValueChanged];
-        [self addSubview:self.refreshControl];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..." attributes:attrsDictionary];
+        
+        self.refreshController = [[UIRefreshControl alloc] init];
+        self.refreshController.tintColor = [UIColor whiteColor];
+        self.refreshController.attributedTitle = attributedTitle;
+        [self.refreshController addTarget:self action:@selector(refreshControlActivated) forControlEvents:UIControlEventValueChanged];
+        [self.refreshController setClipsToBounds:YES];
+        [self insertSubview:self.refreshController atIndex:0];
     }
     return self;
 }
@@ -55,7 +60,7 @@
     self.backgroundLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.backgroundLabel.numberOfLines = 0;
     self.backgroundLabel.font = [UIFont hnFont:16];
-    self.backgroundLabel.textColor = [UIColor blackColor];
+    self.backgroundLabel.textColor = [UIColor whiteColor];
     self.backgroundLabel.alpha = 0.6;
     [self.backgroundLabel sizeToFit];
     [self.backgroundLabel setCenter:center];

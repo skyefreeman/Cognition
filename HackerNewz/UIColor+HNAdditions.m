@@ -14,7 +14,7 @@
 }
 
 + (UIColor*)HNLightOrange {
-    return [UIColor colorWithRed:1.000 green:0.250 blue:0.252 alpha:0.900];
+    return [UIColor colorWithRed:1.000 green:0.250 blue:0.252 alpha:0.600];
 }
 
 + (UIColor*)HNDarkGray {

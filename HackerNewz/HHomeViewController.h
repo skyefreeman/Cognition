@@ -8,5 +8,5 @@
 
 #import "HBaseViewController.h"
 
-@interface HMainViewController : HBaseViewController
+@interface HHomeViewController : HBaseViewController
 @end

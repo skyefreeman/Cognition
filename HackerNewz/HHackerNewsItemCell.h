@@ -12,7 +12,7 @@ extern NSString * const kNewsItemReuseIdentifier;
 extern CGFloat const kTopStoryCellHeight;
 
 @protocol HHackerNewsItemCellDelegate
-- (void)commentBubbleTapped:(id)sender;
+- (void)commentButtonTapped:(id)sender;
 @end
 
 @interface HHackerNewsItemCell : UITableViewCell
@@ -24,6 +24,4 @@ extern CGFloat const kTopStoryCellHeight;
                     author:(NSString*)author
                       time:(NSInteger)time
                   comments:(NSInteger)comments;
-
-- (void)commentLoadingViewVisible:(BOOL)isVisible;
 @end

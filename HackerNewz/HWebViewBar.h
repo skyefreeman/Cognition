@@ -12,6 +12,7 @@
 - (void)cancelButtonTapped;
 - (void)backButtonTapped;
 - (void)forwardButtonTapped;
+- (void)uploadButtonTapped;
 @end
 
 typedef NS_ENUM(NSInteger, BarType) {
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSInteger, BarType) {
     BarTypeTop,
 };
 
-@interface HWebViewbar : UIView
+@interface HWebViewBar : UIView
 
 + (instancetype)barWithType:(BarType)barType;
 - (instancetype)initWithBarType:(BarType)barType;

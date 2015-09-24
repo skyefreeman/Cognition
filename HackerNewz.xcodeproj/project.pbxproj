@@ -24,7 +24,7 @@
 		EE9B054B1B58C11100260F69 /* HStory.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B054A1B58C11100260F69 /* HStory.m */; };
 		EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D791B555A1600C26E58 /* HCommentBubble.m */; };
 		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
-		EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */; };
+		EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */; };
 		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
@@ -34,7 +34,7 @@
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
-		EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96F1B3B91D20035556D /* HMainViewController.m */; };
+		EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96F1B3B91D20035556D /* HHomeViewController.m */; };
 		EEFDE9751B3B91D20035556D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEFDE9741B3B91D20035556D /* Images.xcassets */; };
 		EEFDE9841B3B91D20035556D /* HackerNewzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9831B3B91D20035556D /* HackerNewzTests.m */; };
 /* End PBXBuildFile section */
@@ -105,8 +105,8 @@
 		EEA34D791B555A1600C26E58 /* HCommentBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubble.m; sourceTree = "<group>"; };
 		EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubblePointer.h; sourceTree = "<group>"; };
 		EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubblePointer.m; sourceTree = "<group>"; };
-		EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebViewbar.h; sourceTree = "<group>"; };
-		EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewbar.m; sourceTree = "<group>"; };
+		EEC8A8D41B410ADB00D3C3DA /* HWebViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebViewBar.h; sourceTree = "<group>"; };
+		EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewBar.m; sourceTree = "<group>"; };
 		EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNAdditions.h"; sourceTree = "<group>"; };
 		EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNAdditions.m"; sourceTree = "<group>"; };
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 		EEFDE9691B3B91D20035556D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEFDE96B1B3B91D20035556D /* HAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAppDelegate.h; sourceTree = "<group>"; };
 		EEFDE96C1B3B91D20035556D /* HAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAppDelegate.m; sourceTree = "<group>"; };
-		EEFDE96E1B3B91D20035556D /* HMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainViewController.h; sourceTree = "<group>"; };
-		EEFDE96F1B3B91D20035556D /* HMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainViewController.m; sourceTree = "<group>"; };
+		EEFDE96E1B3B91D20035556D /* HHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHomeViewController.h; sourceTree = "<group>"; };
+		EEFDE96F1B3B91D20035556D /* HHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHomeViewController.m; sourceTree = "<group>"; };
 		EEFDE9741B3B91D20035556D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EEFDE97D1B3B91D20035556D /* HackerNewzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9821B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 		EE25AB521B6320D000C78B54 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8A8D41B410ADB00D3C3DA /* HWebViewbar.h */,
-				EEC8A8D51B410ADB00D3C3DA /* HWebViewbar.m */,
+				EEC8A8D41B410ADB00D3C3DA /* HWebViewBar.h */,
+				EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */,
 			);
 			name = WebView;
 			sourceTree = "<group>";
@@ -368,8 +368,8 @@
 		EEFDE9901B3B91F70035556D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EEFDE96E1B3B91D20035556D /* HMainViewController.h */,
-				EEFDE96F1B3B91D20035556D /* HMainViewController.m */,
+				EEFDE96E1B3B91D20035556D /* HHomeViewController.h */,
+				EEFDE96F1B3B91D20035556D /* HHomeViewController.m */,
 				EE770A411B41046100ABDD60 /* HWebLinkViewController.h */,
 				EE770A421B41046100ABDD60 /* HWebLinkViewController.m */,
 				EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */,
@@ -545,7 +545,7 @@
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
-				EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */,
+				EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
 				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
 				EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */,
@@ -554,7 +554,7 @@
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,
 				EE7ED0071B4CCD8E00A368DB /* UILabel+HNAdditions.m in Sources */,
 				EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */,
-				EEC8A8D61B410ADB00D3C3DA /* HWebViewbar.m in Sources */,
+				EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */,
 				EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */,
 				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,

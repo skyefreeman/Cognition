@@ -12,6 +12,9 @@
 
 + (UIImage*)upImage;
 + (UIImage*)downImage;
++ (UIImage*)leftImage;
++ (UIImage*)rightImage;
 + (UIImage*)cancelImage;
++ (UIImage*)uploadImage;
 
 @end

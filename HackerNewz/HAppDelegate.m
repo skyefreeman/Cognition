@@ -9,7 +9,7 @@
 #import "HAppDelegate.h"
 
 // View Controller
-#import "HMainViewController.h"
+#import "HHomeViewController.h"
 
 // Categories
 #import <SFAdditions.h>
@@ -30,7 +30,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    HMainViewController *vc = [[HMainViewController alloc] init];
+    HHomeViewController *vc = [[HHomeViewController alloc] init];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.navController.navigationBar.translucent = NO;

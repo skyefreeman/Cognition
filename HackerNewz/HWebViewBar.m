@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import "HWebViewbar.h"
+#import "HWebViewBar.h"
+#import "UIImage+HNAdditions.h"
 #import "UIColor+HNAdditions.h"
 
 CGFloat const kPadding = 10;
@@ -18,16 +19,17 @@ typedef NS_ENUM(NSInteger, BarLayer) {
     BarLayerButton,
 };
 
-@interface HWebViewbar()
+@interface HWebViewBar()
 @property (nonatomic) UIButton *cancelButton;
 @property (nonatomic) UIButton *backButton;
 @property (nonatomic) UIButton *forwardButton;
+@property (nonatomic) UIButton *uploadButton;
 
 @property (nonatomic, readwrite) BarType barType;
 
 @end
 
-@implementation HWebViewbar {
+@implementation HWebViewBar {
     BOOL _isAnimating;
 }
 
@@ -55,22 +57,26 @@ typedef NS_ENUM(NSInteger, BarLayer) {
         CGSize buttonSize = CGSizeMake(20, 20);
         
         // Back Button
-        self.backButton = [self barButtonAtCenter:CGPointMake(buttonSize.width/2 + kPadding, self.frame.size.height/2) imageNamed:@"leftIcon"];
+        self.backButton = [self barButtonAtCenter:CGPointMake(buttonSize.width/2 + kPadding, self.frame.size.height/2) image:[UIImage leftImage]];
         [self.backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.backButton atIndex:BarLayerButton];
+        [self setBackButtonActive:NO];
         
         // Forward Button
-        self.forwardButton = [self barButtonAtCenter:CGPointMake(self.backButton.frame.origin.x + buttonSize.width + kPadding*4, self.frame.size.height/2) imageNamed:@"rightIcon"];
+        self.forwardButton = [self barButtonAtCenter:CGPointMake(self.backButton.frame.origin.x + buttonSize.width + kPadding*4, self.frame.size.height/2) image:[UIImage rightImage]];
         [self.forwardButton addTarget:self action:@selector(forwardButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.forwardButton atIndex:BarLayerButton];
-        
-        [self setBackButtonActive:NO];
         [self setForwardButtonActive:NO];
         
         // Cancel Button
-        self.cancelButton = [self barButtonAtCenter:CGPointMake(self.frame.size.width - buttonSize.width - kPadding, self.frame.size.height/2) imageNamed:@"cancelIcon"];
+        self.cancelButton = [self barButtonAtCenter:CGPointMake(self.frame.size.width - buttonSize.width - kPadding, self.frame.size.height/2) image:[UIImage cancelImage]];
         [self.cancelButton addTarget:self action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:self.cancelButton atIndex:BarLayerButton];
+        
+        // Upload Button
+        self.uploadButton = [self barButtonAtCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) image:[UIImage uploadImage]];
+        [self.uploadButton addTarget:self action:@selector(uploadButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [self insertSubview:self.uploadButton atIndex:BarLayerButton];
     }
     return self;
 }
@@ -132,6 +138,10 @@ typedef NS_ENUM(NSInteger, BarLayer) {
     [self.delegate forwardButtonTapped];
 }
 
+- (void)uploadButtonTapped {
+    [self.delegate uploadButtonTapped];
+}
+
 #pragma mark - Forward Back Buttons customization
 - (void)setForwardButtonActive:(BOOL)active {
     [self makeButton:self.forwardButton active:active];
@@ -147,8 +157,8 @@ typedef NS_ENUM(NSInteger, BarLayer) {
 }
 
 #pragma mark - Convenience
-- (UIButton*)barButtonAtCenter:(CGPoint)centerPoint imageNamed:(NSString*)imageName {
-    UIImage *backButtonImage = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+- (UIButton*)barButtonAtCenter:(CGPoint)centerPoint image:(UIImage*)image {
+    UIImage *backButtonImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     CGSize buttonSize = CGSizeMake(20, 20);
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];

@@ -14,7 +14,7 @@
 
 @interface HTableView : UITableView
 @property (nonatomic, weak) id <HTableViewDelegate> refreshdelegate;
-@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) UIRefreshControl *refreshController;
 @property (nonatomic) UILabel *backgroundLabel;
 
 + (instancetype)tableViewWithEstimatedRowHeight:(CGFloat)estHeight;

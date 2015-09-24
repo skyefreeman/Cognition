@@ -51,7 +51,7 @@
     [self registerNibs];
     
     // Start initial loader
-    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarBeight]) style:UIActivityIndicatorViewStyleGray];
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarHeight]) style:UIActivityIndicatorViewStyleGray];
     
     // Start first story request
     [self refreshStories];
@@ -66,8 +66,8 @@
     // Table view
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
-    self.tableView.refreshdelegate = self;
     self.tableView.dataSource = self;
+    self.tableView.refreshdelegate = self;
     [self.view addSubview:self.tableView];
     
     // Navigation bar
@@ -128,32 +128,41 @@
 }
 
 - (void)requestTopStories {
-    [self.requestModel getTopStories:^(BOOL success, NSError *error) {
+    [self.requestModel getTopStories:^(NSError *error) {
         [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
-        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
-        else [self handleError:error type:@"stories"];
+        if (!error) {
+            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
+        } else {
+            [self handleError:error type:@"stories"];
+        }
     }];
 }
 
 - (void)requestLatestStories {
-    [self.requestModel getLatestStories:^(BOOL success, NSError *error) {
+    [self.requestModel getLatestStories:^(NSError *error) {
         [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
         
-        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
-        else [self handleError:error type:@"stories"];
+        if (!error) {
+            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
+        } else {
+            [self handleError:error type:@"stories"];
+        }
     }];
 }
 
 - (void)requestJobStories {
-    [self.requestModel getJobStories:^(BOOL success, NSError *error) {
+    [self.requestModel getJobStories:^(NSError *error) {
         [self.tableView.refreshControl endRefreshing];
         [self removeActivityIndicator];
-        
-        if (success) {[self.tableView reloadData]; [self scrollToTopOfTableView];}
-        else [self handleError:error type:@"stories"];
+
+        if (!error) {
+            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
+        } else {
+            [self handleError:error type:@"stories"];
+        }
     }];
 }
 
@@ -202,6 +211,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.requestModel.allStories.count == 0) {
+        [self.tableView addBackgroundLabelWithText:@"No Results." atCenter:CGPointMake(self.view.center.x, self.view.center.y - self.navigationBarHeight * 2)];
+    } else {
+        [self.tableView addBackgroundLabelWithText:@"" atCenter:self.view.center];
+    }
+    
     return self.requestModel.allStories.count;
 }
 
@@ -277,10 +292,6 @@
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                               atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import "HTableView.h"
 #import "UIColor+HNAdditions.h"
+#import "UIFont+HNAdditions.h"
+#import <SFAdditions.h>
 
 @interface HTableView()
-
 @end
 
 @implementation HTableView
@@ -36,8 +37,36 @@
     return self;
 }
 
+#pragma mark - Refresh Control
 - (void)refreshControlActivated {
     [self.refreshdelegate refreshControlActivated];
+}
+
+#pragma mark - Background Label
+- (void)addBackgroundLabelWithText:(NSString *)text atCenter:(CGPoint)center {
+    if (self.backgroundLabel) {
+        [self.backgroundLabel removeFromSuperview];
+        self.backgroundLabel = nil;
+    }
+    
+    self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width/6 * 5, self.height)];
+    self.backgroundLabel.text = text;
+    self.backgroundLabel.textAlignment = NSTextAlignmentCenter;
+    self.backgroundLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.backgroundLabel.numberOfLines = 0;
+    self.backgroundLabel.font = [UIFont hnFont:16];
+    self.backgroundLabel.textColor = [UIColor blackColor];
+    self.backgroundLabel.alpha = 0.6;
+    [self.backgroundLabel sizeToFit];
+    [self.backgroundLabel setCenter:center];
+    [self addSubview:self.backgroundLabel];
+}
+
+#pragma mark - Custom Table stuff
+- (void)reloadDataAnimated {
+    NSRange range = NSMakeRange(0, self.numberOfSections);
+    NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:range];
+    [self reloadSections:sections withRowAnimation:UITableViewRowAnimationFade];
 }
 
 @end

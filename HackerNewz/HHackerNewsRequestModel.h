@@ -20,9 +20,9 @@ typedef NS_ENUM(NSInteger, RequestType) {
 @property (nonatomic) RequestType requestType;
 @property (nonatomic, readonly) NSMutableArray *allStories;
 
-- (void)getTopStories:(void (^)(BOOL success, NSError *error))completion;
-- (void)getLatestStories:(void (^)(BOOL success, NSError *error))completion;
-- (void)getJobStories:(void (^)(BOOL success, NSError *error))completion;
+- (void)getTopStories:(void (^)(NSError *error))completion;
+- (void)getLatestStories:(void (^)(NSError *error))completion;
+- (void)getJobStories:(void (^)(NSError *error))completion;
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion;
 

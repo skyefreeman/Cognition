@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HBaseViewController.h"
 
-@interface HMainViewController : UIViewController
+@interface HMainViewController : HBaseViewController
 @end

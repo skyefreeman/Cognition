@@ -4,22 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FormatterKit.xcscheme</key>
+		<key>FormatterKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JHChainableAnimations.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<key>JHChainableAnimations.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -29,30 +24,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16FD129EE9E12771EA52CA42</key>
+		<key>24F804A09F71E4973C70A0F913308B8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>698B7C97973D61225BABCED1</key>
+		<key>55E3BAD594CAB8A0672DDE1E423B67E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A46404215AD1C281F362CFE7</key>
+		<key>AF55A31AFB59AD63AC66F23FB47A1176</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9C10D27C250E2B7AA28DFA1</key>
+		<key>DBEE6D6026E4DC443AEADAC7E974EA4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAE5CD8DA3EF36D8FC0B0379</key>
+		<key>DFAD19DE185D7DF60680A1587A500E0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

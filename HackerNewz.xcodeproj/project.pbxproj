@@ -30,6 +30,7 @@
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
 		EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */; };
 		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
+		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -115,6 +116,8 @@
 		EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HNAdditions.m"; sourceTree = "<group>"; };
 		EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCustomTitleLabel.h; sourceTree = "<group>"; };
 		EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCustomTitleLabel.m; sourceTree = "<group>"; };
+		EED80A301BB4916B00D4113A /* HBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseViewController.h; sourceTree = "<group>"; };
+		EED80A311BB4916B00D4113A /* HBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseViewController.m; sourceTree = "<group>"; };
 		EEE379621B6F2D0E00280CC2 /* HJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJob.h; sourceTree = "<group>"; };
 		EEE379631B6F2D0E00280CC2 /* HJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJob.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +374,8 @@
 				EE770A421B41046100ABDD60 /* HWebLinkViewController.m */,
 				EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */,
 				EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */,
+				EED80A301BB4916B00D4113A /* HBaseViewController.h */,
+				EED80A311BB4916B00D4113A /* HBaseViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -423,7 +428,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = H;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Skye Freeman";
 				TargetAttributes = {
 					EEFDE9631B3B91D20035556D = {
@@ -538,6 +543,7 @@
 			files = (
 				EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */,
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
+				EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HMainViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
@@ -607,6 +613,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -683,6 +690,7 @@
 				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -703,6 +711,7 @@
 				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -712,16 +721,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = HackerNewzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNewz.app/HackerNewz";
 			};
@@ -731,12 +737,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = HackerNewzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNewz.app/HackerNewz";
 			};

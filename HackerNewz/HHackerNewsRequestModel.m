@@ -29,41 +29,47 @@ int const kDefaultItemFetchCount = 30;
 
 @implementation HHackerNewsRequestModel
 
-- (void)getTopStories:(void (^)(BOOL success, NSError *error))completion {
+- (void)getTopStories:(void (^)(NSError *error))completion {
     self.requestType = RequestTypeTopStories;
     [self topStories:^(id items, NSError *error) {
         if (!error) {
             [self parseItemsIntoStories:items withCompletion:^{
-                completion(YES,nil);
+                if (completion) completion(nil);
             }];
+        } else {
+            if (completion) completion(error);
         }
     }];
 }
 
-- (void)getLatestStories:(void (^)(BOOL success, NSError *error))completion {
+- (void)getLatestStories:(void (^)(NSError *error))completion {
     self.requestType = RequestTypeLatestStories;
     [self newStories:^(id items, NSError *error) {
         if (!error) {
             [self parseItemsIntoStories:items withCompletion:^{
-                completion(YES,nil);
+                if (completion) completion(nil);
             }];
+        } else {
+            if (completion) completion(error);
         }
     }];
 }
 
-- (void)getJobStories:(void (^)(BOOL success, NSError *error))completion {
+- (void)getJobStories:(void (^)(NSError *error))completion {
     self.requestType = RequestTypeJobStories;
     [self jobStories:^(id jobs, NSError *error) {
         if (!error) {
             [self parseItemsIntoStories:jobs withCompletion:^{
-                completion(YES,nil);
+                if (completion) completion(nil);
             }];
+        } else {
+            if (completion) completion(error);
         }
     }];
 }
 
 - (void)getCommentsForItem:(HHackerNewsItem*)item completion:(void (^)(id comments, NSError *error))completion {
-    
+
     dispatch_group_t group = dispatch_group_create();
     
     NSMutableArray *tempComments = [NSMutableArray array];

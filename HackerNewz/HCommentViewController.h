@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HBaseViewController.h"
 
-@interface HCommentViewController : UIViewController
+@interface HCommentViewController : HBaseViewController
 @property (nonatomic) NSArray *allComments;
 @end

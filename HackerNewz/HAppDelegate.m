@@ -38,7 +38,8 @@
                                                              NSFontAttributeName:[UIFont hnFont:20.0f]};
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
     self.navController.navigationBar.barTintColor = [UIColor HNOrange];
-
+    self.navController.navigationBar.barStyle = UIBarStyleBlack;
+    
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     

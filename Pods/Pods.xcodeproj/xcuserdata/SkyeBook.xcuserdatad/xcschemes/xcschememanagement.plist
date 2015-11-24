@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HackerNewsKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JHChainableAnimations.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24F804A09F71E4973C70A0F913308B8D</key>
+		<key>040D9BA6DE2C198577785EF83DC14638</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55E3BAD594CAB8A0672DDE1E423B67E8</key>
+		<key>2874FD1393C4EC8FC3DB20AA188DFF74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF55A31AFB59AD63AC66F23FB47A1176</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBEE6D6026E4DC443AEADAC7E974EA4E</key>
+		<key>59DCB0AD4453AC70BF4ED53A924AFD71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFAD19DE185D7DF60680A1587A500E0A</key>
+		<key>D692624CE562FBC8BCEE15C9C5B17685</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F27C9AB311EE00D38DCF3118AFEBA695</key>
 		<dict>
 			<key>primary</key>
 			<true/>

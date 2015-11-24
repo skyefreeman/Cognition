@@ -1,0 +1,4 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/HackerNewsKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/FormatterKit" "${PODS_ROOT}/Headers/Public/HackerNewsKit" "${PODS_ROOT}/Headers/Public/JHChainableAnimations" "${PODS_ROOT}/Headers/Public/TTTAttributedLabel"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

@@ -10,6 +10,7 @@
 #import "HHomeViewController.h"
 #import "HWebLinkViewController.h"
 #import "HCommentViewController.h"
+#import "HSafariViewController.h"
 
 // Libraries
 #import <JHChainableAnimations.h>
@@ -239,9 +240,9 @@
         [self showAlertWithTitle:@"Error" message:@"No URL for item"];
         return;
     }
-    
-    [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
-    
+    HSafariViewController *vc = [[HSafariViewController alloc] initWithURL:[NSURL URLWithString:story.url]];
+    [self presentViewController:vc animated:YES completion:nil];
+//    [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
 }
 
 #pragma mark - UIScrollView Delegate Methods

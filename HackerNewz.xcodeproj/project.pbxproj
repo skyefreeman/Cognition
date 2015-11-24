@@ -12,6 +12,7 @@
 		EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */; };
 		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
 		EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */; };
+		EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */; };
 		EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A421B41046100ABDD60 /* HWebLinkViewController.m */; };
 		EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */; };
 		EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */; };
@@ -30,7 +31,7 @@
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
 		EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */; };
 		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
-		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; };
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -82,6 +83,8 @@
 		EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsItem.m; sourceTree = "<group>"; };
 		EE55BAFF1B645F1D00ABE960 /* HDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDropdownMenuView.h; sourceTree = "<group>"; };
 		EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDropdownMenuView.m; sourceTree = "<group>"; };
+		EE62ECD11C03FC12002E7D2E /* HSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSafariViewController.h; sourceTree = "<group>"; };
+		EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSafariViewController.m; sourceTree = "<group>"; };
 		EE770A411B41046100ABDD60 /* HWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebLinkViewController.h; sourceTree = "<group>"; };
 		EE770A421B41046100ABDD60 /* HWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebLinkViewController.m; sourceTree = "<group>"; };
 		EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItemCell.h; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */,
 				EED80A301BB4916B00D4113A /* HBaseViewController.h */,
 				EED80A311BB4916B00D4113A /* HBaseViewController.m */,
+				EE62ECD11C03FC12002E7D2E /* HSafariViewController.h */,
+				EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				EEFDE9611B3B91D20035556D /* Frameworks */,
 				EEFDE9621B3B91D20035556D /* Resources */,
 				266979F745808287F88F16BD /* Copy Pods Resources */,
+				9DA0B6AD72686909EB20F6A1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -534,6 +540,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9DA0B6AD72686909EB20F6A1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -558,6 +579,7 @@
 				EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */,
 				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
+				EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */,
 				EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
 				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,

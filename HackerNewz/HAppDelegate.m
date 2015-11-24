@@ -23,16 +23,14 @@
 
 @implementation HAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     [[UILabel appearance] setSubstituteFont:[UIFont hnFont:0]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    HHomeViewController *vc = [[HHomeViewController alloc] init];
-    
-    self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[[HHomeViewController alloc] init]];
     self.navController.navigationBar.translucent = NO;
     self.navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                              NSFontAttributeName:[UIFont hnFont:20.0f]};

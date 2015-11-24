@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0D10B5F54BA698DDE621009AC73A8F83F818A687",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0D10B5F54BA698DDE621009AC73A8F83F818A687" : 0,
+    "978C0E2F0EE1128153FBEDADD8857EB64DFC703C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "91661C8D-A243-45A8-9D0B-691A65324E8B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0D10B5F54BA698DDE621009AC73A8F83F818A687" : "HackerNewz",
+    "978C0E2F0EE1128153FBEDADD8857EB64DFC703C" : "HackerNewsKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HackerNewz",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HackerNewz.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:skyefreeman\/HackerNewz.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0D10B5F54BA698DDE621009AC73A8F83F818A687"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:skyefreeman\/HackerNewsKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "978C0E2F0EE1128153FBEDADD8857EB64DFC703C"
+    }
+  ]
+}

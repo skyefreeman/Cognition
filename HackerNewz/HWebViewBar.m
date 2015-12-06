@@ -7,8 +7,7 @@
 //
 
 #import "HWebViewBar.h"
-#import "UIImage+HNAdditions.h"
-#import "UIColor+HNAdditions.h"
+#import "HNAdditions.h"
 
 CGFloat const kPadding = 10;
 CGFloat const kBarHeight = 40.0;

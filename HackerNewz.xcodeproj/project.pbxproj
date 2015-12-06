@@ -8,16 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5293F574F6E56592A9E5565E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89670AC767FE1FBC7403C98 /* libPods.a */; };
-		EE17E8AB1B645B01004A8E37 /* UIImage+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */; };
 		EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */; };
 		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
 		EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */; };
 		EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */; };
+		EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* HNAdditions.m */; };
 		EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A421B41046100ABDD60 /* HWebLinkViewController.m */; };
 		EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */; };
 		EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */; };
-		EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */; };
-		EE7ED0071B4CCD8E00A368DB /* UILabel+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */; };
 		EE9B05391B58B42F00260F69 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B05381B58B42F00260F69 /* HTableView.m */; };
 		EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B053F1B58B70B00260F69 /* HCommentCell.m */; };
 		EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9B05411B58B72100260F69 /* HCommentCell.xib */; };
@@ -26,10 +24,8 @@
 		EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D791B555A1600C26E58 /* HCommentBubble.m */; };
 		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */; };
-		EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
 		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
-		EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */; };
 		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
 		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; };
 		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
@@ -75,8 +71,6 @@
 		B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E91381F004431C273EA5BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D89670AC767FE1FBC7403C98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE17E8A91B645B01004A8E37 /* UIImage+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HNAdditions.h"; sourceTree = "<group>"; };
-		EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HNAdditions.m"; sourceTree = "<group>"; };
 		EE36E0351B3E45460053C3B5 /* HHackerNewsRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsRequestModel.h; sourceTree = "<group>"; };
 		EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsRequestModel.m; sourceTree = "<group>"; };
 		EE36E0391B3FB7AB0053C3B5 /* HHackerNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItem.h; sourceTree = "<group>"; };
@@ -85,15 +79,13 @@
 		EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDropdownMenuView.m; sourceTree = "<group>"; };
 		EE62ECD11C03FC12002E7D2E /* HSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSafariViewController.h; sourceTree = "<group>"; };
 		EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSafariViewController.m; sourceTree = "<group>"; };
+		EE68F9981C13F3D800488441 /* HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAdditions.h; sourceTree = "<group>"; };
+		EE68F9991C13F3D800488441 /* HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAdditions.m; sourceTree = "<group>"; };
 		EE770A411B41046100ABDD60 /* HWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebLinkViewController.h; sourceTree = "<group>"; };
 		EE770A421B41046100ABDD60 /* HWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebLinkViewController.m; sourceTree = "<group>"; };
 		EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItemCell.h; sourceTree = "<group>"; };
 		EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsItemCell.m; sourceTree = "<group>"; };
 		EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHackerNewsItemCell.xib; sourceTree = "<group>"; };
-		EE7ECFFF1B4CC43E00A368DB /* NSObject+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HNAdditions.h"; sourceTree = "<group>"; };
-		EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HNAdditions.m"; sourceTree = "<group>"; };
-		EE7ED0051B4CCD8E00A368DB /* UILabel+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HNAdditions.h"; sourceTree = "<group>"; };
-		EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HNAdditions.m"; sourceTree = "<group>"; };
 		EE9B05371B58B42F00260F69 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		EE9B05381B58B42F00260F69 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		EE9B053E1B58B70B00260F69 /* HCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentCell.h; sourceTree = "<group>"; };
@@ -110,13 +102,9 @@
 		EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubblePointer.m; sourceTree = "<group>"; };
 		EEC8A8D41B410ADB00D3C3DA /* HWebViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebViewBar.h; sourceTree = "<group>"; };
 		EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewBar.m; sourceTree = "<group>"; };
-		EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNAdditions.h"; sourceTree = "<group>"; };
-		EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNAdditions.m"; sourceTree = "<group>"; };
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
 		EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentViewController.m; sourceTree = "<group>"; };
 		EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
-		EED337911B75B76C002C6A1C /* UIFont+HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HNAdditions.h"; sourceTree = "<group>"; };
-		EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HNAdditions.m"; sourceTree = "<group>"; };
 		EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCustomTitleLabel.h; sourceTree = "<group>"; };
 		EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCustomTitleLabel.m; sourceTree = "<group>"; };
 		EED80A301BB4916B00D4113A /* HBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseViewController.h; sourceTree = "<group>"; };
@@ -202,20 +190,6 @@
 			name = DropdownMenuView;
 			sourceTree = "<group>";
 		};
-		EE36E0341B3E45020053C3B5 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
-		EE36E0811B40DEE90053C3B5 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		EE770A401B4102E700ABDD60 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,16 +206,8 @@
 		EEC8A8D71B410DCD00D3C3DA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8A8D81B410DE900D3C3DA /* UIColor+HNAdditions.h */,
-				EEC8A8D91B410DEA00D3C3DA /* UIColor+HNAdditions.m */,
-				EE7ECFFF1B4CC43E00A368DB /* NSObject+HNAdditions.h */,
-				EE7ED0001B4CC43E00A368DB /* NSObject+HNAdditions.m */,
-				EE7ED0051B4CCD8E00A368DB /* UILabel+HNAdditions.h */,
-				EE7ED0061B4CCD8E00A368DB /* UILabel+HNAdditions.m */,
-				EE17E8A91B645B01004A8E37 /* UIImage+HNAdditions.h */,
-				EE17E8AA1B645B01004A8E37 /* UIImage+HNAdditions.m */,
-				EED337911B75B76C002C6A1C /* UIFont+HNAdditions.h */,
-				EED337921B75B76C002C6A1C /* UIFont+HNAdditions.m */,
+				EE68F9981C13F3D800488441 /* HNAdditions.h */,
+				EE68F9991C13F3D800488441 /* HNAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -293,10 +259,8 @@
 				EEFDE9901B3B91F70035556D /* Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
 				EEFDE98E1B3B91E40035556D /* Models */,
-				EE36E0341B3E45020053C3B5 /* Helpers */,
 				EEFDE9671B3B91D20035556D /* Supporting Files */,
 				EEFDE9741B3B91D20035556D /* Images.xcassets */,
-				EE36E0811B40DEE90053C3B5 /* Libraries */,
 			);
 			path = HackerNewz;
 			sourceTree = "<group>";
@@ -562,7 +526,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EED337931B75B76C002C6A1C /* UIFont+HNAdditions.m in Sources */,
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
@@ -571,13 +534,11 @@
 				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
 				EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */,
 				EE9B05451B58BB0500260F69 /* HComment.m in Sources */,
+				EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */,
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,
-				EE7ED0071B4CCD8E00A368DB /* UILabel+HNAdditions.m in Sources */,
 				EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */,
 				EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */,
-				EE7ED0011B4CC43E00A368DB /* NSObject+HNAdditions.m in Sources */,
-				EEC8A8DA1B410DEA00D3C3DA /* UIColor+HNAdditions.m in Sources */,
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
 				EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */,
 				EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */,
@@ -585,7 +546,6 @@
 				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,
 				EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
-				EE17E8AB1B645B01004A8E37 /* UIImage+HNAdditions.m in Sources */,
 				EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

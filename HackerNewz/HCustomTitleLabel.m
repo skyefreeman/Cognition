@@ -7,7 +7,7 @@
 //
 
 #import "HCustomTitleLabel.h"
-#import "UIFont+HNAdditions.h"
+#import "HNAdditions.h"
 
 @implementation HCustomTitleLabel
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString*)title {

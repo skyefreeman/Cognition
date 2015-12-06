@@ -7,8 +7,7 @@
 //
 
 #import "HCommentViewController.h"
-
-#import "NSObject+HNAdditions.h"
+#import "HNAdditions.h"
 
 #import "HTableView.h"
 

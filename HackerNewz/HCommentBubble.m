@@ -7,7 +7,7 @@
 //
 
 #import "HCommentBubble.h"
-#import "UIColor+HNAdditions.h"
+#import "HNAdditions.h"
 
 @interface HCommentBubble ()
 @property (nonatomic) UILabel *textLabel;

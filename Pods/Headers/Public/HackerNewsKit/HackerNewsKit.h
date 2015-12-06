@@ -1,1 +1,1 @@
-../../../../../HackerNewsKit/HackerNewsKit.h
+../../../../../Library/HackerNewsKit/HackerNewsKit.h

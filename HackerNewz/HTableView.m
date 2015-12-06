@@ -7,9 +7,9 @@
 //
 
 #import "HTableView.h"
-#import "UIColor+HNAdditions.h"
-#import "UIFont+HNAdditions.h"
-#import <SFAdditions.h>
+
+#import "HNAdditions.h"
+#import "SFAdditions.h"
 
 @interface HTableView()
 @end

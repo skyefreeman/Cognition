@@ -16,11 +16,8 @@
 #import <JHChainableAnimations.h>
 
 // Categories
-#import <SFAdditions.h>
-#import "NSObject+HNAdditions.h"
-#import "UIColor+HNAdditions.h"
-#import "UIImage+HNAdditions.h"
-#import "UIFont+HNAdditions.h"
+#import "HNAdditions.h"
+#import "SFAdditions.h"
 
 // Views
 #import "HTableView.h"
@@ -240,7 +237,7 @@
         [self showAlertWithTitle:@"Error" message:@"No URL for item"];
         return;
     }
-    HSafariViewController *vc = [[HSafariViewController alloc] initWithURL:[NSURL URLWithString:story.url]];
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:story.url]];
     [self presentViewController:vc animated:YES completion:nil];
 //    [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
 }

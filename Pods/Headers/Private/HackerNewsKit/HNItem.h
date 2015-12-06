@@ -1,1 +1,1 @@
-../../../../../HackerNewsKit/HackerNewsRequestModel/HNItem.h
+../../../../../Library/HackerNewsKit/HackerNewsRequestModel/HNItem.h

@@ -7,7 +7,7 @@
 //
 
 #import "HCommentCell.h"
-#import "UIFont+HNAdditions.h"
+#import "HNAdditions.h"
 #import <TTTTimeIntervalFormatter.h>
 #import <TTTAttributedLabel.h>
 

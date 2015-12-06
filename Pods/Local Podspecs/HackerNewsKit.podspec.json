@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/skyefreeman/HackerNewsKit.git",
-    "tag": "master"
+    "tag": "1.0"
   },
   "source_files": [
     "HackerNewsRequestModel/*.{h,m}",

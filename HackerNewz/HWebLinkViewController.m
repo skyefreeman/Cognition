@@ -8,8 +8,8 @@
 
 #import "HWebLinkViewController.h"
 #import "HWebViewBar.h"
-#import "UIColor+HNAdditions.h"
-#import <SFAdditions.h>
+#import "HNAdditions.h"
+#import "SFAdditions.h"
 
 #define kBarFadeTime 0.2
 

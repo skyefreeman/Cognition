@@ -46,18 +46,18 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - FormatterKit
-  - HackerNewsKit (from `~/Development/iOSDevelopment/HackerNewsKit`)
+  - HackerNewsKit (from `~/Development/iOSDevelopment/Library/HackerNewsKit`)
   - JHChainableAnimations
   - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   HackerNewsKit:
-    :path: ~/Development/iOSDevelopment/HackerNewsKit
+    :path: "~/Development/iOSDevelopment/Library/HackerNewsKit"
 
 SPEC CHECKSUMS:
   AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
-  HackerNewsKit: c6c69b502dcd6cc5e3ccf6a001f845afc25a6ce6
+  HackerNewsKit: 30a56fc4e01a29c4cf29764ba54e97ec09f93f7d
   JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 

@@ -1,1 +1,1 @@
-../../../../../HackerNewsKit/HackerNewsRequestModel/HNManager.h
+../../../../../Library/HackerNewsKit/HackerNewsRequestModel/HNManager.h

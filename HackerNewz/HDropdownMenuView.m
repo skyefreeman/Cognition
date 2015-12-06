@@ -13,7 +13,7 @@
 #import <JHChainableAnimations.h>
 
 // Categories
-#import "UIColor+HNAdditions.h"
+#import "HNAdditions.h"
 
 CGFloat const kDefaultCellHeight = 40.0;
 CGFloat const kDefaultSlideLength = 0.35;

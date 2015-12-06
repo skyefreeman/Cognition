@@ -7,7 +7,7 @@
 //
 
 #import "HCommentBubblePointer.h"
-#import "UIColor+HNAdditions.h"
+#import "HNAdditions.h"
 
 @implementation HCommentBubblePointer
 

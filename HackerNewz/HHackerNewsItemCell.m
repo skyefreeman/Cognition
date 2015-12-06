@@ -7,13 +7,12 @@
 //
 
 #import "HHackerNewsItemCell.h"
-#import "UIColor+HNAdditions.h"
-#import "UIFont+HNAdditions.h"
+#import "HNAdditions.h"
 
 #import <TTTTimeIntervalFormatter.h>
 #import "HCommentBubble.h"
 #import "HCommentBubblePointer.h"
-#import <SFAdditions.h>
+#import "SFAdditions.h"
 
 CGFloat const kTopStoryCellHeight = 50;
 CGFloat const kEdgePadding = 8;

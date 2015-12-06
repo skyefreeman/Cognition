@@ -12,10 +12,8 @@
 #import "HHomeViewController.h"
 
 // Categories
-#import <SFAdditions.h>
-#import "UIFont+HNAdditions.h"
-#import "UIColor+HNAdditions.h"
-#import "UILabel+HNAdditions.h"
+#import "HNAdditions.h"
+#import "SFAdditions.h"
 
 @interface HAppDelegate ()
 @property (nonatomic) UINavigationController *navController;

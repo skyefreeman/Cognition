@@ -11,7 +11,7 @@
 @interface HArrayDataSource()
 @property (nonatomic, copy) NSString *reuseIdentifier;
 @property (nonatomic, copy) TableViewCellConfigureBlock configureBlock;
-@property (nonatomic, strong) NSArray *items;
+
 @end
 
 @implementation HArrayDataSource
@@ -25,7 +25,7 @@
     if (!self) return nil;
     
     self.reuseIdentifier = aCellID;
-    self.configureBlock = aConfigureBlock;
+    self.configureBlock = [aConfigureBlock copy];
     self.items = theItems;
     
     return self;
@@ -41,8 +41,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    id cell = [tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier];
+    id cell = [tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier forIndexPath:indexPath];
     id item = [self itemAtIndexPath:indexPath];
     self.configureBlock(cell, item);
     return cell;

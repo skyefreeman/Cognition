@@ -31,14 +31,16 @@
 #import "HStory.h"
 #import "HArrayDataSource.h"
 
-@interface HHomeViewController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
+@interface HHomeViewController () <UITableViewDelegate,UIScrollViewDelegate,HNManagerDelegate, HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
 
 @property (nonatomic, strong) HTableView *tableView;
 @property (nonatomic, strong) HArrayDataSource *dataSource;
+@property (nonatomic, strong) HNManager *requestManager;;
 
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
 
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
+
 
 @property (nonatomic) HCustomTitleLabel *titleLabel;
 @end
@@ -48,6 +50,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.requestManager = [[HNManager alloc] init];
+    [self.requestManager setDelegate:self];
+    self.requestModel = [[HHackerNewsRequestModel alloc] init];
+    
+    [self configureTableView];
     [self configureSubviews];
     
     // Start initial loader
@@ -57,21 +64,23 @@
     [self refreshStories];
 }
 
-- (void)configureSubviews {
-    TableViewCellConfigureBlock configBlock = ^(HHackerNewsItemCell *cell, HHackerNewsItem *item) {
+- (void)configureTableView {
+    TableViewCellConfigureBlock configBlock = ^(HHackerNewsItemCell *cell, HNItem *item) {
         [cell setDelegate:self];
-        [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
+        [cell configureWithTitle:item.title points:item.score author:item.by time:item.time comments:item.descendants];
     };
     
-    self.dataSource = [[HArrayDataSource alloc] initWithItems:self.requestModel.allStories cellIdentifier:[HHackerNewsItemCell standardReuseIdentifier] configureCellBlock:configBlock];
+    self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[HHackerNewsItemCell standardReuseIdentifier] configureCellBlock:configBlock];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableView.dataSource = self.dataSource;
     self.tableView.refreshdelegate = self;
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[HHackerNewsItemCell nib] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
-    
+}
+
+- (void)configureSubviews {
     // Navigation bar
     self.titleLabel = [[HCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
     self.titleLabel.delegate = self;
@@ -107,26 +116,42 @@
     [self refreshStories];
 }
 
+#pragma mark - HNManagerDelegate Methods
+- (void)didReceiveTopStories:(NSArray*)topStories {
+    self.dataSource.items = topStories;
+    [self hackerNewsRequestEnded];
+}
+
+- (void)didReceiveNewStories:(NSArray*)newStories {
+}
+
+- (void)didReceiveAskStories:(NSArray*)askStories {
+}
+
+- (void)didReceiveShowStories:(NSArray*)showStories {
+}
+
+- (void)didReceiveJobStories:(NSArray*)jobStories {
+}
+
+- (void)didReceiveItem:(HNItem*)item {
+}
+
+- (void)hackerNewsFetchFailedWithError:(NSError *)error {
+    NSLog(@"%@",error);
+}
+
+#pragma mark - HNManger Helpers
+- (void)hackerNewsRequestEnded {
+    [self.tableView.refreshController endRefreshing];
+    [self removeActivityIndicator];
+    [self.tableView reloadDataAnimated];
+    [self scrollToTopOfTableView];
+}
+
 #pragma mark - Requests
 - (void)refreshStories {
-    if (!self.requestModel) {
-        self.requestModel = [[HHackerNewsRequestModel alloc] init];
-    }
-
-    switch (self.requestModel.requestType) {
-        case RequestTypeTopStories: {
-            [self requestTopStories];
-            break;
-        }
-        case RequestTypeLatestStories: {
-            [self requestLatestStories];
-            break;
-        }
-        case RequestTypeJobStories: {
-            [self requestJobStories];
-            break;
-        }
-    }
+    [self.requestManager fetchTopStories];
 }
 
 - (void)requestTopStories {
@@ -135,6 +160,7 @@
         [self removeActivityIndicator];
         
         if (!error) {
+            self.dataSource.items = self.requestModel.allStories;
             [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
         } else {
             [self handleError:error type:@"stories"];
@@ -205,27 +231,6 @@
     } else {
         self.navigationItem.leftBarButtonItem.image = [UIImage downImage];
     }
-}
-
-#pragma mark - UITableView Data Source Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.requestModel.allStories.count == 0) {
-        [self.tableView addBackgroundLabelWithText:@"No Results." atCenter:CGPointMake(self.view.center.x, self.view.center.y - self.navigationBarHeight)];
-    } else {
-        [self.tableView addBackgroundLabelWithText:@"" atCenter:self.view.center];
-    }
-    
-    return self.requestModel.allStories.count;
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HHackerNewsItem *item = [self.requestModel.allStories objectAtIndex:indexPath.row];
-
-    id cell = [tableView dequeueReusableCellWithIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
-    [cell setDelegate:self];
-    [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
-    
-    return cell;
 }
 
 #pragma mark - UITableView Delegate Methods

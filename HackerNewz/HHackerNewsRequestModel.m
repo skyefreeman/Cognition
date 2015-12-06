@@ -24,7 +24,6 @@ NSString * kHNCommentsKey = @"kids";
 int const kDefaultItemFetchCount = 30;
 
 @interface HHackerNewsRequestModel ()
-@property (nonatomic, readwrite) NSMutableArray *allStories;
 @end
 
 @implementation HHackerNewsRequestModel
@@ -120,7 +119,7 @@ int const kDefaultItemFetchCount = 30;
     }
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        self.allStories = [NSMutableArray arrayWithArray:tempStories];
+        self.allStories = [NSArray arrayWithArray:tempStories];
         if (completion) completion();
     });
 }

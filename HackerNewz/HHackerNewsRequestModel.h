@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
 @interface HHackerNewsRequestModel : NSObject
 
 @property (nonatomic) RequestType requestType;
-@property (nonatomic, readonly) NSMutableArray *allStories;
+@property (nonatomic, copy) NSArray *allStories;
 
 - (void)getTopStories:(void (^)(NSError *error))completion;
 - (void)getLatestStories:(void (^)(NSError *error))completion;

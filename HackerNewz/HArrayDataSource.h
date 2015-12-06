@@ -11,6 +11,7 @@
 typedef void (^TableViewCellConfigureBlock)(id cell, id item);
 
 @interface HArrayDataSource : NSObject <UITableViewDataSource>
+@property (nonatomic, strong) NSArray *items;
 - (instancetype)initWithItems:(NSArray*)items cellIdentifier:(NSString*)aCellID configureCellBlock:(TableViewCellConfigureBlock)aConfigureBlock;
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 @end

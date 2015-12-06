@@ -38,7 +38,7 @@ CGFloat const kEdgePadding = 8;
     NSString *authorString = [NSString stringWithFormat:@"by %@",author];
     NSString *commentString;
     if (comments > 0) {
-        commentString = [NSString stringWithFormat:@"%lu comments",comments];
+        commentString = [NSString stringWithFormat:@"%lu comments",(long)comments];
         [self.commentButton setTintColor:[UIColor HNOrange]];
     } else {
         commentString = [NSString stringWithFormat:@"No comments"];
@@ -61,4 +61,9 @@ CGFloat const kEdgePadding = 8;
 - (void)commentButtonTapped {
     [self.delegate commentButtonTapped:self];
 }
+
++ (UINib*)nib {
+    return [UINib nibWithNibName:NSStringFromClass([HHackerNewsItemCell class]) bundle:nil];
+}
+
 @end

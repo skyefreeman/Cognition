@@ -24,17 +24,20 @@
 #import "HDropdownMenuView.h"
 #import "HCustomTitleLabel.h"
 
-// Hacker News
+// Hacker News Model
+#import "HackerNewsKit.h"
 #import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItemCell.h"
 #import "HStory.h"
+#import "HArrayDataSource.h"
 
 @interface HHomeViewController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
 
-@property (nonatomic) HTableView *tableView;
+@property (nonatomic, strong) HTableView *tableView;
+@property (nonatomic, strong) HArrayDataSource *dataSource;
+
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
 
-@property (nonatomic) NSMutableArray *topStories;
 @property (nonatomic) HHackerNewsRequestModel *requestModel;
 
 @property (nonatomic) HCustomTitleLabel *titleLabel;
@@ -46,7 +49,6 @@
     [super viewDidLoad];
     
     [self configureSubviews];
-    [self registerNibs];
     
     // Start initial loader
     [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarHeight]) style:UIActivityIndicatorViewStyleWhiteLarge];
@@ -55,18 +57,20 @@
     [self refreshStories];
 }
 
-#pragma mark - View Customization
-- (void)registerNibs {
-    [self.tableView registerNib:[UINib nibWithNibName:[HHackerNewsItemCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
-}
-
 - (void)configureSubviews {
-    // Table view
+    TableViewCellConfigureBlock configBlock = ^(HHackerNewsItemCell *cell, HHackerNewsItem *item) {
+        [cell setDelegate:self];
+        [cell configureWithTitle:item.title points:item.score author:item.author time:item.time comments:item.commentCount];
+    };
+    
+    self.dataSource = [[HArrayDataSource alloc] initWithItems:self.requestModel.allStories cellIdentifier:[HHackerNewsItemCell standardReuseIdentifier] configureCellBlock:configBlock];
+    
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.refreshdelegate = self;
     [self.view addSubview:self.tableView];
+    [self.tableView registerNib:[HHackerNewsItemCell nib] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
     
     // Navigation bar
     self.titleLabel = [[HCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
@@ -204,10 +208,6 @@
 }
 
 #pragma mark - UITableView Data Source Methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.requestModel.allStories.count == 0) {
         [self.tableView addBackgroundLabelWithText:@"No Results." atCenter:CGPointMake(self.view.center.x, self.view.center.y - self.navigationBarHeight)];

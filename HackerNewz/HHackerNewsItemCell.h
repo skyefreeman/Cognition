@@ -24,4 +24,6 @@ extern CGFloat const kTopStoryCellHeight;
                     author:(NSString*)author
                       time:(NSInteger)time
                   comments:(NSInteger)comments;
+
++ (UINib*)nib;
 @end

@@ -13,6 +13,8 @@
 		EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */; };
 		EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */; };
 		EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* HNAdditions.m */; };
+		EE68F99E1C13FD2800488441 /* HArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99D1C13FD2800488441 /* HArrayDataSource.m */; };
+		EE68F9A01C13FE0300488441 /* HArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */; };
 		EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A421B41046100ABDD60 /* HWebLinkViewController.m */; };
 		EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */; };
 		EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */; };
@@ -33,7 +35,6 @@
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
 		EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96F1B3B91D20035556D /* HHomeViewController.m */; };
 		EEFDE9751B3B91D20035556D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEFDE9741B3B91D20035556D /* Images.xcassets */; };
-		EEFDE9841B3B91D20035556D /* HackerNewzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9831B3B91D20035556D /* HackerNewzTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,9 @@
 		EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSafariViewController.m; sourceTree = "<group>"; };
 		EE68F9981C13F3D800488441 /* HNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNAdditions.h; sourceTree = "<group>"; };
 		EE68F9991C13F3D800488441 /* HNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNAdditions.m; sourceTree = "<group>"; };
+		EE68F99C1C13FD2800488441 /* HArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HArrayDataSource.h; sourceTree = "<group>"; };
+		EE68F99D1C13FD2800488441 /* HArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HArrayDataSource.m; sourceTree = "<group>"; };
+		EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HArrayDataSourceTests.m; sourceTree = "<group>"; };
 		EE770A411B41046100ABDD60 /* HWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebLinkViewController.h; sourceTree = "<group>"; };
 		EE770A421B41046100ABDD60 /* HWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebLinkViewController.m; sourceTree = "<group>"; };
 		EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItemCell.h; sourceTree = "<group>"; };
@@ -121,7 +125,6 @@
 		EEFDE9741B3B91D20035556D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EEFDE97D1B3B91D20035556D /* HackerNewzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9821B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEFDE9831B3B91D20035556D /* HackerNewzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackerNewzTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,15 @@
 				EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */,
 			);
 			name = DropdownMenuView;
+			sourceTree = "<group>";
+		};
+		EE68F99B1C13FD1100488441 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EE68F99C1C13FD2800488441 /* HArrayDataSource.h */,
+				EE68F99D1C13FD2800488441 /* HArrayDataSource.m */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		EE770A401B4102E700ABDD60 /* Cells */ = {
@@ -277,8 +289,8 @@
 		EEFDE9801B3B91D20035556D /* HackerNewzTests */ = {
 			isa = PBXGroup;
 			children = (
-				EEFDE9831B3B91D20035556D /* HackerNewzTests.m */,
 				EEFDE9811B3B91D20035556D /* Supporting Files */,
+				EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */,
 			);
 			path = HackerNewzTests;
 			sourceTree = "<group>";
@@ -314,6 +326,7 @@
 				EE9B054A1B58C11100260F69 /* HStory.m */,
 				EEE379621B6F2D0E00280CC2 /* HJob.h */,
 				EEE379631B6F2D0E00280CC2 /* HJob.m */,
+				EE68F99B1C13FD1100488441 /* Data Sources */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -529,6 +542,7 @@
 				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
+				EE68F99E1C13FD2800488441 /* HArrayDataSource.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
 				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
@@ -554,7 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEFDE9841B3B91D20035556D /* HackerNewzTests.m in Sources */,
+				EE68F9A01C13FE0300488441 /* HArrayDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +689,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Debug;
 		};
@@ -696,6 +711,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Release;
 		};

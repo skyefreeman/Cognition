@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, SlideDirection) {
 @property (nonatomic, readonly) NSArray *items;
 @property (nonatomic, readonly, getter=isActive) BOOL menuActive;
 
-
 + (instancetype)menuWithItems:(NSArray*)items;
 - (instancetype)initWithMenuItems:(NSArray*)items;
 

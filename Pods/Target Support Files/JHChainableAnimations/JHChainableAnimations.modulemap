@@ -1,0 +1,6 @@
+framework module JHChainableAnimations {
+  umbrella header "JHChainableAnimations-umbrella.h"
+
+  export *
+  module * { export * }
+}

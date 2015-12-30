@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5293F574F6E56592A9E5565E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89670AC767FE1FBC7403C98 /* libPods.a */; };
-		EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */; };
-		EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */; };
+		244089BB224B00B70113D0A4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
+		76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
 		EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */; };
 		EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE62ECD21C03FC12002E7D2E /* HSafariViewController.m */; };
 		EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* HNAdditions.m */; };
@@ -21,16 +20,12 @@
 		EE9B05391B58B42F00260F69 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B05381B58B42F00260F69 /* HTableView.m */; };
 		EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B053F1B58B70B00260F69 /* HCommentCell.m */; };
 		EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9B05411B58B72100260F69 /* HCommentCell.xib */; };
-		EE9B05451B58BB0500260F69 /* HComment.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B05441B58BB0500260F69 /* HComment.m */; };
-		EE9B054B1B58C11100260F69 /* HStory.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B054A1B58C11100260F69 /* HStory.m */; };
 		EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D791B555A1600C26E58 /* HCommentBubble.m */; };
 		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
-		EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */; };
 		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
 		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; };
-		EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE379631B6F2D0E00280CC2 /* HJob.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
 		EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96F1B3B91D20035556D /* HHomeViewController.m */; };
@@ -38,27 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EECAA1EE1B71362B001BA7C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EECAA1B01B713492001BA7C4;
-			remoteInfo = SFAdditions;
-		};
-		EECAA1F01B71362B001BA7C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EECAA1BB1B713492001BA7C4;
-			remoteInfo = SFAdditionsTests;
-		};
-		EECAA1FF1B713D7C001BA7C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EECAA1AF1B713492001BA7C4;
-			remoteInfo = SFAdditions;
-		};
 		EEFDE97E1B3B91D20035556D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EEFDE95C1B3B91D20035556D /* Project object */;
@@ -69,13 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C4E91381F004431C273EA5BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D89670AC767FE1FBC7403C98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE36E0351B3E45460053C3B5 /* HHackerNewsRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsRequestModel.h; sourceTree = "<group>"; };
-		EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsRequestModel.m; sourceTree = "<group>"; };
-		EE36E0391B3FB7AB0053C3B5 /* HHackerNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItem.h; sourceTree = "<group>"; };
-		EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsItem.m; sourceTree = "<group>"; };
+		32A3B47AB92871282A7C8F50 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4BA4FCBFD951568717A1A04 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE55BAFF1B645F1D00ABE960 /* HDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDropdownMenuView.h; sourceTree = "<group>"; };
 		EE55BB001B645F1D00ABE960 /* HDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDropdownMenuView.m; sourceTree = "<group>"; };
 		EE62ECD11C03FC12002E7D2E /* HSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSafariViewController.h; sourceTree = "<group>"; };
@@ -95,11 +64,7 @@
 		EE9B053E1B58B70B00260F69 /* HCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentCell.h; sourceTree = "<group>"; };
 		EE9B053F1B58B70B00260F69 /* HCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentCell.m; sourceTree = "<group>"; };
 		EE9B05411B58B72100260F69 /* HCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCommentCell.xib; sourceTree = "<group>"; };
-		EE9B05431B58BB0500260F69 /* HComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HComment.h; sourceTree = "<group>"; };
-		EE9B05441B58BB0500260F69 /* HComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HComment.m; sourceTree = "<group>"; };
 		EE9B05461B58BB5900260F69 /* HConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HConstants.h; sourceTree = "<group>"; };
-		EE9B05491B58C11100260F69 /* HStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStory.h; sourceTree = "<group>"; };
-		EE9B054A1B58C11100260F69 /* HStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStory.m; sourceTree = "<group>"; };
 		EEA34D781B555A1600C26E58 /* HCommentBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubble.h; sourceTree = "<group>"; };
 		EEA34D791B555A1600C26E58 /* HCommentBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentBubble.m; sourceTree = "<group>"; };
 		EEA34D7F1B5562F400C26E58 /* HCommentBubblePointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentBubblePointer.h; sourceTree = "<group>"; };
@@ -108,13 +73,10 @@
 		EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewBar.m; sourceTree = "<group>"; };
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
 		EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentViewController.m; sourceTree = "<group>"; };
-		EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFAdditions.xcodeproj; path = ../Library/SFAdditions/SFAdditions.xcodeproj; sourceTree = "<group>"; };
 		EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCustomTitleLabel.h; sourceTree = "<group>"; };
 		EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCustomTitleLabel.m; sourceTree = "<group>"; };
 		EED80A301BB4916B00D4113A /* HBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseViewController.h; sourceTree = "<group>"; };
 		EED80A311BB4916B00D4113A /* HBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseViewController.m; sourceTree = "<group>"; };
-		EEE379621B6F2D0E00280CC2 /* HJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJob.h; sourceTree = "<group>"; };
-		EEE379631B6F2D0E00280CC2 /* HJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJob.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEFDE9691B3B91D20035556D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +87,7 @@
 		EEFDE9741B3B91D20035556D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EEFDE97D1B3B91D20035556D /* HackerNewzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9821B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF6D60BE6158DB8E4758C4C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EECAA2031B713D83001BA7C4 /* libSFAdditions.a in Frameworks */,
-				5293F574F6E56592A9E5565E /* libPods.a in Frameworks */,
+				244089BB224B00B70113D0A4 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,17 +103,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		36B27F5E1C8D404928D81C8A /* Pods */ = {
+		1498DF3C29FDBD54F1D04BD8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */,
-				C4E91381F004431C273EA5BE /* Pods.release.xcconfig */,
+				A4BA4FCBFD951568717A1A04 /* Pods.debug.xcconfig */,
+				EF6D60BE6158DB8E4758C4C9 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -159,7 +122,7 @@
 		53A210E55B8F75FB73201F10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D89670AC767FE1FBC7403C98 /* libPods.a */,
+				32A3B47AB92871282A7C8F50 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,15 +187,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		EECAA1EA1B71362B001BA7C4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */,
-				EECAA1F11B71362B001BA7C4 /* SFAdditionsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EED519461B9FDC24009E79C1 /* CustomTItleLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,9 +202,8 @@
 				EEFDE9661B3B91D20035556D /* HackerNewz */,
 				EEFDE9801B3B91D20035556D /* HackerNewzTests */,
 				EEFDE9651B3B91D20035556D /* Products */,
-				36B27F5E1C8D404928D81C8A /* Pods */,
 				53A210E55B8F75FB73201F10 /* Frameworks */,
-				EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */,
+				1498DF3C29FDBD54F1D04BD8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,6 +224,7 @@
 				EEFDE9901B3B91F70035556D /* Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
 				EEFDE98E1B3B91E40035556D /* Models */,
+				EE68F99B1C13FD1100488441 /* Data Sources */,
 				EEFDE9671B3B91D20035556D /* Supporting Files */,
 				EEFDE9741B3B91D20035556D /* Images.xcassets */,
 			);
@@ -316,17 +270,6 @@
 		EEFDE98E1B3B91E40035556D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EE36E0351B3E45460053C3B5 /* HHackerNewsRequestModel.h */,
-				EE36E0361B3E45460053C3B5 /* HHackerNewsRequestModel.m */,
-				EE36E0391B3FB7AB0053C3B5 /* HHackerNewsItem.h */,
-				EE36E03A1B3FB7AB0053C3B5 /* HHackerNewsItem.m */,
-				EE9B05431B58BB0500260F69 /* HComment.h */,
-				EE9B05441B58BB0500260F69 /* HComment.m */,
-				EE9B05491B58C11100260F69 /* HStory.h */,
-				EE9B054A1B58C11100260F69 /* HStory.m */,
-				EEE379621B6F2D0E00280CC2 /* HJob.h */,
-				EEE379631B6F2D0E00280CC2 /* HJob.m */,
-				EE68F99B1C13FD1100488441 /* Data Sources */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -369,17 +312,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEFDE9871B3B91D20035556D /* Build configuration list for PBXNativeTarget "HackerNewz" */;
 			buildPhases = (
-				869C913B249BF8EF701E1CB6 /* Check Pods Manifest.lock */,
 				EEFDE9601B3B91D20035556D /* Sources */,
 				EEFDE9611B3B91D20035556D /* Frameworks */,
 				EEFDE9621B3B91D20035556D /* Resources */,
-				266979F745808287F88F16BD /* Copy Pods Resources */,
-				9DA0B6AD72686909EB20F6A1 /* Embed Pods Frameworks */,
+				CCF0057F2699DF82E3C9DD9C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EECAA2001B713D7C001BA7C4 /* PBXTargetDependency */,
 			);
 			name = HackerNewz;
 			productName = HackerNewz;
@@ -390,9 +330,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEFDE98A1B3B91D20035556D /* Build configuration list for PBXNativeTarget "HackerNewzTests" */;
 			buildPhases = (
+				F23BCC6B1218F08C7C8F136F /* Check Pods Manifest.lock */,
 				EEFDE9791B3B91D20035556D /* Sources */,
 				EEFDE97A1B3B91D20035556D /* Frameworks */,
 				EEFDE97B1B3B91D20035556D /* Resources */,
+				5D8A43FC2B45B5253B0BC1F6 /* Embed Pods Frameworks */,
+				7C5279D810FED5F3014CC90A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,12 +378,6 @@
 			mainGroup = EEFDE95B1B3B91D20035556D;
 			productRefGroup = EEFDE9651B3B91D20035556D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = EECAA1EA1B71362B001BA7C4 /* Products */;
-					ProjectRef = EECAA1E91B71362B001BA7C4 /* SFAdditions.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				EEFDE9631B3B91D20035556D /* HackerNewz */,
@@ -448,23 +385,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		EECAA1EF1B71362B001BA7C4 /* libSFAdditions.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSFAdditions.a;
-			remoteRef = EECAA1EE1B71362B001BA7C4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EECAA1F11B71362B001BA7C4 /* SFAdditionsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SFAdditionsTests.xctest;
-			remoteRef = EECAA1F01B71362B001BA7C4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EEFDE9621B3B91D20035556D /* Resources */ = {
@@ -487,37 +407,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		266979F745808287F88F16BD /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		869C913B249BF8EF701E1CB6 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9DA0B6AD72686909EB20F6A1 /* Embed Pods Frameworks */ = {
+		5D8A43FC2B45B5253B0BC1F6 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -532,6 +422,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7C5279D810FED5F3014CC90A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCF0057F2699DF82E3C9DD9C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F23BCC6B1218F08C7C8F136F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -539,15 +474,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE36E03B1B3FB7AB0053C3B5 /* HHackerNewsItem.m in Sources */,
 				EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */,
 				EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */,
 				EE68F99E1C13FD2800488441 /* HArrayDataSource.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
 				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
-				EE36E0371B3E45460053C3B5 /* HHackerNewsRequestModel.m in Sources */,
-				EE9B05451B58BB0500260F69 /* HComment.m in Sources */,
 				EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */,
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,
@@ -557,8 +489,6 @@
 				EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */,
 				EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
-				EE9B054B1B58C11100260F69 /* HStory.m in Sources */,
-				EEE379641B6F2D0E00280CC2 /* HJob.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 				EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */,
 			);
@@ -575,11 +505,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EECAA2001B713D7C001BA7C4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SFAdditions;
-			targetProxy = EECAA1FF1B713D7C001BA7C4 /* PBXContainerItemProxy */;
-		};
 		EEFDE97F1B3B91D20035556D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEFDE9631B3B91D20035556D /* HackerNewz */;
@@ -673,7 +598,7 @@
 		};
 		EEFDE9881B3B91D20035556D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B063D5751728FC7846C8DA6B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A4BA4FCBFD951568717A1A04 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -682,7 +607,6 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
-					/Users/SkyeBook/Development/iOSDevelopment/Library/SFAdditions/SFAdditions,
 				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -695,7 +619,7 @@
 		};
 		EEFDE9891B3B91D20035556D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4E91381F004431C273EA5BE /* Pods.release.xcconfig */;
+			baseConfigurationReference = EF6D60BE6158DB8E4758C4C9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -704,7 +628,6 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
-					/Users/SkyeBook/Development/iOSDevelopment/Library/SFAdditions/SFAdditions,
 				);
 				INFOPLIST_FILE = HackerNewz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -717,6 +640,7 @@
 		};
 		EEFDE98B1B3B91D20035556D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4BA4FCBFD951568717A1A04 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -733,6 +657,7 @@
 		};
 		EEFDE98C1B3B91D20035556D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF6D60BE6158DB8E4758C4C9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = HackerNewzTests/Info.plist;

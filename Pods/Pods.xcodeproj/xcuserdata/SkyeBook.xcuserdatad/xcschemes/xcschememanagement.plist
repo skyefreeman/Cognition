@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FormatterKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SFAdditions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TTTAttributedLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>040D9BA6DE2C198577785EF83DC14638</key>
+		<key>104A99334845649544A22F4F55CD8408</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2874FD1393C4EC8FC3DB20AA188DFF74</key>
+		<key>3DA7481B93797A4229D50D775D1A5AAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>50D01FE24A632A0875652062194993AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59DCB0AD4453AC70BF4ED53A924AFD71</key>
+		<key>71EBEFADD9725438025D385F77A21884</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D692624CE562FBC8BCEE15C9C5B17685</key>
+		<key>AB663F278A3C1379577D5E3122589792</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F27C9AB311EE00D38DCF3118AFEBA695</key>
+		<key>E0B1A2BE5B5BE0107E51FE394CD3415E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

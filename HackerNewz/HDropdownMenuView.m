@@ -9,8 +9,7 @@
 #import "HDropdownMenuView.h"
 
 // Libraries
-#import <SFAdditions.h>
-#import <JHChainableAnimations.h>
+#import "JHChainableAnimations.h"
 
 // Categories
 #import "HNAdditions.h"
@@ -68,25 +67,25 @@ CGFloat const kDefaultSlideLength = 0.35;
 }
 
 - (UIView*)spacerAtY:(CGFloat)yOrigin {
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yOrigin, self.width, 1)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yOrigin, self.frame.size.width, 1)];
     line.backgroundColor = [UIColor whiteColor];
     return line;
 }
 
 #pragma mark - Cell Titles
 - (void)configureCellTitles {
-    CGFloat heightOffset = (self.height/self.items.count) / 2;
+    CGFloat heightOffset = (self.frame.size.height/self.items.count) / 2;
     for (int i = 0; i < self.items.count; i++) {
         [self addSubview:[self titleLabelAtY: (heightOffset + ([self cellHeight] * i)) withItem:[self itemAtIndex:i]]];
     }
 }
 
 - (UILabel*)titleLabelAtY:(CGFloat)yOrigin withItem:(NSString*)item {
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height/self.items.count)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/self.items.count)];
     title.text = item;
     title.textColor = [UIColor whiteColor];
     [title sizeToFit];
-    title.center = CGPointMake(self.width/2, yOrigin);
+    title.center = CGPointMake(self.frame.size.width/2, yOrigin);
     return title;
 }
 
@@ -124,14 +123,14 @@ CGFloat const kDefaultSlideLength = 0.35;
             break;
         }
         case SlideDirectionIn: {
-            endpoint = self.startPoint.y + self.height;
+            endpoint = self.startPoint.y + self.frame.size.height;
             break;
         }
     }
     
     // Start the slide animation
     self.animating = YES;
-    self.makeOrigin(self.position.x, endpoint).easeOut.animateWithCompletion(0.25, JHAnimationCompletion(){
+    self.makeOrigin(self.frame.origin.x, endpoint).easeOut.animateWithCompletion(0.25, JHAnimationCompletion(){
         self.animating = NO;
         self.menuActive = direction;
     });

@@ -1,0 +1,25 @@
+{
+  "name": "SFAdditions",
+  "version": "1.0",
+  "summary": "A useful collection of Objective-C categories for various Cocoa Touch frameworks.",
+  "description": "A useful collection of Objective-C categories for various Cocoa Touch frameworks.",
+  "homepage": "https://github.com/skyefreeman/SFAdditions",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Skye Freeman": "skyefreeman@icloud.com"
+  },
+  "social_media_url": "http://twitter.com/ImSkyeFreeman",
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/skyefreeman/SFAdditions.git",
+    "tag": "1.0"
+  },
+  "source_files": "SFAdditions/*.{h,m}",
+  "public_header_files": "*.h",
+  "requires_arc": true
+}

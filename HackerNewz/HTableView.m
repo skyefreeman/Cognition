@@ -7,9 +7,7 @@
 //
 
 #import "HTableView.h"
-
 #import "HNAdditions.h"
-#import "SFAdditions.h"
 
 @interface HTableView()
 @end
@@ -54,7 +52,7 @@
         self.backgroundLabel = nil;
     }
     
-    self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width/6 * 5, self.height)];
+    self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width/6 * 5, self.frame.size.height)];
     self.backgroundLabel.text = text;
     self.backgroundLabel.textAlignment = NSTextAlignmentCenter;
     self.backgroundLabel.lineBreakMode = NSLineBreakByWordWrapping;

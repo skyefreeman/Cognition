@@ -8,8 +8,8 @@
 
 #import "HCommentCell.h"
 #import "HNAdditions.h"
-#import <TTTTimeIntervalFormatter.h>
-#import <TTTAttributedLabel.h>
+#import "TTTTimeIntervalFormatter.h"
+#import "TTTAttributedLabel.h"
 
 CGFloat const kCommentCellHeight = 100.0;
 
@@ -25,11 +25,11 @@ CGFloat const kCommentCellHeight = 100.0;
     [super awakeFromNib];
 }
 
-- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSAttributedString*)text {
+- (void)configureWithAuthor:(NSString*)author time:(NSInteger)time text:(NSString*)text {
     if (author) self.authorLabel.text = [@"by " stringByAppendingString:author];
     
     if (text) {
-        self.commentLabel.attributedText = text;
+        self.commentLabel.attributedText = [[NSAttributedString alloc] initWithString:text];
         self.commentLabel.font = [UIFont hnFont:14];
     }
     

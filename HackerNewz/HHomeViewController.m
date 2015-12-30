@@ -8,12 +8,13 @@
 
 // View Controllers
 #import "HHomeViewController.h"
+
 #import "HWebLinkViewController.h"
 #import "HCommentViewController.h"
 #import "HSafariViewController.h"
 
 // Libraries
-#import <JHChainableAnimations.h>
+#import "JHChainableAnimations.h"
 
 // Categories
 #import "HNAdditions.h"
@@ -26,42 +27,48 @@
 
 // Hacker News Model
 #import "HackerNewsKit.h"
-#import "HHackerNewsRequestModel.h"
 #import "HHackerNewsItemCell.h"
-#import "HStory.h"
 #import "HArrayDataSource.h"
 
-@interface HHomeViewController () <UITableViewDelegate,UIScrollViewDelegate,HNManagerDelegate, HHackerNewsItemCellDelegate,HDropdownMenuViewDelegate,HTableViewDelegate, HCustomTitleLabelDelegate>
+typedef NS_ENUM(NSInteger, RequestType) {
+    RequestTypeTopStories,
+    RequestTypeNewStories,
+    RequestTypeAskStories,
+    RequestTypeShowStories,
+    RequestTypeJobStories,
+};
+
+@interface HHomeViewController ()
+<UITableViewDelegate,
+UIScrollViewDelegate,
+HNManagerDelegate,
+HHackerNewsItemCellDelegate,
+HDropdownMenuViewDelegate,
+HTableViewDelegate,
+HCustomTitleLabelDelegate>
 
 @property (nonatomic, strong) HTableView *tableView;
 @property (nonatomic, strong) HArrayDataSource *dataSource;
 @property (nonatomic, strong) HNManager *requestManager;;
-
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
-
-@property (nonatomic) HHackerNewsRequestModel *requestModel;
-
-
 @property (nonatomic) HCustomTitleLabel *titleLabel;
+
 @end
 
 @implementation HHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.requestManager = [[HNManager alloc] init];
     [self.requestManager setDelegate:self];
-    self.requestModel = [[HHackerNewsRequestModel alloc] init];
     
     [self configureTableView];
     [self configureSubviews];
     
     // Start initial loader
-    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self navigationBarHeight]) style:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    // Start first story request
-    [self refreshStories];
+    [self displayActivityIndicator:CGPointMake(self.view.center.x, self.view.center.y - [self _navigationBarHeight]) style:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.requestManager fetchTopStories];
 }
 
 - (void)configureTableView {
@@ -85,11 +92,10 @@
     self.titleLabel = [[HCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
     self.titleLabel.delegate = self;
     [self.navigationItem setTitleView:self.titleLabel];
-
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
     // Dropdown menu
-    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Ranked",@"Most Recent",@"Jobs"]];
+    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Stories",@"New Stories",@"Ask Stories", @"Show Stories", @"Job Stories"]];
     self.dropdownMenu.delegate = self;
     [self.view addSubview:self.dropdownMenu];
     
@@ -101,7 +107,6 @@
     }
 }
 
-#pragma mark - Navigation Bar Custom Title
 - (void)customTitleLabelTouched {
     [self scrollToTopOfTableView];
 }
@@ -113,105 +118,77 @@
 
 #pragma mark - HTableView Delegate methods
 - (void)refreshControlActivated {
-    [self refreshStories];
+    //    [self.requestManager refreshLastStories];
 }
 
 #pragma mark - HNManagerDelegate Methods
 - (void)didReceiveTopStories:(NSArray*)topStories {
-    self.dataSource.items = topStories;
-    [self hackerNewsRequestEnded];
+    [self _hackerNewsRequestEndedWithStories:topStories];
 }
 
 - (void)didReceiveNewStories:(NSArray*)newStories {
+    [self _hackerNewsRequestEndedWithStories:newStories];
 }
 
 - (void)didReceiveAskStories:(NSArray*)askStories {
+    [self _hackerNewsRequestEndedWithStories:askStories];
 }
 
 - (void)didReceiveShowStories:(NSArray*)showStories {
+    [self _hackerNewsRequestEndedWithStories:showStories];
 }
 
 - (void)didReceiveJobStories:(NSArray*)jobStories {
+    [self _hackerNewsRequestEndedWithStories:jobStories];
 }
 
 - (void)didReceiveItem:(HNItem*)item {
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
-    NSLog(@"%@",error);
+    [self handleError:error];
+    NSLog(@"%@", error);
 }
 
-#pragma mark - HNManger Helpers
-- (void)hackerNewsRequestEnded {
+#pragma mark - HNManager Helpers
+- (void)_hackerNewsRequestEndedWithStories:(NSArray*)stories {
+    self.dataSource.items = stories;
+    
     [self.tableView.refreshController endRefreshing];
     [self removeActivityIndicator];
     [self.tableView reloadDataAnimated];
     [self scrollToTopOfTableView];
 }
 
-#pragma mark - Requests
-- (void)refreshStories {
-    [self.requestManager fetchTopStories];
-}
-
-- (void)requestTopStories {
-    [self.requestModel getTopStories:^(NSError *error) {
-        [self.tableView.refreshController endRefreshing];
-        [self removeActivityIndicator];
-        
-        if (!error) {
-            self.dataSource.items = self.requestModel.allStories;
-            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
-        } else {
-            [self handleError:error type:@"stories"];
-        }
-    }];
-}
-
-- (void)requestLatestStories {
-    [self.requestModel getLatestStories:^(NSError *error) {
-        [self.tableView.refreshController endRefreshing];
-        [self removeActivityIndicator];
-        
-        if (!error) {
-            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
-        } else {
-            [self handleError:error type:@"stories"];
-        }
-    }];
-}
-
-- (void)requestJobStories {
-    [self.requestModel getJobStories:^(NSError *error) {
-        [self.tableView.refreshController endRefreshing];
-        [self removeActivityIndicator];
-
-        if (!error) {
-            [self.tableView reloadDataAnimated]; [self scrollToTopOfTableView];
-        } else {
-            [self handleError:error type:@"stories"];
-        }
-    }];
-}
-
 #pragma mark - Error handling
-- (void)handleError:(NSError*)error type:(NSString*)itemType{
-    [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem getting %@. Check your internet connection.",itemType]];
+- (void)handleError:(NSError*)error {
+    [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem retrieving stories. Check your internet connection."]];
 }
 
 #pragma mark - HDropdownMenuView Delegate Methods
 - (void)didSelectItemAtRow:(NSInteger)row {
-    
-    if (row == RequestTypeTopStories) {
-        [self requestTopStories];
-    }
-    
-    else if (row == RequestTypeLatestStories) {
-        [self requestLatestStories];
-    }
-    
-    else if (row == RequestTypeJobStories) {
-        [self requestJobStories];
+    RequestType request = row;
+    switch (request) {
+        case RequestTypeTopStories: {
+            [self.requestManager fetchTopStories];
+            break;
+        }
+        case RequestTypeNewStories: {
+            [self.requestManager fetchNewStories];
+            break;
+        }
+        case RequestTypeAskStories: {
+            [self.requestManager fetchAskStories];
+            break;
+        }
+        case RequestTypeShowStories: {
+            [self.requestManager fetchShowStories];
+            break;
+        }
+        case RequestTypeJobStories: {
+            [self.requestManager fetchJobStories];
+            break;
+        }
     }
     
     [self toggleDropdownMenuSlide];
@@ -237,12 +214,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HStory *story = [self storyAtIndexPath:indexPath];
-    if (![story.url isNotEmptyString]) {
+    HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
+    
+    if (![item.url isNotEmptyString]) {
         [self showAlertWithTitle:@"Error" message:@"No URL for item"];
         return;
     }
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:story.url]];
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
     [self presentViewController:vc animated:YES completion:nil];
 //    [self pushToWebLinkViewController:[NSURL URLWithString:story.url]];
 }
@@ -259,14 +237,14 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     // Load comments for news item
-    HStory *story = [self.requestModel.allStories objectAtIndex:indexPath.row];
-    [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
-        if (!error) {
-            [self pushToCommentViewController:comments];
-        } else {
-            [self handleError:error type:@"comments"];
-        }
-    }];
+    HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
+//    [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
+//        if (!error) {
+//            [self pushToCommentViewController:comments];
+//        } else {
+//            [self handleError:error type:@"comments"];
+//        }
+//    }];
 }
 
 #pragma mark - View Controller Navigation
@@ -284,15 +262,15 @@
 }
 
 #pragma mark - Convenience
-- (HStory*)storyAtIndexPath:(NSIndexPath*)indexPath {
-    return (HStory*)[self.requestModel.allStories objectAtIndex:indexPath.row];
-}
-
 - (void)scrollToTopOfTableView {
     if ([self.tableView numberOfRowsInSection:0] > 0) {
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                               atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
+}
+
+- (CGFloat)_navigationBarHeight {
+    return self.navigationController.navigationBar.frame.size.height;
 }
 
 @end

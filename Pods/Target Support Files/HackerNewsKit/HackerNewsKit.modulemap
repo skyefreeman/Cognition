@@ -1,0 +1,6 @@
+framework module HackerNewsKit {
+  umbrella header "HackerNewsKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

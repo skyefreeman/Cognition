@@ -7,11 +7,13 @@
 //
 
 #import "HCommentViewController.h"
+
+// Libraries
+#import "HackerNewsKit.h"
 #import "HNAdditions.h"
 
+// Views
 #import "HTableView.h"
-
-#import "HComment.h"
 #import "HCommentCell.h"
 
 @interface HCommentViewController() <UITableViewDataSource, UITableViewDelegate>
@@ -49,11 +51,11 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HComment *comment = [self.allComments objectAtIndex:indexPath.row];
+    HNItem *item = [self.allComments objectAtIndex:indexPath.row];
     
     id cell = [self.tableView dequeueReusableCellWithIdentifier:[HCommentCell standardReuseIdentifier]];
-    [cell configureWithAuthor:comment.author time:comment.time text:comment.text];
-    return cell;
+    [cell configureWithAuthor:item.by time:item.time text:item.text];
+    return nil;
 }
 
 #pragma mark - UITableView Delegate Methods

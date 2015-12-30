@@ -82,3 +82,18 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods/FormatterKit.framework"
+  install_framework "Pods/HackerNewsKit.framework"
+  install_framework "Pods/JHChainableAnimations.framework"
+  install_framework "Pods/SFAdditions.framework"
+  install_framework "Pods/TTTAttributedLabel.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods/FormatterKit.framework"
+  install_framework "Pods/HackerNewsKit.framework"
+  install_framework "Pods/JHChainableAnimations.framework"
+  install_framework "Pods/SFAdditions.framework"
+  install_framework "Pods/TTTAttributedLabel.framework"
+fi

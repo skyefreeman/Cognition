@@ -8,16 +8,21 @@
 
 #import "HCommentViewController.h"
 
+// Datasource
+#import "HArrayDataSource.h"
+
 // Libraries
-#import "HackerNewsKit.h"
+#import <HackerNewsKit.h>
 #import "HNAdditions.h"
+#import <TTTAttributedLabel.h>
 
 // Views
 #import "HTableView.h"
 #import "HCommentCell.h"
 
-@interface HCommentViewController() <UITableViewDataSource, UITableViewDelegate>
+@interface HCommentViewController() <UITableViewDelegate>
 @property (nonatomic) HTableView *tableView;
+@property (nonatomic) HArrayDataSource *dataSource;
 @end
 
 @implementation HCommentViewController
@@ -26,36 +31,20 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    [self configureTableView];
+}
+
+- (void)configureTableView {
+    self.dataSource = [[HArrayDataSource alloc] initWithItems:self.allComments cellIdentifier:[HCommentCell standardReuseIdentifier] configureCellBlock:^(HCommentCell *cell, HNItem *item) {
+        [cell configureWithAuthor:item.by time:item.time text:item.text];
+    }];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kCommentCellHeight];
     self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableView.dataSource = self.dataSource;
     self.tableView.allowsSelection = NO;
     [self.view addSubview:self.tableView];
-    
-    [self registerNibs];
-    [self.tableView reloadData];
-}
-
-- (void)registerNibs {
     [self.tableView registerNib:[UINib nibWithNibName:[HCommentCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HCommentCell standardReuseIdentifier]];
-}
-
-#pragma mark - UITableView Data Source Methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allComments.count;
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HNItem *item = [self.allComments objectAtIndex:indexPath.row];
-    
-    id cell = [self.tableView dequeueReusableCellWithIdentifier:[HCommentCell standardReuseIdentifier]];
-    [cell configureWithAuthor:item.by time:item.time text:item.text];
-    return nil;
 }
 
 #pragma mark - UITableView Delegate Methods

@@ -18,7 +18,7 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.8.0)
   - FormatterKit/UnitOfInformationFormatter (1.8.0)
   - FormatterKit/URLRequestFormatter (1.8.0)
-  - HackerNewsKit (1.0)
+  - HackerNewsKit (1.01)
   - JHChainableAnimations (1.3.0)
   - SFAdditions (1.0)
   - TTTAttributedLabel (1.13.4)
@@ -38,7 +38,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
-  HackerNewsKit: 30a56fc4e01a29c4cf29764ba54e97ec09f93f7d
+  HackerNewsKit: f37ac843f369ed31cb4c88f88e09be788ffaf6b3
   JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   SFAdditions: 5cf9846fd9f777121db0e70e96f1e689e224260d
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f

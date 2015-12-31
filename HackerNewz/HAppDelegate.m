@@ -36,11 +36,9 @@
     
 //    [self.navController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 //    [self.navController.navigationBar setShadowImage:[UIImage new]];
-    
-    
+
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
-    NSLog(@"Navigation bar height: %fl",self.navController.navigationBar.frame.size.height);
     
     return YES;
 }

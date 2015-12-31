@@ -29,7 +29,8 @@ CGFloat const kCommentCellHeight = 100.0;
     if (author) self.authorLabel.text = [@"by " stringByAppendingString:author];
     
     if (text) {
-        self.commentLabel.attributedText = [[NSAttributedString alloc] initWithString:text];
+        NSAttributedString *attText = [[NSAttributedString alloc] initWithString:text];
+        [self.commentLabel setText:attText];
         self.commentLabel.font = [UIFont hnFont:14];
     }
     

@@ -26,7 +26,7 @@
 #import "HCustomTitleLabel.h"
 
 // Hacker News Model
-#import "HackerNewsKit.h"
+#import <HackerNewsKit.h>
 #import "HHackerNewsItemCell.h"
 #import "HArrayDataSource.h"
 
@@ -118,7 +118,8 @@ HCustomTitleLabelDelegate>
 
 #pragma mark - HTableView Delegate methods
 - (void)refreshControlActivated {
-    //    [self.requestManager refreshLastStories];
+    [self.requestManager refreshLastStories];
+//    [self.requestManager refreshLastStories];
 }
 
 #pragma mark - HNManagerDelegate Methods
@@ -143,6 +144,11 @@ HCustomTitleLabelDelegate>
 }
 
 - (void)didReceiveItem:(HNItem*)item {
+}
+
+- (void)didReceiveItemComments:(NSArray *)commentItems {
+    NSLog(@"%@",commentItems);
+    [self pushToCommentViewController:commentItems];
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
@@ -232,19 +238,12 @@ HCustomTitleLabelDelegate>
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentButtonTapped:(id)sender {
-    
     HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     // Load comments for news item
     HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
-//    [self.requestModel getCommentsForItem:story completion:^(id comments, NSError *error) {
-//        if (!error) {
-//            [self pushToCommentViewController:comments];
-//        } else {
-//            [self handleError:error type:@"comments"];
-//        }
-//    }];
+    [self.requestManager fetchCommentsForItem:item];
 }
 
 #pragma mark - View Controller Navigation

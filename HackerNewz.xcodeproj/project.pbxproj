@@ -15,8 +15,18 @@
 		EE68F99E1C13FD2800488441 /* HArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99D1C13FD2800488441 /* HArrayDataSource.m */; };
 		EE68F9A01C13FE0300488441 /* HArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */; };
 		EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE770A421B41046100ABDD60 /* HWebLinkViewController.m */; };
-		EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */; };
-		EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */; };
+		EE7ECFFD1B4CBD0700A368DB /* CStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7ECFFB1B4CBD0700A368DB /* CStoryTableViewCell.m */; };
+		EE7ECFFE1B4CBD0700A368DB /* CStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7ECFFC1B4CBD0700A368DB /* CStoryTableViewCell.xib */; };
+		EE9A20A01C35D67100FE758D /* CTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A209F1C35D67100FE758D /* CTableViewController.m */; };
+		EE9A20A21C35D71C00FE758D /* CTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20A11C35D71C00FE758D /* CTableViewControllerTests.m */; };
+		EE9A20A61C35D82400FE758D /* CInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20A51C35D82400FE758D /* CInspectableTableViewController.m */; };
+		EE9A20AA1C35DBD900FE758D /* CStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20A91C35DBD900FE758D /* CStoryViewController.m */; };
+		EE9A20AC1C35DC5500FE758D /* CStoryViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20AB1C35DC5500FE758D /* CStoryViewControllerTests.m */; };
+		EE9A20AE1C35DFEB00FE758D /* CStoryTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20AD1C35DFEB00FE758D /* CStoryTableViewCellTests.m */; };
+		EE9A20B31C35EAF400FE758D /* CTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20B21C35EAF400FE758D /* CTableViewCellTests.m */; };
+		EE9A20B61C35EB0A00FE758D /* CTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20B51C35EB0A00FE758D /* CTableViewCell.m */; };
+		EE9A20BC1C35EE0800FE758D /* CStoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20BB1C35EE0800FE758D /* CStoryViewModel.m */; };
+		EE9A20BE1C35EE2200FE758D /* CStoryViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20BD1C35EE2200FE758D /* CStoryViewModelTests.m */; };
 		EE9B05391B58B42F00260F69 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B05381B58B42F00260F69 /* HTableView.m */; };
 		EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9B053F1B58B70B00260F69 /* HCommentCell.m */; };
 		EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9B05411B58B72100260F69 /* HCommentCell.xib */; };
@@ -24,7 +34,7 @@
 		EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* HCommentBubblePointer.m */; };
 		EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */; };
 		EEC9B5411B55CD2B00EEBABA /* HCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */; };
-		EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */; };
+		EED5194A1B9FDC41009E79C1 /* CCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* CCustomTitleLabel.m */; };
 		EED80A321BB4916B00D4113A /* HBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED80A311BB4916B00D4113A /* HBaseViewController.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* HAppDelegate.m */; };
@@ -57,9 +67,24 @@
 		EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HArrayDataSourceTests.m; sourceTree = "<group>"; };
 		EE770A411B41046100ABDD60 /* HWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebLinkViewController.h; sourceTree = "<group>"; };
 		EE770A421B41046100ABDD60 /* HWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebLinkViewController.m; sourceTree = "<group>"; };
-		EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHackerNewsItemCell.h; sourceTree = "<group>"; };
-		EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHackerNewsItemCell.m; sourceTree = "<group>"; };
-		EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHackerNewsItemCell.xib; sourceTree = "<group>"; };
+		EE7ECFFA1B4CBD0700A368DB /* CStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStoryTableViewCell.h; sourceTree = "<group>"; };
+		EE7ECFFB1B4CBD0700A368DB /* CStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryTableViewCell.m; sourceTree = "<group>"; };
+		EE7ECFFC1B4CBD0700A368DB /* CStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CStoryTableViewCell.xib; sourceTree = "<group>"; };
+		EE9A209E1C35D67100FE758D /* CTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewController.h; sourceTree = "<group>"; };
+		EE9A209F1C35D67100FE758D /* CTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewController.m; sourceTree = "<group>"; };
+		EE9A20A11C35D71C00FE758D /* CTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewControllerTests.m; sourceTree = "<group>"; };
+		EE9A20A41C35D82400FE758D /* CInspectableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInspectableTableViewController.h; sourceTree = "<group>"; };
+		EE9A20A51C35D82400FE758D /* CInspectableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CInspectableTableViewController.m; sourceTree = "<group>"; };
+		EE9A20A81C35DBD900FE758D /* CStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStoryViewController.h; sourceTree = "<group>"; };
+		EE9A20A91C35DBD900FE758D /* CStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryViewController.m; sourceTree = "<group>"; };
+		EE9A20AB1C35DC5500FE758D /* CStoryViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryViewControllerTests.m; sourceTree = "<group>"; };
+		EE9A20AD1C35DFEB00FE758D /* CStoryTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryTableViewCellTests.m; sourceTree = "<group>"; };
+		EE9A20B21C35EAF400FE758D /* CTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewCellTests.m; sourceTree = "<group>"; };
+		EE9A20B41C35EB0A00FE758D /* CTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewCell.h; sourceTree = "<group>"; };
+		EE9A20B51C35EB0A00FE758D /* CTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewCell.m; sourceTree = "<group>"; };
+		EE9A20BA1C35EE0800FE758D /* CStoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStoryViewModel.h; sourceTree = "<group>"; };
+		EE9A20BB1C35EE0800FE758D /* CStoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryViewModel.m; sourceTree = "<group>"; };
+		EE9A20BD1C35EE2200FE758D /* CStoryViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CStoryViewModelTests.m; sourceTree = "<group>"; };
 		EE9B05371B58B42F00260F69 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		EE9B05381B58B42F00260F69 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		EE9B053E1B58B70B00260F69 /* HCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentCell.h; sourceTree = "<group>"; };
@@ -74,8 +99,8 @@
 		EEC8A8D51B410ADB00D3C3DA /* HWebViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebViewBar.m; sourceTree = "<group>"; };
 		EEC9B53F1B55CD2B00EEBABA /* HCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommentViewController.h; sourceTree = "<group>"; };
 		EEC9B5401B55CD2B00EEBABA /* HCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCommentViewController.m; sourceTree = "<group>"; };
-		EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCustomTitleLabel.h; sourceTree = "<group>"; };
-		EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCustomTitleLabel.m; sourceTree = "<group>"; };
+		EED519481B9FDC41009E79C1 /* CCustomTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCustomTitleLabel.h; sourceTree = "<group>"; };
+		EED519491B9FDC41009E79C1 /* CCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCustomTitleLabel.m; sourceTree = "<group>"; };
 		EED80A301BB4916B00D4113A /* HBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseViewController.h; sourceTree = "<group>"; };
 		EED80A311BB4916B00D4113A /* HBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseViewController.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* HackerNewz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,14 +193,36 @@
 		EE770A401B4102E700ABDD60 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EE7ECFFA1B4CBD0700A368DB /* HHackerNewsItemCell.h */,
-				EE7ECFFB1B4CBD0700A368DB /* HHackerNewsItemCell.m */,
-				EE7ECFFC1B4CBD0700A368DB /* HHackerNewsItemCell.xib */,
+				EE7ECFFA1B4CBD0700A368DB /* CStoryTableViewCell.h */,
+				EE7ECFFB1B4CBD0700A368DB /* CStoryTableViewCell.m */,
+				EE7ECFFC1B4CBD0700A368DB /* CStoryTableViewCell.xib */,
 				EE9B053E1B58B70B00260F69 /* HCommentCell.h */,
 				EE9B053F1B58B70B00260F69 /* HCommentCell.m */,
 				EE9B05411B58B72100260F69 /* HCommentCell.xib */,
+				EE9A20B41C35EB0A00FE758D /* CTableViewCell.h */,
+				EE9A20B51C35EB0A00FE758D /* CTableViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		EE9A20A31C35D7EE00FE758D /* Mocks and Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				EE9A20A41C35D82400FE758D /* CInspectableTableViewController.h */,
+				EE9A20A51C35D82400FE758D /* CInspectableTableViewController.m */,
+			);
+			name = "Mocks and Stubs";
+			sourceTree = "<group>";
+		};
+		EE9A20A71C35DBC300FE758D /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE9A209E1C35D67100FE758D /* CTableViewController.h */,
+				EE9A209F1C35D67100FE758D /* CTableViewController.m */,
+				EE9A20A81C35DBD900FE758D /* CStoryViewController.h */,
+				EE9A20A91C35DBD900FE758D /* CStoryViewController.m */,
+			);
+			name = TableViewControllers;
 			sourceTree = "<group>";
 		};
 		EEC8A8D71B410DCD00D3C3DA /* Categories */ = {
@@ -190,8 +237,8 @@
 		EED519461B9FDC24009E79C1 /* CustomTItleLabel */ = {
 			isa = PBXGroup;
 			children = (
-				EED519481B9FDC41009E79C1 /* HCustomTitleLabel.h */,
-				EED519491B9FDC41009E79C1 /* HCustomTitleLabel.m */,
+				EED519481B9FDC41009E79C1 /* CCustomTitleLabel.h */,
+				EED519491B9FDC41009E79C1 /* CCustomTitleLabel.m */,
 			);
 			name = CustomTItleLabel;
 			sourceTree = "<group>";
@@ -223,7 +270,7 @@
 				EEC8A8D71B410DCD00D3C3DA /* Categories */,
 				EEFDE9901B3B91F70035556D /* Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
-				EEFDE98E1B3B91E40035556D /* Models */,
+				EEFDE98E1B3B91E40035556D /* View Models */,
 				EE68F99B1C13FD1100488441 /* Data Sources */,
 				EEFDE9671B3B91D20035556D /* Supporting Files */,
 				EEFDE9741B3B91D20035556D /* Images.xcassets */,
@@ -244,7 +291,13 @@
 			isa = PBXGroup;
 			children = (
 				EEFDE9811B3B91D20035556D /* Supporting Files */,
+				EE9A20A31C35D7EE00FE758D /* Mocks and Stubs */,
 				EE68F99F1C13FE0300488441 /* HArrayDataSourceTests.m */,
+				EE9A20A11C35D71C00FE758D /* CTableViewControllerTests.m */,
+				EE9A20AB1C35DC5500FE758D /* CStoryViewControllerTests.m */,
+				EE9A20AD1C35DFEB00FE758D /* CStoryTableViewCellTests.m */,
+				EE9A20B21C35EAF400FE758D /* CTableViewCellTests.m */,
+				EE9A20BD1C35EE2200FE758D /* CStoryViewModelTests.m */,
 			);
 			path = HackerNewzTests;
 			sourceTree = "<group>";
@@ -255,7 +308,8 @@
 				EEFDE9821B3B91D20035556D /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
+			path = HackerNewzTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		EEFDE98D1B3B91DA0035556D /* Application */ = {
 			isa = PBXGroup;
@@ -267,11 +321,13 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		EEFDE98E1B3B91E40035556D /* Models */ = {
+		EEFDE98E1B3B91E40035556D /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				EE9A20BA1C35EE0800FE758D /* CStoryViewModel.h */,
+				EE9A20BB1C35EE0800FE758D /* CStoryViewModel.m */,
 			);
-			name = Models;
+			name = "View Models";
 			sourceTree = "<group>";
 		};
 		EEFDE98F1B3B91F10035556D /* Views */ = {
@@ -291,6 +347,7 @@
 		EEFDE9901B3B91F70035556D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE9A20A71C35DBC300FE758D /* TableViewControllers */,
 				EEFDE96E1B3B91D20035556D /* HHomeViewController.h */,
 				EEFDE96F1B3B91D20035556D /* HHomeViewController.m */,
 				EE770A411B41046100ABDD60 /* HWebLinkViewController.h */,
@@ -351,7 +408,7 @@
 		EEFDE95C1B3B91D20035556D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = H;
+				CLASSPREFIX = C;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Skye Freeman";
 				TargetAttributes = {
@@ -389,7 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE7ECFFE1B4CBD0700A368DB /* HHackerNewsItemCell.xib in Resources */,
+				EE7ECFFE1B4CBD0700A368DB /* CStoryTableViewCell.xib in Resources */,
 				EE9B05421B58B72100260F69 /* HCommentCell.xib in Resources */,
 				EEFDE9751B3B91D20035556D /* Images.xcassets in Resources */,
 			);
@@ -447,16 +504,20 @@
 				EE68F99E1C13FD2800488441 /* HArrayDataSource.m in Sources */,
 				EEFDE9701B3B91D20035556D /* HHomeViewController.m in Sources */,
 				EE9B05391B58B42F00260F69 /* HTableView.m in Sources */,
+				EE9A20A01C35D67100FE758D /* CTableViewController.m in Sources */,
 				EE9B05401B58B70B00260F69 /* HCommentCell.m in Sources */,
+				EE9A20BC1C35EE0800FE758D /* CStoryViewModel.m in Sources */,
 				EE68F99A1C13F3D800488441 /* HNAdditions.m in Sources */,
+				EE9A20AA1C35DBD900FE758D /* CStoryViewController.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* HAppDelegate.m in Sources */,
 				EE770A431B41046100ABDD60 /* HWebLinkViewController.m in Sources */,
 				EEA34D7A1B555A1600C26E58 /* HCommentBubble.m in Sources */,
 				EEC8A8D61B410ADB00D3C3DA /* HWebViewBar.m in Sources */,
 				EEA34D811B5562F400C26E58 /* HCommentBubblePointer.m in Sources */,
 				EE62ECD31C03FC12002E7D2E /* HSafariViewController.m in Sources */,
-				EED5194A1B9FDC41009E79C1 /* HCustomTitleLabel.m in Sources */,
-				EE7ECFFD1B4CBD0700A368DB /* HHackerNewsItemCell.m in Sources */,
+				EED5194A1B9FDC41009E79C1 /* CCustomTitleLabel.m in Sources */,
+				EE7ECFFD1B4CBD0700A368DB /* CStoryTableViewCell.m in Sources */,
+				EE9A20B61C35EB0A00FE758D /* CTableViewCell.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 				EE55BB011B645F1D00ABE960 /* HDropdownMenuView.m in Sources */,
 			);
@@ -466,7 +527,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9A20BE1C35EE2200FE758D /* CStoryViewModelTests.m in Sources */,
+				EE9A20AE1C35DFEB00FE758D /* CStoryTableViewCellTests.m in Sources */,
+				EE9A20B31C35EAF400FE758D /* CTableViewCellTests.m in Sources */,
+				EE9A20AC1C35DC5500FE758D /* CStoryViewControllerTests.m in Sources */,
 				EE68F9A01C13FE0300488441 /* HArrayDataSourceTests.m in Sources */,
+				EE9A20A21C35D71C00FE758D /* CTableViewControllerTests.m in Sources */,
+				EE9A20A61C35D82400FE758D /* CInspectableTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +682,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/\"/**",
+				);
 				INFOPLIST_FILE = HackerNewzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
@@ -628,6 +699,10 @@
 			baseConfigurationReference = 248969498F9D1B7E31942B34 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/\"/**",
+				);
 				INFOPLIST_FILE = HackerNewzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";

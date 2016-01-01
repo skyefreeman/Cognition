@@ -23,11 +23,11 @@
 // Views
 #import "HTableView.h"
 #import "HDropdownMenuView.h"
-#import "HCustomTitleLabel.h"
+#import "CCustomTitleLabel.h"
 
 // Hacker News Model
 #import <HackerNewsKit.h>
-#import "HHackerNewsItemCell.h"
+#import "CStoryTableViewCell.h"
 #import "HArrayDataSource.h"
 
 typedef NS_ENUM(NSInteger, RequestType) {
@@ -42,16 +42,16 @@ typedef NS_ENUM(NSInteger, RequestType) {
 <UITableViewDelegate,
 UIScrollViewDelegate,
 HNManagerDelegate,
-HHackerNewsItemCellDelegate,
+CStoryTableViewCellDelegate,
 HDropdownMenuViewDelegate,
 HTableViewDelegate,
-HCustomTitleLabelDelegate>
+CCustomTitleLabelDelegate>
 
 @property (nonatomic, strong) HTableView *tableView;
 @property (nonatomic, strong) HArrayDataSource *dataSource;
 @property (nonatomic, strong) HNManager *requestManager;;
 @property (nonatomic) HDropdownMenuView *dropdownMenu;
-@property (nonatomic) HCustomTitleLabel *titleLabel;
+@property (nonatomic) CCustomTitleLabel *titleLabel;
 
 @end
 
@@ -72,24 +72,24 @@ HCustomTitleLabelDelegate>
 }
 
 - (void)configureTableView {
-    TableViewCellConfigureBlock configBlock = ^(HHackerNewsItemCell *cell, HNItem *item) {
+    TableViewCellConfigureBlock configBlock = ^(CStoryTableViewCell *cell, HNItem *item) {
         [cell setDelegate:self];
-        [cell configureWithTitle:item.title points:item.score author:item.by time:item.time comments:item.descendants];
+        [cell configureWithTitleText:item.title infoLabelText:@"blah" commentButtonTitle:@"blah"];
     };
     
-    self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[HHackerNewsItemCell standardReuseIdentifier] configureCellBlock:configBlock];
+    self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell standardReuseIdentifier] configureCellBlock:configBlock];
     
-    self.tableView = [HTableView tableViewWithEstimatedRowHeight:kTopStoryCellHeight];
+    self.tableView = [HTableView tableViewWithEstimatedRowHeight:kStoryCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     self.tableView.refreshdelegate = self;
     [self.view addSubview:self.tableView];
-    [self.tableView registerNib:[HHackerNewsItemCell nib] forCellReuseIdentifier:[HHackerNewsItemCell standardReuseIdentifier]];
+    [self.tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell standardReuseIdentifier]];
 }
 
 - (void)configureSubviews {
     // Navigation bar
-    self.titleLabel = [[HCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
+    self.titleLabel = [[CCustomTitleLabel alloc] initWithFrame:self.navigationController.navigationBar.frame title:@"Top Ranked"];
     self.titleLabel.delegate = self;
     [self.navigationItem setTitleView:self.titleLabel];
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
@@ -119,7 +119,6 @@ HCustomTitleLabelDelegate>
 #pragma mark - HTableView Delegate methods
 - (void)refreshControlActivated {
     [self.requestManager refreshLastStories];
-//    [self.requestManager refreshLastStories];
 }
 
 #pragma mark - HNManagerDelegate Methods
@@ -238,7 +237,7 @@ HCustomTitleLabelDelegate>
 
 #pragma mark - HHackerNewsItemCell Delegate Methods
 - (void)commentButtonTapped:(id)sender {
-    HHackerNewsItemCell *cell = (HHackerNewsItemCell*)sender;
+    CStoryTableViewCell *cell = (CStoryTableViewCell*)sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     // Load comments for news item

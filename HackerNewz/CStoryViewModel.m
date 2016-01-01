@@ -1,0 +1,52 @@
+//
+//  CStoryViewModel.m
+//  HackerNewz
+//
+//  Created by Skye on 12/31/15.
+//  Copyright © 2015 Skye Freeman. All rights reserved.
+//
+
+#import "CStoryViewModel.h"
+
+// Models
+#import "HNItem.h"
+
+// Libaries
+#import "TTTTimeIntervalFormatter.h"
+
+@implementation CStoryViewModel
+- (instancetype)init {
+    return nil;
+}
+
+- (instancetype)initWithHNItem:(HNItem *)item {
+    self = [super init];
+    if (!self) return nil;
+    
+    self.originalItem = item;
+    
+    self.commentCountString = [self _createCommentCountStringWithCount:item.descendants];
+    self.storyInfoString = [self _createStoryInfoStringWithScore:item.score author:item.by time:item.time];
+    
+    return self;
+}
+
+- (NSString*)_createCommentCountStringWithCount:(NSInteger)count {
+    if (count == 1) return [NSString stringWithFormat:@"%lu comment", count];
+    else if (count >= 2) return [NSString stringWithFormat:@"%lu comments", count];
+    else return [NSString stringWithFormat:@"No comments"];
+}
+
+- (NSString*)_createStoryInfoStringWithScore:(NSInteger)score author:(NSString*)author time:(NSInteger)time {
+    NSString *pointsString = (score > 1) ? [NSString stringWithFormat:@"%lu points ",(long)score] : @"";
+    NSString *authorString = [NSString stringWithFormat:@"by %@",author];
+    
+    NSDate *postDate = [NSDate dateWithTimeIntervalSince1970:time];
+    TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
+    NSString *timeString = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:postDate];
+    
+    return [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
+}
+
+
+@end

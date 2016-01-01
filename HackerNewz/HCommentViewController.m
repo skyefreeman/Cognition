@@ -35,6 +35,7 @@
 }
 
 - (void)configureTableView {
+    
     self.dataSource = [[HArrayDataSource alloc] initWithItems:self.allComments cellIdentifier:[HCommentCell standardReuseIdentifier] configureCellBlock:^(HCommentCell *cell, HNItem *item) {
         [cell configureWithAuthor:item.by time:item.time text:item.text];
     }];

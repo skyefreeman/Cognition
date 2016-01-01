@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  HackerNewz
+//  Cognition
 //
 //  Created by Skye on 6/24/15.
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
@@ -9,6 +9,7 @@
 #import "HAppDelegate.h"
 
 // View Controller
+#import "CStoryViewController.h"
 #import "HHomeViewController.h"
 
 // Categories
@@ -27,15 +28,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:[[HHomeViewController alloc] init]];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[[CStoryViewController alloc] init]];
     self.navController.navigationBar.translucent = NO;
     
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
     self.navController.navigationBar.barTintColor = [UIColor HNOrange];
     self.navController.navigationBar.barStyle = UIBarStyleBlack;
-    
-//    [self.navController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    [self.navController.navigationBar setShadowImage:[UIImage new]];
 
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];

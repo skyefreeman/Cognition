@@ -30,6 +30,8 @@
 #import "CStoryTableViewCell.h"
 #import "HArrayDataSource.h"
 
+
+
 typedef NS_ENUM(NSInteger, RequestType) {
     RequestTypeTopStories,
     RequestTypeNewStories,
@@ -42,7 +44,6 @@ typedef NS_ENUM(NSInteger, RequestType) {
 <UITableViewDelegate,
 UIScrollViewDelegate,
 HNManagerDelegate,
-CStoryTableViewCellDelegate,
 HDropdownMenuViewDelegate,
 HTableViewDelegate,
 CCustomTitleLabelDelegate>

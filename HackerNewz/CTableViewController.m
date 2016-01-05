@@ -11,6 +11,7 @@
 #import "HNAdditions.h"
 #import "HArrayDataSource.h"
 #import "CCustomTitleLabel.h"
+#import "CTableViewRefreshDelegate.h"
 
 @interface CTableViewController() <CCustomTitleLabelDelegate>
 @property (nonatomic, strong) UILabel *backgroundLabel;
@@ -34,10 +35,11 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
-    self.tableView.backgroundColor = [UIColor HNLightOrange];
+    self.tableView.backgroundColor = [UIColor HNOrange];
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.height);
     
     self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width/6 * 5, self.tableView.frame.size.height)];
@@ -82,6 +84,12 @@
 #pragma mark - CCustomTitleLabelDelegate
 - (void)customTitleLabelTouched:(id)sender {
     [self scrollToTop];
+}
+
+
+#pragma mark - Refresh Control actions
+- (void)refreshValueChanged:(id)sender {
+    if (self.refreshDelegate) [self.refreshDelegate tableView:self.tableView refreshControlTriggered:sender];
 }
 
 @end

@@ -6,12 +6,16 @@
 //  Copyright © 2015 Skye Freeman. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import "XCTestCase+MockAdditions.h"
+#import <SafariServices/SafariServices.h>
+
 #import "CStoryViewController.h"
+
 #import "HArrayDataSource.h"
 #import <HackerNewsKit.h>
 
-@interface CStoryViewControllerTests : XCTestCase
+
+@interface CStoryViewControllerTests : XCTestCase <UITableViewDelegate>
 
 @end
 

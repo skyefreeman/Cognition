@@ -25,7 +25,7 @@
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         self.rowHeight = UITableViewAutomaticDimension;
         self.estimatedRowHeight = estHeight;
-        self.backgroundColor = [UIColor HNLightOrange];
+        self.backgroundColor = [UIColor HNOrange];
         
         NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..." attributes:attrsDictionary];

@@ -18,7 +18,7 @@
 
 // Views
 #import "HTableView.h"
-#import "HCommentCell.h"
+#import "CCommentTableViewCell.h"
 
 @interface HCommentViewController() <UITableViewDelegate>
 @property (nonatomic) HTableView *tableView;
@@ -36,16 +36,16 @@
 
 - (void)configureTableView {
     
-    self.dataSource = [[HArrayDataSource alloc] initWithItems:self.allComments cellIdentifier:[HCommentCell standardReuseIdentifier] configureCellBlock:^(HCommentCell *cell, HNItem *item) {
-        [cell configureWithAuthor:item.by time:item.time text:item.text];
-    }];
+//    self.dataSource = [[HArrayDataSource alloc] initWithItems:self.allComments cellIdentifier:[CCommentTableViewCell standardReuseIdentifier] configureCellBlock:^(CCommentTableViewCell *cell, HNItem *item) {
+//        [cell configureWithAuthor:item.by time:item.time text:item.text];
+//    }];
     
     self.tableView = [HTableView tableViewWithEstimatedRowHeight:kCommentCellHeight];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     self.tableView.allowsSelection = NO;
     [self.view addSubview:self.tableView];
-    [self.tableView registerNib:[UINib nibWithNibName:[HCommentCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[HCommentCell standardReuseIdentifier]];
+    [self.tableView registerNib:[UINib nibWithNibName:[CCommentTableViewCell standardReuseIdentifier] bundle:nil] forCellReuseIdentifier:[CCommentTableViewCell standardReuseIdentifier]];
 }
 
 #pragma mark - UITableView Delegate Methods

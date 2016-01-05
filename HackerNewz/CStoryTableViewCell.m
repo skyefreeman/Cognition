@@ -9,7 +9,6 @@
 #import "CStoryTableViewCell.h"
 #import "HNAdditions.h"
 
-#import "TTTTimeIntervalFormatter.h"
 #import "HCommentBubble.h"
 #import "HCommentBubblePointer.h"
 
@@ -24,7 +23,7 @@ CGFloat const kEdgePadding = 8;
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self.commentButton addTarget:self action:@selector(commentButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.commentButton addTarget:self action:@selector(commentButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureWithTitleText:(NSString*)titleText
@@ -32,15 +31,18 @@ CGFloat const kEdgePadding = 8;
             commentButtonTitle:(NSString*)commentTitleText
 {
     self.titleLabel.text = titleText;
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
+    
     self.infoLabel.text = infoText;
+    
     [self.commentButton setTitle:commentTitleText forState:UIControlStateNormal];
     self.commentButton.tintColor = [UIColor HNOrange];
     
     [self layoutIfNeeded];
 }
 
-- (void)commentButtonTapped {
-    if (self.delegate) [self.delegate commentButtonTapped:self];
+- (void)commentButtonTapped:(id)sender {
+    if (self.delegate) [self.delegate button:sender selectedWithCell:self];
 }
 
 @end

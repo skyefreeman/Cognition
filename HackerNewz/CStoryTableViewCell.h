@@ -7,16 +7,13 @@
 //
 
 #import "CTableViewCell.h"
+#import "CTableViewCellButtonDelegate.h"
 
 extern CGFloat const kStoryCellHeight;
 
-@protocol CStoryTableViewCellDelegate
-- (void)commentButtonTapped:(id)sender;
-@end
-
 @interface CStoryTableViewCell : CTableViewCell
 
-@property (nonatomic, weak) id <CStoryTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id <CTableViewCellButtonDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;

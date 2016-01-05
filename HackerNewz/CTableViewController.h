@@ -7,29 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HArrayDataSource;
+#import "UIViewController+ErrorAdditions.h"
+#import "HArrayDataSource.h"
+#import "CTableViewRefreshDelegate.h"
 
 @interface CTableViewController : UITableViewController
 
 /** @brief A custom data source for arrays. */
 @property (nonatomic, strong) HArrayDataSource *dataSource;
 
-/**
- * @brief Configures the navigation bar.  Called during viewDidLoad.
- * @warning Subclasses must caller [super configureNavigationBar] if overriding.
- */
-- (void)configureNavigationBar;
-
-/**
- * @brief Configures the tableView.  Called during viewDidLoad.
- * @warning Subclasses must caller [super configureTableView] if overriding.
- */
-- (void)configureTableView;
+/** @brief Refresh delegate */
+@property (nonatomic, weak) id <CTableViewRefreshDelegate> refreshDelegate;
 
 /** @brief Animates scrolling to the top of the table view. */
 - (void)scrollToTop;
 
 /** @brief Set the custom title label of the navigation bar. */
 - (void)setTitleText:(NSString*)titleText;
+
 
 @end

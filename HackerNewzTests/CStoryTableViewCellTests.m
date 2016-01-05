@@ -9,8 +9,9 @@
 #import <XCTest/XCTest.h>
 
 #import "CStoryTableViewCell.h"
+#import "CTableViewCellButtonDelegate.h"
 
-@interface CStoryTableViewCellTests : XCTestCase <CStoryTableViewCellDelegate>
+@interface CStoryTableViewCellTests : XCTestCase <CTableViewCellButtonDelegate>
 {
     CStoryTableViewCell *cell;
     BOOL commentButtonTapped;
@@ -48,8 +49,8 @@
     XCTAssertTrue(commentButtonTapped, @"Comment button delegate method not called");
 }
 
-#pragma mark - CStoryTableViewCellDelegate
-- (void)commentButtonTapped:(id)sender {
+#pragma mark - CTableViewCellButtonDelegate
+- (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
     commentButtonTapped = YES;
 }
 

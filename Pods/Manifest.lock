@@ -20,6 +20,7 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.8.0)
   - HackerNewsKit (1.01)
   - JHChainableAnimations (1.3.0)
+  - OCMock (3.2)
   - SFAdditions (1.0)
   - TTTAttributedLabel (1.13.4)
 
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - FormatterKit
   - HackerNewsKit (from `~/Development/iOSDevelopment/Library/HackerNewsKit`)
   - JHChainableAnimations
+  - OCMock (~> 3.2)
   - SFAdditions (from `~/Development/iOSDevelopment/Library/SFAdditions`)
   - TTTAttributedLabel
 
@@ -40,6 +42,7 @@ SPEC CHECKSUMS:
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
   HackerNewsKit: f37ac843f369ed31cb4c88f88e09be788ffaf6b3
   JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
+  OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   SFAdditions: 5cf9846fd9f777121db0e70e96f1e689e224260d
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 

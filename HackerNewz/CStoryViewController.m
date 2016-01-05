@@ -7,13 +7,12 @@
 //
 
 #import "CStoryViewController.h"
+#import "CCommentViewController.h"
+#import <SafariServices/SafariServices.h>
 
 // Libaries
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
-
-// Data Sources
-#import "HArrayDataSource.h"
 
 // Views
 #import "CStoryTableViewCell.h"
@@ -21,7 +20,10 @@
 // View Models
 #import "CStoryViewModel.h"
 
-@interface CStoryViewController() <UITableViewDelegate, HNManagerDelegate>
+// Protocols
+#import "CTableViewCellButtonDelegate.h"
+
+@interface CStoryViewController() <UITableViewDelegate, HNManagerDelegate, CTableViewCellButtonDelegate, CTableViewRefreshDelegate>
 @property (nonatomic, strong, readwrite) HNManager *requestManager;
 @end
 
@@ -30,28 +32,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self _configureTableView];
+    [self _configureNavigationBar];
+    
     self.requestManager = [[HNManager alloc] init];
     [self.requestManager setDelegate:self];
     [self.requestManager fetchTopStories];
 }
 
-- (void)configureTableView {
-    [super configureTableView];
-    
+- (void)_configureTableView {
     self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
         [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString commentButtonTitle:viewModel.commentCountString];
+        cell.delegate = self;
     }];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell reuseIdentifier]];
+    
+    self.refreshDelegate = self;
 }
 
-- (void)configureNavigationBar {
-    [super configureNavigationBar];
-    
+- (void)_configureNavigationBar {
     [self setTitleText:@"Top Stories"];
-//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
+//        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
 //    // Dropdown menu
 //    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Stories",@"New Stories",@"Ask Stories", @"Show Stories", @"Job Stories"]];
@@ -59,8 +63,12 @@
 //    [self.view addSubview:self.dropdownMenu];
 }
 
-#pragma mark - Menu
-- (void)menuButtonTouched:(id)sender {
+#pragma mark - UITableView Delegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
+    [self _pushToSafariViewControllerWithUrl:[NSURL URLWithString:item.url]];
 }
 
 #pragma mark - HNManagerDelegate 
@@ -84,15 +92,12 @@
     [self _hackerNewsRequestEndedWithStories:jobStories];
 }
 
-- (void)didReceiveItemComments:(NSArray *)commentItems {
-//    [self pushToCommentViewController:commentItems];
-}
-
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
-    [self handleError:error];
+    [self errorAlert_checkInternetConnection];
     NSLog(@"%@", error);
 }
 
+#pragma mark - HNManager Helpers
 - (void)_hackerNewsRequestEndedWithStories:(NSArray*)stories {
     self.dataSource.items = stories;
     
@@ -102,9 +107,28 @@
     [super scrollToTop];
 }
 
-#pragma mark - Error handling
-- (void)handleError:(NSError*)error {
-    [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Problem retrieving stories. Check your internet connection."]];
+#pragma mark - CStoryTableViewCellDelegate methods
+- (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
+    HNItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
+    [self _pushToCommentViewControllerWithItem:item];
+}
+
+#pragma mark - UIRefreshControl
+- (void)tableView:(UITableView *)tableView refreshControlTriggered:(UIRefreshControl *)refreshControl {
+    [self.requestManager refreshLastStories];
+}
+
+#pragma mark - View Controller Transitions
+- (void)_pushToSafariViewControllerWithUrl:(NSURL*)aURL {
+    if (!aURL) return;
+    
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:aURL];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)_pushToCommentViewControllerWithItem:(HNItem*)item {
+    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

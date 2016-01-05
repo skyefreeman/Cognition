@@ -8,6 +8,7 @@ pod 'SFAdditions', :path => '~/Development/iOSDevelopment/Library/SFAdditions'
 
 ## Public Pods ##
 pod 'FormatterKit'
+pod 'OCMock', '~> 3.2'
 pod 'TTTAttributedLabel'
 pod 'JHChainableAnimations'
 

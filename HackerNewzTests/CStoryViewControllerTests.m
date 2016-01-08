@@ -11,7 +11,7 @@
 
 #import "CStoryViewController.h"
 
-#import "HArrayDataSource.h"
+#import "CArrayDataSource.h"
 #import <HackerNewsKit.h>
 
 

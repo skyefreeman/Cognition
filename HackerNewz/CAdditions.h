@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIColor (HNAdditions)
-+ (UIColor*)HNOrange;
-+ (UIColor*)HNSystemBlue;
-+ (UIColor*)HNDarkGray;
-+ (UIColor*)HNLightGray;
+@interface UIColor (CAdditions)
++ (UIColor*)COrange;
++ (UIColor*)CSystemBlue;
++ (UIColor*)CDarkGray;
++ (UIColor*)CLightGray;
 @end
 
-@interface UIImage (HNAdditions)
+@interface UIImage (CAdditions)
 + (UIImage*)upImage;
 + (UIImage*)downImage;
 + (UIImage*)leftImage;
@@ -25,14 +25,14 @@
 + (UIImage*)uploadImage;
 @end
 
-@interface UILabel (HNAdditions)
+@interface UILabel (CAdditions)
 - (void)setSubstituteFont:(UIFont*)font;
 @end
 
-@interface UIFont (HNAdditions)
+@interface UIFont (CAdditions)
 + (UIFont*)hnFont:(CGFloat)fontSize;
 @end
 
-@interface NSObject (HNAdditions)
+@interface NSObject (CAdditions)
 +(NSString*)standardReuseIdentifier;
 @end

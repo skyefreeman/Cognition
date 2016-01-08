@@ -41,7 +41,7 @@
 }
 
 - (void)_configureTableView {
-    self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
+    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
         [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString commentButtonTitle:viewModel.commentCountString];
         cell.delegate = self;

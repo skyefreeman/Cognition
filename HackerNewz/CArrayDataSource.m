@@ -6,15 +6,15 @@
 //  Copyright © 2015 Skye Freeman. All rights reserved.
 //
 
-#import "HArrayDataSource.h"
+#import "CArrayDataSource.h"
 
-@interface HArrayDataSource()
+@interface CArrayDataSource()
 @property (nonatomic, copy) NSString *reuseIdentifier;
 @property (nonatomic, copy) TableViewCellConfigureBlock configureBlock;
 
 @end
 
-@implementation HArrayDataSource
+@implementation CArrayDataSource
 
 - (instancetype)init {
     return nil;

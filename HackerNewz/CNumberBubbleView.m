@@ -6,26 +6,26 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import "HCommentBubble.h"
-#import "HNAdditions.h"
+#import "CNumberBubbleView.h"
+#import "CAdditions.h"
 
-@interface HCommentBubble ()
+@interface CNumberBubbleView ()
 @property (nonatomic) UILabel *textLabel;
 @end
 
-@implementation HCommentBubble
+@implementation CNumberBubbleView
 
 - (instancetype)init {
     self = [super initWithFrame:CGRectMake(0, 0, 25, 25)];
     
     if (self) {
-        self.layer.borderColor = [UIColor HNOrange].CGColor;
+        self.layer.borderColor = [UIColor COrange].CGColor;
         self.layer.borderWidth = 1;
         self.layer.cornerRadius = self.frame.size.height/2;
         
         self.textLabel = [[UILabel alloc] init];
         self.textLabel.font = [self.textLabel.font fontWithSize:11];
-        self.textLabel.textColor = [UIColor HNOrange];
+        self.textLabel.textColor = [UIColor COrange];
         self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.textLabel.numberOfLines = 1;
         self.textLabel.textAlignment = NSTextAlignmentCenter;

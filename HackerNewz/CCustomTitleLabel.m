@@ -7,7 +7,7 @@
 //
 
 #import "CCustomTitleLabel.h"
-#import "HNAdditions.h"
+#import "CAdditions.h"
 
 @implementation CCustomTitleLabel
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString*)title {

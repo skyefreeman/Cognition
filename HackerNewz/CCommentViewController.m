@@ -42,7 +42,7 @@
 }
 
 - (void)_configureTableView {
-    self.dataSource = [[HArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CCommentTableViewCell reuseIdentifier] configureCellBlock:^(CCommentTableViewCell *cell, HNItem *item) {
+    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CCommentTableViewCell reuseIdentifier] configureCellBlock:^(CCommentTableViewCell *cell, HNItem *item) {
         CCommentViewModel *viewModel = [[CCommentViewModel alloc] initWithItem:item];
         [cell configureWithAuthor:viewModel.authorString time:viewModel.timeString comment:viewModel.formattedComment];
     }];

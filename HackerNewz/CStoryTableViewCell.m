@@ -7,10 +7,10 @@
 //
 
 #import "CStoryTableViewCell.h"
-#import "HNAdditions.h"
+#import "CAdditions.h"
 
-#import "HCommentBubble.h"
-#import "HCommentBubblePointer.h"
+#import "CNumberBubbleView.h"
+#import "CPointerView.h"
 
 CGFloat const kStoryCellHeight = 50;
 CGFloat const kEdgePadding = 8;
@@ -36,7 +36,7 @@ CGFloat const kEdgePadding = 8;
     self.infoLabel.text = infoText;
     
     [self.commentButton setTitle:commentTitleText forState:UIControlStateNormal];
-    self.commentButton.tintColor = [UIColor HNOrange];
+    self.commentButton.tintColor = [UIColor COrange];
     
     [self layoutIfNeeded];
 }

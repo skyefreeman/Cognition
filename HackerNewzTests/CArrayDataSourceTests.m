@@ -7,14 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "HArrayDataSource.h"
+#import "CArrayDataSource.h"
 
-@interface HArrayDataSourceTests : XCTestCase
+@interface CArrayDataSourceTests : XCTestCase
 @end
 
-@implementation HArrayDataSourceTests
+@implementation CArrayDataSourceTests
 {
-    HArrayDataSource *dataSource;
+    CArrayDataSource *dataSource;
 }
 
 - (void)setUp {
@@ -26,7 +26,7 @@
         testCell = cell;
         testItem = item;
     };
-    dataSource = [[HArrayDataSource alloc] initWithItems:@[@"a",@"b"] cellIdentifier:@"cellID" configureCellBlock:block];
+    dataSource = [[CArrayDataSource alloc] initWithItems:@[@"a",@"b"] cellIdentifier:@"cellID" configureCellBlock:block];
 }
 
 - (void)tearDown {
@@ -35,7 +35,7 @@
 }
 
 - (void)testInitializing {
-    XCTAssertNil([[HArrayDataSource alloc] init], @"Should not be allowed");
+    XCTAssertNil([[CArrayDataSource alloc] init], @"Should not be allowed");
     XCTAssertNotNil(dataSource);
 }
 
@@ -43,4 +43,5 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     XCTAssertTrue([[dataSource itemAtIndexPath:indexPath] isEqualToString:@"a"], @"Should map correctly passed in array");
 }
+
 @end

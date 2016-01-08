@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import "HCommentBubblePointer.h"
-#import "HNAdditions.h"
+#import "CPointerView.h"
+#import "CAdditions.h"
 
-@implementation HCommentBubblePointer
+@implementation CPointerView
 
 - (instancetype)init {
     self = [super initWithFrame:CGRectMake(0, 0, 8, 5)];
@@ -35,7 +35,7 @@
         CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
         CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
         CGContextClosePath(context);
-        CGContextSetFillColorWithColor(context, [UIColor HNOrange].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor COrange].CGColor);
         CGContextFillPath(context);
     }
     CGContextRestoreGState(context);

@@ -1,5 +1,5 @@
 //
-//  HCommentBubblePointer.h
+//  HCommentBubble.h
 //  HackerNewz
 //
 //  Created by Skye on 7/14/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCommentBubblePointer : UIView
-
+@interface CNumberBubbleView : UIView
+- (void)setText:(NSString*)text;
 @end

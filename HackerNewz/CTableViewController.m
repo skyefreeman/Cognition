@@ -8,8 +8,8 @@
 
 #import "CTableViewController.h"
 #import <SFAdditions.h>
-#import "HNAdditions.h"
-#import "HArrayDataSource.h"
+#import "CAdditions.h"
+#import "CArrayDataSource.h"
 #import "CCustomTitleLabel.h"
 #import "CTableViewRefreshDelegate.h"
 
@@ -35,7 +35,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
-    self.tableView.backgroundColor = [UIColor HNOrange];
+    self.tableView.backgroundColor = [UIColor COrange];
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     self.refreshControl.tintColor = [UIColor whiteColor];

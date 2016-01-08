@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+ErrorAdditions.h"
-#import "HArrayDataSource.h"
+#import "CArrayDataSource.h"
 #import "CTableViewRefreshDelegate.h"
 
 @interface CTableViewController : UITableViewController
 
 /** @brief A custom data source for arrays. */
-@property (nonatomic, strong) HArrayDataSource *dataSource;
+@property (nonatomic, strong) CArrayDataSource *dataSource;
 
 /** @brief Refresh delegate */
 @property (nonatomic, weak) id <CTableViewRefreshDelegate> refreshDelegate;

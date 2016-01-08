@@ -6,20 +6,15 @@
 //  Copyright (c) 2015 Skye Freeman. All rights reserved.
 //
 
-#import "HAppDelegate.h"
-
-// View Controller
+#import "CAppDelegate.h"
 #import "CStoryViewController.h"
-#import "HHomeViewController.h"
+#import "CAdditions.h"
 
-// Categories
-#import "HNAdditions.h"
-
-@interface HAppDelegate ()
+@interface CAppDelegate ()
 @property (nonatomic, strong) UINavigationController *navController;
 @end
 
-@implementation HAppDelegate
+@implementation CAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -32,7 +27,7 @@
     self.navController.navigationBar.translucent = NO;
     
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navController.navigationBar.barTintColor = [UIColor HNOrange];
+    self.navController.navigationBar.barTintColor = [UIColor COrange];
     self.navController.navigationBar.barStyle = UIBarStyleBlack;
 
     self.window.rootViewController = self.navController;

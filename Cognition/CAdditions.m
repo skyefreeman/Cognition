@@ -43,35 +43,36 @@
 
 #pragma mark - UIFont Additions
 @implementation UIFont (CAdditions)
-+ (UIFont*)hnFont:(CGFloat)fontSize {
-    return [UIFont fontWithName:@"HelveticaNeue-Thin" size:fontSize];
++ (UIFont*)CFont:(CGFloat)fontSize {
+    return [UIFont systemFontOfSize:fontSize];
 }
 @end
 
 #pragma mark - UIImage Additions
 @implementation UIImage (CAdditions)
-+ (UIImage*)upImage {
-    return [UIImage imageNamed:@"upIcon"];
-}
-
-+ (UIImage*)downImage {
-    return [UIImage imageNamed:@"downIcon"];
-}
-
 + (UIImage*)cancelImage {
-    return [UIImage imageNamed:@"cancelIcon"];
+    return [UIImage imageNamed:@"cancel_image"];
 }
 
-+ (UIImage*)leftImage {
-    return [UIImage imageNamed:@"leftIcon"];
++ (UIImage*)menuImage {
+    return [UIImage imageNamed:@"menu_image"];
 }
 
-+ (UIImage*)rightImage {
-    return [UIImage imageNamed:@"rightIcon"];
++ (UIImage*)twitterImage {
+    return [UIImage imageNamed:@"twitter_image"];
 }
 
-+ (UIImage*)uploadImage {
-    return [UIImage imageNamed:@"uploadIcon"];
++ (UIImage*)octocatImage {
+    return [UIImage imageNamed:@"octocat_image"];
 }
+
++ (UIImage*)websiteImage {
+    return [UIImage imageNamed:@"website_image"];
+}
+
++ (UIImage*)backgroundImage {
+    return [UIImage imageNamed:@"background_image"];
+}
+
 @end
 

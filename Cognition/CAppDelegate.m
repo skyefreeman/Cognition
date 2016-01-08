@@ -18,16 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[UILabel appearance] setSubstituteFont:[UIFont hnFont:0]];
+    // I forgot what this is for
+    [[UILabel appearance] setSubstituteFont:[UIFont CFont:0]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:[[CStoryViewController alloc] init]];
-    self.navController.navigationBar.translucent = NO;
-    
+    self.navController.navigationBar.translucent = YES;
     self.navController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navController.navigationBar.barTintColor = [UIColor COrange];
     self.navController.navigationBar.barStyle = UIBarStyleBlack;
 
     self.window.rootViewController = self.navController;

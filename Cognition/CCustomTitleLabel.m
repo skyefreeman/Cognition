@@ -17,7 +17,7 @@
     self.text = title;
     [self sizeToFit];
     [self setTextAlignment:NSTextAlignmentCenter];
-    [self setFont:[UIFont hnFont:20.0f]];
+    [self setFont:[UIFont CFont:20.0f]];
     [self setTextColor:[UIColor whiteColor]];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleLabelTouched:)];

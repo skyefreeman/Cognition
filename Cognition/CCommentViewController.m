@@ -34,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setTitleText:@"Comments"];
+    
     [self _configureTableView];
     
     self.manager = [[HNManager alloc] init];
@@ -49,6 +51,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CCommentTableViewCell nib] forCellReuseIdentifier:[CCommentTableViewCell reuseIdentifier]];
+    
+    [self.refreshControl removeFromSuperview];
+    self.refreshControl = nil;
 }
 
 #pragma mark - HNManagerDelegate

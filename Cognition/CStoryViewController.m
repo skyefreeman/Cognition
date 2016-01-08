@@ -13,6 +13,7 @@
 // Libaries
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
+#import "CAdditions.h"
 
 // Views
 #import "CStoryTableViewCell.h"
@@ -44,7 +45,12 @@
     self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
         [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString commentButtonTitle:viewModel.commentCountString];
-        cell.delegate = self;
+        [cell setDelegate:self];
+        
+        if (item.descendants == 0) {
+            [cell.commentButton setUserInteractionEnabled:NO];
+            [cell.commentButton setTintColor:[UIColor CLightGray]];
+        }
     }];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
@@ -55,12 +61,10 @@
 
 - (void)_configureNavigationBar {
     [self setTitleText:@"Top Stories"];
-//        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage upImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage menuImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
 //    // Dropdown menu
 //    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Stories",@"New Stories",@"Ask Stories", @"Show Stories", @"Job Stories"]];
-//    self.dropdownMenu.delegate = self;
-//    [self.view addSubview:self.dropdownMenu];
 }
 
 #pragma mark - UITableView Delegate Methods
@@ -117,6 +121,12 @@
 #pragma mark - UIRefreshControl
 - (void)tableView:(UITableView *)tableView refreshControlTriggered:(UIRefreshControl *)refreshControl {
     [self.requestManager refreshLastStories];
+}
+
+
+#pragma mark - Navigation Bar Actions
+- (void)menuButtonTouched:(id)sender {
+    NSLog(@"touched");
 }
 
 #pragma mark - View Controller Transitions

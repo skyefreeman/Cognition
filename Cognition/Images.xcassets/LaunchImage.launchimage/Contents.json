@@ -21,7 +21,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage@2x-1.png",
+      "filename" : "LaunchImage@2x.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -38,23 +38,9 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage.png",
+      "filename" : "launchImage.png",
       "extent" : "full-screen",
       "scale" : "1x"
-    },
-    {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait.png",
-      "extent" : "to-status-bar",
-      "scale" : "1x"
-    },
-    {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait@2x.png",
-      "extent" : "to-status-bar",
-      "scale" : "2x"
     }
   ],
   "info" : {

@@ -17,12 +17,11 @@
 @end
 
 @interface UIImage (CAdditions)
-+ (UIImage*)upImage;
-+ (UIImage*)downImage;
-+ (UIImage*)leftImage;
-+ (UIImage*)rightImage;
 + (UIImage*)cancelImage;
-+ (UIImage*)uploadImage;
++ (UIImage*)menuImage;
++ (UIImage*)twitterImage;
++ (UIImage*)octocatImage;
++ (UIImage*)websiteImage;
 @end
 
 @interface UILabel (CAdditions)
@@ -30,7 +29,7 @@
 @end
 
 @interface UIFont (CAdditions)
-+ (UIFont*)hnFont:(CGFloat)fontSize;
++ (UIFont*)CFont:(CGFloat)fontSize;
 @end
 
 @interface NSObject (CAdditions)

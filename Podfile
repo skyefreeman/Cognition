@@ -12,5 +12,5 @@ pod 'OCMock', '~> 3.2'
 pod 'TTTAttributedLabel'
 pod 'JHChainableAnimations'
 
-link_with 'HackerNewz', 'HackerNewzTests'
+link_with 'Cognition', 'CognitionTests'
 

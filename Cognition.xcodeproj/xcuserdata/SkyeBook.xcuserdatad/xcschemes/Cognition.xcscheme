@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EEFDE9631B3B91D20035556D"
-            BuildableName = "HackerNewz.app"
-            BlueprintName = "HackerNewz"
-            ReferencedContainer = "container:HackerNewz.xcodeproj">
+            BuildableName = "Cognition.app"
+            BlueprintName = "Cognition"
+            ReferencedContainer = "container:Cognition.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EEFDE9631B3B91D20035556D"
-            BuildableName = "HackerNewz.app"
-            BlueprintName = "HackerNewz"
-            ReferencedContainer = "container:HackerNewz.xcodeproj">
+            BuildableName = "Cognition.app"
+            BlueprintName = "Cognition"
+            ReferencedContainer = "container:Cognition.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

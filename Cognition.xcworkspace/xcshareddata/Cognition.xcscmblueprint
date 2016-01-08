@@ -7,14 +7,14 @@
     "0D10B5F54BA698DDE621009AC73A8F83F818A687" : 0,
     "978C0E2F0EE1128153FBEDADD8857EB64DFC703C" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "91661C8D-A243-45A8-9D0B-691A65324E8B",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C48C7DEC-9376-4C2C-8E32-0BBA10EACB2D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "0D10B5F54BA698DDE621009AC73A8F83F818A687" : "HackerNewz",
-    "978C0E2F0EE1128153FBEDADD8857EB64DFC703C" : "HackerNewsKit\/"
+    "0D10B5F54BA698DDE621009AC73A8F83F818A687" : "HackerNewz\/",
+    "978C0E2F0EE1128153FBEDADD8857EB64DFC703C" : "Library\/HackerNewsKit\/"
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "HackerNewz",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Cognition",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HackerNewz.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Cognition.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:skyefreeman\/HackerNewz.git",

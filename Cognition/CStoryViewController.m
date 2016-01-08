@@ -35,9 +35,13 @@
     [self _configureTableView];
     [self _configureNavigationBar];
     
+    NSLog(@"Fetch Type: %lu", [self.requestManager getFetchType]);
+    
     self.requestManager = [[HNManager alloc] init];
     [self.requestManager setDelegate:self];
     [self.requestManager fetchTopStories];
+    
+    NSLog(@"Fetch Type: %lu", [self.requestManager getFetchType]);
 }
 
 - (void)_configureTableView {
@@ -94,13 +98,14 @@
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
     [self errorAlert_checkInternetConnection];
+    [self.refreshControl endRefreshing];
     NSLog(@"%@", error);
 }
 
 #pragma mark - HNManager Helpers
 - (void)_hackerNewsRequestEndedWithStories:(NSArray*)stories {
     self.dataSource.items = stories;
-    
+
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     

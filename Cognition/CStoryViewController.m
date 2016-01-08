@@ -35,13 +35,9 @@
     [self _configureTableView];
     [self _configureNavigationBar];
     
-    NSLog(@"Fetch Type: %lu", [self.requestManager getFetchType]);
-    
     self.requestManager = [[HNManager alloc] init];
     [self.requestManager setDelegate:self];
     [self.requestManager fetchTopStories];
-    
-    NSLog(@"Fetch Type: %lu", [self.requestManager getFetchType]);
 }
 
 - (void)_configureTableView {

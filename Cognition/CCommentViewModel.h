@@ -15,5 +15,5 @@
 
 @property (nonatomic, copy) NSString *authorString;
 @property (nonatomic, copy) NSString *timeString;
-@property (nonatomic, copy) NSAttributedString *formattedComment;
+@property (nonatomic, copy) NSString *commentString;
 @end

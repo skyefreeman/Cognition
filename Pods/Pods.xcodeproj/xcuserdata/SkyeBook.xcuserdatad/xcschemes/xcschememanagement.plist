@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MWFeedParser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>OCMock.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,6 +47,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06B3BF509AEBE4F24CA394484A7B9FEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0C9D3C758CFA9888936DBEB0F9B3C74D</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C8614BA998C9E8B59239AC96B19C42E</key>
+		<key>42169780576B6FF0F788BC8265E4C8F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,17 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0DE062AB60FBB0D46D105FBB2625983</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A8EAB1A3D84ACD5E95453CEC7F4DC7B8</key>
+		<key>AA9B23895B61599321269C49DD11FA37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AB663F278A3C1379577D5E3122589792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8DF847CF6AAF5D6D00344B27D7F7FE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

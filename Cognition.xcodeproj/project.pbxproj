@@ -680,7 +680,7 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/\"/**",
 				);
-				INFOPLIST_FILE = HackerNewzTests/Info.plist;
+				INFOPLIST_FILE = CognitionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Cognition;
@@ -697,7 +697,7 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/\"/**",
 				);
-				INFOPLIST_FILE = HackerNewzTests/Info.plist;
+				INFOPLIST_FILE = CognitionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skyefreeman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Cognition;

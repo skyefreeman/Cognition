@@ -7,8 +7,9 @@
 //
 
 #import "CCommentViewModel.h"
-#import "HNItem.h"
 #import "TTTTimeIntervalFormatter.h"
+#import <HackerNewsKit.h>
+#import <NSString+HTML.h>
 
 @implementation CCommentViewModel
 - (instancetype)init {
@@ -18,10 +19,10 @@
 - (instancetype)initWithItem:(HNItem *)aItem {
     self = [super init];
     if (!self) return nil;
-    
+
     self.item = aItem;
     if (aItem.by) self.authorString = [self _configureAuthorString:aItem.by];
-    if (aItem.text) self.formattedComment = [self _configureCommentString:aItem.text];
+    if (aItem.text) self.commentString = [self _configureCommentString:aItem.text];
     if (aItem.time) self.timeString = [self _configureTimeString:aItem.time];
     
     return self;
@@ -31,9 +32,8 @@
     return [@"by " stringByAppendingString:author];
 }
 
-- (NSAttributedString*)_configureCommentString:(NSString*)comment {
-    NSAttributedString *formattedString = [[NSAttributedString alloc] initWithString:comment];
-    return formattedString;
+- (NSString*)_configureCommentString:(NSString*)comment {
+    return [comment stringByConvertingHTMLToPlainText];
 }
 
 - (NSString*)_configureTimeString:(NSInteger)time {

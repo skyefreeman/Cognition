@@ -11,6 +11,7 @@ pod 'FormatterKit'
 pod 'OCMock', '~> 3.2'
 pod 'TTTAttributedLabel'
 pod 'JHChainableAnimations'
+pod 'MWFeedParser'
 
 link_with 'Cognition', 'CognitionTests'
 

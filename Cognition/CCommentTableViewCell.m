@@ -7,22 +7,21 @@
 //
 
 #import "CCommentTableViewCell.h"
-#import "TTTAttributedLabel.h"
 
 CGFloat const kCommentCellHeight = 100.0;
 
 @interface CCommentTableViewCell()
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
-@property (strong, nonatomic) IBOutlet TTTAttributedLabel *commentLabel;
+@property (strong, nonatomic) IBOutlet UITextView *commentTextView;
 @end
 
 @implementation CCommentTableViewCell
 
-- (void)configureWithAuthor:(NSString*)author time:(NSString*)timeString comment:(NSAttributedString*)comment {
+- (void)configureWithAuthor:(NSString*)author time:(NSString*)timeString comment:(NSString*)commentString {
     self.authorLabel.text = author;
     self.timeAgoLabel.text = timeString;
-    self.commentLabel.text = comment;
+    self.commentTextView.text = commentString;
 }
 
 @end

@@ -34,29 +34,42 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHH-xx-NrA" customClass="TTTAttributedLabel">
-                        <rect key="frame" x="8" y="37" width="304" height="55"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teb-cf-JXr">
+                        <rect key="frame" x="8" y="37" width="304" height="54.5"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Text">
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                    </textView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="topMargin" secondItem="a6t-QS-kYR" secondAttribute="top" id="4Qj-vU-eyJ"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="teb-cf-JXr" secondAttribute="leading" id="CgI-XC-Wyb"/>
                     <constraint firstItem="wH5-ZK-gV1" firstAttribute="leading" secondItem="a6t-QS-kYR" secondAttribute="trailing" constant="8" symbolic="YES" id="Clj-7u-BWQ"/>
                     <constraint firstItem="a6t-QS-kYR" firstAttribute="firstBaseline" secondItem="wH5-ZK-gV1" secondAttribute="firstBaseline" id="FTJ-LI-JBH"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="IHH-xx-NrA" secondAttribute="bottom" constant="-0.5" id="JX8-bR-xfF"/>
-                    <constraint firstItem="a6t-QS-kYR" firstAttribute="leading" secondItem="IHH-xx-NrA" secondAttribute="leading" id="Kbt-X5-tb9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="teb-cf-JXr" secondAttribute="trailing" id="FVo-ai-fue"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="teb-cf-JXr" secondAttribute="bottom" id="S8R-U5-pkN"/>
                     <constraint firstItem="a6t-QS-kYR" firstAttribute="top" secondItem="hZI-9S-XRm" secondAttribute="topMargin" id="Ucg-Fq-jrU"/>
                     <constraint firstItem="a6t-QS-kYR" firstAttribute="leading" secondItem="hZI-9S-XRm" secondAttribute="leadingMargin" id="Yib-8J-Vz3"/>
-                    <constraint firstItem="IHH-xx-NrA" firstAttribute="trailing" secondItem="wH5-ZK-gV1" secondAttribute="trailing" id="YlQ-2V-hDK"/>
-                    <constraint firstItem="IHH-xx-NrA" firstAttribute="top" secondItem="a6t-QS-kYR" secondAttribute="bottom" constant="8" symbolic="YES" id="e1e-cn-6Fo"/>
+                    <constraint firstItem="teb-cf-JXr" firstAttribute="top" secondItem="a6t-QS-kYR" secondAttribute="bottom" constant="8" id="eBa-sc-yOg"/>
                     <constraint firstItem="wH5-ZK-gV1" firstAttribute="baseline" secondItem="a6t-QS-kYR" secondAttribute="baseline" id="gCT-pT-T0M"/>
-                    <constraint firstItem="IHH-xx-NrA" firstAttribute="centerX" secondItem="hZI-9S-XRm" secondAttribute="centerX" id="tbH-Z2-lgQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wH5-ZK-gV1" secondAttribute="trailing" id="hkk-pR-PXc"/>
+                    <constraint firstAttribute="topMargin" secondItem="wH5-ZK-gV1" secondAttribute="top" id="nNj-SZ-MWJ"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ucg-Fq-jrU"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorLabel" destination="a6t-QS-kYR" id="dXj-i6-XQ0"/>
-                <outlet property="commentLabel" destination="IHH-xx-NrA" id="2JG-Tg-byH"/>
+                <outlet property="commentTextView" destination="teb-cf-JXr" id="OhV-v2-Jay"/>
                 <outlet property="timeAgoLabel" destination="wH5-ZK-gV1" id="NW1-fI-n1E"/>
             </connections>
             <point key="canvasLocation" x="399" y="250"/>

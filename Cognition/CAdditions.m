@@ -10,7 +10,7 @@
 
 #pragma mark - NSObject Additions
 @implementation NSObject (CAdditions)
-+(NSString*)standardReuseIdentifier {
++ (NSString*)standardReuseIdentifier {
     return NSStringFromClass(self);
 }
 @end
@@ -32,6 +32,7 @@
 + (UIColor*)CLightGray {
     return [UIColor colorWithWhite:0.871 alpha:1.000];
 }
+
 @end
 
 #pragma mark - UILabel Additions
@@ -76,3 +77,21 @@
 
 @end
 
+@implementation UIView (CAdditions)
++ (UIView*)backgroundViewWithFrame:(CGRect)frame {
+    UIView *view = [[UIView alloc] initWithFrame:frame];
+    
+    UIColor *startColor = [UIColor colorWithRed:0.129 green:0.678 blue:0.702 alpha:1.000];
+    UIColor *endColor = [UIColor colorWithRed:0.012 green:0.122 blue:0.435 alpha:1.000];
+
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)startColor.CGColor,(id)endColor.CGColor, nil];
+
+    gradient.startPoint = CGPointMake(0, 0);
+    gradient.endPoint = CGPointMake(1, 1);
+    
+    [view.layer addSublayer:gradient];
+    return view;
+}
+@end

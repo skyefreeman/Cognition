@@ -36,15 +36,15 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
     
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_image"]];
-    [self.tableView setBackgroundView:backgroundImage];
+    UIView *backgroundView = [UIView backgroundViewWithFrame:CGRectMake(0, 0, self.view.width, self.view.height + [self statusBarHeight])];
+    [self.tableView setBackgroundView:backgroundView];
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.height);
-    
-    
+    self.refreshControl.layer.zPosition = 1;
+
     self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width/6 * 5, self.tableView.frame.size.height)];
     self.backgroundLabel.text = @"No Results";
     self.backgroundLabel.textAlignment = NSTextAlignmentCenter;

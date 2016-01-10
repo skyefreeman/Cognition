@@ -123,7 +123,6 @@
     [self.requestManager refreshLastStories];
 }
 
-
 #pragma mark - Navigation Bar Actions
 - (void)menuButtonTouched:(id)sender {
     NSLog(@"touched");

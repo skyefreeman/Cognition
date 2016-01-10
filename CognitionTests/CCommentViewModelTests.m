@@ -42,7 +42,7 @@
 }
 
 - (void)testStoresItemInInit {
-    XCTAssertNotNil(viewModel.item, @"HNIterm not stored in init");
+    XCTAssertNotNil(viewModel.item, @"HNItem not stored in init");
 }
 
 - (void)testAuthorFormattedCorrectly {
@@ -51,7 +51,7 @@
 }
 
 - (void)testCommentFormattedCorrectly {
-    BOOL equalStrings = [viewModel.formattedComment isEqualToAttributedString:[[NSAttributedString alloc] initWithString:@"formatted text"]];
+    BOOL equalStrings = [viewModel.commentString isEqualToString:@"formatted text"];
     XCTAssertTrue(equalStrings, @"Comment string not formatted correctly");
 }
 

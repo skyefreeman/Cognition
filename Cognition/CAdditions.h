@@ -35,3 +35,7 @@
 @interface NSObject (CAdditions)
 +(NSString*)standardReuseIdentifier;
 @end
+
+@interface UIView (CAdditions)
++ (UIView*)backgroundViewWithFrame:(CGRect)frame;
+@end

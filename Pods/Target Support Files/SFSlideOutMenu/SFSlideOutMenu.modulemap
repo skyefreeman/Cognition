@@ -1,0 +1,6 @@
+framework module SFSlideOutMenu {
+  umbrella header "SFSlideOutMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

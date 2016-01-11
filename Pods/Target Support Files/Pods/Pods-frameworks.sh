@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/MWFeedParser.framework"
   install_framework "Pods/OCMock.framework"
   install_framework "Pods/SFAdditions.framework"
+  install_framework "Pods/SFSlideOutMenu.framework"
   install_framework "Pods/TTTAttributedLabel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -99,5 +100,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/MWFeedParser.framework"
   install_framework "Pods/OCMock.framework"
   install_framework "Pods/SFAdditions.framework"
+  install_framework "Pods/SFSlideOutMenu.framework"
   install_framework "Pods/TTTAttributedLabel.framework"
 fi

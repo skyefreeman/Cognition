@@ -14,6 +14,7 @@
 + (UIColor*)CSystemBlue;
 + (UIColor*)CDarkGray;
 + (UIColor*)CLightGray;
++ (UIColor*)CBlue;
 @end
 
 @interface UIImage (CAdditions)

@@ -5,6 +5,7 @@ use_frameworks!
 ## Development Pods ##
 pod 'HackerNewsKit', :path => '~/Development/iOSDevelopment/Library/HackerNewsKit'
 pod 'SFAdditions', :path => '~/Development/iOSDevelopment/Library/SFAdditions'
+pod 'SFSlideOutMenu', :path => '~/Development/iOSDevelopment/Library/SFSlideOutMenu'
 
 ## Public Pods ##
 pod 'FormatterKit'
@@ -14,4 +15,11 @@ pod 'JHChainableAnimations'
 pod 'MWFeedParser'
 
 link_with 'Cognition', 'CognitionTests'
+
+target 'CognitionTests', :exclusive => true do
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'FBSnapshotTestCase'
+    pod 'Expecta+Snapshots'
+end
 

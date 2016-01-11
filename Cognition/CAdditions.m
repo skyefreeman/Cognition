@@ -33,6 +33,9 @@
     return [UIColor colorWithWhite:0.871 alpha:1.000];
 }
 
++ (UIColor*)CBlue {
+    return [UIColor colorWithRed:0.012 green:0.122 blue:0.435 alpha:1.000];
+}
 @end
 
 #pragma mark - UILabel Additions

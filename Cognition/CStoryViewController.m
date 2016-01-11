@@ -13,6 +13,7 @@
 // Libaries
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
+#import "CMenu.h"
 #import "CAdditions.h"
 
 // Views
@@ -24,8 +25,11 @@
 // Protocols
 #import "CTableViewCellButtonDelegate.h"
 
-@interface CStoryViewController() <UITableViewDelegate, HNManagerDelegate, CTableViewCellButtonDelegate, CTableViewRefreshDelegate>
+@interface CStoryViewController()
+<UITableViewDelegate, HNManagerDelegate, CTableViewCellButtonDelegate, CTableViewRefreshDelegate, SFSlideOutMenuDelegate>
+
 @property (nonatomic, strong, readwrite) HNManager *requestManager;
+@property (nonatomic, strong) CMenu *menu;
 @end
 
 @implementation CStoryViewController
@@ -33,38 +37,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self _configureTableView];
-    [self _configureNavigationBar];
-    
     self.requestManager = [[HNManager alloc] init];
-    [self.requestManager setDelegate:self];
-    [self.requestManager fetchTopStories];
+    self.requestManager.delegate = self;
+
+    [self _configureSubviews];
+    
+    [self.refreshControl beginRefreshing];
+    [self.menu toggleTopStoryButton];
 }
 
-- (void)_configureTableView {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (void)_configureSubviews {
+    // Table view
     self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
         [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString commentButtonTitle:viewModel.commentCountString];
         [cell setDelegate:self];
         
-        if (item.descendants == 0) {
-            [cell.commentButton setUserInteractionEnabled:NO];
-            [cell.commentButton setTintColor:[UIColor CLightGray]];
-        }
+        if (item.descendants == 0) [cell deactivateCommentButton];
     }];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell reuseIdentifier]];
-    
     self.refreshDelegate = self;
-}
-
-- (void)_configureNavigationBar {
-    [self setTitleText:@"Top Stories"];
+    
+    // Navigation bar
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage menuImage] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTouched:)]];
     
-//    // Dropdown menu
-//    self.dropdownMenu = [HDropdownMenuView menuWithItems:@[@"Top Stories",@"New Stories",@"Ask Stories", @"Show Stories", @"Job Stories"]];
+    // Side Menu
+    self.menu = [[CMenu alloc] initWithStyle:SFSlideOutMenuStyleRight];
+    self.menu.delegate = self;
 }
 
 #pragma mark - UITableView Delegate Methods
@@ -72,7 +79,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
-    [self _pushToSafariViewControllerWithUrl:[NSURL URLWithString:item.url]];
+    if (item.url) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        
+        SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 #pragma mark - HNManagerDelegate 
@@ -105,17 +117,31 @@
 #pragma mark - HNManager Helpers
 - (void)_hackerNewsRequestEndedWithStories:(NSArray*)stories {
     self.dataSource.items = stories;
-
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
-    
     [super scrollToTop];
 }
 
-#pragma mark - CStoryTableViewCellDelegate methods
+#pragma mark - SFSlideOutMenuDelegate
+- (void)slideOutMenuButtonSelected:(UIButton *)button {
+    [self setTitleText:button.titleLabel.text];
+    [self.menu setActiveButton:button];
+    
+    MenuButton buttonType = button.tag;
+    if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];
+    if (buttonType == MenuButtonNew) [self.requestManager fetchNewStories];
+    if (buttonType == MenuButtonAsk) [self.requestManager fetchAskStories];
+    if (buttonType == MenuButtonShow) [self.requestManager fetchShowStories];
+    if (buttonType == MenuButtonJob) [self.requestManager fetchJobStories];
+    
+    if (self.menu.isActive)[self.menu toggleActive];
+}
+
+#pragma mark - CStoryTableViewCellDelegate
 - (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
     HNItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
-    [self _pushToCommentViewControllerWithItem:item];
+    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIRefreshControl
@@ -125,20 +151,7 @@
 
 #pragma mark - Navigation Bar Actions
 - (void)menuButtonTouched:(id)sender {
-    NSLog(@"touched");
-}
-
-#pragma mark - View Controller Transitions
-- (void)_pushToSafariViewControllerWithUrl:(NSURL*)aURL {
-    if (!aURL) return;
-    
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:aURL];
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-- (void)_pushToCommentViewControllerWithItem:(HNItem*)item {
-    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.menu toggleActive];
 }
 
 @end

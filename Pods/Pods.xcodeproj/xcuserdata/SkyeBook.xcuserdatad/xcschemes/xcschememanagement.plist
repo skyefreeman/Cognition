@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Expecta+Snapshots.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Expecta.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSnapshotTestCase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FormatterKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,12 +44,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CognitionTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SFAdditions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SFSlideOutMenu-SFSlideOutMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SFSlideOutMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Specta.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,7 +82,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06B3BF509AEBE4F24CA394484A7B9FEA</key>
+		<key>08D6CD7E652E48694984C3734F128560</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0D888F29E05E498D0CD91A51D28599A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>104A99334845649544A22F4F55CD8408</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42169780576B6FF0F788BC8265E4C8F7</key>
+		<key>44C95B79E9B7A38DE29A09EC324CC054</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA9B23895B61599321269C49DD11FA37</key>
+		<key>54864A2E4A869C18841D20885C1FCAA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E26CE9AAB541E6B2B3C1477AFCBCB04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +128,31 @@
 			<true/>
 		</dict>
 		<key>C8DF847CF6AAF5D6D00344B27D7F7FE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD86ABD743B0605672C710ADC56EB9DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF520FB6B79F2F073A31D21EC2DDD705</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED4342E27597144E22BA4081D52F6DD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE35FD1E28851529D3ECC23D5DF4B71F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6D90D2960A4C48B9EF68F2DC71321BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

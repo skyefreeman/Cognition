@@ -21,4 +21,6 @@ extern CGFloat const kStoryCellHeight;
 - (void)configureWithTitleText:(NSString*)titleText
                  infoLabelText:(NSString*)infoText
             commentButtonTitle:(NSString*)commentTitleText;
+
+- (void)deactivateCommentButton;
 @end

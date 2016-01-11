@@ -46,15 +46,15 @@
 }
 
 - (void)testCommentCountStringCreatedCorrectly {
-    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"1 comment"],@"Comment string not formatted correctly");
+    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"1"],@"Comment string not formatted correctly");
 
     item.descendants = 0;
     viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
-    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"No comments"],@"Comment string not formatted correctly");
+    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"0"],@"Comment string not formatted correctly");
 
     item.descendants = 2;
     viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
-    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"2 comments"],@"Comment string not formatted correctly");
+    XCTAssertTrue([viewModel.commentCountString isEqualToString:@"2"],@"Comment string not formatted correctly");
 }
 
 @end

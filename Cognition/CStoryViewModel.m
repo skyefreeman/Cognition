@@ -32,9 +32,7 @@
 }
 
 - (NSString*)_createCommentCountStringWithCount:(NSInteger)count {
-    if (count == 1) return [NSString stringWithFormat:@"%lu comment", count];
-    else if (count >= 2) return [NSString stringWithFormat:@"%lu comments", count];
-    else return [NSString stringWithFormat:@"No comments"];
+    return [NSString stringWithFormat:@"%lu",count];
 }
 
 - (NSString*)_createStoryInfoStringWithScore:(NSInteger)score author:(NSString*)author time:(NSInteger)time {

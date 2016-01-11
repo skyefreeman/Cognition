@@ -35,6 +35,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UIView *backgroundView = [UIView backgroundViewWithFrame:CGRectMake(0, 0, self.view.width, self.view.height + [self statusBarHeight])];
     [self.tableView setBackgroundView:backgroundView];
@@ -44,18 +45,6 @@
     [self.refreshControl addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.height);
     self.refreshControl.layer.zPosition = 1;
-
-    self.backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width/6 * 5, self.tableView.frame.size.height)];
-    self.backgroundLabel.text = @"No Results";
-    self.backgroundLabel.textAlignment = NSTextAlignmentCenter;
-    self.backgroundLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.backgroundLabel.numberOfLines = 0;
-    self.backgroundLabel.font = [UIFont CFont:16];
-    self.backgroundLabel.textColor = [UIColor whiteColor];
-    self.backgroundLabel.alpha = 0.6;
-    [self.backgroundLabel sizeToFit];
-    [self.backgroundLabel setCenter:CGPointMake(self.view.width/2,self.view.height/2 - [self navigationBarHeight])];
-    [self.view addSubview:self.backgroundLabel];
 }
 
 - (void)configureNavigationBar {

@@ -55,7 +55,7 @@
     // Table view
     self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
-        [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString commentButtonTitle:viewModel.commentCountString];
+        [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString urlLabelText:viewModel.urlString commentButtonTitle:viewModel.commentCountString];
         [cell setDelegate:self];
         
         if (item.descendants == 0) [cell deactivateCommentButton];

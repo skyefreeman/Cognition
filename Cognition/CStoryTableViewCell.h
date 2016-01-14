@@ -14,12 +14,15 @@ extern CGFloat const kStoryCellHeight;
 @interface CStoryTableViewCell : CTableViewCell
 
 @property (nonatomic, weak) id <CTableViewCellButtonDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UIButton *commentButton;
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+@property (strong, nonatomic) IBOutlet UILabel *urlLabel;
+@property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 - (void)configureWithTitleText:(NSString*)titleText
                  infoLabelText:(NSString*)infoText
+                 urlLabelText:(NSString*)urlText
             commentButtonTitle:(NSString*)commentTitleText;
 
 - (void)deactivateCommentButton;

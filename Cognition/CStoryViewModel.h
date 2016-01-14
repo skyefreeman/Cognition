@@ -14,6 +14,7 @@
 @property (nonatomic) HNItem *originalItem;
 
 @property (nonatomic, copy) NSString *commentCountString;
+@property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, copy) NSString *storyInfoString;
 
 - (instancetype)initWithHNItem:(HNItem*)item;

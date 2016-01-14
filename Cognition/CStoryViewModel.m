@@ -27,6 +27,7 @@
     
     self.commentCountString = [self _createCommentCountStringWithCount:item.descendants];
     self.storyInfoString = [self _createStoryInfoStringWithScore:item.score author:item.by time:item.time];
+    self.urlString = [self _createUrlStringWithURLString:item.url];
     
     return self;
 }
@@ -46,5 +47,21 @@
     return [NSString stringWithFormat:@"%@%@ %@",pointsString,authorString,timeString];
 }
 
+- (NSString*)_createUrlStringWithURLString:(NSString*)urlString {
+    NSInteger slashCount = 0;
+    for (int i = 0; i < urlString.length; i++) {
+        NSString *thisChar = [urlString substringWithRange:NSMakeRange(i, 1)];
+        if ([thisChar isEqualToString:@"/"]) {
+            slashCount++;
+        }
+        NSLog(@"%@",thisChar);
+        NSLog(@"%lu",slashCount);
+        if (slashCount >= 3) {
+            return [urlString substringToIndex:i];
+        }
+    }
+    
+    return urlString;
+}
 
 @end

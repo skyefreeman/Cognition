@@ -44,11 +44,12 @@ CGFloat const kEdgePadding = 8;
 #pragma mark - Public Methods
 - (void)configureWithTitleText:(NSString*)titleText
                  infoLabelText:(NSString*)infoText
+                  urlLabelText:(NSString *)urlText
             commentButtonTitle:(NSString*)commentTitleText
 {
     self.titleLabel.text = titleText;
     self.titleLabel.font = [UIFont systemFontOfSize:18];
-    
+    self.urlLabel.text = urlText;
     self.infoLabel.text = infoText;
     
     [self.commentButton setTitle:commentTitleText forState:UIControlStateNormal];

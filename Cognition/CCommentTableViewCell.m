@@ -7,16 +7,22 @@
 //
 
 #import "CCommentTableViewCell.h"
+#import "CConstants.h"
 
 CGFloat const kCommentCellHeight = 100.0;
 
 @interface CCommentTableViewCell()
+@property (strong, nonatomic) IBOutlet UIView *background;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
 @property (strong, nonatomic) IBOutlet UITextView *commentTextView;
 @end
 
 @implementation CCommentTableViewCell
+
+- (void)awakeFromNib {
+    self.background.layer.cornerRadius = kCornerRadius;
+}
 
 - (void)configureWithAuthor:(NSString*)author time:(NSString*)timeString comment:(NSString*)commentString {
     self.authorLabel.text = author;

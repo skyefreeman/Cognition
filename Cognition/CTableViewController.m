@@ -43,8 +43,8 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
-    self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.height);
     self.refreshControl.layer.zPosition = 1;
+    self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.height);
 }
 
 - (void)configureNavigationBar {

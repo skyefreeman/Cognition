@@ -41,7 +41,7 @@
     self.requestManager.delegate = self;
 
     [self _configureSubviews];
-    
+
     [self.refreshControl beginRefreshing];
     [self.menu toggleTopStoryButton];
 }
@@ -64,6 +64,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell reuseIdentifier]];
+
     self.refreshDelegate = self;
     
     // Navigation bar
@@ -80,11 +81,16 @@
     
     HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
     if (item.url) {
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        
-        SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self _navigateToSafariViewControllerWithItem:item];
+    } else if (item.descendants > 0) {
+        [self _navigateToCommentViewControllerWithItem:item];
     }
+}
+
+#pragma mark - CStoryTableViewCellDelegate
+- (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
+    HNItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
+    [self _navigateToCommentViewControllerWithItem:item];
 }
 
 #pragma mark - HNManagerDelegate 
@@ -129,19 +135,12 @@
     
     MenuButton buttonType = button.tag;
     if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];
-    if (buttonType == MenuButtonNew) [self.requestManager fetchNewStories];
-    if (buttonType == MenuButtonAsk) [self.requestManager fetchAskStories];
-    if (buttonType == MenuButtonShow) [self.requestManager fetchShowStories];
-    if (buttonType == MenuButtonJob) [self.requestManager fetchJobStories];
+    else if (buttonType == MenuButtonNew) [self.requestManager fetchNewStories];
+    else if (buttonType == MenuButtonAsk) [self.requestManager fetchAskStories];
+    else if (buttonType == MenuButtonShow) [self.requestManager fetchShowStories];
+    else if (buttonType == MenuButtonJob) [self.requestManager fetchJobStories];
     
     if (self.menu.isActive)[self.menu toggleActive];
-}
-
-#pragma mark - CStoryTableViewCellDelegate
-- (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
-    HNItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
-    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIRefreshControl
@@ -152,6 +151,19 @@
 #pragma mark - Navigation Bar Actions
 - (void)menuButtonTouched:(id)sender {
     [self.menu toggleActive];
+}
+
+#pragma mark - Navigation Convenience
+- (void)_navigateToSafariViewControllerWithItem:(HNItem*)item {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)_navigateToCommentViewControllerWithItem:(HNItem*)item {
+    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

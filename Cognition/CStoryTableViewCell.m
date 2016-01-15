@@ -7,13 +7,11 @@
 //
 
 #import "CStoryTableViewCell.h"
+
+#import "CConstants.h"
 #import "CAdditions.h"
 
-#import "CNumberBubbleView.h"
-#import "CPointerView.h"
-
 CGFloat const kStoryCellHeight = 50;
-CGFloat const kEdgePadding = 8;
 
 @interface CStoryTableViewCell()
 @property (strong, nonatomic) IBOutlet UIView *background;
@@ -26,7 +24,7 @@ CGFloat const kEdgePadding = 8;
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.background.layer.cornerRadius = 8;
+    self.background.layer.cornerRadius = kCornerRadius;
 
     self.commentButton.titleLabel.font = [UIFont CFont:16];
     self.commentButton.layer.cornerRadius = self.commentButton.frame.size.width/2;

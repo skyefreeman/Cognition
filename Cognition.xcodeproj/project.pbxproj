@@ -104,6 +104,7 @@
 		EED519491B9FDC41009E79C1 /* CCustomTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCustomTitleLabel.m; sourceTree = "<group>"; };
 		EEEA2A5B1C431E9B0041F6DF /* CMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMenu.h; sourceTree = "<group>"; };
 		EEEA2A5C1C431E9B0041F6DF /* CMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMenu.m; sourceTree = "<group>"; };
+		EEFD035E1C48933B00CEF460 /* CConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CConstants.h; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* Cognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEFDE9691B3B91D20035556D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -194,8 +195,7 @@
 		EE770A401B4102E700ABDD60 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EE9A20B41C35EB0A00FE758D /* CTableViewCell.h */,
-				EE9A20B51C35EB0A00FE758D /* CTableViewCell.m */,
+				EEFD035D1C488DDE00CEF460 /* CTableViewCell */,
 				EE8755581C3B460100B18E93 /* CStoryTableViewCell */,
 				EE3B087A1C3F5EAF00DAA789 /* CCommentTableViewCell */,
 			);
@@ -259,6 +259,37 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		EEFD035B1C488D8500CEF460 /* StoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE9A20A81C35DBD900FE758D /* CStoryViewController.h */,
+				EE9A20A91C35DBD900FE758D /* CStoryViewController.m */,
+				EE9A20BA1C35EE0800FE758D /* CStoryViewModel.h */,
+				EE9A20BB1C35EE0800FE758D /* CStoryViewModel.m */,
+			);
+			name = StoryViewController;
+			sourceTree = "<group>";
+		};
+		EEFD035C1C488D9400CEF460 /* CommentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE87554D1C3B400300B18E93 /* CCommentViewController.h */,
+				EE87554E1C3B400300B18E93 /* CCommentViewController.m */,
+				EE6D8D091C3B4C00001422AC /* CCommentViewModel.h */,
+				EE6D8D0A1C3B4C00001422AC /* CCommentViewModel.m */,
+			);
+			name = CommentViewController;
+			sourceTree = "<group>";
+		};
+		EEFD035D1C488DDE00CEF460 /* CTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EE9A20B41C35EB0A00FE758D /* CTableViewCell.h */,
+				EE9A20B51C35EB0A00FE758D /* CTableViewCell.m */,
+			);
+			name = CTableViewCell;
+			sourceTree = "<group>";
+		};
 		EEFDE95B1B3B91D20035556D = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +317,6 @@
 				EEC8A8D71B410DCD00D3C3DA /* Categories */,
 				EEFDE9901B3B91F70035556D /* View Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
-				EEFDE98E1B3B91E40035556D /* View Models */,
 				EE6D8D0E1C3B604B001422AC /* Protocols */,
 				EE68F99B1C13FD1100488441 /* Data Sources */,
 				EEFDE9671B3B91D20035556D /* Supporting Files */,
@@ -336,19 +366,9 @@
 			children = (
 				EEFDE96B1B3B91D20035556D /* CAppDelegate.h */,
 				EEFDE96C1B3B91D20035556D /* CAppDelegate.m */,
+				EEFD035E1C48933B00CEF460 /* CConstants.h */,
 			);
 			name = Application;
-			sourceTree = "<group>";
-		};
-		EEFDE98E1B3B91E40035556D /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-				EE9A20BA1C35EE0800FE758D /* CStoryViewModel.h */,
-				EE9A20BB1C35EE0800FE758D /* CStoryViewModel.m */,
-				EE6D8D091C3B4C00001422AC /* CCommentViewModel.h */,
-				EE6D8D0A1C3B4C00001422AC /* CCommentViewModel.m */,
-			);
-			name = "View Models";
 			sourceTree = "<group>";
 		};
 		EEFDE98F1B3B91F10035556D /* Views */ = {
@@ -367,10 +387,8 @@
 			children = (
 				EE9A209E1C35D67100FE758D /* CTableViewController.h */,
 				EE9A209F1C35D67100FE758D /* CTableViewController.m */,
-				EE9A20A81C35DBD900FE758D /* CStoryViewController.h */,
-				EE9A20A91C35DBD900FE758D /* CStoryViewController.m */,
-				EE87554D1C3B400300B18E93 /* CCommentViewController.h */,
-				EE87554E1C3B400300B18E93 /* CCommentViewController.m */,
+				EEFD035B1C488D8500CEF460 /* StoryViewController */,
+				EEFD035C1C488D9400CEF460 /* CommentViewController */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

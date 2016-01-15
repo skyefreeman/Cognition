@@ -22,6 +22,7 @@
 @end
 
 @implementation CCommentViewController
+
 - (instancetype)initWithItem:(HNItem *)item style:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (!self) return nil;
@@ -48,9 +49,12 @@
         CCommentViewModel *viewModel = [[CCommentViewModel alloc] initWithItem:item];
         [cell configureWithAuthor:viewModel.authorString time:viewModel.timeString comment:viewModel.commentString];
     }];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CCommentTableViewCell nib] forCellReuseIdentifier:[CCommentTableViewCell reuseIdentifier]];
+    
+    NSLog(@"%@",self.tableView.backgroundColor);
     
     [self.refreshControl removeFromSuperview];
     self.refreshControl = nil;

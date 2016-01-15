@@ -54,8 +54,7 @@
         if ([thisChar isEqualToString:@"/"]) {
             slashCount++;
         }
-        NSLog(@"%@",thisChar);
-        NSLog(@"%lu",slashCount);
+
         if (slashCount >= 3) {
             return [urlString substringToIndex:i];
         }

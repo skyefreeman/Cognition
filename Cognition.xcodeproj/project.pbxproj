@@ -38,6 +38,7 @@
 		EEA34D811B5562F400C26E58 /* CPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA34D801B5562F400C26E58 /* CPointerView.m */; };
 		EED5194A1B9FDC41009E79C1 /* CCustomTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EED519491B9FDC41009E79C1 /* CCustomTitleLabel.m */; };
 		EEEA2A5D1C431E9B0041F6DF /* CMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EEEA2A5C1C431E9B0041F6DF /* CMenu.m */; };
+		EEFD03611C48A83E00CEF460 /* CCreditView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFD03601C48A83E00CEF460 /* CCreditView.m */; };
 		EEFDE96A1B3B91D20035556D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE9691B3B91D20035556D /* main.m */; };
 		EEFDE96D1B3B91D20035556D /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFDE96C1B3B91D20035556D /* CAppDelegate.m */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,8 @@
 		EEEA2A5B1C431E9B0041F6DF /* CMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMenu.h; sourceTree = "<group>"; };
 		EEEA2A5C1C431E9B0041F6DF /* CMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMenu.m; sourceTree = "<group>"; };
 		EEFD035E1C48933B00CEF460 /* CConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CConstants.h; sourceTree = "<group>"; };
+		EEFD035F1C48A83E00CEF460 /* CCreditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCreditView.h; sourceTree = "<group>"; };
+		EEFD03601C48A83E00CEF460 /* CCreditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCreditView.m; sourceTree = "<group>"; };
 		EEFDE9641B3B91D20035556D /* Cognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFDE9681B3B91D20035556D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEFDE9691B3B91D20035556D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -290,6 +293,15 @@
 			name = CTableViewCell;
 			sourceTree = "<group>";
 		};
+		EEFD03621C48A84200CEF460 /* CreditView */ = {
+			isa = PBXGroup;
+			children = (
+				EEFD035F1C48A83E00CEF460 /* CCreditView.h */,
+				EEFD03601C48A83E00CEF460 /* CCreditView.m */,
+			);
+			name = CreditView;
+			sourceTree = "<group>";
+		};
 		EEFDE95B1B3B91D20035556D = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +390,7 @@
 				EED519461B9FDC24009E79C1 /* CustomTitleLabel */,
 				EE770A401B4102E700ABDD60 /* Cells */,
 				EE25AB501B6320AC00C78B54 /* CommentBubbleView */,
+				EEFD03621C48A84200CEF460 /* CreditView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -567,6 +580,7 @@
 				EE9A20A01C35D67100FE758D /* CTableViewController.m in Sources */,
 				EE9B05401B58B70B00260F69 /* CCommentTableViewCell.m in Sources */,
 				EE9A20BC1C35EE0800FE758D /* CStoryViewModel.m in Sources */,
+				EEFD03611C48A83E00CEF460 /* CCreditView.m in Sources */,
 				EE68F99A1C13F3D800488441 /* CAdditions.m in Sources */,
 				EE9A20AA1C35DBD900FE758D /* CStoryViewController.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* CAppDelegate.m in Sources */,

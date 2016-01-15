@@ -30,7 +30,7 @@
                             <textView multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teb-cf-JXr">
                                 <rect key="frame" x="8" y="28" width="288" height="47.5"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="asda sdfja ;lsdkf ja;ldsfk ja;dsl fkja  dd">
+                                    <fragment content="comment">
                                         <attributes>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>

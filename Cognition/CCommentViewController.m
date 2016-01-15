@@ -54,8 +54,6 @@
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CCommentTableViewCell nib] forCellReuseIdentifier:[CCommentTableViewCell reuseIdentifier]];
     
-    NSLog(@"%@",self.tableView.backgroundColor);
-    
     [self.refreshControl removeFromSuperview];
     self.refreshControl = nil;
 }

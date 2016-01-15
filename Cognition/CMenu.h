@@ -7,6 +7,7 @@
 //
 
 #import <SFSlideOutMenu/SFSlideOutMenu.h>
+@class CCreditView;
 
 typedef NS_ENUM(NSInteger, MenuButton) {
     MenuButtonTop = 1,
@@ -17,6 +18,9 @@ typedef NS_ENUM(NSInteger, MenuButton) {
 };
 
 @interface CMenu : SFSlideOutMenu
+
+@property (nonatomic, strong) CCreditView *creditView;
+
 - (void)toggleTopStoryButton;
 - (void)setActiveButton:(UIButton *)aButton;
 @end

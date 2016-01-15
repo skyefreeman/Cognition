@@ -33,7 +33,7 @@
 }
 
 - (NSString*)_createCommentCountStringWithCount:(NSInteger)count {
-    return [NSString stringWithFormat:@"%lu",count];
+    return [NSString stringWithFormat:@"%lu",(long)count];
 }
 
 - (NSString*)_createStoryInfoStringWithScore:(NSInteger)score author:(NSString*)author time:(NSInteger)time {

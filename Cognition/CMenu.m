@@ -7,6 +7,7 @@
 //
 
 #import "CMenu.h"
+#import "CCreditView.h"
 
 @implementation CMenu
 
@@ -31,8 +32,8 @@
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.container.frame.size.width, 65)];
     self.headerView.backgroundColor = [UIColor clearColor];
     
-    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.width)];
-    self.footerView.backgroundColor = [UIColor clearColor];
+    self.creditView = [[CCreditView alloc] initWithFrame:CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.width)];
+    self.footerView = self.creditView;
     
     self.animationDuration = 0.3;
     

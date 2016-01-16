@@ -13,10 +13,11 @@
 // Libaries
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
-#import "CMenu.h"
 #import "CAdditions.h"
 
 // Views
+#import "CCreditView.h"
+#import "CMenu.h"
 #import "CStoryTableViewCell.h"
 
 // View Models
@@ -73,6 +74,27 @@
     // Side Menu
     self.menu = [[CMenu alloc] initWithStyle:SFSlideOutMenuStyleRight];
     self.menu.delegate = self;
+}
+
+- (void)_registerNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kTwitterNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kGithubNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kWebsiteNotificationName object:nil];
+}
+
+#pragma mark - Notification Handler
+- (void)handleNotification:(NSNotification*)notification {
+    NSString *notificationString = notification.name;
+    
+    if ([notificationString isEqualToString:kTwitterNotificationName]) {
+        // twitter link
+    }
+    else if ([notificationString isEqualToString:kGithubNotificationName]) {
+        // github link
+    }
+    else if ([notificationString isEqualToString:kWebsiteNotificationName]) {
+        // website link
+    }
 }
 
 #pragma mark - UITableView Delegate Methods
@@ -164,6 +186,11 @@
 - (void)_navigateToCommentViewControllerWithItem:(HNItem*)item {
     CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - Dealloc
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

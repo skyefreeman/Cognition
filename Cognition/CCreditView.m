@@ -10,6 +10,10 @@
 #import "CAdditions.h"
 #import "CConstants.h"
 
+NSString * const kWebsiteNotificationName = @"websiteNotificationName";
+NSString * const kTwitterNotificationName = @"twitterNotificationName";
+NSString * const kGithubNotificationName = @"githubNotificationName";
+
 @interface CCreditView()
 @property (nonatomic, strong) UIView *frameView;
 @property (nonatomic, strong) UILabel *nameLabel;
@@ -46,41 +50,52 @@
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.nameLabel];
     
-    CGFloat buttonWidth = self.frameView.frame.size.width/4;
-
+    UIImage *githubImage = [[UIImage imageNamed:@"octocat_image"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.githubButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.githubButton setImage:[UIImage imageNamed:@"octocat_image"] forState:UIControlStateNormal];
-//    CGSize githubSize = [self _scaledSizeForImageView:self.githubButton width:buttonWidth];
-//    self.githubButton.frame = CGRectMake(0, 0, githubSize.width, githubSize.height);
-//    self.githubButton.center = CGPointMake(self.center.x - self.githubButton.frame.size.width, self.center.y);
-//    self.githubButton.backgroundColor = [UIColor redColor];
+    [self.githubButton setImage:githubImage forState:UIControlStateNormal];
+    self.githubButton.frame = CGRectMake(0, 0, githubImage.size.width, githubImage.size.height);
+    self.githubButton.tintColor = [UIColor whiteColor];
+    self.githubButton.center = CGPointMake(self.center.x - self.githubButton.frame.size.width/6 * 5, self.center.y);
+    [self.githubButton addTarget:self action:@selector(githubButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.githubButton];
-    NSLog(@"%@",self.githubButton);
-    
+
+    UIImage *twitterImage = [[UIImage imageNamed:@"twitter_image"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.twitterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.twitterButton setImage:[UIImage imageNamed:@"twitter_image"] forState:UIControlStateNormal];
-//    CGSize twitterSize = [self _scaledSizeForImageView:self.twitterButton width:buttonWidth];
-//    self.twitterButton.frame = CGRectMake(0, 0, twitterSize.width, twitterSize.height);
-//    self.twitterButton.center = CGPointMake(self.center.x + self.twitterButton.frame.size.width, self.center.y);
+    [self.twitterButton setImage:twitterImage forState:UIControlStateNormal];
+    self.twitterButton.frame = CGRectMake(0, 0, twitterImage.size.width, twitterImage.size.height);
+    self.twitterButton.tintColor = [UIColor whiteColor];
+    self.twitterButton.center = CGPointMake(self.center.x + self.twitterButton.frame.size.width/6 * 5, self.center.y);
+    [self.twitterButton addTarget:self action:@selector(twitterButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.twitterButton];
-    NSLog(@"%@",self.twitterButton);
     
     self.websiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.websiteButton.frame = CGRectMake(_frameView.frame.origin.x + framePadding,
                                           _frameView.frame.origin.y + _frameView.frame.size.height/4 * 3 - labelSize.height/2,
-                                          labelSize.width,
-                                          labelSize.height);
+                                          labelSize.width, labelSize.height);
     self.websiteButton.backgroundColor = [UIColor clearColor];
     self.websiteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.websiteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.websiteButton setTitleColor:[UIColor colorWithWhite:1.000 alpha:0.600] forState:UIControlStateHighlighted];
     [self.websiteButton setTitle:@"skyefreeman.io" forState:UIControlStateNormal];
+    [self.websiteButton addTarget:self action:@selector(websiteButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.websiteButton];
     
     return self;
 }
 
 #pragma mark - Private methods
+- (void)twitterButtonTouched:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTwitterNotificationName object:nil];
+}
+
+- (void)githubButtonTouched:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGithubNotificationName object:nil];
+}
+
+- (void)websiteButtonTouched:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebsiteNotificationName object:nil];
+}
+
 - (CGSize)_scaledSizeForImageView:(UIButton*)button width:(CGFloat)newWidth {
     CGFloat dimensionDiff = button.frame.size.width/newWidth;
     return CGSizeMake(newWidth, button.frame.size.height/dimensionDiff);

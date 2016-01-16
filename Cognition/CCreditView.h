@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const kWebsiteNotificationName;
+extern NSString * const kTwitterNotificationName;
+extern NSString * const kGithubNotificationName;
+
 @interface CCreditView : UIView
-
-
 @end

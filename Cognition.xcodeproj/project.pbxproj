@@ -22,6 +22,7 @@
 		EE87554F1C3B400300B18E93 /* CCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87554E1C3B400300B18E93 /* CCommentViewController.m */; };
 		EE8755511C3B404500B18E93 /* CCommentViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8755501C3B404500B18E93 /* CCommentViewControllerTests.m */; };
 		EE8755571C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8755561C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m */; };
+		EE93CF031C49EE7B00A882F6 /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE93CF021C49EE7B00A882F6 /* LaunchImage.xib */; };
 		EE9A20A01C35D67100FE758D /* CTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A209F1C35D67100FE758D /* CTableViewController.m */; };
 		EE9A20A21C35D71C00FE758D /* CTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20A11C35D71C00FE758D /* CTableViewControllerTests.m */; };
 		EE9A20A61C35D82400FE758D /* CInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A20A51C35D82400FE758D /* CInspectableTableViewController.m */; };
@@ -79,6 +80,7 @@
 		EE8755551C3B43EF00B18E93 /* UIViewController+ErrorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ErrorAdditions.h"; sourceTree = "<group>"; };
 		EE8755561C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ErrorAdditions.m"; sourceTree = "<group>"; };
 		EE8755591C3B461400B18E93 /* CTableViewCellButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTableViewCellButtonDelegate.h; sourceTree = "<group>"; };
+		EE93CF021C49EE7B00A882F6 /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
 		EE9A209E1C35D67100FE758D /* CTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewController.h; sourceTree = "<group>"; };
 		EE9A209F1C35D67100FE758D /* CTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewController.m; sourceTree = "<group>"; };
 		EE9A20A11C35D71C00FE758D /* CTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTableViewControllerTests.m; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				EEFDE9681B3B91D20035556D /* Info.plist */,
 				EEFDE9691B3B91D20035556D /* main.m */,
+				EE93CF021C49EE7B00A882F6 /* LaunchImage.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			files = (
 				EE843E0D1C3F6CD80056B6CE /* Images.xcassets in Resources */,
 				EE7ECFFE1B4CBD0700A368DB /* CStoryTableViewCell.xib in Resources */,
+				EE93CF031C49EE7B00A882F6 /* LaunchImage.xib in Resources */,
 				EE9B05421B58B72100260F69 /* CCommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,7 +716,6 @@
 			baseConfigurationReference = DC468A4354222042CD6D5D27 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,7 +736,6 @@
 			baseConfigurationReference = 773FD300B0AB626D2FC33D0C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

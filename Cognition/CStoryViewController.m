@@ -6,11 +6,15 @@
 //  Copyright © 2015 Skye Freeman. All rights reserved.
 //
 
+// View Controllers
 #import "CStoryViewController.h"
 #import "CCommentViewController.h"
-#import <SafariServices/SafariServices.h>
+
+// Constants
+#import "CConstants.h"
 
 // Libaries
+#import <SafariServices/SafariServices.h>
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
 #import "CAdditions.h"
@@ -42,7 +46,8 @@
     self.requestManager.delegate = self;
 
     [self _configureSubviews];
-
+    [self _registerNotifications];
+    
     [self.refreshControl beginRefreshing];
     [self.menu toggleTopStoryButton];
 }
@@ -87,14 +92,16 @@
     NSString *notificationString = notification.name;
     
     if ([notificationString isEqualToString:kTwitterNotificationName]) {
-        // twitter link
+        [self _navigateToSafariViewControllerWithURLString:kTwitterURLString];
+        
+    } else if ([notificationString isEqualToString:kGithubNotificationName]) {
+        [self _navigateToSafariViewControllerWithURLString:kGithubURLString];
+        
+    } else if ([notificationString isEqualToString:kWebsiteNotificationName]) {
+        [self _navigateToSafariViewControllerWithURLString:kWebsiteURLString];
     }
-    else if ([notificationString isEqualToString:kGithubNotificationName]) {
-        // github link
-    }
-    else if ([notificationString isEqualToString:kWebsiteNotificationName]) {
-        // website link
-    }
+    
+    [self.menu toggleActive];
 }
 
 #pragma mark - UITableView Delegate Methods
@@ -103,7 +110,7 @@
     
     HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
     if (item.url) {
-        [self _navigateToSafariViewControllerWithItem:item];
+        [self _navigateToSafariViewControllerWithURLString:item.url];
     } else if (item.descendants > 0) {
         [self _navigateToCommentViewControllerWithItem:item];
     }
@@ -176,10 +183,10 @@
 }
 
 #pragma mark - Navigation Convenience
-- (void)_navigateToSafariViewControllerWithItem:(HNItem*)item {
+- (void)_navigateToSafariViewControllerWithURLString:(NSString*)urlString {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

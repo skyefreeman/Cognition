@@ -37,6 +37,15 @@
     self.creditView = [[CCreditView alloc] initWithFrame:CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.width)];
     self.footerView = self.creditView;
     
+    CGRect creditLabelRect = CGRectMake(8, self.creditView.frame.origin.y - 12, self.creditView.frame.size.width - 16, 16);
+    UILabel *creditLabel = [[UILabel alloc] initWithFrame:creditLabelRect];
+    creditLabel.textColor = [UIColor whiteColor];
+    creditLabel.textAlignment = NSTextAlignmentCenter;
+    creditLabel.text = @"Designed and developed by:";
+    creditLabel.adjustsFontSizeToFitWidth = YES;
+    creditLabel.minimumScaleFactor = 0.25;
+    [self.container addSubview:creditLabel];
+    
     self.animationDuration = 0.3;
     
     return self;

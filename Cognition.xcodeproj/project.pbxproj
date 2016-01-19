@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		244089BB224B00B70113D0A4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
 		76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
-		7FF59975A67B2A5E3D1F9B49 /* Pods_CognitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825A58BE4335531A0330E3A5 /* Pods_CognitionTests.framework */; };
 		EE68F99A1C13F3D800488441 /* CAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* CAdditions.m */; };
 		EE68F99E1C13FD2800488441 /* CArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99D1C13FD2800488441 /* CArrayDataSource.m */; };
 		EE68F9A01C13FE0300488441 /* CArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99F1C13FE0300488441 /* CArrayDataSourceTests.m */; };
@@ -133,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */,
-				7FF59975A67B2A5E3D1F9B49 /* Pods_CognitionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitionTests/Pods-CognitionTests-frameworks.sh\"\n";
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 		827766C109F3164905FC60E8 /* Copy Pods Resources */ = {
@@ -569,7 +567,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitionTests/Pods-CognitionTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

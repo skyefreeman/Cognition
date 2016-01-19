@@ -15,11 +15,3 @@ pod 'JHChainableAnimations'
 pod 'MWFeedParser'
 
 link_with 'Cognition', 'CognitionTests'
-
-target 'CognitionTests', :exclusive => true do
-    pod 'Specta'
-    pod 'Expecta'
-    pod 'FBSnapshotTestCase'
-    pod 'Expecta+Snapshots'
-end
-

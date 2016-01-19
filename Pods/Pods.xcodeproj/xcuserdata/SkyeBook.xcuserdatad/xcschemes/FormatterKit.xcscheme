@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '679861DBB1F99DA22282BD9E'
+               BlueprintIdentifier = '02099ECB79327AE88D60AF55'
                BlueprintName = 'FormatterKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'FormatterKit.framework'>

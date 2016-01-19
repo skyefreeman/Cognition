@@ -4,21 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Expecta+Snapshots.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Expecta.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSnapshotTestCase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FormatterKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CognitionTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,11 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Specta.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>TTTAttributedLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,17 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08D6CD7E652E48694984C3734F128560</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0C9D3C758CFA9888936DBEB0F9B3C74D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0D888F29E05E498D0CD91A51D28599A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,27 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD86ABD743B0605672C710ADC56EB9DA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DF520FB6B79F2F073A31D21EC2DDD705</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED4342E27597144E22BA4081D52F6DD1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EE35FD1E28851529D3ECC23D5DF4B71F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F6D90D2960A4C48B9EF68F2DC71321BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

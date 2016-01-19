@@ -37,11 +37,12 @@
 }
 
 - (void)testCellIsConfigured {
-    [cell configureWithTitleText:@"title" infoLabelText:@"info" commentButtonTitle:@"commentTitle"];
+    [cell configureWithTitleText:@"title" infoLabelText:@"info" urlLabelText:@"url" commentButtonTitle:@"comment"];
     
     XCTAssertTrue([cell.titleLabel.text isEqualToString:@"title"], @"titleLabel not set");
     XCTAssertTrue([cell.infoLabel.text isEqualToString:@"info"], @"infoLabel not set");
-    XCTAssertTrue([cell.commentButton.titleLabel.text isEqualToString:@"commentTitle"], @"commentButton.title not set");
+    XCTAssertTrue([cell.urlLabel.text isEqualToString:@"url"], @"urlLabel not set");
+    XCTAssertTrue([[cell.commentButton titleForState:UIControlStateNormal] isEqualToString:@"comment"], @"commentButton title not set");
 }
 
 - (void)testCommentButtonCallsDelegateWhenClicked {

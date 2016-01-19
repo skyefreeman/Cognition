@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5E513A83AF965691015CC750'
+               BlueprintIdentifier = '640BDFEA661B153AA1CCC3E7'
                BlueprintName = 'SFSlideOutMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SFSlideOutMenu.framework'>

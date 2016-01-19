@@ -1,2 +1,3 @@
-# HackerNewz
-An iOS app that displays the HackerNews website.
+# Cognition
+
+Cognition is a lovely Hacker News reader built native to iOS.

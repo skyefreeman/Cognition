@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TTTAttributedLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,22 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44C95B79E9B7A38DE29A09EC324CC054</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>50D01FE24A632A0875652062194993AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54864A2E4A869C18841D20885C1FCAA0</key>
+		<key>552C4C79F06BBEF968E3C7F507D6C65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E26CE9AAB541E6B2B3C1477AFCBCB04</key>
+		<key>554D2511F2AA8C9C881D60AE4D9B704F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6921AD790079B063D374C16E7686F9E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A3D0E99EA5CE8677FB483A4836F2E7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B62090FC1FA09EB4335EDADE7ED46208</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C8DF847CF6AAF5D6D00344B27D7F7FE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF520FB6B79F2F073A31D21EC2DDD705</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE35FD1E28851529D3ECC23D5DF4B71F</key>
+		<key>FC6733B285A2A74B3518BC95A63DC1DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

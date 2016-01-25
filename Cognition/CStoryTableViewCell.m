@@ -64,7 +64,7 @@ CGFloat const kStoryCellHeight = 50;
 
 #pragma mark - Private Methods
 - (void)_commentButtonTapped:(id)sender {
-    if (self.delegate) [self.delegate button:sender selectedWithCell:self];
+    if (self.storyCellDelegate) [self.storyCellDelegate button:sender selectedWithCell:self];
 }
 
 - (void)_activateCommentButton {

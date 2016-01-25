@@ -13,5 +13,6 @@ pod 'OCMock', '~> 3.2'
 pod 'TTTAttributedLabel'
 pod 'JHChainableAnimations'
 pod 'MWFeedParser'
+pod 'SWTableViewCell', '~> 0.3.7'
 
 link_with 'Cognition', 'CognitionTests'

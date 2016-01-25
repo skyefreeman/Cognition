@@ -6,9 +6,9 @@
 //  Copyright © 2015 Skye Freeman. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <SWTableViewCell.h>
 
-@interface CTableViewCell : UITableViewCell
+@interface CTableViewCell : SWTableViewCell
 + (UINib*)nib;
 + (NSString*)reuseIdentifier;
 @end

@@ -23,6 +23,7 @@
 #import "CCreditView.h"
 #import "CMenu.h"
 #import "CStoryTableViewCell.h"
+#import "SWTableViewCellBuilder.h"
 
 // View Models
 #import "CStoryViewModel.h"
@@ -31,7 +32,12 @@
 #import "CTableViewCellButtonDelegate.h"
 
 @interface CStoryViewController()
-<UITableViewDelegate, HNManagerDelegate, CTableViewCellButtonDelegate, CTableViewRefreshDelegate, SFSlideOutMenuDelegate>
+<UITableViewDelegate,
+HNManagerDelegate,
+CTableViewCellButtonDelegate,
+CTableViewRefreshDelegate,
+SFSlideOutMenuDelegate,
+SWTableViewCellDelegate>
 
 @property (nonatomic, strong, readwrite) HNManager *requestManager;
 @property (nonatomic, strong) CMenu *menu;
@@ -62,6 +68,9 @@
     self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
         CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
         [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString urlLabelText:viewModel.urlString commentButtonTitle:viewModel.commentCountString];
+        [cell setRightUtilityButtons:[SWTableViewCellBuilder storyRightUtilityButtons]];
+        
+        [cell setStoryCellDelegate:self];
         [cell setDelegate:self];
         
         if (item.descendants == 0) [cell deactivateCommentButton];
@@ -70,7 +79,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell reuseIdentifier]];
-
+    
     self.refreshDelegate = self;
     
     // Navigation bar
@@ -114,6 +123,11 @@
     } else if (item.descendants > 0) {
         [self _navigateToCommentViewControllerWithItem:item];
     }
+}
+
+#pragma mark - SWTableViewCellDelegate 
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    NSLog(@"%lu",index);
 }
 
 #pragma mark - CStoryTableViewCellDelegate

@@ -13,7 +13,7 @@ extern CGFloat const kStoryCellHeight;
 
 @interface CStoryTableViewCell : CTableViewCell
 
-@property (nonatomic, weak) id <CTableViewCellButtonDelegate> delegate;
+@property (nonatomic, weak) id <CTableViewCellButtonDelegate> storyCellDelegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;

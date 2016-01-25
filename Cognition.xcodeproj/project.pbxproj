@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		244089BB224B00B70113D0A4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
 		76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
+		EE45DA071C55A96E00AABC5D /* SWTableViewCellBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */; };
 		EE68F99A1C13F3D800488441 /* CAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* CAdditions.m */; };
 		EE68F99E1C13FD2800488441 /* CArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99D1C13FD2800488441 /* CArrayDataSource.m */; };
 		EE68F9A01C13FE0300488441 /* CArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99F1C13FE0300488441 /* CArrayDataSourceTests.m */; };
@@ -59,6 +60,8 @@
 		825A58BE4335531A0330E3A5 /* Pods_CognitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC468A4354222042CD6D5D27 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE18ACC01C3B618C00EE9F17 /* CTableViewRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewRefreshDelegate.h; sourceTree = "<group>"; };
+		EE45DA051C55A96E00AABC5D /* SWTableViewCellBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCellBuilder.h; sourceTree = "<group>"; };
+		EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCellBuilder.m; sourceTree = "<group>"; };
 		EE68F9981C13F3D800488441 /* CAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAdditions.h; sourceTree = "<group>"; };
 		EE68F9991C13F3D800488441 /* CAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAdditions.m; sourceTree = "<group>"; };
 		EE68F99C1C13FD2800488441 /* CArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CArrayDataSource.h; sourceTree = "<group>"; };
@@ -175,6 +178,15 @@
 				EE9B05411B58B72100260F69 /* CCommentTableViewCell.xib */,
 			);
 			name = CCommentTableViewCell;
+			sourceTree = "<group>";
+		};
+		EE45DA041C55A93B00AABC5D /* SWTableViewCellBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				EE45DA051C55A96E00AABC5D /* SWTableViewCellBuilder.h */,
+				EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */,
+			);
+			name = SWTableViewCellBuilder;
 			sourceTree = "<group>";
 		};
 		EE68F99B1C13FD1100488441 /* Data Sources */ = {
@@ -387,6 +399,7 @@
 		EEFDE98F1B3B91F10035556D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE45DA041C55A93B00AABC5D /* SWTableViewCellBuilder */,
 				EEEA2A561C431E3F0041F6DF /* Menu */,
 				EED519461B9FDC24009E79C1 /* CustomTitleLabel */,
 				EE770A401B4102E700ABDD60 /* Cells */,
@@ -589,6 +602,7 @@
 				EEA34D7A1B555A1600C26E58 /* CNumberBubbleView.m in Sources */,
 				EEA34D811B5562F400C26E58 /* CPointerView.m in Sources */,
 				EED5194A1B9FDC41009E79C1 /* CCustomTitleLabel.m in Sources */,
+				EE45DA071C55A96E00AABC5D /* SWTableViewCellBuilder.m in Sources */,
 				EEEA2A5D1C431E9B0041F6DF /* CMenu.m in Sources */,
 				EE7ECFFD1B4CBD0700A368DB /* CStoryTableViewCell.m in Sources */,
 				EE9A20B61C35EB0A00FE758D /* CTableViewCell.m in Sources */,

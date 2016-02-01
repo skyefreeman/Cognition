@@ -19,8 +19,7 @@
 
 @end
 
-@implementation CStoryViewControllerTests
-{
+@implementation CStoryViewControllerTests {
     CStoryViewController *viewController;
 }
 
@@ -34,7 +33,6 @@
     viewController = nil;
     [super tearDown];
 }
-
 
 - (void)testDataSourceIsCreatedAfterViewDidLoad {
     XCTAssertNotNil(viewController.dataSource, @"Data source should be created after viewDidLoad");

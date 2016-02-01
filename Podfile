@@ -14,5 +14,6 @@ pod 'TTTAttributedLabel'
 pod 'JHChainableAnimations'
 pod 'MWFeedParser'
 pod 'SWTableViewCell', '~> 0.3.7'
+pod 'Realm'
 
 link_with 'Cognition', 'CognitionTests'

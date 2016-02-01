@@ -30,6 +30,9 @@ PODS:
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
   - OCMock (3.2)
+  - Realm (0.97.1):
+    - Realm/Headers (= 0.97.1)
+  - Realm/Headers (0.97.1)
   - SFAdditions (1.0)
   - SFSlideOutMenu (0.1.0)
   - SWTableViewCell (0.3.7)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - JHChainableAnimations
   - MWFeedParser
   - OCMock (~> 3.2)
+  - Realm
   - SFAdditions (from `~/Development/iOSDevelopment/Library/SFAdditions`)
   - SFSlideOutMenu (from `~/Development/iOSDevelopment/Library/SFSlideOutMenu`)
   - SWTableViewCell (~> 0.3.7)
@@ -60,6 +64,7 @@ SPEC CHECKSUMS:
   JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
+  Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
   SFAdditions: 5cf9846fd9f777121db0e70e96f1e689e224260d
   SFSlideOutMenu: 9047e1db96f534bc657ff93d020eb9c8fa4038e5
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579

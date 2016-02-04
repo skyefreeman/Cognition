@@ -8,15 +8,15 @@
 
 #import "CCommentViewModel.h"
 #import "TTTTimeIntervalFormatter.h"
-#import <HackerNewsKit.h>
 #import <NSString+HTML.h>
+#import "CItem.h"
 
 @implementation CCommentViewModel
 - (instancetype)init {
     return nil;
 }
 
-- (instancetype)initWithItem:(HNItem *)aItem {
+- (instancetype)initWithItem:(CItem*)aItem {
     self = [super init];
     if (!self) return nil;
 

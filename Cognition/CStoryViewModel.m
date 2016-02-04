@@ -7,6 +7,7 @@
 //
 
 #import "CStoryViewModel.h"
+#import "CItem.h"
 
 // Models
 #import "HNItem.h"
@@ -19,7 +20,7 @@
     return nil;
 }
 
-- (instancetype)initWithHNItem:(HNItem *)item {
+- (instancetype)initWithCItem:(CItem *)item {
     self = [super init];
     if (!self) return nil;
     

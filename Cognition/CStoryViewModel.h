@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HNItem;
+@class CItem;
 
 @interface CStoryViewModel : NSObject
 
-@property (nonatomic) HNItem *originalItem;
+@property (nonatomic) CItem *originalItem;
 
 @property (nonatomic, copy) NSString *commentCountString;
 @property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, copy) NSString *storyInfoString;
 
-- (instancetype)initWithHNItem:(HNItem*)item;
+- (instancetype)initWithCItem:(CItem*)item;
 @end

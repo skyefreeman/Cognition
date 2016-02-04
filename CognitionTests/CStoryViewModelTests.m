@@ -8,12 +8,12 @@
 
 #import <XCTest/XCTest.h>
 #import "CStoryViewModel.h"
-#import "HNItem.h"
+#import "CItem.h"
 
 @interface CStoryViewModelTests : XCTestCase
 {
     CStoryViewModel *viewModel;
-    HNItem *item;
+    CItem *item;
 }
 @end
 
@@ -22,13 +22,14 @@
 - (void)setUp {
     [super setUp];
     
-    item = [[HNItem alloc] initWithIdentifier:123];
+    item = [CItem new];
+    item.identifier = 123;
     item.by = @"testAuthor";
     item.time = NSTimeIntervalSince1970;
     item.descendants = 1;
     item.score = 2;
     
-    viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
+    viewModel = [[CStoryViewModel alloc] initWithCItem:item];
 }
 
 - (void)tearDown {
@@ -49,11 +50,11 @@
     XCTAssertTrue([viewModel.commentCountString isEqualToString:@"1"],@"Comment string not formatted correctly");
 
     item.descendants = 0;
-    viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
+    viewModel = [[CStoryViewModel alloc] initWithCItem:item];
     XCTAssertTrue([viewModel.commentCountString isEqualToString:@"0"],@"Comment string not formatted correctly");
 
     item.descendants = 2;
-    viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
+    viewModel = [[CStoryViewModel alloc] initWithCItem:item];
     XCTAssertTrue([viewModel.commentCountString isEqualToString:@"2"],@"Comment string not formatted correctly");
 }
 

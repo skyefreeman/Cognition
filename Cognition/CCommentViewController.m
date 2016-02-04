@@ -8,6 +8,9 @@
 
 #import "CCommentViewController.h"
 
+// Models
+#import "CItem.h"
+
 // Libraries
 #import <HackerNewsKit.h>
 
@@ -17,13 +20,16 @@
 // View Models
 #import "CCommentViewModel.h"
 
+// Builders
+#import "HNItemBuilder+RLMObjectAdditions.h"
+
 @interface CCommentViewController() <UITableViewDelegate, HNManagerDelegate>
 @property (nonatomic, strong) HNManager *manager;
 @end
 
 @implementation CCommentViewController
 
-- (instancetype)initWithItem:(HNItem *)item style:(UITableViewStyle)style {
+- (instancetype)initWithItem:(CItem *)item style:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (!self) return nil;
     
@@ -41,15 +47,17 @@
     
     self.manager = [[HNManager alloc] init];
     self.manager.delegate = self;
-    [self.manager fetchCommentsForItem:self.originalItem];
+    [self.manager fetchCommentsForItem:[HNItemBuilder itemFromCItem:self.originalItem]];
 }
 
 - (void)_configureTableView {
-    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CCommentTableViewCell reuseIdentifier] configureCellBlock:^(CCommentTableViewCell *cell, HNItem *item) {
+    TableViewCellConfigureBlock configBlock = ^void(CCommentTableViewCell *cell, CItem *item){
         CCommentViewModel *viewModel = [[CCommentViewModel alloc] initWithItem:item];
         [cell configureWithAuthor:viewModel.authorString time:viewModel.timeString comment:viewModel.commentString];
-    }];
-    
+    };
+    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[]
+                                               cellIdentifier:[CCommentTableViewCell reuseIdentifier]
+                                           configureCellBlock:configBlock];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
     [self.tableView registerNib:[CCommentTableViewCell nib] forCellReuseIdentifier:[CCommentTableViewCell reuseIdentifier]];

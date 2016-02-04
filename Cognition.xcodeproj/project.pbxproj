@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		244089BB224B00B70113D0A4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
 		76A8F91F9C3E480C77A93C63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3B47AB92871282A7C8F50 /* Pods.framework */; };
+		EE12C3541C63EBE4001C4850 /* CRealmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3531C63EBE4001C4850 /* CRealmTests.m */; };
+		EE12C3571C63EC25001C4850 /* RLMObject+SaveAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3561C63EC25001C4850 /* RLMObject+SaveAdditions.m */; };
+		EE12C35A1C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3591C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m */; };
+		EE12C3611C63F8FC001C4850 /* RLMResults+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3601C63F8FC001C4850 /* RLMResults+Convenience.m */; };
+		EE250F551C5FA8C900FC340B /* CItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE250F541C5FA8C900FC340B /* CItem.m */; };
+		EE250F591C5FA92F00FC340B /* CRealmObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE250F581C5FA92F00FC340B /* CRealmObjectBuilder.m */; };
 		EE45DA071C55A96E00AABC5D /* SWTableViewCellBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */; };
 		EE68F99A1C13F3D800488441 /* CAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F9991C13F3D800488441 /* CAdditions.m */; };
 		EE68F99E1C13FD2800488441 /* CArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EE68F99D1C13FD2800488441 /* CArrayDataSource.m */; };
@@ -59,7 +65,18 @@
 		773FD300B0AB626D2FC33D0C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		825A58BE4335531A0330E3A5 /* Pods_CognitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC468A4354222042CD6D5D27 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EE12C3531C63EBE4001C4850 /* CRealmTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRealmTests.m; sourceTree = "<group>"; };
+		EE12C3551C63EC25001C4850 /* RLMObject+SaveAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMObject+SaveAdditions.h"; sourceTree = "<group>"; };
+		EE12C3561C63EC25001C4850 /* RLMObject+SaveAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMObject+SaveAdditions.m"; sourceTree = "<group>"; };
+		EE12C3581C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HNItemBuilder+RLMObjectAdditions.h"; sourceTree = "<group>"; };
+		EE12C3591C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HNItemBuilder+RLMObjectAdditions.m"; sourceTree = "<group>"; };
+		EE12C35F1C63F8FC001C4850 /* RLMResults+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMResults+Convenience.h"; sourceTree = "<group>"; };
+		EE12C3601C63F8FC001C4850 /* RLMResults+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMResults+Convenience.m"; sourceTree = "<group>"; };
 		EE18ACC01C3B618C00EE9F17 /* CTableViewRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewRefreshDelegate.h; sourceTree = "<group>"; };
+		EE250F531C5FA8C900FC340B /* CItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CItem.h; sourceTree = "<group>"; };
+		EE250F541C5FA8C900FC340B /* CItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CItem.m; sourceTree = "<group>"; };
+		EE250F571C5FA92F00FC340B /* CRealmObjectBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRealmObjectBuilder.h; sourceTree = "<group>"; };
+		EE250F581C5FA92F00FC340B /* CRealmObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRealmObjectBuilder.m; sourceTree = "<group>"; };
 		EE45DA051C55A96E00AABC5D /* SWTableViewCellBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCellBuilder.h; sourceTree = "<group>"; };
 		EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCellBuilder.m; sourceTree = "<group>"; };
 		EE68F9981C13F3D800488441 /* CAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAdditions.h; sourceTree = "<group>"; };
@@ -159,6 +176,60 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EE12C35B1C63F55F001C4850 /* RLMObject */ = {
+			isa = PBXGroup;
+			children = (
+				EE12C3551C63EC25001C4850 /* RLMObject+SaveAdditions.h */,
+				EE12C3561C63EC25001C4850 /* RLMObject+SaveAdditions.m */,
+			);
+			name = RLMObject;
+			sourceTree = "<group>";
+		};
+		EE12C35C1C63F568001C4850 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE8755551C3B43EF00B18E93 /* UIViewController+ErrorAdditions.h */,
+				EE8755561C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m */,
+			);
+			name = UIViewController;
+			sourceTree = "<group>";
+		};
+		EE12C35D1C63F570001C4850 /* HNitemBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				EE12C3581C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.h */,
+				EE12C3591C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m */,
+			);
+			name = HNitemBuilder;
+			sourceTree = "<group>";
+		};
+		EE12C35E1C63F8DC001C4850 /* RLMResults */ = {
+			isa = PBXGroup;
+			children = (
+				EE12C35F1C63F8FC001C4850 /* RLMResults+Convenience.h */,
+				EE12C3601C63F8FC001C4850 /* RLMResults+Convenience.m */,
+			);
+			name = RLMResults;
+			sourceTree = "<group>";
+		};
+		EE250F521C5FA8AF00FC340B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE250F531C5FA8C900FC340B /* CItem.h */,
+				EE250F541C5FA8C900FC340B /* CItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EE250F561C5FA91F00FC340B /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				EE250F571C5FA92F00FC340B /* CRealmObjectBuilder.h */,
+				EE250F581C5FA92F00FC340B /* CRealmObjectBuilder.m */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
 		EE25AB501B6320AC00C78B54 /* CommentBubbleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,8 +321,10 @@
 			children = (
 				EE68F9981C13F3D800488441 /* CAdditions.h */,
 				EE68F9991C13F3D800488441 /* CAdditions.m */,
-				EE8755551C3B43EF00B18E93 /* UIViewController+ErrorAdditions.h */,
-				EE8755561C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m */,
+				EE12C35D1C63F570001C4850 /* HNitemBuilder */,
+				EE12C35C1C63F568001C4850 /* UIViewController */,
+				EE12C35B1C63F55F001C4850 /* RLMObject */,
+				EE12C35E1C63F8DC001C4850 /* RLMResults */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -339,6 +412,8 @@
 			children = (
 				EEFDE98D1B3B91DA0035556D /* Application */,
 				EEC8A8D71B410DCD00D3C3DA /* Categories */,
+				EE250F521C5FA8AF00FC340B /* Models */,
+				EE250F561C5FA91F00FC340B /* Builders */,
 				EEFDE9901B3B91F70035556D /* View Controllers */,
 				EEFDE98F1B3B91F10035556D /* Views */,
 				EE6D8D0E1C3B604B001422AC /* Protocols */,
@@ -369,6 +444,7 @@
 				EE9A20BD1C35EE2200FE758D /* CStoryViewModelTests.m */,
 				EE8755501C3B404500B18E93 /* CCommentViewControllerTests.m */,
 				EE6D8D0C1C3B4C6C001422AC /* CCommentViewModelTests.m */,
+				EE12C3531C63EBE4001C4850 /* CRealmTests.m */,
 				EE87554C1C3B35BB00B18E93 /* Categories */,
 				EE9A20A31C35D7EE00FE758D /* Mocks and Stubs */,
 				EEFDE9811B3B91D20035556D /* Supporting Files */,
@@ -590,16 +666,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE250F551C5FA8C900FC340B /* CItem.m in Sources */,
+				EE12C35A1C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m in Sources */,
 				EE6D8D0B1C3B4C00001422AC /* CCommentViewModel.m in Sources */,
 				EE68F99E1C13FD2800488441 /* CArrayDataSource.m in Sources */,
 				EE9A20A01C35D67100FE758D /* CTableViewController.m in Sources */,
 				EE9B05401B58B70B00260F69 /* CCommentTableViewCell.m in Sources */,
 				EE9A20BC1C35EE0800FE758D /* CStoryViewModel.m in Sources */,
 				EEFD03611C48A83E00CEF460 /* CCreditView.m in Sources */,
+				EE12C3611C63F8FC001C4850 /* RLMResults+Convenience.m in Sources */,
 				EE68F99A1C13F3D800488441 /* CAdditions.m in Sources */,
 				EE9A20AA1C35DBD900FE758D /* CStoryViewController.m in Sources */,
 				EEFDE96D1B3B91D20035556D /* CAppDelegate.m in Sources */,
 				EEA34D7A1B555A1600C26E58 /* CNumberBubbleView.m in Sources */,
+				EE250F591C5FA92F00FC340B /* CRealmObjectBuilder.m in Sources */,
 				EEA34D811B5562F400C26E58 /* CPointerView.m in Sources */,
 				EED5194A1B9FDC41009E79C1 /* CCustomTitleLabel.m in Sources */,
 				EE45DA071C55A96E00AABC5D /* SWTableViewCellBuilder.m in Sources */,
@@ -607,6 +687,7 @@
 				EE7ECFFD1B4CBD0700A368DB /* CStoryTableViewCell.m in Sources */,
 				EE9A20B61C35EB0A00FE758D /* CTableViewCell.m in Sources */,
 				EE8755571C3B43EF00B18E93 /* UIViewController+ErrorAdditions.m in Sources */,
+				EE12C3571C63EC25001C4850 /* RLMObject+SaveAdditions.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 				EE87554F1C3B400300B18E93 /* CCommentViewController.m in Sources */,
 			);
@@ -616,6 +697,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE12C3541C63EBE4001C4850 /* CRealmTests.m in Sources */,
 				EE87554B1C3B35A700B18E93 /* XCTestCase+MockAdditions.m in Sources */,
 				EE9A20BE1C35EE2200FE758D /* CStoryViewModelTests.m in Sources */,
 				EE9A20AE1C35DFEB00FE758D /* CStoryTableViewCellTests.m in Sources */,

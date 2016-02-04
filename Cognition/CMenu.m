@@ -20,7 +20,7 @@
     blurView.frame = self.container.bounds;
     [self.container addSubview:blurView];
     
-    self.buttonTitles = @[@"top stories", @"new stories", @"ask stories", @"show stories", @"job stories"];
+    self.buttonTitles = @[@"top stories", @"new stories", @"ask stories", @"show stories", @"job stories",@"saved stories"];
     self.buttonSpacing = 5.0;
     self.buttonHeight = 40;
     self.buttonWidth = self.container.frame.size.width - 10;

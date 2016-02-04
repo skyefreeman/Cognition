@@ -7,9 +7,9 @@
 //
 
 #import "CTableViewController.h"
-@class HNItem;
+@class CItem;
 
 @interface CCommentViewController : CTableViewController
-- (instancetype)initWithItem:(HNItem*)item style:(UITableViewStyle)style;
-@property (nonatomic, strong) HNItem *originalItem;
+- (instancetype)initWithItem:(CItem*)item style:(UITableViewStyle)style;
+@property (nonatomic, strong) CItem *originalItem;
 @end

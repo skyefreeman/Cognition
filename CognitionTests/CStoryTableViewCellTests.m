@@ -27,7 +27,7 @@
     [tableView registerNib:[CStoryTableViewCell nib] forCellReuseIdentifier:[CStoryTableViewCell reuseIdentifier]];
     
     cell = [tableView dequeueReusableCellWithIdentifier:[CStoryTableViewCell reuseIdentifier]];
-    cell.delegate = self;
+    cell.storyCellDelegate = self;
 }
 
 - (void)tearDown {

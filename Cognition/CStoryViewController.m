@@ -17,7 +17,11 @@
 #import <SafariServices/SafariServices.h>
 #import <SFAdditions.h>
 #import <HackerNewsKit.h>
+
+// Categories
 #import "CAdditions.h"
+#import "RLMObject+SaveAdditions.h"
+#import "RLMResults+Convenience.h"
 
 // Views
 #import "CCreditView.h"
@@ -25,11 +29,17 @@
 #import "CStoryTableViewCell.h"
 #import "SWTableViewCellBuilder.h"
 
+// Models
+#import "CItem.h"
+
 // View Models
 #import "CStoryViewModel.h"
 
 // Protocols
 #import "CTableViewCellButtonDelegate.h"
+
+// Builders
+#import "CRealmObjectBuilder.h"
 
 @interface CStoryViewController()
 <UITableViewDelegate,
@@ -41,6 +51,7 @@ SWTableViewCellDelegate>
 
 @property (nonatomic, strong, readwrite) HNManager *requestManager;
 @property (nonatomic, strong) CMenu *menu;
+
 @end
 
 @implementation CStoryViewController
@@ -50,7 +61,7 @@ SWTableViewCellDelegate>
     
     self.requestManager = [[HNManager alloc] init];
     self.requestManager.delegate = self;
-
+    
     [self _configureSubviews];
     [self _registerNotifications];
     
@@ -65,16 +76,23 @@ SWTableViewCellDelegate>
 
 - (void)_configureSubviews {
     // Table view
-    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[] cellIdentifier:[CStoryTableViewCell reuseIdentifier] configureCellBlock:^(CStoryTableViewCell *cell, HNItem *item) {
-        CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithHNItem:item];
-        [cell configureWithTitleText:viewModel.originalItem.title infoLabelText:viewModel.storyInfoString urlLabelText:viewModel.urlString commentButtonTitle:viewModel.commentCountString];
-        [cell setRightUtilityButtons:[SWTableViewCellBuilder storyRightUtilityButtons]];
+    TableViewCellConfigureBlock block = ^void(CStoryTableViewCell *cell, CItem *item) {
+        CStoryViewModel *viewModel = [[CStoryViewModel alloc] initWithCItem:item];
+        [cell configureWithTitleText:viewModel.originalItem.title
+                       infoLabelText:viewModel.storyInfoString
+                        urlLabelText:viewModel.urlString
+                  commentButtonTitle:viewModel.commentCountString];
         
-        [cell setStoryCellDelegate:self];
+        [cell setRightUtilityButtons:[SWTableViewCellBuilder storyRightUtilityButtons]];
         [cell setDelegate:self];
+        [cell setStoryCellDelegate:self];
         
         if (item.descendants == 0) [cell deactivateCommentButton];
-    }];
+    };
+    
+    self.dataSource = [[CArrayDataSource alloc] initWithItems:@[]
+                                               cellIdentifier:[CStoryTableViewCell reuseIdentifier]
+                                           configureCellBlock:block];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
@@ -101,13 +119,13 @@ SWTableViewCellDelegate>
     NSString *notificationString = notification.name;
     
     if ([notificationString isEqualToString:kTwitterNotificationName]) {
-        [self _navigateToSafariViewControllerWithURLString:kTwitterURLString];
+        [self navigateToSafariViewControllerWithURLString:kTwitterURLString];
         
     } else if ([notificationString isEqualToString:kGithubNotificationName]) {
-        [self _navigateToSafariViewControllerWithURLString:kGithubURLString];
+        [self navigateToSafariViewControllerWithURLString:kGithubURLString];
         
     } else if ([notificationString isEqualToString:kWebsiteNotificationName]) {
-        [self _navigateToSafariViewControllerWithURLString:kWebsiteURLString];
+        [self navigateToSafariViewControllerWithURLString:kWebsiteURLString];
     }
     
     [self.menu toggleActive];
@@ -117,58 +135,51 @@ SWTableViewCellDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HNItem *item = [self.dataSource itemAtIndexPath:indexPath];
+    CItem *item = [self.dataSource itemAtIndexPath:indexPath];
     if (item.url) {
-        [self _navigateToSafariViewControllerWithURLString:item.url];
+        [self navigateToSafariViewControllerWithURLString:item.url];
     } else if (item.descendants > 0) {
-        [self _navigateToCommentViewControllerWithItem:item];
+        [self navigateToCommentViewControllerWithItem:item];
     }
 }
 
 #pragma mark - SWTableViewCellDelegate 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    NSLog(@"%lu",index);
+    CItem *item = [self itemForIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    [item saveObject];
 }
 
 #pragma mark - CStoryTableViewCellDelegate
 - (void)button:(UIButton *)aButton selectedWithCell:(UITableViewCell *)cell {
-    HNItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
-    [self _navigateToCommentViewControllerWithItem:item];
+    CItem *item = [self.dataSource itemAtIndexPath:[self.tableView indexPathForCell:cell]];
+    [self navigateToCommentViewControllerWithItem:item];
 }
 
 #pragma mark - HNManagerDelegate 
 - (void)didReceiveTopStories:(NSArray*)topStories {
-    [self _hackerNewsRequestEndedWithStories:topStories];
+    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:topStories]];
 }
 
 - (void)didReceiveNewStories:(NSArray*)newStories {
-    [self _hackerNewsRequestEndedWithStories:newStories];
+    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:newStories]];
 }
 
 - (void)didReceiveAskStories:(NSArray*)askStories {
-    [self _hackerNewsRequestEndedWithStories:askStories];
+    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:askStories]];
 }
 
 - (void)didReceiveShowStories:(NSArray*)showStories {
-    [self _hackerNewsRequestEndedWithStories:showStories];
+    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:showStories]];
 }
 
 - (void)didReceiveJobStories:(NSArray*)jobStories {
-    [self _hackerNewsRequestEndedWithStories:jobStories];
+    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:jobStories]];
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
     [self errorAlert_checkInternetConnection];
     [self.refreshControl endRefreshing];
     NSLog(@"%@", error);
-}
-
-#pragma mark - HNManager Helpers
-- (void)_hackerNewsRequestEndedWithStories:(NSArray*)stories {
-    self.dataSource.items = stories;
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
-    [super scrollToTop];
 }
 
 #pragma mark - SFSlideOutMenuDelegate
@@ -182,8 +193,16 @@ SWTableViewCellDelegate>
     else if (buttonType == MenuButtonAsk) [self.requestManager fetchAskStories];
     else if (buttonType == MenuButtonShow) [self.requestManager fetchShowStories];
     else if (buttonType == MenuButtonJob) [self.requestManager fetchJobStories];
+    else if (buttonType == MenuButtonSaved) [self refreshTableWithItems:[RLMResults allCItems]];
     
     if (self.menu.isActive)[self.menu toggleActive];
+}
+
+- (void)refreshTableWithItems:(NSArray*)items {
+    self.dataSource.items = items;
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    [super scrollToTop];
 }
 
 #pragma mark - UIRefreshControl
@@ -197,14 +216,14 @@ SWTableViewCellDelegate>
 }
 
 #pragma mark - Navigation Convenience
-- (void)_navigateToSafariViewControllerWithURLString:(NSString*)urlString {
+- (void)navigateToSafariViewControllerWithURLString:(NSString*)urlString {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)_navigateToCommentViewControllerWithItem:(HNItem*)item {
+- (void)navigateToCommentViewControllerWithItem:(CItem*)item {
     CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -212,6 +231,11 @@ SWTableViewCellDelegate>
 #pragma mark - Dealloc
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Convenience
+- (CItem*)itemForIndexPath:(NSIndexPath*)indexPath {
+    return (CItem*)[self.dataSource.items objectAtIndex:indexPath.row];
 }
 
 @end

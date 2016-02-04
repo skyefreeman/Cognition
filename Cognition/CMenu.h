@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, MenuButton) {
     MenuButtonAsk,
     MenuButtonShow,
     MenuButtonJob,
+    MenuButtonSaved,
 };
 
 @interface CMenu : SFSlideOutMenu

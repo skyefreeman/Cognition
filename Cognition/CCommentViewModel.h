@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HNItem;
+@class CItem;
 
 @interface CCommentViewModel : NSObject
-- (instancetype)initWithItem:(HNItem*)aItem;
-@property (nonatomic, strong) HNItem *item;
+- (instancetype)initWithItem:(CItem*)aItem;
+@property (nonatomic, strong) CItem *item;
 
 @property (nonatomic, copy) NSString *authorString;
 @property (nonatomic, copy) NSString *timeString;

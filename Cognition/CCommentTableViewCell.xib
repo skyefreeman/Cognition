@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJ2-gU-Fup" userLabel="background">
-                        <rect key="frame" x="8" y="8.5" width="304" height="83.5"/>
+                        <rect key="frame" x="8" y="8" width="304" height="91.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wH5-ZK-gV1">
                                 <rect key="frame" x="161" y="8" width="124" height="12"/>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teb-cf-JXr">
-                                <rect key="frame" x="8" y="28" width="288" height="47.5"/>
+                                <rect key="frame" x="8" y="20" width="288" height="63.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="comment">
                                         <attributes>
@@ -41,7 +41,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbK-ua-M4W" userLabel="spacer">
-                                <rect key="frame" x="152" y="0.0" width="1" height="32"/>
+                                <rect key="frame" x="152" y="0.5" width="1" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="A1D-XY-Nki"/>
@@ -66,7 +66,7 @@
                             <constraint firstItem="a6t-QS-kYR" firstAttribute="leading" secondItem="zJ2-gU-Fup" secondAttribute="leading" constant="13" id="CFM-ol-NhJ"/>
                             <constraint firstItem="wH5-ZK-gV1" firstAttribute="leading" secondItem="vbK-ua-M4W" secondAttribute="trailing" constant="8" id="JJs-56-Zlt"/>
                             <constraint firstAttribute="trailing" secondItem="wH5-ZK-gV1" secondAttribute="trailing" constant="19" id="JYG-hh-42a"/>
-                            <constraint firstItem="teb-cf-JXr" firstAttribute="top" secondItem="a6t-QS-kYR" secondAttribute="bottom" constant="8" id="RU8-uM-cHm"/>
+                            <constraint firstItem="teb-cf-JXr" firstAttribute="top" secondItem="a6t-QS-kYR" secondAttribute="bottom" id="RU8-uM-cHm"/>
                             <constraint firstAttribute="bottom" secondItem="teb-cf-JXr" secondAttribute="bottom" constant="8" id="Tl4-aw-QOW"/>
                             <constraint firstAttribute="trailing" secondItem="teb-cf-JXr" secondAttribute="trailing" constant="8" id="UgB-ZV-YZs"/>
                             <constraint firstItem="vbK-ua-M4W" firstAttribute="leading" secondItem="a6t-QS-kYR" secondAttribute="trailing" constant="8" id="vgv-Fx-7oG"/>
@@ -76,8 +76,8 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="vbK-ua-M4W" firstAttribute="top" secondItem="hZI-9S-XRm" secondAttribute="topMargin" constant="0.5" id="4uI-Ml-tRg"/>
-                    <constraint firstItem="zJ2-gU-Fup" firstAttribute="top" secondItem="hZI-9S-XRm" secondAttribute="topMargin" constant="0.5" id="7Za-VL-G3M"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="zJ2-gU-Fup" secondAttribute="bottom" constant="-0.5" id="7ec-Zx-O0G"/>
+                    <constraint firstItem="zJ2-gU-Fup" firstAttribute="top" secondItem="hZI-9S-XRm" secondAttribute="topMargin" id="7Za-VL-G3M"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zJ2-gU-Fup" secondAttribute="bottom" constant="-8" id="7ec-Zx-O0G"/>
                     <constraint firstAttribute="leadingMargin" secondItem="zJ2-gU-Fup" secondAttribute="leading" id="Zx8-hJ-IoV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zJ2-gU-Fup" secondAttribute="trailing" id="lmn-8k-ih0"/>
                     <constraint firstItem="vbK-ua-M4W" firstAttribute="centerX" secondItem="hZI-9S-XRm" secondAttribute="centerX" id="rD1-Cc-yWa"/>

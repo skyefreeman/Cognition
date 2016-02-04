@@ -9,6 +9,7 @@
 #import "CAppDelegate.h"
 #import "CStoryViewController.h"
 #import "CAdditions.h"
+#import <Realm.h>
 
 @interface CAppDelegate ()
 @property (nonatomic, strong) UINavigationController *navController;
@@ -17,6 +18,9 @@
 @implementation CAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Realm
+    [self performRealmMigrationIfNeeded];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -37,19 +41,16 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
+#pragma mark - Realm Migrations
+- (void)performRealmMigrationIfNeeded {
+    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    config.schemaVersion = 3;
+    
+    config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+    };
+    
+    [RLMRealmConfiguration setDefaultConfiguration:config];
+    [RLMRealm defaultRealm];
 }
 
 @end

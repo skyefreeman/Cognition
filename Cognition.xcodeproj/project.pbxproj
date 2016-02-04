@@ -13,6 +13,7 @@
 		EE12C3571C63EC25001C4850 /* RLMObject+SaveAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3561C63EC25001C4850 /* RLMObject+SaveAdditions.m */; };
 		EE12C35A1C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3591C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m */; };
 		EE12C3611C63F8FC001C4850 /* RLMResults+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3601C63F8FC001C4850 /* RLMResults+Convenience.m */; };
+		EE12C3641C640B2A001C4850 /* CItemKid.m in Sources */ = {isa = PBXBuildFile; fileRef = EE12C3631C640B2A001C4850 /* CItemKid.m */; };
 		EE250F551C5FA8C900FC340B /* CItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE250F541C5FA8C900FC340B /* CItem.m */; };
 		EE250F591C5FA92F00FC340B /* CRealmObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE250F581C5FA92F00FC340B /* CRealmObjectBuilder.m */; };
 		EE45DA071C55A96E00AABC5D /* SWTableViewCellBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */; };
@@ -72,6 +73,8 @@
 		EE12C3591C63F375001C4850 /* HNItemBuilder+RLMObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HNItemBuilder+RLMObjectAdditions.m"; sourceTree = "<group>"; };
 		EE12C35F1C63F8FC001C4850 /* RLMResults+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMResults+Convenience.h"; sourceTree = "<group>"; };
 		EE12C3601C63F8FC001C4850 /* RLMResults+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMResults+Convenience.m"; sourceTree = "<group>"; };
+		EE12C3621C640B2A001C4850 /* CItemKid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CItemKid.h; sourceTree = "<group>"; };
+		EE12C3631C640B2A001C4850 /* CItemKid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CItemKid.m; sourceTree = "<group>"; };
 		EE18ACC01C3B618C00EE9F17 /* CTableViewRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTableViewRefreshDelegate.h; sourceTree = "<group>"; };
 		EE250F531C5FA8C900FC340B /* CItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CItem.h; sourceTree = "<group>"; };
 		EE250F541C5FA8C900FC340B /* CItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CItem.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 			children = (
 				EE250F531C5FA8C900FC340B /* CItem.h */,
 				EE250F541C5FA8C900FC340B /* CItem.m */,
+				EE12C3621C640B2A001C4850 /* CItemKid.h */,
+				EE12C3631C640B2A001C4850 /* CItemKid.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -674,6 +679,7 @@
 				EE12C3571C63EC25001C4850 /* RLMObject+SaveAdditions.m in Sources */,
 				EEFDE96A1B3B91D20035556D /* main.m in Sources */,
 				EE87554F1C3B400300B18E93 /* CCommentViewController.m in Sources */,
+				EE12C3641C640B2A001C4850 /* CItemKid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

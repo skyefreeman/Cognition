@@ -8,7 +8,7 @@
 
 #import "XCTestCase+MockAdditions.h"
 #import "CCommentViewController.h"
-#import <HackerNewsKit.h>
+#import "CItem.h"
 
 @interface CCommentViewControllerTests : XCTestCase
 @end
@@ -26,7 +26,9 @@
 }
 
 - (void)testCommentsInitializedWithAnIterm {
-    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:[[HNItem alloc] initWithIdentifier:123] style:UITableViewStylePlain];
+    CItem *item = [[CItem alloc] init];
+    item.identifier = 123;
+    CCommentViewController *vc = [[CCommentViewController alloc] initWithItem:item style:UITableViewStylePlain];
     XCTAssertNotNil(vc.originalItem, @"HNItem is not stored at init");
 }
 

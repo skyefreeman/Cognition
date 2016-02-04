@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L88-Lh-7am">
-                        <rect key="frame" x="8" y="4" width="304" height="111.5"/>
+                        <rect key="frame" x="8" y="8" width="304" height="111.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGQ-ze-GCq">
                                 <rect key="frame" x="8" y="8" width="288" height="47.5"/>
@@ -78,8 +78,8 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="L88-Lh-7am" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="4" id="El3-tk-99o"/>
-                    <constraint firstItem="L88-Lh-7am" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="S7v-a9-xdF"/>
+                    <constraint firstItem="L88-Lh-7am" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="8" id="El3-tk-99o"/>
+                    <constraint firstItem="L88-Lh-7am" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="S7v-a9-xdF"/>
                     <constraint firstItem="L88-Lh-7am" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qjt-rp-TLX"/>
                     <constraint firstItem="L88-Lh-7am" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="w4x-nX-wAS"/>
                 </constraints>

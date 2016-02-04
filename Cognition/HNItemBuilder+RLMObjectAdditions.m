@@ -26,10 +26,20 @@
     newItem.descendants = oldItem.descendants;
     newItem.score = oldItem.score;
     
-//    newItem.kids = oldItem.kids;
-//    newItem.parts = oldItem.parts;
+    newItem.kids = [HNItemBuilder arrayFromRLMArray:oldItem.kids];
+    newItem.parts = [HNItemBuilder arrayFromRLMArray:oldItem.parts];
     
     return newItem;
+}
+
+#pragma mark - Private
++ (NSArray*)arrayFromRLMArray:(RLMArray*)oldArray {
+    NSMutableArray *newArray = [NSMutableArray new];
+    for (CItemKid *kid in oldArray) {
+        NSNumber *identifier = [NSNumber numberWithInteger:kid.identifier];
+        [newArray addObject:identifier];
+    }
+    return newArray;
 }
 
 @end

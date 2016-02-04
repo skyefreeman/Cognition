@@ -25,5 +25,7 @@
 /** @brief Set the custom title label of the navigation bar. */
 - (void)setTitleText:(NSString*)titleText;
 
+/** @brief Reload the table and update the data source */
+- (void)reloadTableWithItems:(NSArray*)items;
 
 @end

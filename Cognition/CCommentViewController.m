@@ -71,25 +71,18 @@
 
 #pragma mark - HNManagerDelegate
 - (void)didReceiveItemComments:(NSArray *)commentItems {
-    self.dataSource.items = commentItems;
-    [self updateTable];
+    [self reloadTableWithItems:commentItems];
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
     [self errorAlert_checkInternetConnection];
-    [self updateTable];
+    [self reloadTableWithItems:nil];
     NSLog(@"%@",error);
 }
 
 #pragma mark - CTableViewRefreshDelegate
 - (void)tableView:(UITableView *)tableView refreshControlTriggered:(UIRefreshControl *)refreshControl {
     [self.manager fetchCommentsForItem:self.originalHNItem];
-}
-
-#pragma mark - Convience
-- (void)updateTable {
-    [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
 }
 
 @end

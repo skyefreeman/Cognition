@@ -136,7 +136,7 @@
     }
 }
 
-#pragma mark - SWTableViewCellDelegate 
+#pragma mark - SWTableViewCellDelegate
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     CItem *item = [self itemForIndexPath:[self.tableView indexPathForCell:cell]];
     
@@ -160,23 +160,23 @@
 
 #pragma mark - HNManagerDelegate 
 - (void)didReceiveTopStories:(NSArray*)topStories {
-    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:topStories]];
+    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:topStories]];
 }
 
 - (void)didReceiveNewStories:(NSArray*)newStories {
-    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:newStories]];
+    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:newStories]];
 }
 
 - (void)didReceiveAskStories:(NSArray*)askStories {
-    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:askStories]];
+    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:askStories]];
 }
 
 - (void)didReceiveShowStories:(NSArray*)showStories {
-    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:showStories]];
+    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:showStories]];
 }
 
 - (void)didReceiveJobStories:(NSArray*)jobStories {
-    [self refreshTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:jobStories]];
+    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:jobStories]];
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
@@ -196,22 +196,15 @@
     else if (buttonType == MenuButtonAsk) [self.requestManager fetchAskStories];
     else if (buttonType == MenuButtonShow) [self.requestManager fetchShowStories];
     else if (buttonType == MenuButtonJob) [self.requestManager fetchJobStories];
-    else if (buttonType == MenuButtonSaved) [self refreshTableWithItems:[RLMResults allCItems]];
+    else if (buttonType == MenuButtonSaved) [self reloadTableWithItems:[RLMResults allCItems]];
     
     if (self.menu.isActive)[self.menu toggleActive];
-}
-
-- (void)refreshTableWithItems:(NSArray*)items {
-    self.dataSource.items = items;
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
-    [super scrollToTop];
 }
 
 #pragma mark - UIRefreshControl
 - (void)tableView:(UITableView *)tableView refreshControlTriggered:(UIRefreshControl *)refreshControl {
     if (self.menu.activeButton == MenuButtonSaved) {
-        [self refreshTableWithItems:[RLMResults allCItems]];
+        [self reloadTableWithItems:[RLMResults allCItems]];
     } else {
         [self.requestManager refreshLastStories];
     }

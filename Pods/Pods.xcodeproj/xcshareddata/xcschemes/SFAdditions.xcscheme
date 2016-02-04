@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '218306CE2B21E20C47A722D5'
+               BlueprintIdentifier = '1255BF30C64651C26343C474'
                BlueprintName = 'SFAdditions'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SFAdditions.framework'>

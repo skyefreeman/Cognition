@@ -25,6 +25,9 @@
     newItem.descendants = oldItem.descendants;
     newItem.score = oldItem.score;
     
+    [CRealmObjectBuilder addIdentifiersToRealmArray:newItem.kids fromNSArray:oldItem.kids];
+    [CRealmObjectBuilder addIdentifiersToRealmArray:newItem.parts fromNSArray:oldItem.parts];
+    
     return newItem;
 }
 
@@ -36,4 +39,13 @@
     }
     return newItems;
 }
+
+#pragma mark - Private
++ (void)addIdentifiersToRealmArray:(RLMArray*)realmArray fromNSArray:(NSArray*)nsArray {
+    for (NSNumber *identifier in nsArray) {
+        CItemKid *kid = [[CItemKid alloc] initWithIdentifier:identifier.integerValue];
+        [realmArray addObject:kid];
+    }
+}
+
 @end

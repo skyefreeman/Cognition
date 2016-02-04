@@ -60,7 +60,7 @@
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Public
 - (void)scrollToTop {
     if ([self.tableView numberOfRowsInSection:0] > 0) {
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
@@ -71,6 +71,15 @@
 - (void)setTitleText:(NSString*)titleText {
     [self.titleLabel setText:titleText];
     [self.titleLabel sizeToFit];
+}
+
+- (void)reloadTableWithItems:(NSArray *)items {
+    if (items) {
+        self.dataSource.items = items;
+    }
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    [self scrollToTop];
 }
 
 #pragma mark - CCustomTitleLabelDelegate

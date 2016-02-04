@@ -10,5 +10,5 @@
 @class SWTableViewCell;
 
 @interface SWTableViewCellBuilder : NSObject
-+ (NSArray*)storyRightUtilityButtons;
++ (NSArray*)storyRightUtilityButtons:(NSString*)title;
 @end

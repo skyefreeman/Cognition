@@ -224,6 +224,8 @@
 		EE250F561C5FA91F00FC340B /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				EE45DA051C55A96E00AABC5D /* SWTableViewCellBuilder.h */,
+				EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */,
 				EE250F571C5FA92F00FC340B /* CRealmObjectBuilder.h */,
 				EE250F581C5FA92F00FC340B /* CRealmObjectBuilder.m */,
 			);
@@ -251,15 +253,6 @@
 			name = CCommentTableViewCell;
 			sourceTree = "<group>";
 		};
-		EE45DA041C55A93B00AABC5D /* SWTableViewCellBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				EE45DA051C55A96E00AABC5D /* SWTableViewCellBuilder.h */,
-				EE45DA061C55A96E00AABC5D /* SWTableViewCellBuilder.m */,
-			);
-			name = SWTableViewCellBuilder;
-			sourceTree = "<group>";
-		};
 		EE68F99B1C13FD1100488441 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,16 +269,6 @@
 				EE18ACC01C3B618C00EE9F17 /* CTableViewRefreshDelegate.h */,
 			);
 			name = Protocols;
-			sourceTree = "<group>";
-		};
-		EE770A401B4102E700ABDD60 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				EEFD035D1C488DDE00CEF460 /* CTableViewCell */,
-				EE8755581C3B460100B18E93 /* CStoryTableViewCell */,
-				EE3B087A1C3F5EAF00DAA789 /* CCommentTableViewCell */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		EE87554C1C3B35BB00B18E93 /* Categories */ = {
@@ -475,10 +458,11 @@
 		EEFDE98F1B3B91F10035556D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE45DA041C55A93B00AABC5D /* SWTableViewCellBuilder */,
+				EEFD035D1C488DDE00CEF460 /* CTableViewCell */,
+				EE8755581C3B460100B18E93 /* CStoryTableViewCell */,
+				EE3B087A1C3F5EAF00DAA789 /* CCommentTableViewCell */,
 				EEEA2A561C431E3F0041F6DF /* Menu */,
 				EED519461B9FDC24009E79C1 /* CustomTitleLabel */,
-				EE770A401B4102E700ABDD60 /* Cells */,
 				EE25AB501B6320AC00C78B54 /* CommentBubbleView */,
 				EEFD03621C48A84200CEF460 /* CreditView */,
 			);

@@ -41,17 +41,9 @@
 // Builders
 #import "CRealmObjectBuilder.h"
 
-@interface CStoryViewController()
-<UITableViewDelegate,
-HNManagerDelegate,
-CTableViewCellButtonDelegate,
-CTableViewRefreshDelegate,
-SFSlideOutMenuDelegate,
-SWTableViewCellDelegate>
-
+@interface CStoryViewController() <UITableViewDelegate,HNManagerDelegate,CTableViewCellButtonDelegate,CTableViewRefreshDelegate,SFSlideOutMenuDelegate,SWTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) HNManager *requestManager;
 @property (nonatomic, strong) CMenu *menu;
-
 @end
 
 @implementation CStoryViewController
@@ -83,7 +75,8 @@ SWTableViewCellDelegate>
                         urlLabelText:viewModel.urlString
                   commentButtonTitle:viewModel.commentCountString];
         
-        [cell setRightUtilityButtons:[SWTableViewCellBuilder storyRightUtilityButtons]];
+        NSString *swipeButtonTitle = (self.menu.activeButton == MenuButtonSaved) ? @"Delete" : @"Save";
+        [cell setRightUtilityButtons:[SWTableViewCellBuilder storyRightUtilityButtons:swipeButtonTitle]];
         [cell setDelegate:self];
         [cell setStoryCellDelegate:self];
         
@@ -145,8 +138,18 @@ SWTableViewCellDelegate>
 
 #pragma mark - SWTableViewCellDelegate 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    CItem *item = [self itemForIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-    [item saveObject];
+    CItem *item = [self itemForIndexPath:[self.tableView indexPathForCell:cell]];
+    
+    if (self.menu.activeButton == MenuButtonSaved) {
+        [item deleteObject];
+        self.dataSource.items = [RLMResults allCItems];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        [item saveObject];
+    }
+    
+    [cell hideUtilityButtonsAnimated:YES];
 }
 
 #pragma mark - CStoryTableViewCellDelegate
@@ -185,7 +188,7 @@ SWTableViewCellDelegate>
 #pragma mark - SFSlideOutMenuDelegate
 - (void)slideOutMenuButtonSelected:(UIButton *)button {
     [self setTitleText:button.titleLabel.text];
-    [self.menu setActiveButton:button];
+    [self.menu setActiveButton:button.tag];
     
     MenuButton buttonType = button.tag;
     if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];
@@ -207,7 +210,11 @@ SWTableViewCellDelegate>
 
 #pragma mark - UIRefreshControl
 - (void)tableView:(UITableView *)tableView refreshControlTriggered:(UIRefreshControl *)refreshControl {
-    [self.requestManager refreshLastStories];
+    if (self.menu.activeButton == MenuButtonSaved) {
+        [self refreshTableWithItems:[RLMResults allCItems]];
+    } else {
+        [self.requestManager refreshLastStories];
+    }
 }
 
 #pragma mark - Navigation Bar Actions

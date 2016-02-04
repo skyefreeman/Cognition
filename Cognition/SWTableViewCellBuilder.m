@@ -10,17 +10,20 @@
 #import <SWTableViewCell.h>
 #import "CConstants.h"
 #import <SFAdditions.h>
+#import "CAdditions.h"
 
 @implementation SWTableViewCellBuilder
-+ (NSArray*)storyRightUtilityButtons {
++ (NSArray*)storyRightUtilityButtons:(NSString*)title {
     NSMutableArray *rightButtons = [NSMutableArray new];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.backgroundColor = [UIColor whiteColor];
-    [button setTitle:@"Save" forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [button.layer setCornerRadius:kEdgePadding];
+    [button.layer setBorderWidth:1];
+    [button.layer setBorderColor:[UIColor CBlue].CGColor];
     [rightButtons addObject:button];
     
     return rightButtons;

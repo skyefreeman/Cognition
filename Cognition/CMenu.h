@@ -21,7 +21,9 @@ typedef NS_ENUM(NSInteger, MenuButton) {
 @interface CMenu : SFSlideOutMenu
 
 @property (nonatomic, strong) CCreditView *creditView;
+@property (nonatomic) MenuButton activeButton;
 
 - (void)toggleTopStoryButton;
-- (void)setActiveButton:(UIButton *)aButton;
+//- (void)setActiveButton:(UIButton *)aButton;
+
 @end

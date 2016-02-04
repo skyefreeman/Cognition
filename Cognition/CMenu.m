@@ -50,7 +50,9 @@
 }
 
 #pragma mark - Public methods
-- (void)setActiveButton:(UIButton *)aButton {
+- (void)setActiveButton:(MenuButton)activeButton {
+    _activeButton = activeButton;
+    
     for (UIButton *button in self.container.subviews) {
         if (![button isKindOfClass:[UIButton class]]) continue;
         
@@ -58,6 +60,7 @@
         [button.layer setBorderColor:[UIColor clearColor].CGColor];
     }
     
+    UIButton *aButton = [self.container viewWithTag:activeButton];
     [aButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [aButton.layer setBorderColor:[UIColor whiteColor].CGColor];
     [aButton.layer setBorderWidth:1];

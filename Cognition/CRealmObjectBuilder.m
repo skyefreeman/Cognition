@@ -9,6 +9,7 @@
 #import "CRealmObjectBuilder.h"
 #import "CItem.h"
 #import <HNItem.h>
+#import <ObjectiveSugar.h>
 
 @implementation CRealmObjectBuilder
 + (CItem*)buildItemWithHNItem:(HNItem*)oldItem {

@@ -7,11 +7,18 @@
 //
 
 #import "CTableViewController.h"
-#import <SFAdditions.h>
-#import "CAdditions.h"
 #import "CArrayDataSource.h"
 #import "CCustomTitleLabel.h"
 #import "CTableViewRefreshDelegate.h"
+
+// Categories
+#import "CAdditions.h"
+#import "NSObject+Wait.h"
+#import "UITableViewController+Animation.h"
+
+// Libraries
+#import <SFAdditions.h>
+#import <JHChainableAnimations.h>
 
 @interface CTableViewController() <CCustomTitleLabelDelegate>
 @property (nonatomic, strong) UILabel *backgroundLabel;
@@ -74,11 +81,18 @@
 }
 
 - (void)reloadTableWithItems:(NSArray *)items {
-    if (items) {
-        self.dataSource.items = items;
+    if (items) self.dataSource.items = items;
+    
+    if (self.tableView.visibleCells) {
+        [self animateTableViewCellsOut];
     }
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
+    
+    [self waitFor:self.reloadAnimationTime then:^{
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+        [self animateTableViewCellsIn];
+    }];
+    
     [self scrollToTop];
 }
 
@@ -86,7 +100,6 @@
 - (void)customTitleLabelTouched:(id)sender {
     [self scrollToTop];
 }
-
 
 #pragma mark - Refresh Control actions
 - (void)refreshValueChanged:(id)sender {

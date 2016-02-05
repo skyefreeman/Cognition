@@ -17,13 +17,12 @@
     NSMutableArray *rightButtons = [NSMutableArray new];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.backgroundColor = [UIColor whiteColor];
+    button.backgroundColor = [UIColor clearColor];
+    [button setContentEdgeInsets:UIEdgeInsetsMake(8, 0, 0, 4)];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [button.layer setCornerRadius:kEdgePadding];
-    [button.layer setBorderWidth:1];
-    [button.layer setBorderColor:[UIColor CBlue].CGColor];
     [rightButtons addObject:button];
     
     return rightButtons;

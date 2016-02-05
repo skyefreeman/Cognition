@@ -9,6 +9,7 @@
 #import "HNItemBuilder+RLMObjectAdditions.h"
 #import "CItem.h"
 #import <HNItem.h>
+#import <ObjectiveSugar.h>
 
 @implementation HNItemBuilder (RLMObjectAdditions)
 

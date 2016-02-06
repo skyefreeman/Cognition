@@ -19,6 +19,7 @@
 // Libraries
 #import <SFAdditions.h>
 #import <JHChainableAnimations.h>
+#import <SWTableViewCell.h>
 
 @interface CTableViewController() <CCustomTitleLabelDelegate>
 @property (nonatomic, strong) UILabel *backgroundLabel;
@@ -88,13 +89,21 @@
     }
     
     [self waitFor:self.reloadAnimationTime then:^{
+        // Turn swipeableButton title colors to clear, to hide overlap
+        [self toggleTableViewCellTitleColor:[UIColor clearColor]];
         [self.tableView reloadData];
         [self animateTableViewCellsIn];
     }];
     
+    
+    
     [self waitFor:self.reloadAnimationTime * 2 then:^{
         [self.refreshControl endRefreshing];
         [self scrollToTop];
+        
+        // Return swipeable cells to white text, then fix overlap
+        [self fixSwipeCellOverlap];
+        [self toggleTableViewCellTitleColor:[UIColor whiteColor]];
     }];
 }
 
@@ -106,6 +115,22 @@
 #pragma mark - Refresh Control actions
 - (void)refreshValueChanged:(id)sender {
     if (self.refreshDelegate) [self.refreshDelegate tableView:self.tableView refreshControlTriggered:sender];
+}
+
+#pragma mark - Fix SWTableViewCell overlap
+
+- (void)toggleTableViewCellTitleColor:(UIColor*)color {
+    for (SWTableViewCell *cell in self.tableView.visibleCells) {
+        for (UIButton *button in cell.rightUtilityButtons) {
+            [button setTitleColor:color forState:UIControlStateNormal];
+        }
+    }
+}
+- (void)fixSwipeCellOverlap {
+    for (SWTableViewCell *cell in self.tableView.visibleCells) {
+        [cell showRightUtilityButtonsAnimated:NO];
+        [cell hideUtilityButtonsAnimated:NO];
+    }
 }
 
 @end

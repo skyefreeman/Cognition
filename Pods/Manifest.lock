@@ -18,7 +18,7 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.8.0)
   - FormatterKit/UnitOfInformationFormatter (1.8.0)
   - FormatterKit/URLRequestFormatter (1.8.0)
-  - HackerNewsKit (1.01)
+  - HackerNewsKit (1.02)
   - JHChainableAnimations (1.3.0)
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser (= 1.0.1)
@@ -30,7 +30,7 @@ PODS:
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
   - ObjectiveSugar (1.1.0)
-  - OCMock (3.2)
+  - OCMock (3.2.2)
   - Realm (0.97.1):
     - Realm/Headers (= 0.97.1)
   - Realm/Headers (0.97.1)
@@ -46,7 +46,7 @@ DEPENDENCIES:
   - MWFeedParser
   - ObjectiveSugar
   - OCMock (~> 3.2)
-  - Realm
+  - Realm (~> 0.97.1)
   - SFAdditions (from `~/Development/iOSDevelopment/Library/SFAdditions`)
   - SFSlideOutMenu (from `~/Development/iOSDevelopment/Library/SFSlideOutMenu`)
   - SWTableViewCell (~> 0.3.7)
@@ -62,11 +62,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
-  HackerNewsKit: f37ac843f369ed31cb4c88f88e09be788ffaf6b3
+  HackerNewsKit: 32704694e1ec883250791a63d3cc6f6d1149fd19
   JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
-  OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
+  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
   SFAdditions: 5cf9846fd9f777121db0e70e96f1e689e224260d
   SFSlideOutMenu: 9047e1db96f534bc657ff93d020eb9c8fa4038e5

@@ -9,6 +9,7 @@
 #import "UITableViewController+Animation.h"
 
 // Libraries
+#import <ObjectiveSugar.h>
 #import <SFAdditions.h>
 #import <JHChainableAnimations.h>
 

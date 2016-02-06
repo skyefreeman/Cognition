@@ -88,12 +88,14 @@
     }
     
     [self waitFor:self.reloadAnimationTime then:^{
-        [self.refreshControl endRefreshing];
         [self.tableView reloadData];
         [self animateTableViewCellsIn];
     }];
     
-    [self scrollToTop];
+    [self waitFor:self.reloadAnimationTime * 2 then:^{
+        [self.refreshControl endRefreshing];
+        [self scrollToTop];
+    }];
 }
 
 #pragma mark - CCustomTitleLabelDelegate

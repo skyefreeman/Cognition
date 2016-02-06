@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitleText:@"Comments"];
+    [self setTitleText:@"comments"];
     
     [self _configureTableView];
     

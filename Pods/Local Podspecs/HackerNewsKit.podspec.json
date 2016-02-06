@@ -1,6 +1,6 @@
 {
   "name": "HackerNewsKit",
-  "version": "1.01",
+  "version": "1.02",
   "summary": "An Objective-C wrapper for the Hacker News API",
   "description": "HackerNewsKit is an unofficial iOS API for Hacker News.  It comes with no dependancies, making all communication using NSURLSession.",
   "homepage": "https://github.com/skyefreeman/HackerNewsKit",
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/skyefreeman/HackerNewsKit.git",
-    "tag": "1.01"
+    "tag": "1.02"
   },
   "source_files": [
     "HackerNewsRequestModel/*.{h,m}",

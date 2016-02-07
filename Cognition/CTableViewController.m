@@ -84,20 +84,24 @@
 - (void)reloadTableWithItems:(NSArray *)items {
     if (items) self.dataSource.items = items;
     
+    CGFloat firstWaitTime = 0;
+    CGFloat secondWaitTime = self.reloadAnimationTime;
+    
     if (self.tableView.visibleCells) {
         [self animateTableViewCellsOut];
+        
+        firstWaitTime = self.reloadAnimationTime;
+        secondWaitTime = self.reloadAnimationTime * 2;
     }
     
-    [self waitFor:self.reloadAnimationTime then:^{
+    [self waitFor:firstWaitTime then:^{
         // Turn swipeableButton title colors to clear, to hide overlap
         [self toggleTableViewCellTitleColor:[UIColor clearColor]];
         [self.tableView reloadData];
         [self animateTableViewCellsIn];
     }];
     
-    
-    
-    [self waitFor:self.reloadAnimationTime * 2 then:^{
+    [self waitFor:secondWaitTime then:^{
         [self.refreshControl endRefreshing];
         [self scrollToTop];
         
@@ -105,6 +109,22 @@
         [self fixSwipeCellOverlap];
         [self toggleTableViewCellTitleColor:[UIColor whiteColor]];
     }];
+}
+
+#pragma mark - Private
+- (void)toggleTableViewCellTitleColor:(UIColor*)color {
+    for (SWTableViewCell *cell in self.tableView.visibleCells) {
+        for (UIButton *button in cell.rightUtilityButtons) {
+            [button setTitleColor:color forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)fixSwipeCellOverlap {
+    for (SWTableViewCell *cell in self.tableView.visibleCells) {
+        [cell showRightUtilityButtonsAnimated:NO];
+        [cell hideUtilityButtonsAnimated:NO];
+    }
 }
 
 #pragma mark - CCustomTitleLabelDelegate
@@ -115,22 +135,6 @@
 #pragma mark - Refresh Control actions
 - (void)refreshValueChanged:(id)sender {
     if (self.refreshDelegate) [self.refreshDelegate tableView:self.tableView refreshControlTriggered:sender];
-}
-
-#pragma mark - Fix SWTableViewCell overlap
-
-- (void)toggleTableViewCellTitleColor:(UIColor*)color {
-    for (SWTableViewCell *cell in self.tableView.visibleCells) {
-        for (UIButton *button in cell.rightUtilityButtons) {
-            [button setTitleColor:color forState:UIControlStateNormal];
-        }
-    }
-}
-- (void)fixSwipeCellOverlap {
-    for (SWTableViewCell *cell in self.tableView.visibleCells) {
-        [cell showRightUtilityButtonsAnimated:NO];
-        [cell hideUtilityButtonsAnimated:NO];
-    }
 }
 
 @end

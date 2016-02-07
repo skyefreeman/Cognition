@@ -28,6 +28,7 @@
 #import "CMenu.h"
 #import "CStoryTableViewCell.h"
 #import "SWTableViewCellBuilder.h"
+#import <MBProgressHUD.h>
 
 // Models
 #import "CItem.h"
@@ -57,7 +58,6 @@
     [self _configureSubviews];
     [self _registerNotifications];
     
-    [self.refreshControl beginRefreshing];
     [self.menu toggleTopStoryButton];
 }
 
@@ -124,7 +124,7 @@
     [self.menu toggleActive];
 }
 
-#pragma mark - UITableView Delegate Methods
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -138,7 +138,7 @@
 
 #pragma mark - SWTableViewCellDelegate
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    CItem *item = [self itemForIndexPath:[self.tableView indexPathForCell:cell]];
+    CItem *item = (CItem*)[self.dataSource.items objectAtIndex:[self.tableView indexPathForCell:cell].row];
     
     if (self.menu.activeButton == MenuButtonSaved) {
         [item deleteObject];
@@ -159,24 +159,24 @@
 }
 
 #pragma mark - HNManagerDelegate 
-- (void)didReceiveTopStories:(NSArray*)topStories {
-    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:topStories]];
+- (void)didReceiveTopStories:(NSArray*)stories {
+    [self reloadTableWithItems:stories];
 }
 
-- (void)didReceiveNewStories:(NSArray*)newStories {
-    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:newStories]];
+- (void)didReceiveNewStories:(NSArray*)stories {
+    [self reloadTableWithItems:stories];
 }
 
-- (void)didReceiveAskStories:(NSArray*)askStories {
-    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:askStories]];
+- (void)didReceiveAskStories:(NSArray*)stories {
+    [self reloadTableWithItems:stories];
 }
 
-- (void)didReceiveShowStories:(NSArray*)showStories {
-    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:showStories]];
+- (void)didReceiveShowStories:(NSArray*)stories {
+    [self reloadTableWithItems:stories];
 }
 
-- (void)didReceiveJobStories:(NSArray*)jobStories {
-    [self reloadTableWithItems:[CRealmObjectBuilder buildItemsWithHNItems:jobStories]];
+- (void)didReceiveJobStories:(NSArray*)stories {
+    [self reloadTableWithItems:stories];
 }
 
 - (void)hackerNewsFetchFailedWithError:(NSError *)error {
@@ -185,10 +185,27 @@
     NSLog(@"%@", error);
 }
 
+#pragma mark - Table Reloading
+- (void)reloadTableWithItems:(NSArray *)items {
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    
+    NSArray *reloadableItems;
+    if (self.menu.activeButton == MenuButtonSaved) {
+        reloadableItems = items;
+    } else {
+        reloadableItems = [CRealmObjectBuilder buildItemsWithHNItems:items];
+    }
+    
+    [super reloadTableWithItems:reloadableItems];
+}
+
 #pragma mark - SFSlideOutMenuDelegate
 - (void)slideOutMenuButtonSelected:(UIButton *)button {
     [self setTitleText:button.titleLabel.text];
     [self.menu setActiveButton:button.tag];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = @"Loading...";
     
     MenuButton buttonType = button.tag;
     if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];
@@ -231,11 +248,6 @@
 #pragma mark - Dealloc
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Convenience
-- (CItem*)itemForIndexPath:(NSIndexPath*)indexPath {
-    return (CItem*)[self.dataSource.items objectAtIndex:indexPath.row];
 }
 
 @end

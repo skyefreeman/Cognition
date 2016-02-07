@@ -16,5 +16,6 @@ pod 'MWFeedParser'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'Realm', '~> 0.97.1'
 pod 'ObjectiveSugar'
+pod 'MBProgressHUD', '~> 0.9.2'
 
 link_with 'Cognition', 'CognitionTests'

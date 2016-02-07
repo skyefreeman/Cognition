@@ -87,7 +87,7 @@
     CGFloat firstWaitTime = 0;
     CGFloat secondWaitTime = self.reloadAnimationTime;
     
-    if (self.tableView.visibleCells) {
+    if (self.tableView.visibleCells.count > 0) {
         [self animateTableViewCellsOut];
         
         firstWaitTime = self.reloadAnimationTime;

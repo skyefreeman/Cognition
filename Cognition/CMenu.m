@@ -8,6 +8,7 @@
 
 #import "CMenu.h"
 #import "CCreditView.h"
+#import <SFAdditions.h>
 
 @implementation CMenu
 
@@ -23,7 +24,7 @@
     self.buttonTitles = @[@"top stories", @"new stories", @"ask stories", @"show stories", @"job stories",@"saved stories"];
     self.buttonSpacing = 5.0;
     self.buttonHeight = 40;
-    self.buttonWidth = self.container.frame.size.width - 10;
+    self.buttonWidth = self.container.width - 10;
     self.buttonCornerRadius = self.buttonHeight/2;
     self.buttonBackgroundColor = [UIColor colorWithWhite:0.000 alpha:0.300];
     self.buttonTitleColor = [self _titleColor];
@@ -35,13 +36,15 @@
     self.creditView = [[CCreditView alloc] initWithFrame:CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.width)];
     self.footerView = self.creditView;
     
-    CGRect creditLabelRect = CGRectMake(8, self.creditView.frame.origin.y - 12, self.creditView.frame.size.width - 16, 16);
-    UILabel *creditLabel = [[UILabel alloc] initWithFrame:creditLabelRect];
+    UILabel *creditLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     creditLabel.textColor = [UIColor whiteColor];
     creditLabel.textAlignment = NSTextAlignmentCenter;
-    creditLabel.text = @"Designed and developed by:";
-    creditLabel.adjustsFontSizeToFitWidth = YES;
-    creditLabel.minimumScaleFactor = 0.25;
+    creditLabel.text = @"Designed /\n Developed By:";
+    creditLabel.numberOfLines = 2;
+    creditLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    [creditLabel sizeToFit];
+    creditLabel.center = CGPointMake(self.footerView.center.x, self.creditView.y - creditLabel.height/2);
     [self.container addSubview:creditLabel];
     
     self.animationDuration = 0.3;

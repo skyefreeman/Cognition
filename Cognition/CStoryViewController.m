@@ -144,12 +144,11 @@
         [item deleteObject];
         self.dataSource.items = [RLMResults allCItems];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     } else {
         [item saveObject];
+        [cell hideUtilityButtonsAnimated:YES];
     }
-    
-    [cell hideUtilityButtonsAnimated:YES];
 }
 
 #pragma mark - CStoryTableViewCellDelegate
@@ -206,7 +205,7 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Loading...";
-    
+
     MenuButton buttonType = button.tag;
     if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];
     else if (buttonType == MenuButtonNew) [self.requestManager fetchNewStories];

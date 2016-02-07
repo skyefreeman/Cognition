@@ -9,6 +9,7 @@
 #import "CCreditView.h"
 #import "CAdditions.h"
 #import "CConstants.h"
+#import <SFAdditions.h>
 
 NSString * const kWebsiteNotificationName = @"websiteNotificationName";
 NSString * const kTwitterNotificationName = @"twitterNotificationName";
@@ -38,16 +39,15 @@ NSString * const kGithubNotificationName = @"githubNotificationName";
     [self addSubview:self.frameView];
     
     CGSize labelSize = CGSizeMake(_frameView.frame.size.width - framePadding*2, _frameView.frame.size.height/4);
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(_frameView.frame.origin.x + framePadding,
-                                                               _frameView.frame.origin.y + framePadding,
-                                                               labelSize.width,
-                                                               labelSize.height)];
-    self.nameLabel.font = [UIFont CFont:14];
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,labelSize.width, labelSize.height)];
+    self.nameLabel.font = [UIFont CFont:16];
     self.nameLabel.adjustsFontSizeToFitWidth = YES;
     self.nameLabel.minimumScaleFactor = 0.6;
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.text = @"Skye Freeman";
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    [self.nameLabel sizeToFit];
+    self.nameLabel.center = CGPointMake(_frameView.center.x, _frameView.y + framePadding + self.nameLabel.height/2);
     [self addSubview:self.nameLabel];
     
     UIImage *githubImage = [[UIImage imageNamed:@"octocat_image"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -55,7 +55,7 @@ NSString * const kGithubNotificationName = @"githubNotificationName";
     [self.githubButton setImage:githubImage forState:UIControlStateNormal];
     self.githubButton.frame = CGRectMake(0, 0, githubImage.size.width, githubImage.size.height);
     self.githubButton.tintColor = [UIColor whiteColor];
-    self.githubButton.center = CGPointMake(self.center.x - self.githubButton.frame.size.width/6 * 5, self.center.y);
+    self.githubButton.center = CGPointMake(self.nameLabel.x + self.githubButton.width/2, self.center.y);
     [self.githubButton addTarget:self action:@selector(githubButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.githubButton];
 
@@ -64,7 +64,7 @@ NSString * const kGithubNotificationName = @"githubNotificationName";
     [self.twitterButton setImage:twitterImage forState:UIControlStateNormal];
     self.twitterButton.frame = CGRectMake(0, 0, twitterImage.size.width, twitterImage.size.height);
     self.twitterButton.tintColor = [UIColor whiteColor];
-    self.twitterButton.center = CGPointMake(self.center.x + self.twitterButton.frame.size.width/6 * 5, self.center.y);
+    self.twitterButton.center = CGPointMake(self.nameLabel.x + self.nameLabel.width - self.twitterButton.width/2, self.center.y);
     [self.twitterButton addTarget:self action:@selector(twitterButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.twitterButton];
     

@@ -1,6 +1,6 @@
 # Cognition
 
-Cognition is a lovely Hacker News reader built native to iOS.  Now available on the [App Store](https://itunes.apple.com/us/app/cognition-lovely-hacker-news/id1081997295?mt=8) Totally for free.
+Cognition is a lovely Hacker News reader built native to iOS.  Now available on the [App Store](https://itunes.apple.com/us/app/cognition-lovely-hacker-news/id1081997295?mt=8). Totally for free.
 
 ### Getting started
 

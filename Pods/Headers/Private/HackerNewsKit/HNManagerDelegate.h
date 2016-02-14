@@ -1,1 +1,1 @@
-../../../../../Library/HackerNewsKit/HackerNewsRequestModel/HNManagerDelegate.h
+../../../HackerNewsKit/HackerNewsRequestModel/HNManagerDelegate.h

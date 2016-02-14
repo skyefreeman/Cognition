@@ -42,25 +42,36 @@ PODS:
 
 DEPENDENCIES:
   - FormatterKit
-  - HackerNewsKit (from `~/Development/iOSDevelopment/Library/HackerNewsKit`)
+  - HackerNewsKit (from `git@github.com:skyefreeman/HackerNewsKit.git`)
   - JHChainableAnimations
   - MBProgressHUD (~> 0.9.2)
   - MWFeedParser
   - ObjectiveSugar
   - OCMock (~> 3.2)
   - Realm (~> 0.97.1)
-  - SFAdditions (from `~/Development/iOSDevelopment/Library/SFAdditions`)
-  - SFSlideOutMenu (from `~/Development/iOSDevelopment/Library/SFSlideOutMenu`)
+  - SFAdditions (from `git@github.com:skyefreeman/SFAdditions.git`)
+  - SFSlideOutMenu (from `https://github.com/skyefreeman/SFSlideOutMenu.git`)
   - SWTableViewCell (~> 0.3.7)
   - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   HackerNewsKit:
-    :path: "~/Development/iOSDevelopment/Library/HackerNewsKit"
+    :git: git@github.com:skyefreeman/HackerNewsKit.git
   SFAdditions:
-    :path: "~/Development/iOSDevelopment/Library/SFAdditions"
+    :git: git@github.com:skyefreeman/SFAdditions.git
   SFSlideOutMenu:
-    :path: "~/Development/iOSDevelopment/Library/SFSlideOutMenu"
+    :git: https://github.com/skyefreeman/SFSlideOutMenu.git
+
+CHECKOUT OPTIONS:
+  HackerNewsKit:
+    :commit: d34b197cae9da50bceb60b622722ad7f9b935b0d
+    :git: git@github.com:skyefreeman/HackerNewsKit.git
+  SFAdditions:
+    :commit: 469f407c70dac3c5cef81dc6962b8aad3e30cab2
+    :git: git@github.com:skyefreeman/SFAdditions.git
+  SFSlideOutMenu:
+    :commit: 12c6079a6ad12674486e007787abe3fc9c626ce1
+    :git: https://github.com/skyefreeman/SFSlideOutMenu.git
 
 SPEC CHECKSUMS:
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4

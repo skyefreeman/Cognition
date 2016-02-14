@@ -1,1 +1,1 @@
-../../../../../Library/HackerNewsKit/HackerNewsRequestModel/HNSortHelper.h
+../../../HackerNewsKit/HackerNewsRequestModel/HNSortHelper.h

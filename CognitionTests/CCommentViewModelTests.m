@@ -7,7 +7,7 @@
 //
 
 #import "XCTestCase+MockAdditions.h"
-#import <HackerNewsKit.h>
+#import "CItem.h"
 #import "CCommentViewModel.h"
 
 @interface CCommentViewModelTests : XCTestCase
@@ -20,8 +20,8 @@
 
 - (void)setUp {
     [super setUp];
-    
-    HNItem *item = [[HNItem alloc] initWithIdentifier:123];
+    CItem *item = [[CItem alloc] init];
+    item.identifier = 123;
     item.by = @"author";
     item.text = @"formatted text";
     item.time = [[NSDate date] timeIntervalSince1970];

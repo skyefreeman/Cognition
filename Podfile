@@ -3,9 +3,9 @@ platform:ios, '8.0'
 use_frameworks!
 
 ## Development Pods ##
-pod 'HackerNewsKit', :path => '~/Development/iOSDevelopment/Library/HackerNewsKit'
-pod 'SFAdditions', :path => '~/Development/iOSDevelopment/Library/SFAdditions'
-pod 'SFSlideOutMenu', :path => '~/Development/iOSDevelopment/Library/SFSlideOutMenu'
+pod 'HackerNewsKit', :git => 'git@github.com:skyefreeman/HackerNewsKit.git'
+pod 'SFAdditions', :git => 'git@github.com:skyefreeman/SFAdditions.git'
+pod 'SFSlideOutMenu', :git => 'https://github.com/skyefreeman/SFSlideOutMenu.git'
 
 ## Public Pods ##
 pod 'FormatterKit'

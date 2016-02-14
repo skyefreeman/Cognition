@@ -203,8 +203,10 @@
     [self setTitleText:button.titleLabel.text];
     [self.menu setActiveButton:button.tag];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.labelText = @"Loading...";
+    if (self.navigationController.view) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        hud.labelText = @"Loading...";
+    }
 
     MenuButton buttonType = button.tag;
     if (buttonType == MenuButtonTop) [self.requestManager fetchTopStories];

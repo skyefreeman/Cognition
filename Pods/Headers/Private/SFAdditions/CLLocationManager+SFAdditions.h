@@ -1,1 +1,1 @@
-../../../../../Library/SFAdditions/SFAdditions/CLLocationManager+SFAdditions.h
+../../../SFAdditions/SFAdditions/CLLocationManager+SFAdditions.h
